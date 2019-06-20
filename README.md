@@ -1,5 +1,5 @@
 # Natural Disasters
-![Earthquake Damage San Francisco 1989](images/eq03.jpg "Earthquake Damage San Francisco 1989")
+![Earth Hackers!](resources/disaster_collage_funny.jpg "Earth Hackers!")
 ---
 
 This application is designed to be educational and provide information, data, and graphics for natural disasters.
