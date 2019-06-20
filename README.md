@@ -2,7 +2,7 @@
 ![Earthquake Damage San Francisco 1989](images/eq03.jpg "Earthquake Damage San Francisco 1989")
 ---
 
-This application is designed to be informational and show different graphs and charts for worldwide earthquakes.
+This application is designed to be educational and provide information, data, and graphics for natural disasters.
 
 ## Data Source
 
