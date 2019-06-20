@@ -1,4 +1,4 @@
-# Worldwide Earthquakes
+# Natural Disasters
 ![Earthquake Damage San Francisco 1989](images/eq03.jpg "Earthquake Damage San Francisco 1989")
 ---
 
