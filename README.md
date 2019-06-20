@@ -1,5 +1,5 @@
 # Natural Disasters
-![Earthquake Damage San Francisco 1989](images/eq03.jpg "Earthquake Damage San Francisco 1989")
+![Earth Hackers!](resources/disaster_collage_funny.jpg "Earth Hackers!")
 ---
 
 This application is designed to be educational and provide information, data, and graphics for natural disasters.
@@ -23,9 +23,3 @@ Flask ... etc etc
 Note that for iOS, in the `config.py` file you will have to use `engine = create_engine('mysql+pymysql://root:root@localhost')`
 
 ### Run application by performing the following:
-
-
-
-
-![Stock Earthquake Photo](images/eq04.jpg "Stock Earthquake Photo")
-
