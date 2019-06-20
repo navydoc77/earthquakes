@@ -23,9 +23,3 @@ Flask ... etc etc
 Note that for iOS, in the `config.py` file you will have to use `engine = create_engine('mysql+pymysql://root:root@localhost')`
 
 ### Run application by performing the following:
-
-
-
-
-![Stock Earthquake Photo](images/eq04.jpg "Stock Earthquake Photo")
-
