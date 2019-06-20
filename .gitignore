@@ -110,3 +110,8 @@ data/.DS_Store
 #random files from Public Health group project
 .vscode/
 app/data_func_error.log
+ 
+# Ignore files that contain API Keys
+api_keys.py
+apikeys.py
+config.py
