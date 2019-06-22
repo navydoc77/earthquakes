@@ -19,7 +19,14 @@ Flask ... etc etc
 
 ### Load data by doing:
 
+Run etl.py at terminal line
+-This extracts the data from api and csv files.
+-A mysqyl database is created
+-Data is loaded into mysqual
 
 Note that for iOS, in the `config.py` file you will have to use `engine = create_engine('mysql+pymysql://root:root@localhost')`
 
 ### Run application by performing the following:
+
+Run app.py at terminal line
+-routes
