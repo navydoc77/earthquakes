@@ -18,6 +18,7 @@ Flask ... etc etc
 Modules required:
 mysql-connector
 mysql
+flask_sqlalchemy
 
 Start database before running etl.py
 
