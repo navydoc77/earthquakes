@@ -17,8 +17,43 @@ Flask ... etc etc
 
 ## To run:
 
+Run app.py at terminal line
+
+Routes:
+@app.route("/")
+-renders homepage
+
+@app.route("/magnitudes")
+-access usgs earthquake data
+-returns a list of unique earthquakes by magnitude
+
+@app.route("/earthquakes", methods=['GET'])
+-access usgs earthquake data
+-returns a json of all earthquake events and corresponding data
+
+@app.route("/significant_earthquakes", methods=['GET'])
+-access signficant earthquake data from csv file
+-returns a json of all significant earthquake events
+
+@app.route("/hail", methods=['GET'])
+-access signficant hail data from csv file
+-returns a json of all significant hail events
+
+@app.route("/wind", methods=['GET'])
+-access signficant wind data from csv file
+-returns a json of all significant wind events
+
+@app.route("/tsunamis", methods=['GET'])
+-access signficant tsunamis data from csv file
+-returns a json of all significant tsunamis events
+
+@app.route("/volcanoes", methods=['GET'])
+-access signficant volcanoes data from csv file
+-returns a json of all significant volcanoes events
+
 ### Load data by doing:
 
+Run ETL.py at terminal line
 
 Note that for iOS, in the `config.py` file you will have to use `engine = create_engine('mysql+pymysql://root:root@localhost')`
 
