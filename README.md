@@ -20,36 +20,36 @@ Flask ... etc etc
 Run app.py at terminal line
 
 Routes:
-@app.route("/")
--renders homepage
+<strong>@app.route("/")</strong>
+<p>-renders homepage
 
-@app.route("/magnitudes")
--access usgs earthquake data
--returns a list of unique earthquakes by magnitude
+<strong>@app.route("/magnitudes")</strong>
+<p>-access usgs earthquake data
+<p>-returns a list of unique earthquakes by magnitude
 
-@app.route("/earthquakes", methods=['GET'])
--access usgs earthquake data
--returns a json of all earthquake events and corresponding data
+<strong>@app.route("/earthquakes", methods=['GET'])</strong>
+<p>-access usgs earthquake data
+<p>-returns a json of all earthquake events and corresponding data
 
-@app.route("/significant_earthquakes", methods=['GET'])
+<strong>@app.route("/significant_earthquakes", methods=['GET'])</strong>
 <p>-access signficant earthquake data from csv file</p>
 <p>-returns a json of all significant earthquake events</p>
 
-@app.route("/hail", methods=['GET'])
--access signficant hail data from csv file
--returns a json of all significant hail events
+<strong>@app.route("/hail", methods=['GET'])</strong>
+<p>-access signficant hail data from csv file
+<p>-returns a json of all significant hail events
 
-@app.route("/wind", methods=['GET'])
--access signficant wind data from csv file
--returns a json of all significant wind events
+<strong>@app.route("/wind", methods=['GET'])</strong>
+<p>-access signficant wind data from csv file
+<p>-returns a json of all significant wind events
 
-@app.route("/tsunamis", methods=['GET'])
--access signficant tsunamis data from csv file
--returns a json of all significant tsunamis events
+<strong>@app.route("/tsunamis", methods=['GET'])</strong>
+<p>-access signficant tsunamis data from csv file
+<p>-returns a json of all significant tsunamis events
 
-@app.route("/volcanoes", methods=['GET'])
--access signficant volcanoes data from csv file
--returns a json of all significant volcanoes events
+<strong>@app.route("/volcanoes", methods=['GET'])</strong>
+<p>-access signficant volcanoes data from csv file
+<p>-returns a json of all significant volcanoes events
 
 ### Load data by doing:
 
