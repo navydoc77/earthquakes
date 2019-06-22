@@ -32,8 +32,8 @@ Routes:
 -returns a json of all earthquake events and corresponding data
 
 @app.route("/significant_earthquakes", methods=['GET'])
--access signficant earthquake data from csv file
--returns a json of all significant earthquake events
+<p>-access signficant earthquake data from csv file</p>
+<p>-returns a json of all significant earthquake events</p>
 
 @app.route("/hail", methods=['GET'])
 -access signficant hail data from csv file
