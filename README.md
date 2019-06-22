@@ -14,8 +14,13 @@ The data used in this application was ingested from:
 ## Requirements:
 
 Flask ... etc etc
-pip install mysql-connector
+
+Modules required:
+mysql-connector
 mysql
+
+Start database before running etl.py
+
 
 ## To run:
 
