@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 
 import pandas as pd
 import numpy as np
@@ -29,12 +30,27 @@ from flask_sqlalchemy import SQLAlchemy
 # Database & Flask Setup
 #################################################
 
+load_dotenv()
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:root@127.0.0.1/natural_disasterdb"
+# Database Connection
+dialect = os.getenv("DATABASE_DIALECT")
+username = os.getenv("DATABASE_USERNAME")
+password = os.getenv("DATABASE_PASSWORD")
+host = os.getenv("DATABASE_HOST")
+port = os.getenv("DATABASE_PORT")
+database = os.getenv("DATABASE_NAME")
+
+# Format:
+# `<Dialect>://<Username>:<Password>@<Host Address>:<Port>/<Database>`
+# Using f-string notation: https://docs.python.org/3/reference/lexical_analysis.html#f-strings
+# connection = f"{dialect}://{username}:{password}@{host}:{port}/{database}"
+connection = f"{dialect}://{username}:{password}@{host}:{port}/{database}"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = connection
 db = SQLAlchemy(app)
 
-# Create an engine to the restaurants database
-engine = create_engine('mysql+pymysql://root:root@127.0.0.1/natural_disasterdb', echo=False)
+# Create an engine to the database
+engine = create_engine(connection, echo=False)
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -59,7 +75,7 @@ session = Session(bind=engine)
 # CONVERT SQLALCHEMY TO PYTHON DICTIONARY
 #################################################  
 
-def create_dict(r):
+def create_earthquake_dict(r):
     return {
     "magnitude" : float(r[0]),
     "place": r[1],
@@ -266,7 +282,7 @@ def return_all_earthquakes():
     # returns a list of restaurants within a given cuisine category
 
     # Step 1: set up columns needed for this run
-    sel = [earthquakes.magnitude, earthquakes.place, earthquakes.time, earthquakes.timezone,earthquakes.url, earthquakes.tsunami, earthquakes.ids, earthquakes.specific_type, earthquakes.geometry, earthquakes.lat, earthquakes.lng, earthquakes.depth]
+    sel = [earthquakes.magnitude, earthquakes.place, earthquakes.time, earthquakes.timezone, earthquakes.url, earthquakes.tsunami, earthquakes.ids, earthquakes.specific_type, earthquakes.geometry, earthquakes.lat, earthquakes.lng, earthquakes.depth]
 
 
     # Step 2: Run and store filtered query in results variable 
@@ -276,7 +292,7 @@ def return_all_earthquakes():
     all_earthquakes = []
 
     for r in all_results:
-        transformed_dict = create_dict(r)
+        transformed_dict = create_earthquake_dict(r)
         all_earthquakes.append(transformed_dict)
     
     print(all_earthquakes)
