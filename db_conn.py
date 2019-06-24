@@ -22,9 +22,6 @@ database = os.getenv("DATABASE_NAME")
 #
 connection = f"{dialect}://{username}:{password}@{host}:{port}/{database}"
 
-app.config["SQLALCHEMY_DATABASE_URI"] = connection
-db = SQLAlchemy(app)
-
 # Create an engine to the database
 engine = create_engine(connection, echo=False)
 
