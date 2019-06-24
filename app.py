@@ -46,9 +46,6 @@ database = os.getenv("DATABASE_NAME")
 # connection = f"{dialect}://{username}:{password}@{host}:{port}/{database}"
 connection = f"{dialect}://{username}:{password}@{host}:{port}/{database}"
 
-app.config["SQLALCHEMY_DATABASE_URI"] = connection
-db = SQLAlchemy(app)
-
 # Create an engine to the database
 engine = create_engine(connection, echo=False)
 
@@ -56,7 +53,6 @@ engine = create_engine(connection, echo=False)
 Base = automap_base()
 
 # reflect the tables
-# Base.prepare(db.engine, reflect=True)
 Base.prepare(engine, reflect=True)
 
 # Save references to each table
@@ -262,7 +258,7 @@ def index():
 @app.route("/magnitudes")
 def magnitudes():
     """Return a list of earthquake magnitudes"""
-    magnitudes = db.session.query(earthquakes.magnitude.distinct()).all()
+    magnitudes = session.query(earthquakes.magnitude.distinct()).all()
     print(magnitudes)
 
     # converts a list of list into a single list (flattens list)
@@ -286,7 +282,7 @@ def return_all_earthquakes():
 
 
     # Step 2: Run and store filtered query in results variable 
-    all_results = db.session.query(*sel).all()
+    all_results = session.query(*sel).all()
 
     # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
     all_earthquakes = []
@@ -312,7 +308,6 @@ def return_all_significant_earthquakes():
 
 
     # Step 2: Run and store filtered query in results variable 
-    # all_sig_results = db.session.query(*sel).all()
     all_sig_results = session.query(*sel).all()
 
 
@@ -339,7 +334,6 @@ def return_all_tornadoes():
 
 
     # Step 2: Run and store filtered query in results variable 
-    # tornadoes_results = db.session.query(*sel).all()
     tornadoes_results = session.query(*sel).all()
 
     # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
@@ -365,7 +359,6 @@ def return_all_hail():
 
 
     # Step 2: Run and store filtered query in results variable 
-    # hail_results = db.session.query(*sel).all()
     hail_results = session.query(*sel).all()
 
     # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
@@ -391,7 +384,6 @@ def return_all_wind():
     sel = [wind.id, wind.year, wind.month, wind.day, wind.date, wind.time, wind.timezone, wind.state, wind.state_fips, wind.state_nbr, wind.mag, wind.injuries, wind.deaths, wind.damage, wind.crop_loss, wind.s_lat, wind.s_lng, wind.e_lat, wind.e_lng, wind.fa, wind.mag_type]
 
     # Step 2: Run and store filtered query in results variable 
-    # wind_results = db.session.query(*sel).all()
     wind_results = session.query(*sel).all()
 
     # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
@@ -416,7 +408,6 @@ def return_all_tsunamis():
     sel = [tsunamis.year, tsunamis.month, tsunamis.day, tsunamis.hour, tsunamis.min, tsunamis.second, tsunamis.validity, tsunamis.source, tsunamis.earthquake_mag, tsunamis.country, tsunamis.name, tsunamis.lat, tsunamis.lng, tsunamis.water_height, tsunamis.tsunami_mag_lida, tsunamis.tsunami_intensity, tsunamis.death_nbr, tsunamis.injuries_nbr, tsunamis.damage_mill, tsunamis.damage_code, tsunamis.house_destroyed, tsunamis.house_code]
 
     # Step 2: Run and store filtered query in results variable 
-    # tsunamis_results = db.session.query(*sel).all()
     tsunamis_results = session.query(*sel).all()
 
     # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
@@ -441,7 +432,6 @@ def return_all_volcanoes():
     sel = [volcanoes.year, volcanoes.month, volcanoes.day, volcanoes.tsu, volcanoes.eq, volcanoes.name, volcanoes.location, volcanoes.country, volcanoes.lat, volcanoes.lng, volcanoes.elevation,  volcanoes.type, volcanoes.volcanic_index, volcanoes.fatality_cause, volcanoes.death, volcanoes.death_code, volcanoes.injuries, volcanoes.injuries_code, volcanoes.damage, volcanoes.damage_code, volcanoes.houses, volcanoes.houses_code]
 
     # Step 2: Run and store filtered query in results variable 
-    # volcanoes_results = db.session.query(*sel).all()
     volcanoes_results = session.query(*sel).all()
 
     # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
