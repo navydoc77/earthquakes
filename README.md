@@ -15,6 +15,14 @@ The data used in this application was ingested from:
 
 Flask ... etc etc
 
+Modules required:
+mysql-connector
+mysql
+flask_sqlalchemy
+
+Start database before running etl.py
+
+
 ## To run:
 
 Run app.py at terminal line
