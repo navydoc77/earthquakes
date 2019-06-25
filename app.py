@@ -23,8 +23,8 @@ def create_earthquake_dict(r):
     "ids" : r[6],
     "specific_type" :  r[7],
     "geometry" :  r[8],
-    "lat" : float(r[9]),
-    "lng" :  float(r[10]),
+    "lng" : float(r[9]),
+    "lat" :  float(r[10]),
     "depth" :  float(r[11])
     }
 
@@ -46,8 +46,8 @@ def create_eq_geojson_dict(r):
         {
             'type' : 'Point',
             'coordinates' : [
-               float(r[10]),
                float(r[9]),
+               float(r[10]),
                float(r[11])
             ]
         },
