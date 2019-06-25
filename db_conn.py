@@ -25,10 +25,10 @@ connection = f"{dialect}://{username}:{password}@{host}:{port}/{database}"
 # Create an engine to the database
 engine = create_engine(connection, echo=False)
 
-# reflect an existing database into a new model
+# Reflect an existing database into a new model
 Base = automap_base()
 
-# reflect the tables
+# Reflect the tables
 Base.prepare(engine, reflect=True)
 
 # Save references to each table
