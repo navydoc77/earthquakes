@@ -1,4 +1,3 @@
-
 from flask import Flask
 from flask import jsonify
 from flask import render_template
@@ -23,9 +22,10 @@ def create_earthquake_dict(r):
     "ids" : r[6],
     "specific_type" :  r[7],
     "geometry" :  r[8],
-    "lng" : float(r[9]),
-    "lat" :  float(r[10]),
-    "depth" :  float(r[11])
+    "country" : r[9],
+    "lat" : float(r[10]),
+    "lng" :  float(r[11]),
+    "depth" :  float(r[12])
     }
 
 def create_eq_geojson_dict(r):
@@ -46,9 +46,9 @@ def create_eq_geojson_dict(r):
         {
             'type' : 'Point',
             'coordinates' : [
-               float(r[9]),
                float(r[10]),
-               float(r[11])
+               float(r[11]),
+               float(r[12])
             ]
         },
         'id' : r[6]
@@ -62,8 +62,8 @@ def create_sig_earthquake_dict(r):
     "day": int(r[3]),
     "hr": int(r[4]),
     "minute" :  int(r[5]),
-    "eq_mag_primary" : float(r[6]),
-    "intensity" :  r[7],
+    "magnitude" : float(r[6]),
+    "depth" : int(r[7]),
     "country" :  r[8],
     "location_name" : r[9],
     "lat" :  float(r[10]),
@@ -214,11 +214,11 @@ def create_volcanoes_dict(r):
 #################################################
 # Functions
 #################################################  
-    
+
 def get_all_earthquakes(sql_to_py):
 
     # Step 1: set up columns needed for this run
-    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.ids, db_conn.earthquakes.specific_type, db_conn.earthquakes.geometry, db_conn.earthquakes.lat, db_conn.earthquakes.lng, db_conn.earthquakes.depth]
+    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.ids, db_conn.earthquakes.specific_type, db_conn.earthquakes.geometry, db_conn.earthquakes.country_de, db_conn.earthquakes.lng, db_conn.earthquakes.lat, db_conn.earthquakes.depth]
 
 
     # Step 2: Run and store filtered query in results variable 
@@ -285,11 +285,11 @@ def return_all_earthquakes_geojson():
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # ************************************
-@app.route("/significant_earthquakes", methods=['GET'])
-def return_all_significant_earthquakes():
+@app.route("/earthquakes_ngdc", methods=['GET'])
+def return_all_earthquakes_ngdc():
 
     # Step 1: set up columns needed for this run
-    sel = [db_conn.sig_earthquakes.id, db_conn.sig_earthquakes.yr, db_conn.sig_earthquakes.month, db_conn.sig_earthquakes.day, db_conn.sig_earthquakes.hr, db_conn.sig_earthquakes.minute, db_conn.sig_earthquakes.eq_mag_primary, db_conn.sig_earthquakes.intensity, db_conn.sig_earthquakes.country, db_conn.sig_earthquakes.location_name, db_conn.sig_earthquakes.lat, db_conn.sig_earthquakes.lng, db_conn.sig_earthquakes.deaths, db_conn.sig_earthquakes.damage_millions, db_conn.sig_earthquakes.total_deaths, db_conn.sig_earthquakes.total_injuries, db_conn.sig_earthquakes.total_damage_millions]
+    sel = [db_conn.sig_earthquakes.earthquake_id, db_conn.sig_earthquakes.year_nr, db_conn.sig_earthquakes.month_nr, db_conn.sig_earthquakes.day_nr, db_conn.sig_earthquakes.hour_nr, db_conn.sig_earthquakes.minute_nr, db_conn.sig_earthquakes.mag_nr, db_conn.sig_earthquakes.focal_depth_nr, db_conn.sig_earthquakes.country_de, db_conn.sig_earthquakes.location_de, db_conn.sig_earthquakes.lat, db_conn.sig_earthquakes.lng, db_conn.sig_earthquakes.deaths_nr, db_conn.sig_earthquakes.dollar_damage_millions_de, db_conn.sig_earthquakes.total_deaths_de, db_conn.sig_earthquakes.total_injuries_nr, db_conn.sig_earthquakes.total_damage_millions_dollars_nr]
 
 
     # Step 2: Run and store filtered query in results variable 
