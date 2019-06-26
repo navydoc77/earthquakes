@@ -1,65 +1,18 @@
-import os
-
-import pandas as pd
-import numpy as np
-from decimal import Decimal
-
-# Dependencies for API call
-import requests
-import json
-
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine
 
 from flask import Flask
 from flask import jsonify
-from flask import request
 from flask import render_template
 
-import pymysql
-pymysql.install_as_MySQLdb()
-import flask_sqlalchemy
+# Import the database connection.
+import db_conn
 
 app = Flask(__name__)
-from flask_sqlalchemy import SQLAlchemy
-
-#################################################
-# Database & Flask Setup
-#################################################
-
-
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:root@127.0.0.1/natural_disasterdb"
-db = SQLAlchemy(app)
-
-# Create an engine to the restaurants database
-engine = create_engine('mysql+pymysql://root:root@127.0.0.1/natural_disasterdb', echo=False)
-
-# reflect an existing database into a new model
-Base = automap_base()
-
-# reflect the tables
-# Base.prepare(db.engine, reflect=True)
-Base.prepare(engine, reflect=True)
-
-# Save references to each table
-earthquakes = Base.classes.earthquakes
-sig_earthquakes = Base.classes.significant_earthquakes
-tornadoes = Base.classes.tornadoes
-hail = Base.classes.hail
-wind = Base.classes.wind
-tsunamis = Base.classes.tsunamis
-volcanoes = Base.classes.volcanoes
-
-# Create a session
-session = Session(bind=engine)
 
 #################################################
 # CONVERT SQLALCHEMY TO PYTHON DICTIONARY
 #################################################  
 
-def create_dict(r):
+def create_earthquake_dict(r):
     return {
     "magnitude" : float(r[0]),
     "place": r[1],
@@ -70,9 +23,35 @@ def create_dict(r):
     "ids" : r[6],
     "specific_type" :  r[7],
     "geometry" :  r[8],
-    "lat" : float(r[9]),
-    "lng" :  float(r[10]),
+    "lng" : float(r[9]),
+    "lat" :  float(r[10]),
     "depth" :  float(r[11])
+    }
+
+def create_eq_geojson_dict(r):
+    return {
+        'type' : "Feature",
+        'properties' :
+        {
+            'mag'     : float(r[0]),
+            'place'   : r[1],
+            'time'    : int(r[2]),
+            'tz'      : float(r[3]),
+            'url'     : r[4],
+            'tsunami' :  int(r[5]),
+            'type'    :  r[7],
+            'title'   :  r[8]
+        },
+        'geometry' :
+        {
+            'type' : 'Point',
+            'coordinates' : [
+               float(r[9]),
+               float(r[10]),
+               float(r[11])
+            ]
+        },
+        'id' : r[6]
     }
 
 def create_sig_earthquake_dict(r):
@@ -233,6 +212,28 @@ def create_volcanoes_dict(r):
     }
 
 #################################################
+# Functions
+#################################################  
+    
+def get_all_earthquakes(sql_to_py):
+
+    # Step 1: set up columns needed for this run
+    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.ids, db_conn.earthquakes.specific_type, db_conn.earthquakes.geometry, db_conn.earthquakes.lat, db_conn.earthquakes.lng, db_conn.earthquakes.depth]
+
+
+    # Step 2: Run and store filtered query in results variable 
+    all_results = db_conn.session.query(*sel).all()
+
+    # Step 3: Build a list of dictionary that contains all the earthquakes
+    all_earthquakes = []
+
+    for r in all_results:
+        transformed_dict = sql_to_py(r)
+        all_earthquakes.append(transformed_dict)
+    
+    return (all_earthquakes)
+
+#################################################
 # Flask Routes
 #################################################  
     
@@ -246,7 +247,7 @@ def index():
 @app.route("/magnitudes")
 def magnitudes():
     """Return a list of earthquake magnitudes"""
-    magnitudes = db.session.query(earthquakes.magnitude.distinct()).all()
+    magnitudes = db_conn.session.query(db_conn.earthquakes.magnitude.distinct()).all()
     print(magnitudes)
 
     # converts a list of list into a single list (flattens list)
@@ -263,44 +264,39 @@ def magnitudes():
 # ************************************
 @app.route("/earthquakes", methods=['GET'])
 def return_all_earthquakes():
-    # returns a list of restaurants within a given cuisine category
 
-    # Step 1: set up columns needed for this run
-    sel = [earthquakes.magnitude, earthquakes.place, earthquakes.time, earthquakes.timezone,earthquakes.url, earthquakes.tsunami, earthquakes.ids, earthquakes.specific_type, earthquakes.geometry, earthquakes.lat, earthquakes.lng, earthquakes.depth]
+    return jsonify(get_all_earthquakes(create_earthquake_dict))
 
-
-    # Step 2: Run and store filtered query in results variable 
-    all_results = db.session.query(*sel).all()
-
-    # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
-    all_earthquakes = []
-
-    for r in all_results:
-        transformed_dict = create_dict(r)
-        all_earthquakes.append(transformed_dict)
+# ************************************
+# RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
+# IN GEOJSON FORMAT
+# ************************************
+@app.route("/earthquakes-geojson", methods=['GET'])
+def return_all_earthquakes_geojson():
     
-    print(all_earthquakes)
+    geojson_obj = {}
 
-    return jsonify(all_earthquakes)
+    geojson_obj['type'] = 'FeatureCollection'
+    geojson_obj['features'] = get_all_earthquakes(create_eq_geojson_dict)
+    geojson_obj['metadata'] = { 'count' : len(geojson_obj['features']) }
 
+    return jsonify(geojson_obj)
 
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # ************************************
 @app.route("/significant_earthquakes", methods=['GET'])
 def return_all_significant_earthquakes():
-    # returns a list of restaurants within a given cuisine category
 
     # Step 1: set up columns needed for this run
-    sel = [sig_earthquakes.id, sig_earthquakes.yr, sig_earthquakes.month, sig_earthquakes.day, sig_earthquakes.hr, sig_earthquakes.minute, sig_earthquakes.eq_mag_primary, sig_earthquakes.intensity, sig_earthquakes.country, sig_earthquakes.location_name, sig_earthquakes.lat, sig_earthquakes.lng, sig_earthquakes.deaths, sig_earthquakes.damage_millions, sig_earthquakes.total_deaths, sig_earthquakes.total_injuries, sig_earthquakes.total_damage_millions]
+    sel = [db_conn.sig_earthquakes.id, db_conn.sig_earthquakes.yr, db_conn.sig_earthquakes.month, db_conn.sig_earthquakes.day, db_conn.sig_earthquakes.hr, db_conn.sig_earthquakes.minute, db_conn.sig_earthquakes.eq_mag_primary, db_conn.sig_earthquakes.intensity, db_conn.sig_earthquakes.country, db_conn.sig_earthquakes.location_name, db_conn.sig_earthquakes.lat, db_conn.sig_earthquakes.lng, db_conn.sig_earthquakes.deaths, db_conn.sig_earthquakes.damage_millions, db_conn.sig_earthquakes.total_deaths, db_conn.sig_earthquakes.total_injuries, db_conn.sig_earthquakes.total_damage_millions]
 
 
     # Step 2: Run and store filtered query in results variable 
-    # all_sig_results = db.session.query(*sel).all()
-    all_sig_results = session.query(*sel).all()
+    all_sig_results = db_conn.session.query(*sel).all()
 
 
-    # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
+    # Step 3: Build a list of dictionary that contains all the earthquakes
     all_sig_earthquakes = []
     for r in all_sig_results:
         transformed_dict = create_sig_earthquake_dict(r)
@@ -316,17 +312,15 @@ def return_all_significant_earthquakes():
 # ************************************
 @app.route("/tornadoes", methods=['GET'])
 def return_all_tornadoes():
-    # returns a list of restaurants within a given cuisine category
 
     # Step 1: set up columns needed for this run
-    sel = [tornadoes.id, tornadoes.year, tornadoes.month, tornadoes.day, tornadoes.date, tornadoes.time, tornadoes.timezone, tornadoes.state, tornadoes.state_fips, tornadoes.state_nbr, tornadoes.mag, tornadoes.injuries, tornadoes.deaths, tornadoes.damage, tornadoes.crop_loss, tornadoes.s_lat, tornadoes.s_lng, tornadoes.e_lat, tornadoes.e_lng, tornadoes.length_traveled, tornadoes.width, tornadoes.nbr_states_affected, tornadoes.sn, tornadoes.sg, tornadoes.fa, tornadoes.fb, tornadoes.fc, tornadoes.fd, tornadoes.fe]
+    sel = [db_conn.tornadoes.id, db_conn.tornadoes.year, db_conn.tornadoes.month, db_conn.tornadoes.day, db_conn.tornadoes.date, db_conn.tornadoes.time, db_conn.tornadoes.timezone, db_conn.tornadoes.state, db_conn.tornadoes.state_fips, db_conn.tornadoes.state_nbr, db_conn.tornadoes.mag, db_conn.tornadoes.injuries, db_conn.tornadoes.deaths, db_conn.tornadoes.damage, db_conn.tornadoes.crop_loss, db_conn.tornadoes.s_lat, db_conn.tornadoes.s_lng, db_conn.tornadoes.e_lat, db_conn.tornadoes.e_lng, db_conn.tornadoes.length_traveled, db_conn.tornadoes.width, db_conn.tornadoes.nbr_states_affected, db_conn.tornadoes.sn, db_conn.tornadoes.sg, db_conn.tornadoes.fa, db_conn.tornadoes.fb, db_conn.tornadoes.fc, db_conn.tornadoes.fd, db_conn.tornadoes.fe]
 
 
     # Step 2: Run and store filtered query in results variable 
-    # tornadoes_results = db.session.query(*sel).all()
-    tornadoes_results = session.query(*sel).all()
+    tornadoes_results = db_conn.session.query(*sel).all()
 
-    # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
+    # Step 3: Build a list of dictionary that contains all the tornadoes
     all_tornadoes = []
 
     for r in tornadoes_results:
@@ -342,17 +336,15 @@ def return_all_tornadoes():
 # ************************************
 @app.route("/hail", methods=['GET'])
 def return_all_hail():
-    # returns a list of restaurants within a given cuisine category
 
     # Step 1: set up columns needed for this run
-    sel = [hail.id, hail.year, hail.month, hail.day, hail.date, hail.time, hail.timezone, hail.state, hail.state_fips, hail.state_nbr, hail.mag, hail.injuries, hail.deaths, hail.damage, hail.crop_loss, hail.s_lat, hail.s_lng, hail.e_lat, hail.e_lng, hail.fa]
+    sel = [db_conn.hail.id, db_conn.hail.year, db_conn.hail.month, db_conn.hail.day, db_conn.hail.date, db_conn.hail.time, db_conn.hail.timezone, db_conn.hail.state, db_conn.hail.state_fips, db_conn.hail.state_nbr, db_conn.hail.mag, db_conn.hail.injuries, db_conn.hail.deaths, db_conn.hail.damage, db_conn.hail.crop_loss, db_conn.hail.s_lat, db_conn.hail.s_lng, db_conn.hail.e_lat, db_conn.hail.e_lng, db_conn.hail.fa]
 
 
     # Step 2: Run and store filtered query in results variable 
-    # hail_results = db.session.query(*sel).all()
-    hail_results = session.query(*sel).all()
+    hail_results = db_conn.session.query(*sel).all()
 
-    # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
+    # Step 3: Build a list of dictionary that contains all the hail storms
     all_hail = []
 
     for r in hail_results:
@@ -369,16 +361,14 @@ def return_all_hail():
 # ************************************
 @app.route("/wind", methods=['GET'])
 def return_all_wind():
-    # returns a list of restaurants within a given cuisine category
 
     # Step 1: set up columns needed for this run
-    sel = [wind.id, wind.year, wind.month, wind.day, wind.date, wind.time, wind.timezone, wind.state, wind.state_fips, wind.state_nbr, wind.mag, wind.injuries, wind.deaths, wind.damage, wind.crop_loss, wind.s_lat, wind.s_lng, wind.e_lat, wind.e_lng, wind.fa, wind.mag_type]
+    sel = [db_conn.wind.id, db_conn.wind.year, db_conn.wind.month, db_conn.wind.day, db_conn.wind.date, db_conn.wind.time, db_conn.wind.timezone, db_conn.wind.state, db_conn.wind.state_fips, db_conn.wind.state_nbr, db_conn.wind.mag, db_conn.wind.injuries, db_conn.wind.deaths, db_conn.wind.damage, db_conn.wind.crop_loss, db_conn.wind.s_lat, db_conn.wind.s_lng, db_conn.wind.e_lat, db_conn.wind.e_lng, db_conn.wind.fa, db_conn.wind.mag_type]
 
     # Step 2: Run and store filtered query in results variable 
-    # wind_results = db.session.query(*sel).all()
-    wind_results = session.query(*sel).all()
+    wind_results = db_conn.session.query(*sel).all()
 
-    # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
+    # Step 3: Build a list of dictionary that contains all the damaging wind events
     all_wind = []
 
     for r in wind_results:
@@ -394,16 +384,14 @@ def return_all_wind():
 # ************************************
 @app.route("/tsunamis", methods=['GET'])
 def return_all_tsunamis():
-    # returns a list of restaurants within a given cuisine category
 
     # Step 1: set up columns needed for this run
-    sel = [tsunamis.year, tsunamis.month, tsunamis.day, tsunamis.hour, tsunamis.min, tsunamis.second, tsunamis.validity, tsunamis.source, tsunamis.earthquake_mag, tsunamis.country, tsunamis.name, tsunamis.lat, tsunamis.lng, tsunamis.water_height, tsunamis.tsunami_mag_lida, tsunamis.tsunami_intensity, tsunamis.death_nbr, tsunamis.injuries_nbr, tsunamis.damage_mill, tsunamis.damage_code, tsunamis.house_destroyed, tsunamis.house_code]
+    sel = [db_conn.tsunamis.year, db_conn.tsunamis.month, db_conn.tsunamis.day, db_conn.tsunamis.hour, db_conn.tsunamis.min, db_conn.tsunamis.second, db_conn.tsunamis.validity, db_conn.tsunamis.source, db_conn.tsunamis.earthquake_mag, db_conn.tsunamis.country, db_conn.tsunamis.name, db_conn.tsunamis.lat, db_conn.tsunamis.lng, db_conn.tsunamis.water_height, db_conn.tsunamis.tsunami_mag_lida, db_conn.tsunamis.tsunami_intensity, db_conn.tsunamis.death_nbr, db_conn.tsunamis.injuries_nbr, db_conn.tsunamis.damage_mill, db_conn.tsunamis.damage_code, db_conn.tsunamis.house_destroyed, db_conn.tsunamis.house_code]
 
     # Step 2: Run and store filtered query in results variable 
-    # tsunamis_results = db.session.query(*sel).all()
-    tsunamis_results = session.query(*sel).all()
+    tsunamis_results = db_conn.session.query(*sel).all()
 
-    # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
+    # Step 3: Build a list of dictionary that contains all the tsunamis
     all_tsunamis = []
 
     for r in tsunamis_results:
@@ -419,16 +407,14 @@ def return_all_tsunamis():
 # ************************************
 @app.route("/volcanoes", methods=['GET'])
 def return_all_volcanoes():
-    # returns a list of restaurants within a given cuisine category
 
     # Step 1: set up columns needed for this run
-    sel = [volcanoes.year, volcanoes.month, volcanoes.day, volcanoes.tsu, volcanoes.eq, volcanoes.name, volcanoes.location, volcanoes.country, volcanoes.lat, volcanoes.lng, volcanoes.elevation,  volcanoes.type, volcanoes.volcanic_index, volcanoes.fatality_cause, volcanoes.death, volcanoes.death_code, volcanoes.injuries, volcanoes.injuries_code, volcanoes.damage, volcanoes.damage_code, volcanoes.houses, volcanoes.houses_code]
+    sel = [db_conn.volcanoes.year, db_conn.volcanoes.month, db_conn.volcanoes.day, db_conn.volcanoes.tsu, db_conn.volcanoes.eq, db_conn.volcanoes.name, db_conn.volcanoes.location, db_conn.volcanoes.country, db_conn.volcanoes.lat, db_conn.volcanoes.lng, db_conn.volcanoes.elevation,  db_conn.volcanoes.type, db_conn.volcanoes.volcanic_index, db_conn.volcanoes.fatality_cause, db_conn.volcanoes.death, db_conn.volcanoes.death_code, db_conn.volcanoes.injuries, db_conn.volcanoes.injuries_code, db_conn.volcanoes.damage, db_conn.volcanoes.damage_code, db_conn.volcanoes.houses, db_conn.volcanoes.houses_code]
 
     # Step 2: Run and store filtered query in results variable 
-    # volcanoes_results = db.session.query(*sel).all()
-    volcanoes_results = session.query(*sel).all()
+    volcanoes_results = db_conn.session.query(*sel).all()
 
-    # Step 3: Build a list of dictionary that contains all the restaurants in a given cuisine category
+    # Step 3: Build a list of dictionary that contains all the valcano activity
     all_vocanoes = []
 
     for r in volcanoes_results:
@@ -441,3 +427,4 @@ def return_all_volcanoes():
 
 if __name__ == "__main__":
     app.run()
+
