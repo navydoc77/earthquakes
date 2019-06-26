@@ -64,15 +64,16 @@ def create_sig_earthquake_dict(r):
     "minute" :  int(r[5]),
     "magnitude" : float(r[6]),
     "depth" : int(r[7]),
-    "country" :  r[8],
-    "location_name" : r[9],
-    "lat" :  float(r[10]),
-    "lng" :  float(r[11]),
-    "deaths" :  int(r[12]),
-    "damage_millions" : float(r[13]),
-    "total_deaths" :  int(r[14]),
-    "total_injuries" :  r[15],
-    "total_damage_millions" : r[16]
+    "intensity": r[8],
+    "country" :  r[9],
+    "location_name" : r[10],
+    "lat" :  float(r[11]),
+    "lng" :  float(r[12]),
+    "deaths" :  int(r[13]),
+    "damage_millions" : float(r[14]),
+    "total_deaths" :  int(r[15]),
+    "total_injuries" :  r[16],
+    "total_damage_millions" : r[17]
     }
 
 def create_tornadoes_dict(r):
@@ -285,11 +286,11 @@ def return_all_earthquakes_geojson():
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # ************************************
-@app.route("/earthquakes_ngdc", methods=['GET'])
-def return_all_earthquakes_ngdc():
+@app.route("/significant_earthquakes", methods=['GET'])
+def return_all_significant_earthquakes():
 
     # Step 1: set up columns needed for this run
-    sel = [db_conn.sig_earthquakes.earthquake_id, db_conn.sig_earthquakes.year_nr, db_conn.sig_earthquakes.month_nr, db_conn.sig_earthquakes.day_nr, db_conn.sig_earthquakes.hour_nr, db_conn.sig_earthquakes.minute_nr, db_conn.sig_earthquakes.mag_nr, db_conn.sig_earthquakes.focal_depth_nr, db_conn.sig_earthquakes.country_de, db_conn.sig_earthquakes.location_de, db_conn.sig_earthquakes.lat, db_conn.sig_earthquakes.lng, db_conn.sig_earthquakes.deaths_nr, db_conn.sig_earthquakes.dollar_damage_millions_de, db_conn.sig_earthquakes.total_deaths_de, db_conn.sig_earthquakes.total_injuries_nr, db_conn.sig_earthquakes.total_damage_millions_dollars_nr]
+    sel = [db_conn.sig_earthquakes.id, db_conn.sig_earthquakes.yr, db_conn.sig_earthquakes.month, db_conn.sig_earthquakes.day, db_conn.sig_earthquakes.hr, db_conn.sig_earthquakes.minute, db_conn.sig_earthquakes.eq_mag_primary, db_conn.sig_earthquakes.depth, db_conn.sig_earthquakes.intensity, db_conn.sig_earthquakes.country, db_conn.sig_earthquakes.location_name, db_conn.sig_earthquakes.lat, db_conn.sig_earthquakes.lng, db_conn.sig_earthquakes.deaths, db_conn.sig_earthquakes.damage_millions, db_conn.sig_earthquakes.total_deaths, db_conn.sig_earthquakes.total_injuries, db_conn.sig_earthquakes.total_damage_millions]
 
 
     # Step 2: Run and store filtered query in results variable 
