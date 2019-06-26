@@ -33,7 +33,7 @@ Base.prepare(engine, reflect=True)
 
 # Save references to each table
 earthquakes = Base.classes.earthquakes
-sig_earthquakes = Base.classes.significant_earthquakes
+significant_earthquakes = Base.classes.significant_earthquakes
 tornadoes = Base.classes.tornadoes
 hail = Base.classes.hail
 wind = Base.classes.wind
