@@ -26,13 +26,12 @@ def extract_transform_load():
     cursor.execute("CREATE DATABASE IF NOT EXISTS natural_disasterdb")
     cursor.execute("USE natural_disasterdb")
 
-    cursor.execute("DROP TABLE IF EXISTS earthquakes")
-    cursor.execute("DROP TABLE IF EXISTS significant_earthquakes")
-    cursor.execute("DROP TABLE IF EXISTS tornadoes")
-    cursor.execute("DROP TABLE IF EXISTS hail")
-    cursor.execute("DROP TABLE IF EXISTS wind")
-    cursor.execute("DROP TABLE IF EXISTS tsunamis")
-    cursor.execute("DROP TABLE IF EXISTS volcanoes")
+    # cursor.execute("DROP TABLE IF EXISTS earthquakes")
+    # cursor.execute("DROP TABLE IF EXISTS tornadoes")
+    # cursor.execute("DROP TABLE IF EXISTS hail")
+    # cursor.execute("DROP TABLE IF EXISTS wind")
+    # cursor.execute("DROP TABLE IF EXISTS tsunamis")
+    # cursor.execute("DROP TABLE IF EXISTS volcanoes")
 
     engine = create_engine('mysql+pymysql://root:root@127.0.0.1/natural_disasterdb', echo=False)
 
@@ -97,10 +96,10 @@ def extract_transform_load():
     #################################################
     # CREATE TABLES
     #################################################
-    cursor.execute("CREATE TABLE IF NOT EXISTS earthquakes (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, magnitude VARCHAR(255), place VARCHAR(255), time VARCHAR(255), timezone VARCHAR(255), url VARCHAR(255), tsunami INT(1), ids VARCHAR(255), specific_type VARCHAR(255), geometry VARCHAR(255), country_de varchar(80), lat DECIMAL(10, 6), lng DECIMAL(10,6), depth DECIMAL(6,2)) ENGINE=InnoDB")
-    
-    # Create table significant earthquake table
-    cursor.execute("CREATE TABLE IF NOT EXISTS significant_earthquakes (db_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id VARCHAR(255), yr INT(5), month INT(3), day INT(3), hr INT(3), minute INT(2), eq_mag_primary DECIMAL(4,2), intensity VARCHAR(255), country VARCHAR(255), location_name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), deaths INT(10), damage_millions VARCHAR(255), total_deaths INT(10), total_injuries VARCHAR(255), total_damage_millions VARCHAR(255)) ENGINE=InnoDB")
+    cursor.execute("CREATE TABLE IF NOT EXISTS earthquakes (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, magnitude VARCHAR(255), place VARCHAR(255), time VARCHAR(255), timezone VARCHAR(255), url VARCHAR(255), tsunami INT(1), ids VARCHAR(255), specific_type VARCHAR(255), geometry VARCHAR(255), country_de varchar(80), lng DECIMAL(10, 6), lat DECIMAL(10,6), depth DECIMAL(6,2)) ENGINE=InnoDB")
+
+    # id VARCHAR(255), 
+    cursor.execute("CREATE TABLE IF NOT EXISTS significant_earthquakes (db_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, yr INT(5), month INT(3), day INT(3), hr INT(3), minute INT(2), eq_mag_primary DECIMAL(4,2), depth VARCHAR(255), intensity VARCHAR(255), country VARCHAR(255), location_name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), deaths INT(10), damage_millions VARCHAR(255), total_deaths INT(10), total_injuries VARCHAR(255), total_damage_millions VARCHAR(255)) ENGINE=InnoDB")
     
     # Create table tornadoes table
     cursor.execute("CREATE TABLE IF NOT EXISTS tornadoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag INT(2), injuries INT(4), deaths INT(4), damage DECIMAL(20, 10), crop_loss DECIMAL(20, 10) ,s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), length_traveled DECIMAL(10, 6), width INT(5), nbr_states_affected INT(2), sn INT(2), sg INT(2), fa INT(4), fb INT(4), fc INT(4), fd INT(4), fe INT(2)) ENGINE=InnoDB")
@@ -122,14 +121,14 @@ def extract_transform_load():
     #################################################
     earthquake_values = []
     def r_listify(v):
-        return v["magnitude"], v["place"], v["time"], v["timezone"], v["url"], v["tsunami"], v["ids"], v["specific_type"],  v["geometry"], v["lat"], v["lng"], v["depth"]
+        return v["magnitude"], v["place"], v["time"], v["timezone"], v["url"], v["tsunami"], v["ids"], v["specific_type"],  v["geometry"], v["lng"], v["lat"], v["depth"]
 
     for v in earthquake_dict:
         entry_tuple = r_listify(v)
         earthquake_values.append(entry_tuple) 
     
     ## defining the Query
-    query = "INSERT INTO earthquakes (magnitude, place, time, timezone, url, tsunami, ids, specific_type, geometry, lat, lng, depth) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    query = "INSERT INTO earthquakes (magnitude, place, time, timezone, url, tsunami, ids, specific_type, geometry, lng, lat, depth) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
     ## storing values in a variable
     values = earthquake_values
@@ -286,12 +285,16 @@ def extract_transform_load():
     #################################################
     sig_earthquakes_df = pd.read_csv('resources/ngdc_data.tsv', sep='\t', header=0)
     # Cleans up the data and omits columns we don't need
-    drop_columns = ["I_D", "FLAG_TSUNAMI", "SECOND", "FOCAL_DEPTH", "EQ_MAG_MS", "EQ_MAG_MW", "EQ_MAG_MB", "EQ_MAG_ML", "EQ_MAG_MFA", "EQ_MAG_UNK", "STATE", "MISSING", "MISSING_DESCRIPTION", "INJURIES", "INJURIES_DESCRIPTION", "HOUSES_DESTROYED", "HOUSES_DESTROYED_DESCRIPTION", "HOUSES_DAMAGED", "HOUSES_DAMAGED_DESCRIPTION", "TOTAL_DEATHS_DESCRIPTION", "TOTAL_MISSING", "TOTAL_MISSING_DESCRIPTION", "TOTAL_HOUSES_DESTROYED", "TOTAL_INJURIES_DESCRIPTION", "TOTAL_HOUSES_DESTROYED_DESCRIPTION", "TOTAL_HOUSES_DAMAGED", "DAMAGE_DESCRIPTION", "REGION_CODE", "TOTAL_DAMAGE_DESCRIPTION", "DEATHS_DESCRIPTION", "TOTAL_HOUSES_DAMAGED_DESCRIPTION"]
+    drop_columns = ["I_D", "FLAG_TSUNAMI", "SECOND", "EQ_MAG_MS", "EQ_MAG_MW", "EQ_MAG_MB", "EQ_MAG_ML", "EQ_MAG_MFA", "EQ_MAG_UNK", "STATE", "MISSING", "MISSING_DESCRIPTION", "INJURIES", "INJURIES_DESCRIPTION", "HOUSES_DESTROYED", "HOUSES_DESTROYED_DESCRIPTION", "HOUSES_DAMAGED", "HOUSES_DAMAGED_DESCRIPTION", "TOTAL_DEATHS_DESCRIPTION", "TOTAL_MISSING", "TOTAL_MISSING_DESCRIPTION", "TOTAL_HOUSES_DESTROYED", "TOTAL_INJURIES_DESCRIPTION", "TOTAL_HOUSES_DESTROYED_DESCRIPTION", "TOTAL_HOUSES_DAMAGED", "DAMAGE_DESCRIPTION", "REGION_CODE", "TOTAL_DAMAGE_DESCRIPTION", "DEATHS_DESCRIPTION", "TOTAL_HOUSES_DAMAGED_DESCRIPTION"]
     sig_earthquakes_df = sig_earthquakes_df.drop(drop_columns, axis = 1)
-    sig_earthquakes_df = sig_earthquakes_df.rename(index=str, columns={"YEAR": "yr", "MONTH" : "month", "DAY" : "day", 'HOUR' : "hr", 'MINUTE' : "minute", 'EQ_PRIMARY' : "eq_mag_primary", 'INTENSITY' : "intensity", 'COUNTRY' : "country", 'LOCATION_NAME' : "location_name", 'LATITUDE': "lat", 'LONGITUDE' : "lng", 'DEATHS' : "deaths", 'DAMAGE_MILLIONS_DOLLARS' : "damage_millions", 'TOTAL_DEATHS' : "total_deaths", 'TOTAL_INJURIES' : "total_injuries", 'TOTAL_DAMAGE_MILLIONS_DOLLARS' : "total_damage_millions" })
+    sig_earthquakes_df = sig_earthquakes_df.rename(index=str, columns={"YEAR": "yr", "MONTH" : "month", "DAY" : "day", 'HOUR' : "hr", 'MINUTE' : "minute", 'EQ_PRIMARY' : "eq_mag_primary", "FOCAL_DEPTH": "depth", 'INTENSITY' : "intensity", 'COUNTRY' : "country", 'LOCATION_NAME' : "location_name", 'LATITUDE': "lat", 'LONGITUDE' : "lng", 'DEATHS' : "deaths", 'DAMAGE_MILLIONS_DOLLARS' : "damage_millions", 'TOTAL_DEATHS' : "total_deaths", 'TOTAL_INJURIES' : "total_injuries", 'TOTAL_DAMAGE_MILLIONS_DOLLARS' : "total_damage_millions" })
 
     # LOAD SIGNIFICANT EARTHQUAKE DATA INTO TABLE
     sig_earthquakes_df.to_sql('significant_earthquakes', con=engine, if_exists='append', index = False, index_label = "id")
+
+    print('Table EARTHQUAKES_NGDC loaded.')
+    print('==============================================')
+    print('*** PYTHON LOOKUP TABLE SCRIPT COMPLETED ***')
 
     # LOAD DATA INTO PANDAS FROM CSV FILES
     df_tornadoes = pd.read_csv('resources/1950-2017_torn.csv')
