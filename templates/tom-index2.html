@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Earthquake Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- v1.5.1 Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+
+  <!-- v1.2.1 Leaflet.timeline CSS -->
+<!-- tbg  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/leaflet.timeline.css') }}"> -->
+
+  <!-- Bootcamp CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+         <h1>Earthquake Project</h1>
+         <p>Use the dashboard to learn more about earthquakes</p>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-12">
+        <div class="well">
+          <h5>Earthquake Info:</h5>
+          <p>content content content wowowowow!</p>
+        </div>
+      </div>
+   </div>
+      <div class="row">
+         <div class="col-md-12">
+            <p>Use the dashboard to learn more about earthquakes</p>
+            <div id="graph"></div>
+         </div>
+      </div> -->
+   <div class="row">
+      <div class="col-md-12">
+            <p>Use the dashboard to learn more about earthquakes</p>
+            <div id="map-id"></div>
+      </div>
+   </div>
+  </div>
+
+  <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!-- tbg  <script src="{{ url_for('static', filename='js/app.js') }}"></script> -->
+
+  <!-- v5+ D3 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- v1.5.1 Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+
+  <!-- v1.2.1 Leaflet.timeline & v0.3.2 diesal JavaScript. -->
+  <!-- Place IntervalTree.js before the Timeline JavaScripts. Timeline is a Leaflet Plugin.       -->
+  <!-- IntervalTree.js (https://github.com/skeate/diesal/tree/master/src/ds) is used by Timeline. -->
+  <script type="text/javascript" src="{{ url_for('static', filename='plugins/leaflet/timeline/IntervalTree.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='plugins/leaflet/timeline/Timeline.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='plugins/leaflet/timeline/TimelineSliderControl.js') }}"></script>
+
+  <!-- API Key -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/myconfig.js') }}"></script>
+
+  <!-- JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
+</body>
+
+</html>
