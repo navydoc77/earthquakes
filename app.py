@@ -244,8 +244,20 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+@app.route("/graphs")
+def graphs():
+    """Page for graphs."""
+    return render_template("index.html")
+
+@app.route("/maps")
+def maps():
+    """Return the homepage."""
+    return render_template("index.html")
+
+##############################################################################
+
 # Returns a list of all the cuisine categories
-@app.route("/magnitudes")
+@app.route("/api/magnitudes")
 def magnitudes():
     """Return a list of earthquake magnitudes"""
     magnitudes = db_conn.session.query(db_conn.earthquakes.magnitude.distinct()).all()
@@ -263,7 +275,7 @@ def magnitudes():
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # ************************************
-@app.route("/earthquakes", methods=['GET'])
+@app.route("/api/earthquakes", methods=['GET'])
 def return_all_earthquakes():
 
     return jsonify(get_all_earthquakes(create_earthquake_dict))
@@ -272,7 +284,7 @@ def return_all_earthquakes():
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # IN GEOJSON FORMAT
 # ************************************
-@app.route("/earthquakes-geojson", methods=['GET'])
+@app.route("/api/earthquakes-geojson", methods=['GET'])
 def return_all_earthquakes_geojson():
     
     geojson_obj = {}
@@ -286,7 +298,7 @@ def return_all_earthquakes_geojson():
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # ************************************
-@app.route("/significant_earthquakes", methods=['GET'])
+@app.route("/api/significant_earthquakes", methods=['GET'])
 def return_all_significant_earthquakes():
 
     # Step 1: set up columns needed for this run
@@ -314,7 +326,7 @@ def return_all_significant_earthquakes():
 # ************************************
 # RETURNS ALL TORNADOES FROM TORNADOES DATA TABLE
 # ************************************
-@app.route("/tornadoes", methods=['GET'])
+@app.route("/api/tornadoes", methods=['GET'])
 def return_all_tornadoes():
 
     # Step 1: set up columns needed for this run
@@ -338,7 +350,7 @@ def return_all_tornadoes():
 # ************************************
 # RETURNS ALL HAIL FROM HAILS TABLE
 # ************************************
-@app.route("/hail", methods=['GET'])
+@app.route("/api/hail", methods=['GET'])
 def return_all_hail():
 
     # Step 1: set up columns needed for this run
@@ -363,7 +375,7 @@ def return_all_hail():
 # ************************************
 # RETURNS ALL WIND FROM WIND TABLE
 # ************************************
-@app.route("/wind", methods=['GET'])
+@app.route("/api/wind", methods=['GET'])
 def return_all_wind():
 
     # Step 1: set up columns needed for this run
@@ -386,7 +398,7 @@ def return_all_wind():
 # ************************************
 # RETURNS ALL TSUNAMI FROM TSUNAMI TABLE
 # ************************************
-@app.route("/tsunamis", methods=['GET'])
+@app.route("/api/tsunamis", methods=['GET'])
 def return_all_tsunamis():
 
     # Step 1: set up columns needed for this run
@@ -407,9 +419,9 @@ def return_all_tsunamis():
     return jsonify(all_tsunamis)
 
 # ************************************
-# RETURNS ALL VOLCANOES FROM VOLCANOE TABLE
+# RETURNS ALL VOLCANOES FROM VOLCANO TABLE
 # ************************************
-@app.route("/volcanoes", methods=['GET'])
+@app.route("/api/volcanoes", methods=['GET'])
 def return_all_volcanoes():
 
     # Step 1: set up columns needed for this run
