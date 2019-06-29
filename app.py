@@ -10,6 +10,22 @@ app = Flask(__name__)
 #################################################
 # CONVERT SQLALCHEMY TO PYTHON DICTIONARY
 #################################################  
+def create_warning_update_dict(r):
+    return {
+    "warning_id": r[0],
+    "lat" :  float(r[1]),
+    "lng" : float(r[2]),
+    "effective_time" :  r[3],
+    "expiration_time" : r[4],
+    "message_type" :r[5],
+    "severity" :r[6],
+    "certainty" :r[7],
+    "urgency" :r[8],
+    "events" :r[9],
+    "warning_source" :r[10],
+    "headlines" :r[11],
+    "warning_description" :r[12]
+    }
 
 def create_earthquake_dict(r):
     return {
@@ -184,7 +200,6 @@ def create_tsunami_dict(r):
     "house_destroyed": r[20],
     "house_code": int(r[21])
     }
-
 
 def create_volcanoes_dict(r):
     return {
@@ -428,6 +443,42 @@ def return_all_volcanoes():
     print(all_vocanoes)
 
     return jsonify(all_vocanoes)
+
+# ************************************
+# RETURNS ALL WARNING ALERTS FROM WARNINGS TABLE
+# ************************************
+@app.route("/warnings", methods=['GET'])
+def return_all_warning():
+
+    # Step 1: set up columns needed for this run
+    sel = [db_conn.warnings.warning_id,
+        db_conn.warnings.lat,
+        db_conn.warnings.lng,
+        db_conn.warnings.effective_time,
+        db_conn.warnings.expiration_time,
+        db_conn.warnings.message_type,
+        db_conn.warnings.severity,
+        db_conn.warnings.certainty,
+        db_conn.warnings.urgency,
+        db_conn.warnings.events,
+        db_conn.warnings.warning_source,
+        db_conn.warnings.headlines,
+        db_conn.warnings.warning_description,
+        ]
+    
+    # Step 2: Run and store filtered query in results variable
+    warning_results = db_conn.session.query(*sel).all()
+
+    # Step 3: Build a list of dictionary that contains all the warning updates
+    all_warning_updates = []
+
+    for r in warning_results:
+        transformed_dict = create_warning_update_dict(r)
+        all_warning_updates.append(transformed_dict)
+    
+    print(all_warning_updates)
+
+    return jsonify(all_warning_updates)
 
 if __name__ == "__main__":
     app.run()

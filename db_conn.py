@@ -39,6 +39,7 @@ hail = Base.classes.hail
 wind = Base.classes.wind
 tsunamis = Base.classes.tsunamis
 volcanoes = Base.classes.volcanoes
+warnings = Base.classes.warnings
 
 # Create a session
 session = Session(bind=engine)
