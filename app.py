@@ -19,12 +19,12 @@ def create_earthquake_dict(r):
     "timezone": float(r[3]),
     "url": r[4],
     "tsunami" :  int(r[5]),
-    "ids" : r[6],
+    "id" : r[6],
     "specific_type" :  r[7],
-    "geometry" :  r[8],
+    "title" :  r[8],
     "country" : r[9],
-    "lat" : float(r[10]),
-    "lng" :  float(r[11]),
+    "lat" : float(r[11]),
+    "lng" :  float(r[10]),
     "depth" :  float(r[12])
     }
 
@@ -219,7 +219,7 @@ def create_volcanoes_dict(r):
 def get_all_earthquakes(sql_to_py):
 
     # Step 1: set up columns needed for this run
-    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.ids, db_conn.earthquakes.specific_type, db_conn.earthquakes.geometry, db_conn.earthquakes.country_de, db_conn.earthquakes.lng, db_conn.earthquakes.lat, db_conn.earthquakes.depth]
+    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.id, db_conn.earthquakes.specific_type, db_conn.earthquakes.title, db_conn.earthquakes.country_de, db_conn.earthquakes.lng, db_conn.earthquakes.lat, db_conn.earthquakes.depth]
 
 
     # Step 2: Run and store filtered query in results variable 
