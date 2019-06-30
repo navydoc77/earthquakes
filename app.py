@@ -259,26 +259,27 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+#################################################
+# API Routes
+#################################################  
+
 # Returns a list of all the cuisine categories
-@app.route("/magnitudes")
+@app.route("/api/magnitudes")
 def magnitudes():
     """Return a list of earthquake magnitudes"""
     magnitudes = db_conn.session.query(db_conn.earthquakes.magnitude.distinct()).all()
-    print(magnitudes)
 
     # converts a list of list into a single list (flattens list)
     earthquake_list = [item for sublist in list(magnitudes) for item in sublist]
 
     # return a list of column names (sample names)
-    print(earthquake_list)
     float_earthquakes = [float(x) for x in earthquake_list]
-    print(float_earthquakes)
     return jsonify(earthquake_list)
 
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # ************************************
-@app.route("/earthquakes", methods=['GET'])
+@app.route("/api/earthquakes", methods=['GET'])
 def return_all_earthquakes():
 
     return jsonify(get_all_earthquakes(create_earthquake_dict))
@@ -287,7 +288,7 @@ def return_all_earthquakes():
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # IN GEOJSON FORMAT
 # ************************************
-@app.route("/earthquakes-geojson", methods=['GET'])
+@app.route("/api/earthquakes-geojson", methods=['GET'])
 def return_all_earthquakes_geojson():
     
     geojson_obj = {}
@@ -301,19 +302,15 @@ def return_all_earthquakes_geojson():
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # ************************************
-@app.route("/significant_earthquakes", methods=['GET'])
+@app.route("/api/significant_earthquakes", methods=['GET'])
 def return_all_significant_earthquakes():
 
     # Step 1: set up columns needed for this run
     
     sel = [db_conn.significant_earthquakes.db_id, db_conn.significant_earthquakes.yr,db_conn.significant_earthquakes.month, db_conn.significant_earthquakes.day, db_conn.significant_earthquakes.hr, db_conn.significant_earthquakes.minute, db_conn.significant_earthquakes.eq_mag_primary, db_conn.significant_earthquakes.depth, db_conn.significant_earthquakes.intensity, db_conn.significant_earthquakes.country, db_conn.significant_earthquakes.location_name, db_conn.significant_earthquakes.lat, db_conn.significant_earthquakes.lng, db_conn.significant_earthquakes.deaths, db_conn.significant_earthquakes.damage_millions, db_conn.significant_earthquakes.total_deaths, db_conn.significant_earthquakes.total_injuries, db_conn.significant_earthquakes.total_damage_millions]
     
-    print(sel)
-
-
     # Step 2: Run and store filtered query in results variable 
     all_sig_results = db_conn.session.query(*sel).all()
-    print(all_sig_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_sig_earthquakes = []
@@ -321,15 +318,13 @@ def return_all_significant_earthquakes():
         transformed_dict = create_sig_earthquake_dict(r)
         all_sig_earthquakes.append(transformed_dict)
     
-    print(all_sig_earthquakes)
-
     return jsonify(all_sig_earthquakes)
 
 
 # ************************************
 # RETURNS ALL TORNADOES FROM TORNADOES DATA TABLE
 # ************************************
-@app.route("/tornadoes", methods=['GET'])
+@app.route("/api/tornadoes", methods=['GET'])
 def return_all_tornadoes():
 
     # Step 1: set up columns needed for this run
@@ -346,14 +341,12 @@ def return_all_tornadoes():
         transformed_dict = create_tornadoes_dict(r)
         all_tornadoes.append(transformed_dict)
     
-    print(all_tornadoes)
-
     return jsonify(all_tornadoes)
 
 # ************************************
 # RETURNS ALL HAIL FROM HAILS TABLE
 # ************************************
-@app.route("/hail", methods=['GET'])
+@app.route("/api/hail", methods=['GET'])
 def return_all_hail():
 
     # Step 1: set up columns needed for this run
@@ -370,15 +363,13 @@ def return_all_hail():
         transformed_dict = create_hail_dict(r)
         all_hail.append(transformed_dict)
     
-    print(all_hail)
-
     return jsonify(all_hail)
 
 
 # ************************************
 # RETURNS ALL WIND FROM WIND TABLE
 # ************************************
-@app.route("/wind", methods=['GET'])
+@app.route("/api/wind", methods=['GET'])
 def return_all_wind():
 
     # Step 1: set up columns needed for this run
@@ -394,14 +385,12 @@ def return_all_wind():
         transformed_dict = create_wind_dict(r)
         all_wind.append(transformed_dict)
     
-    print(all_wind)
-
     return jsonify(all_wind)
 
 # ************************************
 # RETURNS ALL TSUNAMI FROM TSUNAMI TABLE
 # ************************************
-@app.route("/tsunamis", methods=['GET'])
+@app.route("/api/tsunamis", methods=['GET'])
 def return_all_tsunamis():
 
     # Step 1: set up columns needed for this run
@@ -417,14 +406,12 @@ def return_all_tsunamis():
         transformed_dict = create_tsunami_dict(r)
         all_tsunamis.append(transformed_dict)
     
-    print(all_tsunamis)
-
     return jsonify(all_tsunamis)
 
 # ************************************
 # RETURNS ALL VOLCANOES FROM VOLCANOE TABLE
 # ************************************
-@app.route("/volcanoes", methods=['GET'])
+@app.route("/api/volcanoes", methods=['GET'])
 def return_all_volcanoes():
 
     # Step 1: set up columns needed for this run
@@ -440,14 +427,12 @@ def return_all_volcanoes():
         transformed_dict = create_volcanoes_dict(r)
         all_vocanoes.append(transformed_dict)
     
-    print(all_vocanoes)
-
     return jsonify(all_vocanoes)
 
 # ************************************
 # RETURNS ALL WARNING ALERTS FROM WARNINGS TABLE
 # ************************************
-@app.route("/warnings", methods=['GET'])
+@app.route("/api/warnings", methods=['GET'])
 def return_all_warning():
 
     # Step 1: set up columns needed for this run
@@ -476,8 +461,6 @@ def return_all_warning():
         transformed_dict = create_warning_update_dict(r)
         all_warning_updates.append(transformed_dict)
     
-    print(all_warning_updates)
-
     return jsonify(all_warning_updates)
 
 if __name__ == "__main__":
