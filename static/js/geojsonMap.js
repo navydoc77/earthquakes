@@ -120,7 +120,7 @@ function addPopupInfo(feature, layer) {
 function mapEarthquakes() {
 
     // Query the DB for the geojson earthquake data.
-    d3.json('/earthquakes-geojson').then((geojsonData) => {
+    d3.json('/api/earthquakes-geojson').then((geojsonData) => {
     
         // Create a logarithmic color scale for filling the earthquake markers.
         var colorRange = ['#E5E4DA','#A11F22'],
