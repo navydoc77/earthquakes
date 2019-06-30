@@ -2,8 +2,12 @@
 * Step0: Load data from json file *
 **********************************/
 
+
+var url = 'http://127.0.0.1:5000/eq_filter_viz'
+
+d3.json(url).then(function (data) { 
 // load data from a csv file
-d3.csv("quakes.csv").then(function (data) {
+//d3.csv("quakes.csv").then(function (data) {
   //console.log(data);
   // format our data
   //var dtgFormat = d3.utcParse("%Y-%m-%d%T%H:%M:%S");

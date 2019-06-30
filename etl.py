@@ -286,6 +286,16 @@ def extract_transform_load():
     print('Table EARTHQUAKES_NGDC loaded.')
     print('==============================================')
     print('*** PYTHON LOOKUP TABLE SCRIPT COMPLETED ***')
+    cursor.execute("alter table significant_earthquakes add column dtg varchar(25)")
+    cursor.execute("update significant_earthquakes set dtg =\
+                    concat(`yr`,'-',\
+                    case when length(`month`) = 1 then lpad(`month`,2,'0') else `month` end, '-',\
+                    case when length(`day`) = 1 then lpad(`day`,2,'0') else `day` end,' ',\
+                    case when length(`hr`) = 1 then lpad(`hr`,2,'0') else `hr` end,':',\
+                    case when length(`minute`) = 1 then lpad(`minute`,2,'0') else `minute` end,':',\
+                    '00')\
+                    where `yr` >= '1900'")
+    
     cursor.execute("create table eq_filter_viz\
                     as select\
                     concat(`yr`,'-',\
@@ -299,7 +309,7 @@ def extract_transform_load():
                     eq_mag_primary mag,\
                     depth\
                     from significant_earthquakes\
-                    where `yr` >= '1900';")
+                    where `yr` >= '1900'")
 
     #add primary key for eq_filter_viz table                    
     cursor.execute("alter table eq_filter_viz add eq_filter_viz_pk_id int auto_increment primary key first")

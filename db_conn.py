@@ -39,6 +39,7 @@ hail = Base.classes.hail
 wind = Base.classes.wind
 tsunamis = Base.classes.tsunamis
 volcanoes = Base.classes.volcanoes
+eq_filter_viz = Base.classes.eq_filter_viz
 
 # Create a session
 session = Session(bind=engine)
