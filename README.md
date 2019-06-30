@@ -15,6 +15,14 @@ The data used in this application was ingested from:
 
 Flask ... etc etc
 
+Modules required:
+mysql-connector
+mysql
+flask_sqlalchemy
+
+Start database before running etl.py
+
+
 ## To run:
 
 Run app.py at terminal line
@@ -53,8 +61,14 @@ Routes:
 
 ### Load data by doing:
 
-Run ETL.py at terminal line
+Run etl.py at terminal line
+-This extracts the data from api and csv files.
+-A mysqyl database is created
+-Data is loaded into mysqual
 
 Note that for iOS, in the `config.py` file you will have to use `engine = create_engine('mysql+pymysql://root:root@localhost')`
 
 ### Run application by performing the following:
+
+Run app.py at terminal line
+-routes
