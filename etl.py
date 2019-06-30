@@ -93,10 +93,10 @@ def extract_transform_load():
     cursor.execute("CREATE TABLE IF NOT EXISTS earthquakes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, magnitude VARCHAR(255), place VARCHAR(255), time VARCHAR(255), timezone VARCHAR(255), url VARCHAR(255), tsunami INT(1), id VARCHAR(255), specific_type VARCHAR(255), title VARCHAR(255), country_de varchar(80), lng DECIMAL(10, 6), lat DECIMAL(10,6), depth DECIMAL(6,2)) ENGINE=InnoDB")
 
     # Create significant_earthquakes table
-    cursor.execute("CREATE TABLE IF NOT EXISTS significant_earthquakes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, yr INT(5), month INT(3), day INT(3), hr INT(3), minute INT(2), eq_mag_primary DECIMAL(4,2), depth VARCHAR(255), intensity VARCHAR(255), country VARCHAR(255), location_name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), deaths INT(10), damage_millions VARCHAR(255), total_deaths INT(10), total_injuries VARCHAR(255), total_damage_millions VARCHAR(255)) ENGINE=InnoDB")
+    cursor.execute("CREATE TABLE IF NOT EXISTS significant_earthquakes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, yr INT(5), month INT(3), day INT(3), hr INT(3), minute INT(2), eq_mag_primary DECIMAL(4,2), depth VARCHAR(255), intensity VARCHAR(255), country VARCHAR(255), location_name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), deaths INT(10), damage_millions VARCHAR(255), total_deaths INT(10), total_injuries VARCHAR(255), total_damage_millions VARCHAR(255), dtg varchar(25)) ENGINE=InnoDB")
     
     # Create tornadoes table
-    cursor.execute("CREATE TABLE IF NOT EXISTS tornadoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag INT(2), injuries INT(4), deaths INT(4), damage DECIMAL(20, 10), crop_loss DECIMAL(20, 10) ,s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), length_traveled DECIMAL(10, 6), width INT(5), nbr_states_affected INT(2), sn INT(2), sg INT(2), fa INT(4), fb INT(4), fc INT(4), fd INT(4), fe INT(2)) ENGINE=InnoDB")
+    cursor.execute("CREATE TABLE IF NOT EXISTS tornadoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag INT(2), injuries INT(4), deaths INT(4), damage DECIMAL(20, 10), crop_loss DECIMAL(20, 10) ,s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), length_traveled DECIMAL(10, 6), width INT(5), nbr_states_affected INT(2), sn INT(2), sg INT(2), fa INT(4), fb INT(4), fc INT(4), fd INT(4), fe INT(2), dtg varchar(25)) ENGINE=InnoDB")
     
     # Create hail table
     cursor.execute("CREATE TABLE IF NOT EXISTS hail (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag DECIMAL(5,2), injuries INT(4), deaths INT(4), damage DECIMAL(15, 1), crop_loss DECIMAL(15, 1), s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), fa INT(4)) ENGINE=InnoDB")
@@ -279,6 +279,14 @@ def extract_transform_load():
     drop_columns = ["I_D", "FLAG_TSUNAMI", "SECOND", "EQ_MAG_MS", "EQ_MAG_MW", "EQ_MAG_MB", "EQ_MAG_ML", "EQ_MAG_MFA", "EQ_MAG_UNK", "STATE", "MISSING", "MISSING_DESCRIPTION", "INJURIES", "INJURIES_DESCRIPTION", "HOUSES_DESTROYED", "HOUSES_DESTROYED_DESCRIPTION", "HOUSES_DAMAGED", "HOUSES_DAMAGED_DESCRIPTION", "TOTAL_DEATHS_DESCRIPTION", "TOTAL_MISSING", "TOTAL_MISSING_DESCRIPTION", "TOTAL_HOUSES_DESTROYED", "TOTAL_INJURIES_DESCRIPTION", "TOTAL_HOUSES_DESTROYED_DESCRIPTION", "TOTAL_HOUSES_DAMAGED", "DAMAGE_DESCRIPTION", "REGION_CODE", "TOTAL_DAMAGE_DESCRIPTION", "DEATHS_DESCRIPTION", "TOTAL_HOUSES_DAMAGED_DESCRIPTION"]
     sig_earthquakes_df = sig_earthquakes_df.drop(drop_columns, axis = 1)
     sig_earthquakes_df = sig_earthquakes_df.rename(index=str, columns={"YEAR": "yr", "MONTH" : "month", "DAY" : "day", 'HOUR' : "hr", 'MINUTE' : "minute", 'EQ_PRIMARY' : "eq_mag_primary", "FOCAL_DEPTH": "depth", 'INTENSITY' : "intensity", 'COUNTRY' : "country", 'LOCATION_NAME' : "location_name", 'LATITUDE': "lat", 'LONGITUDE' : "lng", 'DEATHS' : "deaths", 'DAMAGE_MILLIONS_DOLLARS' : "damage_millions", 'TOTAL_DEATHS' : "total_deaths", 'TOTAL_INJURIES' : "total_injuries", 'TOTAL_DAMAGE_MILLIONS_DOLLARS' : "total_damage_millions" })
+    #concatenate date/time columns and left pad with zeros so in this format: YYYY-MM-DD HH24:MI:SS
+    dtg = sig_earthquakes_df['yr'].astype(str)  + '-' + \
+          sig_earthquakes_df['month'].astype(str).apply(lambda x: x.zfill(2)) + '-' + \
+          sig_earthquakes_df['day'].astype(str).apply(lambda x: x.zfill(2)) + ' ' + \
+          sig_earthquakes_df['hr'].astype(str).apply(lambda x: x.zfill(2)) + ':' + \
+          sig_earthquakes_df['minute'].astype(str).apply(lambda x: x.zfill(2)) + ':' + '00'
+    #add dtg column to df
+    sig_earthquakes_df['dtg'] = dtg
 
     # LOAD SIGNIFICANT EARTHQUAKE DATA INTO TABLE
     sig_earthquakes_df.to_sql('significant_earthquakes', con=engine, if_exists='append', index = False, index_label = "tb_id")
@@ -286,24 +294,10 @@ def extract_transform_load():
     print('Table EARTHQUAKES_NGDC loaded.')
     print('==============================================')
     print('*** PYTHON LOOKUP TABLE SCRIPT COMPLETED ***')
-    cursor.execute("alter table significant_earthquakes add column dtg varchar(25)")
-    cursor.execute("update significant_earthquakes set dtg =\
-                    concat(`yr`,'-',\
-                    case when length(`month`) = 1 then lpad(`month`,2,'0') else `month` end, '-',\
-                    case when length(`day`) = 1 then lpad(`day`,2,'0') else `day` end,' ',\
-                    case when length(`hr`) = 1 then lpad(`hr`,2,'0') else `hr` end,':',\
-                    case when length(`minute`) = 1 then lpad(`minute`,2,'0') else `minute` end,':',\
-                    '00')\
-                    where `yr` >= '1900'")
-    
+         
     cursor.execute("create table eq_filter_viz\
                     as select\
-                    concat(`yr`,'-',\
-                            case when length(`month`) = 1 then lpad(`month`,2,'0') else `month` end, '-',\
-                            case when length(`day`) = 1 then lpad(`day`,2,'0') else `day` end,' ',\
-                            case when length(`hr`) = 1 then lpad(`hr`,2,'0') else `hr` end,':',\
-                            case when length(`minute`) = 1 then lpad(`minute`,2,'0') else `minute` end,':',\
-                            '00') `dtg`,\
+                    dtg,\
                     lat,\
                     lng,\
                     eq_mag_primary mag,\
@@ -316,6 +310,13 @@ def extract_transform_load():
 
     # LOAD DATA INTO PANDAS FROM CSV FILES
     df_tornadoes = pd.read_csv('resources/1950-2017_torn.csv')
+    #concatenate date/time columns and left pad with zeros so in this format: YYYY-MM-DD HH24:MI:SS
+    dtg = df_tornadoes['year'].astype(str)  + '-' + \
+          df_tornadoes['month'].astype(str).apply(lambda x: x.zfill(2)) + '-' + \
+          df_tornadoes['day'].astype(str).apply(lambda x: x.zfill(2)) + ' ' + \
+          df_tornadoes['time'].astype(str).apply(lambda x: x.zfill(8))
+    #add dtg column to df
+    df_tornadoes['dtg'] = dtg
     df_hail = pd.read_csv('resources/1955-2017_hail.csv')
     df_wind = pd.read_csv('resources/wind.csv')
     df_tsunami = pd.read_csv('resources/tsunami.csv')
