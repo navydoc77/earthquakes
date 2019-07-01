@@ -3,9 +3,9 @@
 ***********************************/
 
 
-var url = 'http://127.0.0.1:5000/tornadoes'
+var url = 'http://127.0.0.1:5000/volcano_filter_viz'
 
-d3.json(url).then(function (data) { 
+d3.json(url).then(function (data) { 19
   
   var parseDate = d3.timeParse("%Y-%m-%d %H:%M:%S");
 
@@ -13,18 +13,18 @@ d3.json(url).then(function (data) {
         //d.dtg   = dtgFormat(d.dtg.substr(0,19));
         //var formatDate = d3.timeFormat("%Y-%m-%d% %H:%M:%S");
         d.dtg   = parseDate(d.dtg);
-        d.s_lat   = +d.s_lat;
-        d.s_lng  = +d.s_lng;
-        d.mag   = +d.mag;
-        d.width = +d.width;
+        d.lat   = +d.lat;
+        d.lng  = +d.lng;
+        d.volcanic_index = +d.volcanic_index;
+        d.death = +d.death;
         });
 
 /******************************************************
 * Step1: Create the dc.js chart objects & ling to div *
 ******************************************************/
 
-  var magnitudeChart = dc.barChart("#dc-magnitude-chart");
-  var widthChart = dc.barChart("#dc-width-chart");
+  var magnitudeChart = dc.barChart("#dc-volcanic-index-chart");
+  var widthChart = dc.barChart("#dc-death-chart");
   var timeChart = dc.lineChart("#dc-time-chart");
   var dataTable = dc.dataTable("#dc-table-graph");
 
@@ -42,12 +42,12 @@ d3.json(url).then(function (data) {
 
   // for Magnitude
   var magValue = facts.dimension(function (d) {
-    return d.mag;       // group or filter by magnitude
+    return d.volcanic_index;       // group or filter by magnitude
   });
   var magValueGroupSum = magValue.group()
-    .reduceSum(function(d) { return d.mag; });	// sums the magnitudes per magnitude
+    .reduceSum(function(d) { return d.volcanic_index; });	// sums the magnitudes per magnitude
   var magValueGroupCount = magValue.group()
-    .reduceCount(function(d) { return d.mag; }) // counts the number of the facts by magnitude
+    .reduceCount(function(d) { return d.volcanic_index; }) // counts the number of the facts by magnitude
 
   // For datatable
   var timeDimension = facts.dimension(function (d) {
@@ -56,7 +56,7 @@ d3.json(url).then(function (data) {
 
   // for width
   var widthValue = facts.dimension(function (d) {
-    return d.width;
+    return d.death;
   });
   var widthValueGroup = widthValue.group();
   
@@ -71,7 +71,7 @@ d3.json(url).then(function (data) {
     .reduceCount(function(d) { return d.dtg; });
 
 /***************************************
-* 	Step4: Create the Visualisations   *
+* 	Step4: Create the Visualizations   *
 ***************************************/
   
   // Magnitude Bar Graph Summed
@@ -108,23 +108,23 @@ d3.json(url).then(function (data) {
     .group(volumeByYearGroup)
     .transitionDuration(500)
 	.elasticY(true)
-    .x(d3.scaleTime().domain([new Date(1950, 1, 1), new Date(2018, 12, 31)])) // scale and domain of the graph
+    .x(d3.scaleTime().domain([new Date(1900, 1, 1), new Date(2019, 12, 31)])) // scale and domain of the graph
     .xAxis();
 
-  // Table of tornado data
+  // Table of volcano data
   dataTable.width(960).height(800)
     .dimension(timeDimension)
-	.section(function(d) { return "List of all tornadoes corresponding to the filters"
+	.section(function(d) { return "List of all volcanoes corresponding to the filters"
 	 })
 	.size(500)							// number of rows to return
     .columns([
       function(d) { return d.dtg; },
-      function(d) { return d.s_lat; },
-      function(d) { return d.s_lng; },
-      function(d) { return d.width; },
-      function(d) { return d.mag; },
-	  function(d) { return '<a href=\"http://maps.google.com/maps?z=11&t=m&q=loc:' + d.s_lat + '+' + d.s_lng +"\" target=\"_blank\">Google Map</a>"},
-	  function(d) { return '<a href=\"http://www.openstreetmap.org/?mlat=' + d.s_lat + '&mlon=' + d.s_lng +'&zoom=11'+ "\" target=\"_blank\"> OSM Map</a>"}
+      function(d) { return d.lat; },
+      function(d) { return d.lng; },
+      function(d) { return d.death; },
+      function(d) { return d.volcanic_index; },
+	  function(d) { return '<a href=\"http://maps.google.com/maps?z=11&t=m&q=loc:' + d.lat + '+' + d.lng +"\" target=\"_blank\">Google Map</a>"},
+	  function(d) { return '<a href=\"http://www.openstreetmap.org/?mlat=' + d.lat + '&mlon=' + d.lng +'&zoom=11'+ "\" target=\"_blank\"> OSM Map</a>"}
     ])
     .sortBy(function(d){ return d.dtg; })
     .order(d3.ascending);

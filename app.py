@@ -210,7 +210,8 @@ def create_volcanoes_dict(r):
     "damage": float(r[18]),
     "damage_code": int(r[19]),
     "houses": r[20],
-    "houses_code": int(r[21])
+    "houses_code": int(r[21]),
+    "dtg": r[22]
     }
 
 def create_eq_filter_viz(r):
@@ -221,6 +222,15 @@ def create_eq_filter_viz(r):
     "mag": float(r[3]),
     "depth": int(r[4])
     }
+    
+def create_volcano_filter_viz(r):
+    return {
+    "dtg" : r[0],
+    "lat": float(r[1]),
+    "lng": float(r[2]),
+    "volcanic_index": float(r[3]),
+    "death": int(r[4])
+    }    
 
 #################################################
 # Functions
@@ -252,7 +262,7 @@ def get_all_earthquakes(sql_to_py):
 @app.route("/")
 def index():
     """Return the homepage."""
-    return render_template("tornado_filter_dashb.html")
+    return render_template("volcano_filter_dashb.html")
 
 # Returns a list of all the cuisine categories
 @app.route("/magnitudes")
@@ -348,7 +358,32 @@ def return_eq_filter_viz():
 
     return jsonify(all_eq_filter_viz)
 
+# ************************************
+# RETURNS VOLCANO ACTIVITY FROM VOLCANO_FILTER_VIZ TABLE
+# ************************************
+@app.route("/volcano_filter_viz", methods=['GET'])
+def return_volcano_filter_viz():
 
+    # Step 1: set up columns needed for this run
+    
+    sel = [db_conn.volcano_filter_viz.dtg, db_conn.volcano_filter_viz.lat, db_conn.volcano_filter_viz.lng, db_conn.volcano_filter_viz.volcanic_index, db_conn.volcano_filter_viz.death]
+    
+    print(sel)
+
+
+    # Step 2: Run and store filtered query in results variable 
+    all_volcano_filter_viz_results = db_conn.session.query(*sel).all()
+    print(all_volcano_filter_viz_results)
+
+    # Step 3: Build a list of dictionary that contains all the earthquakes
+    all_volcano_filter_viz = []
+    for r in all_volcano_filter_viz_results:
+        transformed_dict = create_volcano_filter_viz(r)
+        all_volcano_filter_viz.append(transformed_dict)
+    
+    print(all_volcano_filter_viz)
+
+    return jsonify(all_volcano_filter_viz)
 
 # ************************************
 # RETURNS ALL TORNADOES FROM TORNADOES DATA TABLE
