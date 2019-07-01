@@ -262,9 +262,27 @@ def get_all_earthquakes(sql_to_py):
 @app.route("/")
 def index():
     """Return the homepage."""
+    return render_template("index.html")
+
+# Renders earthquake filter dashboard
+@app.route("/earthquake-filter-dashb")
+def earthquake_filter_dashb():
+    """Return the homepage."""
+    return render_template("eq_filter_viz.html")
+
+# Renders tornado filter dashboard    
+@app.route("/tornado-filter-dashb")
+def tornado_filter_dashb():
+    """Return the homepage."""
+    return render_template("tornado_filter_dashb.html")    
+
+# Renders volcano filter dashboard
+@app.route("/volcano-filter-dashb")
+def volcano_filter_dashb():
+    """Return the homepage."""
     return render_template("volcano_filter_dashb.html")
 
-# Returns a list of all the cuisine categories
+# EQ Magnitudes
 @app.route("/magnitudes")
 def magnitudes():
     """Return a list of earthquake magnitudes"""
