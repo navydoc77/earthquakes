@@ -1,55 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<!-- CSS Stylesheets with Relative Paths -->
+<html lang="en-us">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Earthquake Dashboard</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 
 <body>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Earthquake Project</h1>
-        <p>Use the dashboard to learn more about earthquakes</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>SELECT criteria:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+  <header>
+    <div class="navbar">
+        <a class="active" href="earthquake_index.html">Earthquakes</a>
+        <a class="active" href="tornadoes_landing.html">Tornadoes</a>
+        <a class="active" href="volcanoes_landing.html">Volcanoes</a>
+        <a class="active" href="tsunamis_landing.html">Tsunamis</a>
+        <div class="dropdown">
+            <button class="dropbtn">Extreme Weather 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="wind_landing.html">Wind</a>
+              <a href="hail_landing.html">Hail</a>
+              <a href="warnings_landing.html">Weather Warnings</a>
+            </div>
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Sample MetaData</h3>
+        <div class="dropdown">
+          <button class="dropbtn">Machine Learning 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+              <a href="ml_landing.html">Machine Learning</a>
+            <a href="sentiment_landing.html">Sentiment Analysis</a>
           </div>
-          <div id="sample-metadata" class="panel-body"></div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div id="pie"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
+        </div> 
     </div>
+  </header>
+
+
+  <div>
+    <h1>Welcome to our app - learn about terrible and stochastic events that happen on planet earth</h1>
+        <p>
+            Earthquakes
+            UFOS
+            Volcanoes
+            Tornadoes
+         </p>
+    <h3>
+        <p>
+            Objective
+        </p>
+    </h3>
+    <p>
+        The goal of this site is to let you explore these natural disasters.
+        <br>
+        <br>
+        <strong>Questions</strong>
+        <br>
+        <br>
+        Can we use machine learning to predict events
+        <br>
+    </p>
+
+    <h3><p>Data Source:</p></h3>
+    <p>
+      This is where we mentions our source of data (<a href = "https://pypi.python.org/pypi/citipy">citypy</a>, and <a href="https://openweathermap.org/api">openweather api</a>).
+    </p>
+    <br>
+    <p><strong>Analysis</strong></p>
+    <p>
+      This is where we discuss our analysis method.
+    </p>
   </div>
+
+
   <div class="row">
     <div class="col-md-12">
-      <div id="bubble"></div>
+      <div id="tag1"></div>
     </div>
+  </div>
+
+  </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="tag2"></div>
+        </div>
+      </div>
   </div>
 
   <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
+  <!-- Logis for map -->
+  <!-- Javascript_code create one with example: tornado_map.js -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script type="text/javascript" src="logic.js"></script>
 </body>
 
 </html>
