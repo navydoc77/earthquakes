@@ -1,11 +1,9 @@
 import os
-from dotenv import load_dotenv
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
-load_dotenv()
 
 # Database Connection
 dialect = os.getenv("DATABASE_DIALECT")
