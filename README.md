@@ -62,13 +62,19 @@ Routes:
 ### Load data by doing:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Run ETL.py at terminal line
 =======
+=======
+>>>>>>> 6777486129e26471aab1726edeafa5f215e4f992
 Run etl.py at terminal line
 -This extracts the data from api and csv files.
 -A mysqyl database is created
 -Data is loaded into mysqual
+<<<<<<< HEAD
 >>>>>>> 1eb174245ab244bc147befa7dc0ed11445766b29
+=======
+>>>>>>> 6777486129e26471aab1726edeafa5f215e4f992
 
 Note that for iOS, in the `config.py` file you will have to use `engine = create_engine('mysql+pymysql://root:root@localhost')`
 

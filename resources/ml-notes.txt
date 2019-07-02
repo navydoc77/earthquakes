@@ -1,0 +1,84 @@
+ml-notes
+O'Reilley Intro to machine learning with python. Andreas and Guido 2016
+
+data: contains the numeric measurements for each feature in a numpy array, the rows correspond to the event, and the columns represent the measurements that were taken for each event.
+target: target is a one-dimensional array with one entry per flower, and are typically encoded as integers (string values will need to be dummified).
+target_name: is an array of strings containing the VARIABLE we want to predict.
+feature_names: is a list of strings, giving the description of each feature.
+DESCR: Short description of the dataset.
+
+Goal, prepare a an algorithm from a dataset, to when presented new data, makes a prediction about that new data.
+Building an algorithm is to build a model
+But: we need to evaluate how well it works - whether we can trust its predictions
+Generally, split a larger datasets into 2 groups: 
+-the data used to build the model is the training set
+-the data used to determine if we can trust the model, is the test set
+
+train_test_split shuffles the data, and then splits the data into two groups
+Default split is 75 train, 25 test. function uses random_state pseudo randomizer to shuffle the data.
+
+Convention: X denotes data, and y denotes labels
+Inspired by f(x) = y, x is an input, and y is the output of a function.
+Capital X is also used to follow the mathimatical convention for a matrix (2d+ array), and lowercase y for one-dimension array (vector)
+
+Option 1: Use only the usgs data
+Training set (Earthquakes from -D30-D7)
+Test set: D7
+
+Option 2: Use usgs and significant earthquakes
+Training set Significant earthquakes data
+Test set: usgs data
+
+Step 1:
+Data inspection
+-Look for anomalies
+-Decide on 0 or NaN values
+-Carry out Exploratory Data Analysis to inspect potential trends and interactions
+
+Pair plot
+-Create a subset from X_train (4 features)
+-Create a dataframe from a subset of X_train dataset
+-label the columns using the strings in the feature_names array
+-use scatter_matrix and color by y_train page 20
+-if we see classes well separated, then ML will likely be able to learn to separate them.
+
+Step 2:
+Build first model using k-Nearest Neighbors
+k-Nearest Neighbor classifier (neighbors module, implemented by KNeighborsClassifier class)
+-Storing training set in clusters
+-Makes predictions for a new data point, the algorithm finds the point in the training set that is closest to the new point
+-Assigns the label of this training point to the new data point
+-k signifies any fixed number of neighbors in the training set
+
+Step 2a:
+-Before we can use the model, we need to instantiate the class into an object
+-This is when we set any parameters of the model
+-the most important is the number of neighbors (n_neighbors=5)
+-knn = KNeighborsClassifier(n_neighbors=5)
+-knn object encapsulated the algorithm that will be used to:
+a) build the model from the training data
+b) make predictions on new data
+c) hold information extracted from training data
+
+Step 2b:
+-to build the model on the trainigns set, we need to call the fit method on the knn object
+-fit takes two NumPy arrays (X_train, and y_train)
+-fit method returns the knn object that is modified in place
+-the string representation shows us which parameters were used in creating the model.
+
+Step 3:
+Making predictions
+-All predictions in scikit-learn expect a 2d array of data, so if you have a 1D array, it needs to be reshaped
+-predict method of the knn object is used to make predictions
+-knn.predict(New_array)
+
+Step 4:
+Evaluate the model
+-Test data is used to evaluate the model
+Accuracy
+-np.mean(y_pred == y_test)
+-1 measure is to compute the accuracy (fraction of events for which the right target was predicted)
+-lat and lng corresponded to the right country
+-y_pred = knn.pred(New_array)
+
+

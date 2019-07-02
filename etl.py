@@ -12,7 +12,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 from pandas.io import sql
 
-url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
+url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson'
+warning_url = 'https://api.weather.gov/alerts/active'
 
 def extract_transform_load(): 
 
@@ -25,14 +26,6 @@ def extract_transform_load():
     cursor.execute("DROP DATABASE IF EXISTS natural_disasterdb")
     cursor.execute("CREATE DATABASE IF NOT EXISTS natural_disasterdb")
     cursor.execute("USE natural_disasterdb")
-
-    cursor.execute("DROP TABLE IF EXISTS earthquakes")
-    cursor.execute("DROP TABLE IF EXISTS significant_earthquakes")
-    cursor.execute("DROP TABLE IF EXISTS tornadoes")
-    cursor.execute("DROP TABLE IF EXISTS hail")
-    cursor.execute("DROP TABLE IF EXISTS wind")
-    cursor.execute("DROP TABLE IF EXISTS tsunamis")
-    cursor.execute("DROP TABLE IF EXISTS volcanoes")
 
     engine = create_engine('mysql+pymysql://root:root@127.0.0.1/natural_disasterdb', echo=False)
 
@@ -57,7 +50,7 @@ def extract_transform_load():
         r["properties"]['tz'] != None and
         r["properties"]['url'] != None and
         r["properties"]['tsunami'] != None and
-        r["properties"]['ids'] != None and
+        r['id'] != None and
         r["properties"]['type'] != None and
         r["properties"]['title'] != None and
         r["geometry"]['coordinates'][0] != None and
@@ -72,70 +65,292 @@ def extract_transform_load():
         "timezone": r["properties"]['tz'],
         "url": r["properties"]['url'],
         "tsunami": r["properties"]['tsunami'],
-        "ids": r["properties"]['ids'],
+        "id": r['id'],
         "specific_type": r["properties"]['type'], 
-        "geometry": r["properties"]['title'],
-        "lat": r["geometry"]['coordinates'][0],
-        "lng": r["geometry"]['coordinates'][1],
+        "title": r["properties"]['title'],
+        "lat": r["geometry"]['coordinates'][1],
+        "lng": r["geometry"]['coordinates'][0],
         'depth': r["geometry"]['coordinates'][2]
         }
 
+    #################################################
+    # CREATES DICTIONARY FOR USGS EARTHQUAKE DATA AND CLEANS IT UP
+    #################################################
     for r in earthquakes:
         if is_valid(r):
             transformed_dict = create_dict(r)
             earthquake_dict.append(transformed_dict)
 
-            # cleans up the ids column removes commas
-    for i in earthquake_dict: 
-        value = i["ids"]
-        formated_value = value.replace(',', '')
-        i["ids"] = formated_value
+    #################################################
+    # CREATES DICTIONARY FOR WARNINGS ALERT DATA AND CLEANS IT UP
+    #################################################
 
-    ## creating an instance of 'cursor' class which is used to execute the 'SQL' statements in 'Python'
+    # Response
+    warning_response = requests.get(warning_url).json()
+    # Write json file from api call
+    with open('all_warning.json', 'w') as json_file:  
+        json.dump(warning_response, json_file)
 
+    with open('all_warning.json', 'r') as JSON:
+        dict = json.load(JSON)
+    
+    warnings_dict = []
+    warnings = warning_response["features"]
+
+    def is_valid_warning(r):
+        return (
+        r['id'] != None and
+        r['geometry'] != None and
+        r['properties']['effective'] != None and
+        r['properties']['expires'] != None and
+        r['properties']['messageType'] != None and
+        r['properties']['severity'] != None and    
+        r['properties']['certainty'] != None and
+        r['properties']['urgency'] != None and
+        r['properties']['event'] != None and
+        r['properties']['senderName'] != None and
+        r['properties']['headline'] != None and
+        r['properties']['description'] != None)
+
+    def create_warnings_dict(r):
+        return {
+        "warning_id": r['id'],
+        "lat" : r['geometry']['coordinates'][0][0][1],
+        "lng" : r['geometry']['coordinates'][0][0][0],    
+        "effective_time" :  r['properties']['effective'],
+        "expiration_time" : r['properties']['expires'],
+        "message_type" : r['properties']['messageType'],
+        "severity" : r['properties']['severity'],
+        "certainty" : r['properties']['certainty'],
+        "urgency" : r['properties']['urgency'],
+        "events" : r['properties']['event'],
+        "warning_source" : r['properties']['senderName'],
+        "headlines" : r['properties']['headline'],
+        "warning_description" : r['properties']['description']
+        }
+
+    for r in warnings:
+        if is_valid_warning(r):
+            transformed_dict = create_warnings_dict(r)
+            warnings_dict.append(transformed_dict)
+
+    # cleans up the ids column removes commas
+    for i in warnings_dict: 
+        value = i['warning_description']
+        formated_value = value.replace('\n', ' ')
+        i["warning_description"] = formated_value
 
     #################################################
     # CREATE TABLES
     #################################################
-    cursor.execute("CREATE TABLE IF NOT EXISTS earthquakes (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, magnitude VARCHAR(255), place VARCHAR(255), time VARCHAR(255), timezone VARCHAR(255), url VARCHAR(255), tsunami INT(1), ids VARCHAR(255), specific_type VARCHAR(255), geometry VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), depth DECIMAL(6,2)) ENGINE=InnoDB")
+
+    # Create earthquakes table
+    cursor.execute("CREATE TABLE IF NOT EXISTS earthquakes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, magnitude VARCHAR(255), place VARCHAR(255), time VARCHAR(255), timezone VARCHAR(255), url VARCHAR(255), tsunami INT(1), id VARCHAR(255), specific_type VARCHAR(255), title VARCHAR(255), country_de varchar(80), lng DECIMAL(10, 6), lat DECIMAL(10,6), depth DECIMAL(6,2)) ENGINE=InnoDB")
+
+    # Create significant_earthquakes table
+    cursor.execute("CREATE TABLE IF NOT EXISTS significant_earthquakes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, yr INT(5), month INT(3), day INT(3), hr INT(3), minute INT(2), eq_mag_primary DECIMAL(4,2), depth VARCHAR(255), intensity VARCHAR(255), country VARCHAR(255), location_name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), deaths INT(10), damage_millions VARCHAR(255), total_deaths INT(10), total_injuries VARCHAR(255), total_damage_millions VARCHAR(255)) ENGINE=InnoDB")
     
-    # Create table significant earthquake table
-    cursor.execute("CREATE TABLE IF NOT EXISTS significant_earthquakes (db_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id VARCHAR(255), yr INT(5), month INT(3), day INT(3), hr INT(3), minute INT(2), eq_mag_primary DECIMAL(4,2), intensity VARCHAR(255), country VARCHAR(255), location_name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), deaths INT(10), damage_millions VARCHAR(255), total_deaths INT(10), total_injuries VARCHAR(255), total_damage_millions VARCHAR(255)) ENGINE=InnoDB")
-    
-    # Create table tornadoes table
+    #################API DATA######################
+    cursor.execute("CREATE TABLE IF NOT EXISTS warnings (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, warning_id VARCHAR(255), lat DECIMAL(7,3), lng DECIMAL(7,3), effective_time VARCHAR(255), expiration_time VARCHAR(255), message_type VARCHAR(255), severity VARCHAR(255), certainty VARCHAR(255), urgency VARCHAR(255), events VARCHAR(255), warning_source VARCHAR(255), headlines VARCHAR(255), warning_description TEXT NOT NULL ) ENGINE=InnoDB")
+
+    # Create tornadoes table
     cursor.execute("CREATE TABLE IF NOT EXISTS tornadoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag INT(2), injuries INT(4), deaths INT(4), damage DECIMAL(20, 10), crop_loss DECIMAL(20, 10) ,s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), length_traveled DECIMAL(10, 6), width INT(5), nbr_states_affected INT(2), sn INT(2), sg INT(2), fa INT(4), fb INT(4), fc INT(4), fd INT(4), fe INT(2)) ENGINE=InnoDB")
     
-    # Create table hail table
+    # Create hail table
     cursor.execute("CREATE TABLE IF NOT EXISTS hail (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag DECIMAL(5,2), injuries INT(4), deaths INT(4), damage DECIMAL(15, 1), crop_loss DECIMAL(15, 1), s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), fa INT(4)) ENGINE=InnoDB")
     
-    # Create table earthquake wind
+    # Create wind table
     cursor.execute("CREATE TABLE IF NOT EXISTS wind (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag DECIMAL(5,2), injuries INT(4), deaths INT(4), damage DECIMAL(15, 1), crop_loss DECIMAL(15, 1), s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), fa INT(4), mag_type VARCHAR(255))ENGINE=InnoDB")
     
-    # Create table tsunamis table
+    # Create tsunamis table
     cursor.execute("CREATE TABLE IF NOT EXISTS tsunamis (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), hour INT(4), min INT(4), second INT(4), validity VARCHAR(255), source VARCHAR(255), earthquake_mag DECIMAL(5,2), country VARCHAR(255), name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), water_height DECIMAL(10,2), tsunami_mag_lida DECIMAL(4,1), tsunami_intensity DECIMAL(4,1), death_nbr INT(8), injuries_nbr INT(8), damage_mill DECIMAL(10,3), damage_code INT(2), house_destroyed INT(8), house_code INT(2))ENGINE=InnoDB")
     
-    # Create table volcanoes table
+    # Create volcanoes table
     cursor.execute("CREATE TABLE IF NOT EXISTS volcanoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), tsu INT(4), eq INT(4), name VARCHAR(255), location VARCHAR(255), country VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), elevation DECIMAL(8,2), type VARCHAR(255), volcanic_index INT(2), fatality_cause VARCHAR(255), death INT(6), death_code INT(1), injuries INT(6), injuries_code INT(1), damage DECIMAL(8, 4), damage_code INT(1), houses INT(5), houses_code INT(1))ENGINE=InnoDB")
+
+
+    #################################################
+    # LOAD WEATHER WARNINGS TABLE
+    #################################################
+    # Load earthquake data to earthquake table
+    warning_values = []
+    def w_listify(v):
+        return v["warning_id"], v["lat"], v["lng"], v["effective_time"], v["expiration_time"], v["message_type"], v["severity"], v["certainty"], v["urgency"],  v["events"], v["warning_source"], v["headlines"], v["warning_description"]
+
+    for v in warnings_dict:
+        entry_tuple = w_listify(v)
+        warning_values.append(entry_tuple) 
+
+    ## defining the Query 
+    # area_desc, , %s
+    query = "INSERT INTO warnings (warning_id, lat, lng, effective_time, expiration_time, message_type, severity, certainty, urgency, events, warning_source, headlines, warning_description) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+
+    ## storing values in a variable
+    values = warning_values
+
+    ## executing the query with values
+    cursor.executemany(query, values)
+
+    ## to make final output we have to run the 'commit()' method of the database object
+    db.commit()
+    print(cursor.rowcount, "records inserted")
 
     #################################################
     # LOAD EARTHQUAKE TABLE
     #################################################
     earthquake_values = []
     def r_listify(v):
-        return v["magnitude"], v["place"], v["time"], v["timezone"], v["url"], v["tsunami"], v["ids"], v["specific_type"],  v["geometry"], v["lat"], v["lng"], v["depth"]
+        return v["magnitude"], v["place"], v["time"], v["timezone"], v["url"], v["tsunami"], v["id"], v["specific_type"],  v["title"], v["lng"], v["lat"], v["depth"]
 
     for v in earthquake_dict:
         entry_tuple = r_listify(v)
         earthquake_values.append(entry_tuple) 
     
     ## defining the Query
-    query = "INSERT INTO earthquakes (magnitude, place, time, timezone, url, tsunami, ids, specific_type, geometry, lat, lng, depth) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    query = "INSERT INTO earthquakes (magnitude, place, time, timezone, url, tsunami, id, specific_type, title, lng, lat, depth) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
-    ## storing values in a variable
-    values = earthquake_values
-
-    ## executing the query with values
-    cursor.executemany(query, values)
+    ## executing the query with earthquake_values
+    cursor.executemany(query, earthquake_values)
+    
+    #country_de column: use case statement to decode title column
+    cursor.execute("update earthquakes set country_de =\
+      case when trim(upper(substring_index(title, ',', -1))) = 'AL' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'AK' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'AZ' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'AR' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'CA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'CO' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'CT' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'DE' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'DC' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'FL' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'GA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'HI' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'ID' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'IL' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'IN' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'IA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'KS' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'KY' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'LA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'ME' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MD' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MI' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MN' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MS' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MO' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MT' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NE' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NV' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NH' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NJ' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NM' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NY' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NC' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'ND' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'OH' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'OK' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'OR' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'PA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'RI' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'SC' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'SD' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'TN' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'TX' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'UT' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'VT' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'VA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'WA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'WV' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'WI' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'WY' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'PR' then 'United States'     \
+           when trim(upper(substring_index(title, ',', -1))) = 'ALABAMA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'ALASKA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'ARIZONA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'ARKANSAS' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'CALIFORNIA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'COLORADO' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'CONNECTICUT' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'DELAWARE' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'DISTRICT OF COLUMBIA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'FLORIDA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'GEORGIA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'HAWAII' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'IDAHO' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'ILLINOIS' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'INDIANA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'IOWA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'KANSAS' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'KENTUCKY' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'LOUISIANA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MAINE' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MARYLAND' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MASSACHUSETTS' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MICHIGAN' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MINNESOTA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MISSISSIPPI' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MISSOURI' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'MONTANA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NEBRASKA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NEVADA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NEW HAMPSHIRE' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NEW JERSEY' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NEW MEXICO' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NEW YORK' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NORTH CAROLINA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'NORTH DAKOTA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'OHIO' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'OKLAHOMA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'OREGON' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'PENNSYLVANIA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'RHODE ISLAND' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'SOUTH CAROLINA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'SOUTH DAKOTA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'TENNESSEE' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'TEXAS' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'UTAH' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'VERMONT' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'VIRGINIA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'WASHINGTON' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'WEST VIRGINIA' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'WISCONSIN' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'WYOMING' then 'United States'\
+           when trim(upper(substring_index(title, ',', -1))) = 'PUERTO RICO' then 'United States' \
+           when trim(upper(substring_index(title, ',', -1))) = 'MX' then 'Mexico'\
+           when title like '%Off the coast of Oregon%' then 'Off the coast of Oregon'\
+           when title like '%Carlsberg Ridge%' then 'Carlsberg Ridge'\
+           when title like '%South of the Fiji Islands%' then 'South of the Fiji Islands'\
+           when title like '%Kuril Islands%' then 'Kuril Islands'\
+           when title like '%Fiji region%' then 'Fiji region'  \
+           when title like '%Northern Mid-Atlantic Ridge%' then 'Northern Mid-Atlantic Ridge'  \
+           when title like '%Southern Mid-Atlantic Ridge%' then 'Southern Mid-Atlantic Ridge'\
+           when title like '%West Chile Rise%' then 'West Chile Rise'\
+           when title like '%Central Mid-Atlantic Ridge%' then 'Central Mid-Atlantic Ridge'\
+           when title = 'M 3.7 - Gulf of Alaska' then 'Gulf of Alaska'\
+           when title = 'M 4.0 - Banda Sea' then 'Banda Sea'\
+           when title = 'M 4.2 - North Atlantic Ocean' then 'North Atlantic Ocean'\
+           when title = 'M 4.3 - Western Indian-Antarctic Ridge' then 'Western Indian-Antarctic Ridge'\
+           when title = 'M 4.4 - Central East Pacific Rise' then 'Central East Pacific Rise'\
+           when title = 'M 4.4 - North of Svalbard' then 'North of Svalbard'\
+           when title = 'M 4.4 - Off the coast of Central America' then 'Off the coast of Central America'\
+           when title = 'M 4.4 - Reykjanes Ridge' then 'Reykjanes Ridge'\
+           when title = 'M 4.5 - Mid-Indian Ridge' then 'Mid-Indian Ridge'\
+           when title = 'M 4.5 - Southern East Pacific Rise' then 'Southern East Pacific Rise'\
+           when title = 'M 4.6 - Greenland Sea' then 'Greenland Sea'\
+           when title = 'M 4.6 - North of Ascension Island' then 'North of Ascension Island'\
+           when title = 'M 4.6 - Northern East Pacific Rise' then 'Northern East Pacific Rise'\
+           when title = 'M 4.7 - South Shetland Islands' then 'South Shetland Islands'\
+           when title = 'M 4.7 - Southeast of Easter Island' then 'Southeast of Easter Island'\
+           when title = 'M 4.9 - Bouvet Island region' then 'Bouvet Island region'\
+           when title = 'M 5.0 - Prince Edward Islands region' then 'Prince Edward Islands region'\
+           when title = 'M 5.0 - Southeast Indian Ridge' then 'Southeast Indian Ridge'\
+           when title = 'M 5.0 - Vanuatu region' then 'Vanuatu region'\
+           when title = 'M 5.1 - South of the Kermadec Islands' then 'South of the Kermadec Islands'\
+           when title = 'M 5.2 - Pacific-Antarctic Ridge' then 'Pacific-Antarctic Ridge'\
+    else trim(substring_index(title, ',', -1))\
+    end")  
 
     ## to make final output we have to run the 'commit()' method of the database object
     db.commit()
@@ -146,12 +361,16 @@ def extract_transform_load():
     #################################################
     sig_earthquakes_df = pd.read_csv('resources/ngdc_data.tsv', sep='\t', header=0)
     # Cleans up the data and omits columns we don't need
-    drop_columns = ["I_D", "FLAG_TSUNAMI", "SECOND", "FOCAL_DEPTH", "EQ_MAG_MS", "EQ_MAG_MW", "EQ_MAG_MB", "EQ_MAG_ML", "EQ_MAG_MFA", "EQ_MAG_UNK", "STATE", "MISSING", "MISSING_DESCRIPTION", "INJURIES", "INJURIES_DESCRIPTION", "HOUSES_DESTROYED", "HOUSES_DESTROYED_DESCRIPTION", "HOUSES_DAMAGED", "HOUSES_DAMAGED_DESCRIPTION", "TOTAL_DEATHS_DESCRIPTION", "TOTAL_MISSING", "TOTAL_MISSING_DESCRIPTION", "TOTAL_HOUSES_DESTROYED", "TOTAL_INJURIES_DESCRIPTION", "TOTAL_HOUSES_DESTROYED_DESCRIPTION", "TOTAL_HOUSES_DAMAGED", "DAMAGE_DESCRIPTION", "REGION_CODE", "TOTAL_DAMAGE_DESCRIPTION", "DEATHS_DESCRIPTION", "TOTAL_HOUSES_DAMAGED_DESCRIPTION"]
+    drop_columns = ["I_D", "FLAG_TSUNAMI", "SECOND", "EQ_MAG_MS", "EQ_MAG_MW", "EQ_MAG_MB", "EQ_MAG_ML", "EQ_MAG_MFA", "EQ_MAG_UNK", "STATE", "MISSING", "MISSING_DESCRIPTION", "INJURIES", "INJURIES_DESCRIPTION", "HOUSES_DESTROYED", "HOUSES_DESTROYED_DESCRIPTION", "HOUSES_DAMAGED", "HOUSES_DAMAGED_DESCRIPTION", "TOTAL_DEATHS_DESCRIPTION", "TOTAL_MISSING", "TOTAL_MISSING_DESCRIPTION", "TOTAL_HOUSES_DESTROYED", "TOTAL_INJURIES_DESCRIPTION", "TOTAL_HOUSES_DESTROYED_DESCRIPTION", "TOTAL_HOUSES_DAMAGED", "DAMAGE_DESCRIPTION", "REGION_CODE", "TOTAL_DAMAGE_DESCRIPTION", "DEATHS_DESCRIPTION", "TOTAL_HOUSES_DAMAGED_DESCRIPTION"]
     sig_earthquakes_df = sig_earthquakes_df.drop(drop_columns, axis = 1)
-    sig_earthquakes_df = sig_earthquakes_df.rename(index=str, columns={"YEAR": "yr", "MONTH" : "month", "DAY" : "day", 'HOUR' : "hr", 'MINUTE' : "minute", 'EQ_PRIMARY' : "eq_mag_primary", 'INTENSITY' : "intensity", 'COUNTRY' : "country", 'LOCATION_NAME' : "location_name", 'LATITUDE': "lat", 'LONGITUDE' : "lng", 'DEATHS' : "deaths", 'DAMAGE_MILLIONS_DOLLARS' : "damage_millions", 'TOTAL_DEATHS' : "total_deaths", 'TOTAL_INJURIES' : "total_injuries", 'TOTAL_DAMAGE_MILLIONS_DOLLARS' : "total_damage_millions" })
+    sig_earthquakes_df = sig_earthquakes_df.rename(index=str, columns={"YEAR": "yr", "MONTH" : "month", "DAY" : "day", 'HOUR' : "hr", 'MINUTE' : "minute", 'EQ_PRIMARY' : "eq_mag_primary", "FOCAL_DEPTH": "depth", 'INTENSITY' : "intensity", 'COUNTRY' : "country", 'LOCATION_NAME' : "location_name", 'LATITUDE': "lat", 'LONGITUDE' : "lng", 'DEATHS' : "deaths", 'DAMAGE_MILLIONS_DOLLARS' : "damage_millions", 'TOTAL_DEATHS' : "total_deaths", 'TOTAL_INJURIES' : "total_injuries", 'TOTAL_DAMAGE_MILLIONS_DOLLARS' : "total_damage_millions" })
 
     # LOAD SIGNIFICANT EARTHQUAKE DATA INTO TABLE
-    sig_earthquakes_df.to_sql('significant_earthquakes', con=engine, if_exists='append', index = False, index_label = "id")
+    sig_earthquakes_df.to_sql('significant_earthquakes', con=engine, if_exists='append', index = False, index_label = "tb_id")
+
+    print('Table EARTHQUAKES_NGDC loaded.')
+    print('==============================================')
+    print('*** PYTHON LOOKUP TABLE SCRIPT COMPLETED ***')
 
     # LOAD DATA INTO PANDAS FROM CSV FILES
     df_tornadoes = pd.read_csv('resources/1950-2017_torn.csv')
@@ -161,11 +380,11 @@ def extract_transform_load():
     df_volcanoes = pd.read_csv('resources/volcano.csv')
 
     # LOADING TORNADOES DATA INTO TABLE
-    df_tornadoes.to_sql('tornadoes', con=engine, if_exists='append', index = False, index_label = "id")
+    df_tornadoes.to_sql('tornadoes', con=engine, if_exists='append', index = False, index_label = "tb_id")
     # LOADING HAIL DATA INTO TABLE
-    df_hail.to_sql('hail', con=engine, if_exists='append', index = False, index_label = "id")
+    df_hail.to_sql('hail', con=engine, if_exists='append', index = False, index_label = "tb_id")
     # LOADING WIND DATA INTO TABLE
-    df_wind.to_sql('wind', con=engine, if_exists='append', index = False, index_label = "id")
+    df_wind.to_sql('wind', con=engine, if_exists='append', index = False, index_label = "tb_id")
     # LOADING TSUNAMI DATA INTO TABLE
     df_tsunami.to_sql('tsunamis', con=engine, if_exists='append', index = False, index_label = "tb_id")
     # LOADING VOLCANO DATA INTO TABLE
@@ -173,3 +392,4 @@ def extract_transform_load():
 
 
 extract_transform_load()
+
