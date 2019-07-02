@@ -2,6 +2,15 @@ from flask import Flask
 from flask import jsonify
 from flask import render_template
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
+from sklearn.svm import SVC
+
 # Import the database connection.
 import db_conn
 
@@ -462,6 +471,39 @@ def return_all_warning():
         all_warning_updates.append(transformed_dict)
     
     return jsonify(all_warning_updates)
+
+# ************************************
+# MACHINE LEARNING ROUTE
+# ************************************
+@app.route("/machine", methods=['GET'])
+def return_machine():
+    
+    # Step 1: set up columns needed for this run
+
+    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.ids, db_conn.earthquakes.specific_type, db_conn.earthquakes.geometry, db_conn.earthquakes.country_de, db_conn.earthquakes.lng, db_conn.earthquakes.lat, db_conn.earthquakes.depth]
+    
+    # sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.tsunami, db_conn.earthquakes.specific_type, db_conn.earthquakes.country_de, db_conn.earthquakes.lng, db_conn.earthquakes.lat, db_conn.earthquakes.depth]
+
+
+    # Step 2: Run and store filtered query in results variable 
+    all_results = db_conn.session.query(*sel).all()
+
+    # Step 3: Build a list of dictionary that contains all the earthquakes
+    all_earthquakes = []
+
+    for r in all_results:
+        transformed_dict = create_earthquake_dict(r)
+        all_earthquakes.append(transformed_dict)
+    
+    
+    df = pd.DataFrame(all_earthquakes)
+    print(df)
+
+
+
+
+    return (all_earthquakes)
+
 
 if __name__ == "__main__":
     app.run()
