@@ -81,4 +81,351 @@ Accuracy
 -lat and lng corresponded to the right country
 -y_pred = knn.pred(New_array)
 
+******************************************
+USGS Earthquakes
+
+DATA PRE-PROCESSING
+---------------------------
+DROP: URL, ID, IDS
+COLUMNS TO BE CONVERTED: TIMEZONE AND TIME 
+
+NON_NUMERIC = PLACE, SPECIFIC_TYPE, GEOMETRY, COUNTRY_DE 
+NUMERIC = MAGNITUDE, TIME, TIMEZONE, TSUNAMI, LNG (REALLY LNG), LAT (REALLY LAT), DEPTH
+
+TARGETS
+---------------------------
+POTENTIAL TARGETS (WHAT TO PREDICT)
+COUNTRY 
+TSUNAMI
+TIME
+SPECIFIC_TYPE
+
+
+PROCESSING
+WE WILL NEED BOTH NATURAL LANGUAGE PROCESSING
+WE WILL NEED TO SEPARATE THE STRING FROM NUMERIC COLUMNS 
+WILL NEED TO CONDUCT SPECIAL SHUFFLING TO ENSURE ENOUGH TSUNAMI'S ARE SORTED IN TRAIN AND TEST 
+
+POTENTIAL SUPERVISED LEARNING QUESTIONS
+
+BINARY CLASSIFICATION
+IS THIS EVENT RELATED TO A TSUNAMI?
+
+EXAMPLE - LOAD_BREAST_CANCER SKLEARN.DATASETS 
+IS CANCER MALIGNANT OR BENIGH
+
+MULTICLASS CLASSIFICATION
+WHAT COUNTRY DID THIS EARTHQUAKE TAKE PLACE
+
+REGRESSION involved predicting a continuous number: Earthquake Magnitude is continuous 
+-Predict the magnitude of an earthquake in a country given attributes from prior years. 
+
+EXAMPLE - LOAD_BOSTON SKLEARN.DATASETS
+-PREDICT THE MEDIAN VALUE OF A HOME IN SEVERAL BOSTON NEIGHBORHOODS 
+
+MODEL COMPLEXITY 
+-INCREASE THE PARAMETERS IN THE MODEL TO CONVEY THE IDEAS OF MODEL COMPLEXITY TRADE OFF AND TEST ACCURACY 
+-SIMPLE MODELS ARE > CONVOLUTED MODELS 
+
+FEATURE ENGINEERING 
+WHEN YOU LOOK AT INTERACTIONS BETWEEN FEATURES 
+LATS AND LNGS
+COUNTRY AND LATS 
+COUNTRY AND LNGS 
+COUNTRY AND TSUMANIS 
+
+
+******************************************
+
+CHAPTER 2
+Supervised learning
+USED TO PREDICT A CERTAIN OUTCOME FROM A GIVEN INPUT 
+TWO TYPES OF CLASSIFICATION SCHEMES, BINARY OR MULTICLASS
+BINARY: Used to answer yes or no
+Example: spam email
+
+IS THIS EVENT RELATED TO A TSUNAMI?
+
+MULTICLASS: Used to classify an instance into one of many classes.
+WHAT COUNTRY DID THIS EARTHQUAKE TAKE PLACE
+
+REGRESSION involved predicting a continuous number: Earthquake Magnitude
+
+MODEL CONSIDERATIONS
+
+MODEL COMPLEXITY
+Generalized MODELS are those in which the training and test sets have similar characteristics (have enough in common)
+OVERTFIT MODELS are those that are accruate to the training set but perform porly with the test (or new data)
+OVERFITTING MODELS TOO CLOSELY TO THE TRAINING SET AND DOES NOT GENERALIZE TO NEW DATA. 
+UNDERFIT MODELS are those that are too simple.
+
+Relation of model complexity is tied to dataset size.
+The larger the dataset, the more cmplex it can be without overfitting. 
+Large data typically yields more variety. 
+
+FEATURE ENGINEERING
+
+INTERACTIONS ARE THE PRODUCT OF TWO FEATURES 
+LATS AND LNGS
+COUNTRY AND LATS 
+COUNTRY AND LNGS 
+COUNTRY AND TSUMANIS
+
+****************************************** page 31
+Supervised machine learning algorithms
+
+k-Nearest Neighbors 
+-Simplest
+-store only the training dataset 
+-algorithm makes prediction by finding the closest data point in the training dataset "nearest neighbor"
+-kNearest neighbors algorithm uses voting to assign a label in cases when there is more than one neighbor 
+-does not require too much adjustments
+-good baseline method to try before considering more advanced techniques
+-must preprocess data before building the KNN model, and not great with datasets with many features +100 and it does poorly when most features are 0 most of the time (sparse datasets)
+
+
+Analyzing KNeighborsClassifier and DECISION BOUNDARY
+-can use xy-plane for 2d Data
+-color plane by the class that would be assigned to a point in this region 
+-this lets use see the decision boundary, which is the divide between where the algorithm assigns the class 0 versus where it assigned class 1.
+
+
+****************************************** page 47
+Linear Models
+Many different linear models for regression, the difference between these models lie in how the model parameters slope (w) and intercept (b) are learned from the training data, and how model complexity can be controlled.
+
+
+NUMBER 1 *********************
+Linear regression (aka ordinary least squares)
+-simplest and most classic linear method for regression
+-finds the parameters w and b that minimizes the mean squared error between predictions and the true regression targets, y, in training set.
+-OLS has no parameters, which gives it no way to control model complexity.
+-the slope is also called the weights or the coefficients
+-they are stored in the coef_ attributes
+-the interept is also called the offset, is stored in the intercept_ attribute
+
+sckit-learn always stores anything that is derived from the training data in attributes that end with a trailing underscore to separate them from paramters that are set by the user.
+
+intercept_ attribute is always a single float number 
+coef_ attribute is always a NumPy array with one entry per input feature 
+
+Linear regressions OLS does not allow for control of complexity
+
+
+NUMBER 2 *********************
+RIDGE regression is a form of linear model regression pg 51 
+-same formula as in OLS, although the coefficients (slopes, w) are chosen not only so that they predict well on the training data, but also to fit an additional contraint. 
+-We will want the magnitude of coefficients to be as small as possible.
+-all entries of w slope should be close to zero.
+-this means each feature in the data should have as little effect on the outcome as possible 
+-which translates to having a small slope which still predict well 
+-this constrain is an example of what is called regularization. which means, to explicitly restrict the model 
+-to avoid overfitting
+-the particular kind used by ridge regression is known as L2 regularization. 
+-RIDGE models makes trade-off between the simplicity of the model (near zero coefficients) and its performance on the training set.
+-how much importance them model places on simplicity versus performance on the training set can be specified by the alpha parameter 
+
+LASSO pg 55 an alternative to ridge for regularizaing  linear regressions.
+-lasso also restricts the coefficients to be close to zero
+-referred to as L1 regularization
+-When using lasso, some coefficents are exactly zero
+-this means some features are entirely ignored by the model
+-this can be seen as a form of automatic feature selection 
+-helps reveal the most important features of your model
+-lasso has alpha paramaters that help is control how strongly coefficients are pushed to zero
+-uses max_iter as another parameter
+
+RIDGE VERSUS LASSO
+-in general, use ridge first, but use lasso when you have a large amount of features and expect only a few of them to be import. Lasso, might be a better choice in this case. 
+-Lasso is also easier to interpret, as it selects only a subset of the input features.
+
+ElasticNet combines penalties from Lasso and Ridge. 
+
+****************************************** page 58
+LINEAR MODELS FOR CLASSIFICATION
+CATEGORICAL DATA
+YES/NO
+OPTION: A, B, C, ETC 
+
+
+BINARY CLASSIFICATION PG 58
+-Formula similar to the one for Ordinary least squares 
+-But, instead of returning the weighted sum of the features, it thresholds the predicted value at zero.
+-If the funciton is smaller than zero, we predict the class as -1
+-If the funciton is larger than zero, we predict the class as +1
+-this prediction rule is common to all linear models for classification.
+-For binary classification, the decision boundary is the line that separates the two classes and all new points fall in either class. (predicted to fall in a class)
+
+All learning linear algorithms differ in the following ways:
+-the way in which they measure how well a particular combination of coefficients and intercepts fits the training data.
+-if and what kind of regularization they used.
+
+LOSS FUNCTIONS
+
+TWO MOST COMMON LINEAR CLASSIFICATION ALGORITHMS ARE 
+---LOGISTIC REGRESSION
+---LINEAR SUPPORT VECTOR MACHINES (SVMs)
+-Both models applly an L2 regularizaing, such as the Ridge regression
+
+LOGISTIC REGRESSION IS A CLASSIFICATION ALGORITHM AND NOT A REGRESSION ALGORITHM
+NOT CONFUSED WITH LINEAR REGRESSION. 
+-lOGISTIC CAN NATURALLY HANDDLE MULTICLASS CASES
+
+PARAMETERS FOR LogisticRegression and Linear SVC
+The trade off parameters that determine the strength of the regularization is called "C"
+
+Higher value of C 
+-LogisticRegression and LinearSVC try to fit the training set as best as possible
+-algorithm stresses the importance that each individual data point be classified correctly.
+
+Lower value of C
+-while with low value of the paramter C, the model emphasis finding a coefficent vector (w) that is close to zero. 
+-causes the algorithm to try to adjust to the "majority" of data points 
+
+
+****************************************** 
+
+LINEAR MODELS FOR MULTICLASS CLASSIFICATION PAGE 65
+-model uses binary classification to a multiclass classification 
+-uses a one-vs rest approach
+-a binary model is learned for each class that tires to separate that class from all other classes
+-the classifier with the highest score on its single class, wins, and the class label is returned as the prediction
+
+
+****************************************** 
+
+STRENGHTS, WEAKNESSES, AND PARAMETERS page 69
+-main parameter of linear models is the regularzation parameter, 
+LINEAR REGRESSION MODELS: alpha
+LOGISTIC REGRESSION AND LINEARSVC: C 
+
+SIMPLE MODELS 
+-LARGE ALPHA VALUES 
+-SMALL C VALUES 
+
+PARAMETERS ARE IMPORTANT FOR REGRESSION MODELS 
+
+L1 VS L2 regularization
+-HOW TO PENALIZE THE COEFFICIENTS OF THE W SLOPES 
+-IF ONLY A FEW OF THE FEATURES ARE IMPORTANT, USE THE L1 METHOD 
+-IF YOU DONT KNOW, USE L2 THE DEFAULT 
+
+BENEFITS 
+-LINEAR MODELS ARE FAST TO TRAIN 
+-FAST TO PREDICT 
+-THEY SCALE TO LARGE DATASETS 
+-THEY MAKE IT RELATIVELY EASY TO UNDERSTAND HOW PREDICTIONS ARE MADE 
+-GREAT FOR DATASETS WHERE THE NUMBER OF FEATURES IS LARGER COMPARED TO THE NUMBER OF SAMPLES. 
+
+
+****************************************** PG 94
+KERNELIZED SUPPORT VECTOR MACHINES CASE: CLASSIFICATION 
+-extension that allows for more complex models that are not defined simply by hyperplanes in the input space
+
+Linear and nonlinear features
+-linear models are limiting in low-dimensional space, because of their low flexibility.
+-One way to make model more flexible is to add more features - adding interactions or polynomials of the input features.
+-adding an interaction adds a third dimension to the plot
+-Adding nonlinear features to th erepresentation of our data can make linear models more powerful
+-Kernel trick is a process to classify in higher dimensional space wihtout the high computational cost.
+-Kernel trick directly computes the distance (scalar product), of the data point for the expandad feature representation, without ever actually computer the expansion
+
+TWO MAPPING STRATEGY FOR HIGHER-DIMENSIONAL SPACE FOR SVMs
+1. POLYNOMIAL KERNEL: computes all possible polynomials up to a certain degree of the original feature
+example: (feature1 ** 2 * feature ** 5)
+2. RADIAL BASIS FUNCTION (RBF or Gaussian Kernel): deal with infinite dimensional feature space, it considers all possible polynomials of all degrees, but the importance of the features decreases for higher degrees.
+
+UNDERSTANDING SUPPORT VECTOR MACHINES SVMS Pg 100
+-SVM learn how important each of the training data points is to represent the decision boundary between two classes.
+-The support vectors are the training data points that help define the decision boundary, because they lie in the boarder between the classes. 
+-to make predictions for a new point (test point), the distance for each of the support vectors is measured, a classification decision is made based on the distance to the support vector measured (training point), and the importance of the support vector that was learned during the training (dual_coef_ attribute of SVC)
+-Guassian kernel is used to calculate the distance between the two points. uses euclidian distance 
+gamma controls the widge of the guassian kernel. 
+
+TUNING SVM PARAMETERS PG 101
+SVMS use two parameters
+1. C
+-regularization parameter similar to the linear models.
+-it limits the importance of each point (or their dual_coef_)
+# a small C means a very restricted model
+# each data point can only have a limited influence, which means more linear
+# misclassification have a very limited influence on the line
+# increasing C allows these points to have a stronger influence on the model
+# makes the decision boundary bend to correctly classify them.
+# Default C =1
+
+2. Gamma determines how far the influence of a single training example reaches
+-low values correspond with a far reach
+-high values to a limited reach 
+-the wider the radius of the gaussian kernel, the further the influence of each training example. 
+# from left to righ, the value of the gamma is increased from 0.1 to 10
+# small gamma means a large radius for the guassian kerne
+# this means many points are considered close by and means a smooth decision boundary
+# also means that the decision boundary will vary slowly, and yields low model complexity
+# a high gamma yields a more complex model
+# Default gamma = 1/n_features
+
+NOTES:
+-SVMS are very sensitive to the settings of the parameters and to the scaling of the data
+-they require all features to vary on a similar scale 
+
+PREPROCESSING DATA FOR SUPPORT VECTOR MACHINES PG 104
+-Rescale each feature so they are all approximately on the same scale between 0 and 1 
+-MinMaxScalar method 
+
+STRENGHTS, WEAKNESS, AND PARAMETERS PG 106
+-allow for complex decision boundaries, even if the data has only a few features
+-they work well on low-dimensional and high dimensional data
+-but they dont scale very well with the number of SAMPLES
+-high sample sizes are difficult on memory and runtime
+-SVMs require careful preprocessing of the data and tuning of the parameters
+-Most people use tree-based models such as random forest or gradient boosting
+-these methods dont need pre processing 
+-SVM are hard to inspect - not easy to determine why a particular prediction was made 
+-SVM are good if features represent measurements in similar units and similar scale
+-C and Gamma are related and should be adjusted together 
+
+
+
+****************************************** p
+PAGE LAYOUT
+
+-WHAT IS MACHINE LEARNING
+-WHAT IS SUPERVISED LEARNING
+-BINARY AND MULTICLASS CLASSIFICATION 
+--TARGETS (DROWNDOWN LIST)
+-MODEL COMPLEXITY
+--OVERFITTING, UNDERFITTING, GENERALZIE 
+--ACCURACY 
+
+ALGORITHMS 
+-kNNEAREST NEIGHBORS 
+---LAYOUT: Plot that shows TRAINING CLASS 1, TRAINING CLASS 2, AND TEST PREDITCTION 0 AND TEST PREDICTING 1
+---DROPDOWN: to let users select the number of neighbors
+
+---PLOT 1: DECISION BOUNDARY PG 40
+----SELECT TWO FEATURES IN TWO DROPDOWN
+----PLOT UPDATES
+----EDUCATIONAL VALUE: LOWER NEIGHBORS = MORE COMPLEXITY, HIGHER NEIGHBORS = LESS COMPLEXITY
+
+---PLOT 2: MODEL COMPLEXITY AND NBR OF KNEIGHBORS PG 42
+---DROPDOWN: SELECT THE TOTAL NUMBER OF NEIGHBORS
+---perhaps the total sample size?
+
+---PLOT 3: LINEAR REGRESSION MODELS FOR CLASSIFYING CONTINOUS DATA
+
+---PLOT 4: RIDGE REGRESSION TO CONTROL COMPLEXITY EXAMPLE 1
+---BAR to select values of alpha parameter (this decreases training set performance, but might improve generalization)
+
+---PLOT 5: LOSSO REGRESSION TO CONTROL COMPLEXITY EXAMPLE 2
+---BAR to select values of alpha parameter (this decreases training set performance, but might improve generalization)
+---Bar to also select the max_iter
+---Output will be the training score and the test score 
+
+---PLOT 6: LOGISTIC REGRESSION (LINEAR MODELS FOR CLASSIFICATION)
+---BAR to select "C" value parameter (this decreases training set performance, but might improve generalization)
+---Output will be the training score and the test score 
+
+
+
 
