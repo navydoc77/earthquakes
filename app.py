@@ -297,6 +297,38 @@ def get_all_earthquakes(sql_to_py):
     
     return (all_earthquakes)
 
+
+# ############ Machine Learning Function ############### #
+# This will produce the data for plotting KNN analysis   #
+
+def kNeighborAnalysis(X, y):
+
+    ################ TRAIN TEST SPLIT ####################
+    X_train, X_test, y_train, y_test = train_test_split(
+    X, y, random_state=42)
+
+    ################ K-NEAREST NEIGHBOR ####################
+    training_accuracy = []
+    test_accuracy = []
+    # try n_neighbors from 1 to 10
+    neighbors_settings = range(1, 11)
+
+    for n_neighbors in neighbors_settings:
+        # build the model
+        clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+        clf.fit(X_train, y_train)
+        # record training set accuracy
+        training_accuracy.append(clf.score(X_train, y_train))
+        # record generalization accuracy
+        test_accuracy.append(clf.score(X_test, y_test))
+
+    knn_annalysis_dict = {
+        "x" : [1,2,3,4,5,6,7,8,9,10],
+        "y1": test_accuracy,
+        "y2": training_accuracy}
+
+    return (knn_annalysis_dict)
+
 #################################################
 # Flask Routes
 #################################################  
@@ -709,34 +741,167 @@ def machine_learning():
     
     
     df = pd.DataFrame(all_earthquakes)
-    print(df)
-
-    DROP_COLUMNS = ["place", "time", "timezone", "url",  "id", "specific_type", "title", "country"]
-    reduced_df = df.drop(DROP_COLUMNS, axis = 1)
-
-    y = reduced_df["tsunami"].values
-    X = reduced_df.drop('tsunami', axis=1).values
-
-
-    ################ TRAIN TEST SPLIT ####################
-    X_train, X_test, y_train, y_test = train_test_split(
-    X, y, random_state=42)
-
-    ################ K-NEAREST NEIGHBOR ####################
-    training_accuracy = []
-    test_accuracy = []
-    # try n_neighbors from 1 to 10
-    neighbors_settings = range(1, 11)
-
-    for n_neighbors in neighbors_settings:
-        # build the model
-        clf = KNeighborsClassifier(n_neighbors=n_neighbors)
-        clf.fit(X_train, y_train)
-        # record training set accuracy
-        training_accuracy.append(clf.score(X_train, y_train))
-        # record generalization accuracy
-        test_accuracy.append(clf.score(X_test, y_test))
     
+    ################ FEATURES PREPROCESSING FOR KNN MODEL ###################
+    DROP_COLUMNS = ["place", "time", "timezone", "url",  "id", "specific_type", "title", "country"]
+    knn_df = df.drop(DROP_COLUMNS, axis = 1)
+
+    # **************************************************** #
+    # ############### FEATURE SELECTION ################## #
+    # **************************************************** #
+
+    # Case 1: LNG, DEPTH, MAG
+    # CASE 2: LNG, DEPTH
+    # CASE 3: LNG, MAG
+    # CASE 4: DEPTH, MAG
+    # CASE 5: LNG,
+    # CASE 6: DEPTH
+    # CASE 7: MAG
+    # CASE 8: 
+    
+    ################# Lat "Lng Depth Magnitude "###############
+    # CASE 1: ALL Subfeatures included: Lng Depth Magnitude
+    # CASE 1: ALL CHECKED OFF
+    # CASE 1: PREFIX DESIGNATION: All
+
+    # Step 1: Drop columns
+    # NONE
+
+    # Step 2: Assign X and y values
+    y = knn_df["tsunami"].values
+    X = knn_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    all_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Lng Depth" ###############
+    # CASE 2: LNG, DEPTH CHECKED OFF
+    # CASE 2: MAGNITUDE NOT CHECKED OFF
+    # CASE 2: PREFIX DESIGNATION: lng_depth_df
+
+    # Step 1: Drop columns
+    CASE2_DROP_COLUMNS = ["magnitude"]
+    lng_depth_df = knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = lng_depth_df["tsunami"].values
+    X = lng_depth_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    lng_depth_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Lng Magnitude" ###############
+    # CASE 3: LNG AND MAGNITUDE CHECKED OFF
+    # CASE 3: DEPTH NOT CHECKED OFF
+    # CASE 3: PREFIX DESIGNATION: lng_magnitude
+
+    # Step 1: Drop columns
+    CASE3_DROP_COLUMNS = ["depth"]
+    lng_magnitude_df = knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = lng_magnitude_df["tsunami"].values
+    X = lng_magnitude_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    lng_magnitude_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Depth Magnitude" ###############
+    # CASE 4: DEPTH AND MAGNITUDE CHECKED OFF
+    # CASE 4: LNG NOT CHECKED OFF
+    # CASE 4: PREFIX DESIGNATION: depth_magnitude
+
+    # Step 1: Drop columns
+    CASE4_DROP_COLUMNS = ["lng"]
+    depth_magnitude_df = knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = depth_magnitude_df["tsunami"].values
+    X = depth_magnitude_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    depth_magnitude_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Lng" ###############
+    # CASE 5: LNG CHECKED OFF
+    # CASE 5: MAGNITUDE AND DEPTH NOT CHECKED OFF
+    # CASE 5: PREFIX DESIGNATION: lng_df
+
+    # Step 1: Drop columns
+    CASE5_DROP_COLUMNS = ["magnitude", "depth"]
+    lng_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = lng_df["tsunami"].values
+    X = lng_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    lng_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Depth" ###############
+    # CASE 6: DEPTH CHECKED OFF
+    # CASE 6: LNG AND MAG NOT CHECKED OFF
+    # CASE 6: PREFIX DESIGNATION: depth
+
+    # Step 1: Drop columns
+    CASE6_DROP_COLUMNS = ["magnitude", "lng"]
+    depth_df = knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = depth_df["tsunami"].values
+    X = depth_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    depth_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Magnitude" ###############
+    # CASE 7: MAGNITUDE CHECKED OFF
+    # CASE 7: LNG DEPTH NOT CHECKED OFF
+    # CASE 7: PREFIX DESIGNATION: magnitude
+
+    # Step 1: Drop columns
+    CASE5_DROP_COLUMNS = ["depth", "lng"]
+    magnitude_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = magnitude_df["tsunami"].values
+    X = magnitude_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    magnitude_data = kNeighborAnalysis(X,y)
+
+    ################# Lat ###############
+    # CASE 8: NO FEATURES SELECTED 
+    # CASE 8: ALL BOXED UNCHECKED
+    # CASE 8: PREFIX DESIGNATION: lat_df
+
+    # Step 1: Drop columns
+    DROP_NEW_COLUMNS = ["magnitude", "depth", "lng"]
+    lat_df = knn_df.drop(DROP_NEW_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = lat_df["tsunami"].values
+    X = lat_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    lat_data = kNeighborAnalysis(X,y)
+
+
+    ################# RETURNING ALL CASE RESULTS #########################
+    all_knn_analysis_data = {
+        "case1" : all_data,
+        "case2" : lng_depth_data,
+        "case3" : lng_magnitude_data,
+        "case4" : depth_magnitude_data,
+        "case5" : lng_data,
+        "case6" : depth_data, 
+        "case7" : magnitude_data,
+        "case8" : lat_data
+    }
+
+    return jsonify(all_knn_analysis_data)
+
+
     ################ KNN CONFUSION MATRIX ####################
     # knn = neighbors.KNeighborsClassifier(n_neighbors=5)
     # knn.fit(X_train, y_train)
@@ -754,18 +919,42 @@ def machine_learning():
 
 
     ################ RETURNING MACHINE LEARNING DATA ####################
-    ml_data = {
-        "x" : [1,2,3,4,5,6,7,8,9, 10],
-        "y1": test_accuracy,
-        "y2": training_accuracy}
+    # ml_data = {
+    #     "x" : [1,2,3,4,5,6,7,8,9,10],
+    #     "y1": test_accuracy,
+    #     "y2": training_accuracy}
         # "fpr": fpr,
         # "tpr": tpr,
         # "thresholds": thresholds,
         # "log_reg_train_score": log_reg_train_score,
         # "log_reg_test_score" : log_reg_test_score
 
-    return jsonify(ml_data)
-
 if __name__ == "__main__":
     app.run()
 
+
+
+    # ################ TRAIN TEST SPLIT ####################
+    # X_train, X_test, y_train, y_test = train_test_split(
+    # X, y, random_state=42)
+
+    # ################ K-NEAREST NEIGHBOR ####################
+    # all_test_accuracy = []
+    # all_training_accuracy = []
+
+    # # try n_neighbors from 1 to 10
+    # neighbors_settings = range(1, 11)
+
+    # for n_neighbors in neighbors_settings:
+    #     # build the model
+    #     clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+    #     clf.fit(X_train, y_train)
+    #     # record training set accuracy
+    #     all_training_accuracy.append(clf.score(X_train, y_train))
+    #     # record generalization accuracy
+    #     all_test_accuracy.append(clf.score(X_test, y_test))
+
+    # all_data =  {
+    #     "x" : [1,2,3,4,5,6,7,8,9,10],
+    #     "y1": all_test_accuracy,
+    #     "y2": all_training_accuracy}

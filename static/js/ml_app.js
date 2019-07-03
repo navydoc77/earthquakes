@@ -13,44 +13,55 @@ function getChecked() {
     };
 }
 
-// function knnAnalysisPlot(data_source_url) {
+
+// Data structure from app.py
+// all_knn_analysis_data = {
+//   "case1" : all_data,
+//   "case2" : lng_depth_data,
+//   "case3" : lng_magnitude_data,
+//   "case4" : depth_magnitude_data,
+//   "case5" : lng_data,
+//   "case6" : depth_data, 
+//   "case7" : magnitude_data,
+//   "case8" : lat_data
+// }
+
 function knnAnalysisPlot() {
   d3.json(data_source_url).then(function(data) {
     var data = [data];
-    console.log(data);
+    console.log(data)
+    var test = data.map(row=>row.all_knn_analysis_data)
+    console.log(test[0])
+    var case_one = data.map(row => row.all_knn_analysis_data.case1.x);
+    console.log(case_one[0]);
+
     var x = [];
     var test_accuracy = [];
     var training_accuracy = [];
 
-    var x = data.map(row => row.x);
-    var test_accuracy = data.map(row => row.y1);
-    var training_accuracy = data.map(row => row.y2);
-    console.log(x);
-    console.log(test_accuracy);
-    console.log(training_accuracy);
-    
+    // var x = data.map(row => row.all_data.x);
+    // var test_accuracy = data.map(row => row.all_data.y1);
+    // var training_accuracy = data.map(row => row.all_data.y2);
 
     var trace2 = {
+      marker: {'symbol': 1},
       type: "scatter",
-      mode: "lines",
+      mode: "markers+lines",
       name: "Test Accuracy",
-      // x: data.map(row => row.x),
-      // y: data.map(row => row.y1),
-      x: [1,2,3,4,5,6,7,9,10],
-      y: [1, 0.9983209402734469, 0.998201007435836, 0.9973614775725593, 0.9974814104101704, 0.9972415447349484, 0.9972415447349484, 0.9972415447349484, 0.9972415447349484,  0.9972415447349484],
+      x: x[0],
+      y: test_accuracy[0],
       line: {
         color: "#17BECF"
       }
     };
 
     var trace1 = {
+      marker: {'symbol': 27},
       type: "scatter",
-      mode: "lines",
+      mode: "markers+lines",
       name: "Training Accuracy",
-      // x: data.map(row => row.x),
-      // y: data.map(row => row.y2),
-      x: [1,2,3,4,5,6,7,9,10],
-      y: [0.99568345323741, 0.9971223021582734, 0.9978417266187051, 0.9964028776978417, 0.9974820143884892, 0.9971223021582734, 0.9971223021582734,0.9967625899280576, 0.9971223021582734, 0.9967625899280576],
+      x: x[0],
+      y: training_accuracy[0],
       line: {
         color: "#FF8C00"
       }
@@ -58,7 +69,6 @@ function knnAnalysisPlot() {
 
     var plot_data = [trace1, trace2];
 
-    // var layout = { margin: { t: 30, b: 100 } };
     var layout = { 
       title: "knnAnalysisPlot",
       xaxis: { title: "Number of Nearest Neighbors" },
@@ -76,10 +86,3 @@ function knnAnalysisPlot() {
 
 // init();
 knnAnalysisPlot();
-
-
-
-// d3.json(data_source_url).then(function (response) {
-//   var sightings = response.test_accuracy;
-//   sightings.forEach(function (s) {
-//       console.log(s);
