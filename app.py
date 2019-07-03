@@ -232,6 +232,17 @@ def create_volcano_filter_viz(r):
     "death": int(r[4])
     }    
 
+def create_tsunami_filter_viz(r):
+    return {
+    "dtg" : r[0],
+    "lat": float(r[1]),
+    "lng": float(r[2]),
+    "mag": float(r[3]),
+    "water_height": float(r[4])
+    }   
+
+
+
 #################################################
 # Functions
 #################################################  
@@ -281,6 +292,12 @@ def tornado_filter_dashb():
 def volcano_filter_dashb():
     """Return the homepage."""
     return render_template("volcano_filter_dashb.html")
+
+# Renders tsunami filter dashboard
+@app.route("/tsunami-filter-dashb")
+def tsunami_filter_dashb():
+    """Return the homepage."""
+    return render_template("tsunami_filter_dashb.html")
 
 # EQ Magnitudes
 @app.route("/magnitudes")
@@ -402,6 +419,33 @@ def return_volcano_filter_viz():
     print(all_volcano_filter_viz)
 
     return jsonify(all_volcano_filter_viz)
+
+# ************************************
+# RETURNS ALL TSUNAMI FROM TSUNAMI_FILTER_VIZ TABLE
+# ************************************
+@app.route("/tsunami_filter_viz", methods=['GET'])
+def return_tsunami_filter_viz():
+
+    # Step 1: set up columns needed for this run
+    
+    sel = [db_conn.tsunami_filter_viz.dtg, db_conn.tsunami_filter_viz.lat, db_conn.tsunami_filter_viz.lng, db_conn.tsunami_filter_viz.mag, db_conn.tsunami_filter_viz.water_height]
+    
+    print(sel)
+
+
+    # Step 2: Run and store filtered query in results variable 
+    all_tsunami_filter_viz_results = db_conn.session.query(*sel).all()
+    print(all_tsunami_filter_viz_results)
+
+    # Step 3: Build a list of dictionary that contains all the earthquakes
+    all_tsunami_filter_viz = []
+    for r in all_tsunami_filter_viz_results:
+        transformed_dict = create_tsunami_filter_viz(r)
+        all_tsunami_filter_viz.append(transformed_dict)
+    
+    print(all_tsunami_filter_viz)
+
+    return jsonify(all_tsunami_filter_viz)
 
 # ************************************
 # RETURNS ALL TORNADOES FROM TORNADOES DATA TABLE

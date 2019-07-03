@@ -105,7 +105,7 @@ def extract_transform_load():
     cursor.execute("CREATE TABLE IF NOT EXISTS wind (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag DECIMAL(5,2), injuries INT(4), deaths INT(4), damage DECIMAL(15, 1), crop_loss DECIMAL(15, 1), s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), fa INT(4), mag_type VARCHAR(255))ENGINE=InnoDB")
     
     # Create tsunamis table
-    cursor.execute("CREATE TABLE IF NOT EXISTS tsunamis (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), hour INT(4), min INT(4), second INT(4), validity VARCHAR(255), source VARCHAR(255), earthquake_mag DECIMAL(5,2), country VARCHAR(255), name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), water_height DECIMAL(10,2), tsunami_mag_lida DECIMAL(4,1), tsunami_intensity DECIMAL(4,1), death_nbr INT(8), injuries_nbr INT(8), damage_mill DECIMAL(10,3), damage_code INT(2), house_destroyed INT(8), house_code INT(2))ENGINE=InnoDB")
+    cursor.execute("CREATE TABLE IF NOT EXISTS tsunamis (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), hour INT(4), min INT(4), second INT(4), validity VARCHAR(255), source VARCHAR(255), earthquake_mag DECIMAL(5,2), country VARCHAR(255), name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), water_height DECIMAL(10,2), tsunami_mag_lida DECIMAL(4,1), tsunami_intensity DECIMAL(4,1), death_nbr INT(8), injuries_nbr INT(8), damage_mill DECIMAL(10,3), damage_code INT(2), house_destroyed INT(8), house_code INT(2), dtg varchar(25))ENGINE=InnoDB")
     
     # Create volcanoes table
     cursor.execute("CREATE TABLE IF NOT EXISTS volcanoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), tsu INT(4), eq INT(4), name VARCHAR(255), location VARCHAR(255), country VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), elevation DECIMAL(8,2), type VARCHAR(255), volcanic_index INT(2), fatality_cause VARCHAR(255), death INT(6), death_code INT(1), injuries INT(6), injuries_code INT(1), damage DECIMAL(8, 4), damage_code INT(1), houses INT(5), houses_code INT(1), dtg varchar(25))ENGINE=InnoDB")
@@ -293,7 +293,6 @@ def extract_transform_load():
 
     print('Table EARTHQUAKES_NGDC loaded.')
     print('==============================================')
-    print('*** PYTHON LOOKUP TABLE SCRIPT COMPLETED ***')
          
     cursor.execute("create table eq_filter_viz\
                     as select\
@@ -317,27 +316,59 @@ def extract_transform_load():
           df_tornadoes['time'].astype(str).apply(lambda x: x.zfill(8))
     #add dtg column to df
     df_tornadoes['dtg'] = dtg
-    df_hail = pd.read_csv('resources/1955-2017_hail.csv')
-    df_wind = pd.read_csv('resources/wind.csv')
+
+    # LOADING TORNADOES DATA INTO TABLE
+    df_tornadoes.to_sql('tornadoes', con=engine, if_exists='append', index = False, index_label = "tb_id")    
+    
+    
+    
     df_tsunami = pd.read_csv('resources/tsunami.csv')
+    #concatenate date/time columns and left pad with zeros so in this format: YYYY-MM-DD HH24:MI:SS
+    dtg = df_tsunami['year'].astype(str)  + '-' + \
+          df_tsunami['month'].astype(str).apply(lambda x: x.zfill(2)) + '-' + \
+          df_tsunami['day'].astype(str).apply(lambda x: x.zfill(2)) + ' ' + \
+          df_tsunami['hour'].astype(str).apply(lambda x: x.zfill(2)) + ':' + \
+          df_tsunami['min'].astype(str).apply(lambda x: x.zfill(2)) + ':' + '00'
+    #add dtg column to df
+    df_tsunami['dtg'] = dtg
+    # LOADING TSUNAMI DATA INTO TABLE
+    df_tsunami.to_sql('tsunamis', con=engine, if_exists='append', index = False, index_label = "tb_id")    
+
     df_volcanoes = pd.read_csv('resources/volcano.csv')
+    #concatenate date/time columns and left pad with zeros so in this format: YYYY-MM-DD HH24:MI:SS
     dtg = df_volcanoes['year'].astype(str)  + '-' + \
           df_volcanoes['month'].astype(str).apply(lambda x: x.zfill(2)) + '-' + \
           df_volcanoes['day'].astype(str).apply(lambda x: x.zfill(2)) + ' ' + \
           '00:00:00'
     #add dtg column to df
     df_volcanoes['dtg'] = dtg
+    # LOADING VOLCANO DATA INTO TABLE
+    df_volcanoes.to_sql('volcanoes', con=engine, if_exists='append', index = False, index_label = "tb_id")    
 
-    # LOADING TORNADOES DATA INTO TABLE
-    df_tornadoes.to_sql('tornadoes', con=engine, if_exists='append', index = False, index_label = "tb_id")
+    df_hail = pd.read_csv('resources/1955-2017_hail.csv')
+    df_wind = pd.read_csv('resources/wind.csv')
+
+
     # LOADING HAIL DATA INTO TABLE
     df_hail.to_sql('hail', con=engine, if_exists='append', index = False, index_label = "tb_id")
     # LOADING WIND DATA INTO TABLE
     df_wind.to_sql('wind', con=engine, if_exists='append', index = False, index_label = "tb_id")
-    # LOADING TSUNAMI DATA INTO TABLE
-    df_tsunami.to_sql('tsunamis', con=engine, if_exists='append', index = False, index_label = "tb_id")
-    # LOADING VOLCANO DATA INTO TABLE
-    df_volcanoes.to_sql('volcanoes', con=engine, if_exists='append', index = False, index_label = "tb_id")
+
+   
+    cursor.execute("create table tsunami_filter_viz\
+                    as select\
+                    dtg,\
+                    lat,\
+                    lng,\
+                    earthquake_mag mag,\
+                    water_height\
+                    from tsunamis\
+                    where `year` >= '1900'")
+
+    #add primary key for tsunami_filter_viz table                    
+    cursor.execute("alter table tsunami_filter_viz add tsunami_filter_viz_pk_id int auto_increment primary key first")         
+    
+    
 
     cursor.execute("create table volcano_filter_viz\
                     as select\

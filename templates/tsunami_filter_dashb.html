@@ -4,7 +4,7 @@
   <meta charset='utf-8'>
   <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
 
-  <title>Volcano Filter Graph</title>
+  <title>Tsunami Filter Graph</title>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://d3js.org/d3-time.v1.min.js"></script>
@@ -29,13 +29,13 @@
 
   <div class='row'>
     <div class='span12'>
-      <h3>Worldwide Volcano Events</h3>
+      <h3>Worldwide Tsunamis</h3>
       <div class='row'>
-        <div class='pie-graph span6' id='dc-volcanic-index-chart'>
-        <h4>Events by Volcano Index</h4>
+        <div class='pie-graph span6' id='dc-magnitude-chart'>
+        <h4>Events by Earthquake Magnitude</h4>
         </div>
-        <div class='pie-graph span6' id='dc-death-chart'>
-	      <h4>Volcano Deaths</h4>
+        <div class='pie-graph span6' id='dc-water-height-chart'>
+	      <h4>Events by Water Height (feet)</h4>
         </div>    
       </div>
     </div>
@@ -55,8 +55,8 @@
             <th>Date and Time</th>
             <th>Lat</th>
             <th>Long</th>
-            <th>Deaths</th>
-            <th>Volcano Index</th>
+            <th>Water Height</th>
+            <th>Magnitude</th>
             <th>Google Map</th>
             <th>OSM Map</th>
           </tr>
@@ -68,7 +68,7 @@
 </div>
 </div>
   
- <script src="../static/js/volcanoFilterGraph.js"></script>
+ <script src="../static/js/tsunamiFilterGraph.js"></script>
     
 </body>
 </html>

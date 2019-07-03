@@ -41,6 +41,7 @@ tsunamis = Base.classes.tsunamis
 volcanoes = Base.classes.volcanoes
 eq_filter_viz = Base.classes.eq_filter_viz
 volcano_filter_viz = Base.classes.volcano_filter_viz
+tsunami_filter_viz = Base.classes.tsunami_filter_viz
 
 # Create a session
 session = Session(bind=engine)

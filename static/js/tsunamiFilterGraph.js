@@ -1,13 +1,18 @@
-/***********************************
-* Step0: Get data from flask route *
-***********************************/
+/**********************************
+* Step0: Load data from json file *
+**********************************/
 
 
-var url = 'http://127.0.0.1:5000/volcano_filter_viz'
+var url = 'http://127.0.0.1:5000/tsunamis'
 
-d3.json(url).then(function (data) { 19
+d3.json(url).then(function (data) { 
+// load data from a csv file
+//d3.csv("quakes.csv").then(function (data) {
+  //console.log(data);
+  // format our data
+  //var dtgFormat = d3.utcParse("%Y-%m-%d%T%H:%M:%S");
   
-  var parseDate = d3.timeParse("%Y-%m-%d %H:%M:%S");
+  var parseDate = d3.timeParse("%Y-%m-%d %H:%M:%S");  
 
     data.forEach(function(d) { 
         //d.dtg   = dtgFormat(d.dtg.substr(0,19));
@@ -15,16 +20,16 @@ d3.json(url).then(function (data) { 19
         d.dtg   = parseDate(d.dtg);
         d.lat   = +d.lat;
         d.lng  = +d.lng;
-        d.volcanic_index = +d.volcanic_index;
-        d.death = +d.death;
+        d.mag   = +d.mag;
+        d.water_height = Math.round(+d.water_height,0);
         });
 
 /******************************************************
 * Step1: Create the dc.js chart objects & ling to div *
 ******************************************************/
 
-  var volcanicIndex = dc.barChart("#dc-volcanic-index-chart");
-  var deathChart = dc.barChart("#dc-death-chart");
+  var magnitudeChart = dc.barChart("#dc-magnitude-chart");
+  var waterHeightChart = dc.barChart("#dc-water-height-chart");
   var timeChart = dc.lineChart("#dc-time-chart");
   var dataTable = dc.dataTable("#dc-table-graph");
 
@@ -40,25 +45,25 @@ d3.json(url).then(function (data) { 19
 * Crossfilter can filter by exact value, or by range. *
 ******************************************************/
 
-  // for Volcanic Index
-  var volcanicIndexValue = facts.dimension(function (d) {
-    return d.volcanic_index;       // group or filter by Volcanic Index
+  // for Magnitude
+  var magValue = facts.dimension(function (d) {
+    return d.mag;       // group or filter by magnitude
   });
-  var volcanicIndexValueGroupSum = volcanicIndexValue.group()
-    .reduceSum(function(d) { return d.volcanic_index; });	// sums the Volcanic Indexs per Volcanic Index
-  var volcanicIndexValueGroupCount = volcanicIndexValue.group()
-    .reduceCount(function(d) { return d.volcanic_index; }) // counts the number of the facts by Volcanic Index
+  var magValueGroupSum = magValue.group()
+    .reduceSum(function(d) { return d.mag; });	// sums the magnitudes per magnitude
+  var magValueGroupCount = magValue.group()
+    .reduceCount(function(d) { return d.mag; }) // counts the number of the facts by magnitude
 
   // For datatable
   var timeDimension = facts.dimension(function (d) {
     return d3.timeYear(d.dtg);
   }); // group or filter by time
 
-  // for death
-  var deathValue = facts.dimension(function (d) {
-    return d.death;
+  // for Water Height
+  var waterHeightValue = facts.dimension(function (d) {
+    return d.water_height;
   });
-  var deathValueGroup = deathValue.group();
+  var waterHeightValueGroup = waterHeightValue.group();
   
   // define a daily volume Dimension
   var volumeByYear = facts.dimension(function(d) {
@@ -71,15 +76,15 @@ d3.json(url).then(function (data) { 19
     .reduceCount(function(d) { return d.dtg; });
 
 /***************************************
-* 	Step4: Create the Visualizations   *
+* 	Step4: Create the Visualisations   *
 ***************************************/
   
-  // Volcanic Index Bar Graph Summed
-  volcanicIndex.width(480)
+  // Magnitude Bar Graph Summed
+  magnitudeChart.width(480)
     .height(150)
     .margins({top: 10, right: 10, bottom: 20, left: 40})
-    .dimension(volcanicIndexValue)								// the values across the x axis
-    .group(volcanicIndexValueGroupSum)							// the values on the y axis
+    .dimension(magValue)								// the values across the x axis
+    .group(magValueGroupSum)							// the values on the y axis
 	.transitionDuration(500)
     .centerBar(true)	
 	.gap(56)                                            // bar width Keep increasing to get right then back off.
@@ -87,12 +92,12 @@ d3.json(url).then(function (data) { 19
 	.elasticY(true)
 	.xAxis().tickFormat(function(v) {return v;});	
 
-  // death bar graph
-  deathChart.width(480)
+  // Water Height bar graph
+  waterHeightChart.width(480)
     .height(150)
     .margins({top: 10, right: 10, bottom: 20, left: 40})
-    .dimension(deathValue)
-    .group(deathValueGroup)
+    .dimension(waterHeightValue)
+    .group(waterHeightValueGroup)
 	.transitionDuration(500)
     .centerBar(true)	
 	.gap(1)                    // bar width Keep increasing to get right then back off.
@@ -111,18 +116,18 @@ d3.json(url).then(function (data) { 19
     .x(d3.scaleTime().domain([new Date(1900, 1, 1), new Date(2019, 12, 31)])) // scale and domain of the graph
     .xAxis();
 
-  // Table of volcano data
+  // Table of earthquake data
   dataTable.width(960).height(800)
     .dimension(timeDimension)
-	.section(function(d) { return "List of all volcanoes corresponding to the filters"
+	.section(function(d) { return "List of all earthquakes corresponding to the filters"
 	 })
 	.size(500)							// number of rows to return
     .columns([
       function(d) { return d.dtg; },
       function(d) { return d.lat; },
       function(d) { return d.lng; },
-      function(d) { return d.death; },
-      function(d) { return d.volcanic_index; },
+      function(d) { return d.water_height; },
+      function(d) { return d.mag; },
 	  function(d) { return '<a href=\"http://maps.google.com/maps?z=11&t=m&q=loc:' + d.lat + '+' + d.lng +"\" target=\"_blank\">Google Map</a>"},
 	  function(d) { return '<a href=\"http://www.openstreetmap.org/?mlat=' + d.lat + '&mlon=' + d.lng +'&zoom=11'+ "\" target=\"_blank\"> OSM Map</a>"}
     ])
