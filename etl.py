@@ -33,11 +33,11 @@ def extract_transform_load():
     response = requests.get(url).json()
 
     # Write json file from api call
-    with open('all_earthquakes.json', 'w') as json_file:  
-        json.dump(response, json_file)
+    # with open('all_earthquakes.json', 'w') as json_file:  
+    #     json.dump(response, json_file)
 
-    with open('all_earthquakes.json', 'r') as JSON:
-        dict = json.load(JSON)
+    # with open('all_earthquakes.json', 'r') as JSON:
+    #     dict = json.load(JSON)
     
     earthquake_dict = []
     earthquakes = response["features"]
@@ -88,12 +88,13 @@ def extract_transform_load():
 
     # Response
     warning_response = requests.get(warning_url).json()
+    
     # Write json file from api call
-    with open('all_warning.json', 'w') as json_file:  
-        json.dump(warning_response, json_file)
+    # with open('all_warning.json', 'w') as json_file:  
+    #     json.dump(warning_response, json_file)
 
-    with open('all_warning.json', 'r') as JSON:
-        dict = json.load(JSON)
+    # with open('all_warning.json', 'r') as JSON:
+    #     dict = json.load(JSON)
     
     warnings_dict = []
     warnings = warning_response["features"]

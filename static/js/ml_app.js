@@ -29,7 +29,7 @@ function getChecked() {
 function knnAnalysisPlot() {
   d3.json(data_source_url).then(function(data) {
     var data = [data];
-    console.log(data)
+    console.log(data);
     var test = data.map(row=>row.all_knn_analysis_data)
     console.log(test[0])
     var case_one = data.map(row => row.all_knn_analysis_data.case1.x);
