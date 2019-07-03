@@ -32,6 +32,14 @@ Base = automap_base()
 # Reflect the tables
 Base.prepare(engine, reflect=True)
 
+# Save references to each table
+earthquakes = Base.classes.earthquakes
+significant_earthquakes = Base.classes.significant_earthquakes
+tornadoes = Base.classes.tornadoes
+hail = Base.classes.hail
+wind = Base.classes.wind
+tsunamis = Base.classes.tsunamis
+volcanoes = Base.classes.volcanoes
 warnings = Base.classes.warnings
 
 # Create a session
