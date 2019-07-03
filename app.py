@@ -26,6 +26,22 @@ app = Flask(__name__)
 #################################################
 # CONVERT SQLALCHEMY TO PYTHON DICTIONARY
 #################################################  
+def create_warning_update_dict(r):
+    return {
+    "warning_id": r[0],
+    "lat" :  float(r[1]),
+    "lng" : float(r[2]),
+    "effective_time" :  r[3],
+    "expiration_time" : r[4],
+    "message_type" :r[5],
+    "severity" :r[6],
+    "certainty" :r[7],
+    "urgency" :r[8],
+    "events" :r[9],
+    "warning_source" :r[10],
+    "headlines" :r[11],
+    "warning_description" :r[12]
+    }
 
 def create_earthquake_dict(r):
     return {
@@ -636,14 +652,49 @@ def return_all_volcanoes():
     return jsonify(all_vocanoes)
 
 # ************************************
+# RETURNS ALL WARNING ALERTS FROM WARNINGS TABLE
+# ************************************
+@app.route("/api/warnings", methods=['GET'])
+def return_all_warning():
+
+    # Step 1: set up columns needed for this run
+    sel = [db_conn.warnings.warning_id,
+        db_conn.warnings.lat,
+        db_conn.warnings.lng,
+        db_conn.warnings.effective_time,
+        db_conn.warnings.expiration_time,
+        db_conn.warnings.message_type,
+        db_conn.warnings.severity,
+        db_conn.warnings.certainty,
+        db_conn.warnings.urgency,
+        db_conn.warnings.events,
+        db_conn.warnings.warning_source,
+        db_conn.warnings.headlines,
+        db_conn.warnings.warning_description,
+        ]
+    
+    # Step 2: Run and store filtered query in results variable
+    warning_results = db_conn.session.query(*sel).all()
+
+    # Step 3: Build a list of dictionary that contains all the warning updates
+    all_warning_updates = []
+
+    for r in warning_results:
+        transformed_dict = create_warning_update_dict(r)
+        all_warning_updates.append(transformed_dict)
+    
+    return jsonify(all_warning_updates)
+
+
+# ************************************
 # MACHINE LEARNING ROUTE
 # ************************************
 @app.route("/api/machine-learning", methods=['GET'])
 def machine_learning():
-    
+
     # Step 1: set up columns needed for this run
 
-    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.ids, db_conn.earthquakes.specific_type, db_conn.earthquakes.geometry, db_conn.earthquakes.country_de, db_conn.earthquakes.lng, db_conn.earthquakes.lat, db_conn.earthquakes.depth]
+    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.id, db_conn.earthquakes.specific_type, db_conn.earthquakes.title, db_conn.earthquakes.country_de, db_conn.earthquakes.lng, db_conn.earthquakes.lat, db_conn.earthquakes.depth]
 
 
     # Step 2: Run and store filtered query in results variable 
@@ -660,11 +711,11 @@ def machine_learning():
     df = pd.DataFrame(all_earthquakes)
     print(df)
 
-    DROP_COLUMNS = ["ids", "geometry", "place", "url", "country", "specific_type", "timezone", "time", "depth"]
-    lat_lng_mag_tsu = df.drop(DROP_COLUMNS, axis = 1)
+    DROP_COLUMNS = ["place", "time", "timezone", "url",  "id", "specific_type", "title", "country"]
+    reduced_df = df.drop(DROP_COLUMNS, axis = 1)
 
-    y = lat_lng_mag_tsu["tsunami"].values
-    X = lat_lng_mag_tsu.drop('tsunami', axis=1).values
+    y = reduced_df["tsunami"].values
+    X = reduced_df.drop('tsunami', axis=1).values
 
 
     ################ TRAIN TEST SPLIT ####################
@@ -703,18 +754,17 @@ def machine_learning():
 
 
     ################ RETURNING MACHINE LEARNING DATA ####################
-    plot_data = {
+    ml_data = {
         "x" : [1,2,3,4,5,6,7,8,9, 10],
         "y1": test_accuracy,
-        "y2": training_accuracy,
+        "y2": training_accuracy}
         # "fpr": fpr,
         # "tpr": tpr,
         # "thresholds": thresholds,
         # "log_reg_train_score": log_reg_train_score,
         # "log_reg_test_score" : log_reg_test_score
-    }
 
-    return jsonify(plot_data)
+    return jsonify(ml_data)
 
 if __name__ == "__main__":
     app.run()

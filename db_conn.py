@@ -40,6 +40,7 @@ hail = Base.classes.hail
 wind = Base.classes.wind
 tsunamis = Base.classes.tsunamis
 volcanoes = Base.classes.volcanoes
+warnings = Base.classes.warnings
 eq_filter_viz = Base.classes.eq_filter_viz
 volcano_filter_viz = Base.classes.volcano_filter_viz
 tsunami_filter_viz = Base.classes.tsunami_filter_viz
