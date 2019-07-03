@@ -10,16 +10,16 @@
 
   <header>
     <div class="navbar">
-        <a class="active" href="index.html">Home</a>
+        <a class="active" href="{{ url_for('index') }}">Home</a>
         <div class="dropdown">
             <button class="dropbtn">Natural Disasters 
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="earthquake_index.html">Recent Earthquake</a>  
-              <a href="sig_earthquakes.html">Historical Earthquakes</a>
-              <a href="volcanoes_landing.html">Volcanoes</a>  
-              <a href="tsunamis_landing.html">Tsunamis</a>
+                <a class="active" href="{{ url_for('earthquake_index') }}">Recent Earthquake</a>
+                <a class="active" href="{{ url_for('sig_earthquake') }}">Historical Earthquakes</a>
+                <a class="active" href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>  
+                <a class="active" href="{{ url_for('tsunamis_landing') }}">Tsunamis</a>
             </div>
         </div> 
         <div class="dropdown">
@@ -27,10 +27,10 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="tornadoes_landing.html">Tornadoes</a>                
-              <a href="wind_landing.html">Wind</a>
-              <a href="hail_landing.html">Hail</a>
-              <a href="warnings_landing.html">Weather Warnings</a>
+                <a class="drop-link" href="{{ url_for('tornadoes_landing') }}">Tornadoes</a>
+                <a class="drop-link" href="{{ url_for('wind_landing') }}">Wind</a>
+                <a class="drop-link" href="{{ url_for('hail_landing') }}">Hail</a>
+                <a class="drop-link" href="{{ url_for('warnings_landing') }}">Weather Warnings</a>
             </div>
         </div>
         <div class="dropdown">
@@ -38,7 +38,7 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="sentiment_landing.html">Sentiment Analysis</a>
+                <a class="drop-link" href="{{ url_for('sentiment_analysis') }}">Sentiment Analysis</a>
             </div>
         </div> 
     </div>
@@ -48,8 +48,31 @@
 
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-2">
+      <div id="checkbox"></div>
+        <h3>Select Feature(s):</h3>
+         <!-- <form method ="post"> -->
+            <input type="checkbox" id="lat" value="lat"> Latitude<br>
+            <input type="checkbox" id="lng" value="lng"> Longitude<br>
+            <input type="checkbox" id="depth" value="depth" checked> Depth<br>
+            <input type="checkbox" id="magnitude" value="magnitude" checked> Magnitude<br>
+            <input type="submit" value="Submit" onclick="getChecked()">
+         <!-- </form> -->
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Model Performance</h3>
+        </div>
+        <div id="sample-metadata" class="panel-body"></div>
+          <h3 class="panel-title">Confusion Matrix</h3>
+        <div id="pie"></div>
+      </div>
+    </div>
+    <div class="col-md-8">
+        <h3 class="panel-title">Accuracy and KNearestNeighbhor</h3>
       <div id="map"></div>
+    </div>
+    <div class="col-md-2">
+      <div id="roc_plot"></div>
     </div>
   </div>
 
@@ -67,11 +90,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   
+  <script>
+      const data_source_url = "{{ data_source_url }}";
+  </script>
   <!-- Javascript_code create one with example: tornado_map.js -->
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='/js/ml_app.js') }}"></script>
 
-  <!-- Logic for map name example tornadoes_logic.js -->
-  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
 </body>
 
 </html>

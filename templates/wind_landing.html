@@ -10,16 +10,16 @@
 
   <header>
     <div class="navbar">
-        <a class="active" href="index.html">Home</a>
+        <a class="active" href="{{ url_for('index') }}">Home</a>
         <div class="dropdown">
             <button class="dropbtn">Natural Disasters 
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="earthquake_index.html">Recent Earthquake</a>  
-              <a href="sig_earthquakes.html">Historical Earthquakes</a>
-              <a href="volcanoes_landing.html">Volcanoes</a>  
-              <a href="tsunamis_landing.html">Tsunamis</a>
+                <a class="active" href="{{ url_for('earthquake_index') }}">Recent Earthquake</a>
+                <a class="active" href="{{ url_for('sig_earthquake') }}">Historical Earthquakes</a>
+                <a class="active" href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>  
+                <a class="active" href="{{ url_for('tsunamis_landing') }}">Tsunamis</a>
             </div>
         </div> 
         <div class="dropdown">
@@ -27,9 +27,9 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="tornadoes_landing.html">Tornadoes</a>
-              <a href="hail_landing.html">Hail</a>
-              <a href="warnings_landing.html">Weather Warnings</a>
+                <a href="{{ url_for('tornadoes_landing') }}">Tornadoes</a>
+                <a href="{{ url_for('hail_landing') }}">Hail</a>
+                <a href="{{ url_for('warnings_landing') }}">Weather Warnings</a>
             </div>
         </div>
         <div class="dropdown">
@@ -37,8 +37,8 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="ml_landing.html">Machine Learning</a>
-              <a href="sentiment_landing.html">Sentiment Analysis</a>
+                <a class="drop-link" href="{{ url_for('ml_machine') }}">Machine Learning</a>
+                <a class="drop-link" href="{{ url_for('sentiment_analysis') }}">Sentiment Analysis</a>
             </div>
         </div> 
     </div>
