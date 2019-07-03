@@ -46,7 +46,40 @@
   
   <h1>Warnings Landing Page</h1>
 
-
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-lg-4">
+          <aside class="filters">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <form>
+                          <div class="form-group">
+                              <ul class="list-group" id="filters">
+                                  <li class="filter list-group-item">
+                                      <label for="column">Weather leart names</label>
+                                      <select id="dataSet" onchange="optionChanged(this.value)"></select><hr>
+                                      <p id="warning"></p>
+                                      <button id="refresh-btn" type="submit" class="btn btn-default">Refresh alerts</button>
+                                  </li>
+                              </ul>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </aside>
+      </div>
+      <div class="col-lg-8">
+          <div class="group">
+              <div id="boxplot1"></div>
+              <div id="boxplot2"></div>
+              <div id="boxplot3"></div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+    <iframe src="/map" height="500px" width="100%" style="border:2px solid black;"></iframe>
+  </div>
+</div>
   <div class="row">
     <div class="col-md-12">
       <div id="map"></div>
@@ -66,12 +99,13 @@
   <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  
+  <script src="static/map_js/app.js"></script>
+
   <!-- Javascript_code create one with example: tornado_map.js -->
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <!-- <script src="{{ url_for('static', filename='js/app.js') }}"></script> -->
 
   <!-- Logic for map name example tornadoes_logic.js -->
-  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+  <!-- <script src="{{ url_for('static', filename='js/logic.js') }}"></script> -->
 </body>
 
 </html>
