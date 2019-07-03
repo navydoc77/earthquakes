@@ -1,9 +1,22 @@
 from flask import Flask
 from flask import jsonify
 from flask import render_template
+from flask import request
+from flask import url_for
+from flask import redirect
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
+from sklearn.svm import SVC
 
 # Import the database connection.
 import db_conn
+
 
 app = Flask(__name__)
 
@@ -253,11 +266,65 @@ def get_all_earthquakes(sql_to_py):
 # Flask Routes
 #################################################  
     
+
+
+#*************** WEBPAGES***********************#
 # Renders index page
 @app.route("/")
 def index():
-    """Return the homepage."""
-    return render_template("index.html")
+    return render_template('index.html')
+
+# Renders earthquake index page
+@app.route("/earthquake-index")
+def earthquake_index():
+    return render_template('earthquake_index.html')
+
+# Renders ml page
+@app.route("/ml-landing")
+def ml_machine():
+    return render_template('ml_landing.html', data_source_url=url_for('machine_learning'))
+
+# Renders sentiment analysis page
+@app.route("/sentiment-landing")
+def sentiment_analysis():
+    return render_template('sentiment_landing.html')
+
+# Renders sig_earthquakes page
+@app.route("/sig_earthquake-landing")
+def sig_earthquake():
+    return render_template('sig_earthquakes.html')    
+
+# Renders tornadoes page
+@app.route("/tornadoes-landing")
+def tornadoes_landing():
+    return render_template('tornadoes_landing.html') 
+
+# Renders volcanoes page
+@app.route("/volcanoes-landing")
+def volcanoes_landing():
+    return render_template('volcanoes_landing.html') 
+
+# Renders tsunamis page
+@app.route("/tsunamis-landing")
+def tsunamis_landing():
+    return render_template('tsunamis_landing.html')
+
+# Renders wind page
+@app.route("/wind-landing")
+def wind_landing():
+    return render_template('wind_landing.html')
+
+# Renders wind page
+@app.route("/hail-landing")
+def hail_landing():
+    return render_template('hail_landing.html')
+
+# Renders weather warnings page
+@app.route("/warnings-landing")
+def warnings_landing():
+    return render_template('warnings_landing.html')
+
+#*************** WEBPAGES***********************#
 
 #################################################
 # API Routes
@@ -462,6 +529,59 @@ def return_all_warning():
         all_warning_updates.append(transformed_dict)
     
     return jsonify(all_warning_updates)
+
+# ************************************
+# MACHINE LEARNING ROUTE
+# ************************************
+@app.route("/machine-learning", methods=['GET'])
+def machine_learning():
+    
+    # Step 1: set up columns needed for this run
+
+    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.ids, db_conn.earthquakes.specific_type, db_conn.earthquakes.geometry, db_conn.earthquakes.country_de, db_conn.earthquakes.lng, db_conn.earthquakes.lat, db_conn.earthquakes.depth]
+
+
+    # Step 2: Run and store filtered query in results variable 
+    all_results = db_conn.session.query(*sel).all()
+
+    # Step 3: Build a list of dictionary that contains all the earthquakes
+    all_earthquakes = []
+
+    for r in all_results:
+        transformed_dict = create_earthquake_dict(r)
+        all_earthquakes.append(transformed_dict)
+    
+    
+    df = pd.DataFrame(all_earthquakes)
+    print(df)
+
+    DROP_COLUMNS = ["ids", "geometry", "place", "url", "country", "specific_type", "timezone", "time", "depth"]
+    lat_lng_mag_tsu = df.drop(DROP_COLUMNS, axis = 1)
+
+    y = lat_lng_mag_tsu["tsunami"].values
+    X = lat_lng_mag_tsu.drop('tsunami', axis=1).values
+
+    X_train, X_test, y_train, y_test = train_test_split(
+    X, y, random_state=42)
+
+    training_accuracy = []
+    test_accuracy = []
+    # try n_neighbors from 1 to 10
+    neighbors_settings = range(1, 11)
+
+    for n_neighbors in neighbors_settings:
+        # build the model
+        clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+        clf.fit(X_train, y_train)
+        # record training set accuracy
+        training_accuracy.append(clf.score(X_train, y_train))
+        # record generalization accuracy
+        test_accuracy.append(clf.score(X_test, y_test))
+    
+    kneighbor_analysis_dict =  {"Accuracy" : training_accuracy, "test_accuracy": test_accuracy}
+
+    return jsonify(kneighbor_analysis_dict)
+
 
 if __name__ == "__main__":
     app.run()
