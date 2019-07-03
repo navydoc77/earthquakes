@@ -1,11 +1,9 @@
 import os
-from dotenv import load_dotenv
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
-load_dotenv()
 
 # Database Connection
 dialect = os.getenv("DATABASE_DIALECT")
@@ -22,7 +20,6 @@ database = os.getenv("DATABASE_NAME")
 #
 connection = f"{dialect}://{username}:{password}@{host}:{port}/{database}"
 
-
 # Create an engine to the database
 engine = create_engine(connection, echo=False)
 
@@ -32,17 +29,7 @@ Base = automap_base()
 # Reflect the tables
 Base.prepare(engine, reflect=True)
 
-# Save references to each table
-earthquakes = Base.classes.earthquakes
-significant_earthquakes = Base.classes.significant_earthquakes
-tornadoes = Base.classes.tornadoes
-hail = Base.classes.hail
-wind = Base.classes.wind
-tsunamis = Base.classes.tsunamis
-volcanoes = Base.classes.volcanoes
-eq_filter_viz = Base.classes.eq_filter_viz
-volcano_filter_viz = Base.classes.volcano_filter_viz
-tsunami_filter_viz = Base.classes.tsunami_filter_viz
+warnings = Base.classes.warnings
 
 # Create a session
 session = Session(bind=engine)

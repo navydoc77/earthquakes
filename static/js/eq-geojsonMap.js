@@ -198,7 +198,7 @@ function mapEarthquakes() {
                     getInterval: function (quake) {
                         return ({
                             start: quake.properties.time,
-                            end:   quake.properties.time + 14400000,
+                            end:   quake.properties.time + 86400000,
                                 });
                     },
                     pointToLayer: function (quake, latlng) {
