@@ -13,6 +13,9 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 from sklearn.svm import SVC
+from sklearn.metrics import roc_curve
+from sklearn.metrics import confusion_matrix
+from sklearn import neighbors
 
 # Import the database connection.
 import db_conn
@@ -561,9 +564,12 @@ def machine_learning():
     y = lat_lng_mag_tsu["tsunami"].values
     X = lat_lng_mag_tsu.drop('tsunami', axis=1).values
 
+
+    ################ TRAIN TEST SPLIT ####################
     X_train, X_test, y_train, y_test = train_test_split(
     X, y, random_state=42)
 
+    ################ K-NEAREST NEIGHBOR ####################
     training_accuracy = []
     test_accuracy = []
     # try n_neighbors from 1 to 10
@@ -578,10 +584,35 @@ def machine_learning():
         # record generalization accuracy
         test_accuracy.append(clf.score(X_test, y_test))
     
-    kneighbor_analysis_dict =  {"Accuracy" : training_accuracy, "test_accuracy": test_accuracy}
+    ################ KNN CONFUSION MATRIX ####################
+    # knn = neighbors.KNeighborsClassifier(n_neighbors=5)
+    # knn.fit(X_train, y_train)
+    # y_pred = knn.predict_proba(X_test)
+    # confusion_matrix(y_test, y_pred)
 
-    return jsonify(kneighbor_analysis_dict)
+    ################ LOGISTIC REGRESSION ####################
+    # logreg = LogisticRegression()
+    # logreg.fit(X_train, y_train)
+    # y_pred = logreg.predict(X_test)
+    # y_pred_prob = logreg.predict_proba(X_test)[:,1]
+    # fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
+    # log_reg_train_score = logreg.score(X_train, y_train)
+    # log_reg_test_score = logreg.score(X_test, y_test)
 
+
+    ################ RETURNING MACHINE LEARNING DATA ####################
+    plot_data = {
+        "x" : [1,2,3,4,5,6,7,8,9, 10],
+        "y1": test_accuracy,
+        "y2": training_accuracy,
+        # "fpr": fpr,
+        # "tpr": tpr,
+        # "thresholds": thresholds,
+        # "log_reg_train_score": log_reg_train_score,
+        # "log_reg_test_score" : log_reg_test_score
+    }
+
+    return jsonify(plot_data)
 
 if __name__ == "__main__":
     app.run()

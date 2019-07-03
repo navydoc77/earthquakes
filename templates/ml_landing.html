@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
@@ -69,7 +70,7 @@
     </div>
     <div class="col-md-8">
         <h3 class="panel-title">Accuracy and KNearestNeighbhor</h3>
-      <div id="map"></div>
+      <div id="plot"></div>
     </div>
     <div class="col-md-2">
       <div id="roc_plot"></div>
@@ -86,15 +87,16 @@
 
 
 
-  <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
+  <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  
   <script>
       const data_source_url = "{{ data_source_url }}";
   </script>
   <!-- Javascript_code create one with example: tornado_map.js -->
-  <script src="{{ url_for('static', filename='/js/ml_app.js') }}"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static', filename='js/ml_app.js') }}"></script>
+  
+  
 
 
 </body>
