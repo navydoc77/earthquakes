@@ -370,7 +370,7 @@ def tsunami_filter_dashb():
     return render_template("tsunami_filter_dashb.html")
 
 # EQ Magnitudes
-@app.route("/magnitudes")
+@app.route("/api/magnitudes")
 def magnitudes():
     """Return a list of earthquake magnitudes"""
     magnitudes = db_conn.session.query(db_conn.earthquakes.magnitude.distinct()).all()
@@ -388,7 +388,7 @@ def magnitudes():
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # ************************************
-@app.route("/earthquakes", methods=['GET'])
+@app.route("/api/earthquakes", methods=['GET'])
 def return_all_earthquakes():
 
     return jsonify(get_all_earthquakes(create_earthquake_dict))
@@ -397,7 +397,7 @@ def return_all_earthquakes():
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # IN GEOJSON FORMAT
 # ************************************
-@app.route("/earthquakes-geojson", methods=['GET'])
+@app.route("/api/earthquakes-geojson", methods=['GET'])
 def return_all_earthquakes_geojson():
     
     geojson_obj = {}
@@ -411,7 +411,7 @@ def return_all_earthquakes_geojson():
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EARTHQUAKE TABLE
 # ************************************
-@app.route("/significant_earthquakes", methods=['GET'])
+@app.route("/api/significant_earthquakes", methods=['GET'])
 def return_all_significant_earthquakes():
 
     # Step 1: set up columns needed for this run
@@ -439,7 +439,7 @@ def return_all_significant_earthquakes():
 # ************************************
 # RETURNS ALL EARTHQUAKES FROM EQ_FILTER_VIZ TABLE
 # ************************************
-@app.route("/eq_filter_viz", methods=['GET'])
+@app.route("/api/eq_filter_viz", methods=['GET'])
 def return_eq_filter_viz():
 
     # Step 1: set up columns needed for this run
@@ -466,7 +466,7 @@ def return_eq_filter_viz():
 # ************************************
 # RETURNS VOLCANO ACTIVITY FROM VOLCANO_FILTER_VIZ TABLE
 # ************************************
-@app.route("/volcano_filter_viz", methods=['GET'])
+@app.route("/api/volcano_filter_viz", methods=['GET'])
 def return_volcano_filter_viz():
 
     # Step 1: set up columns needed for this run
@@ -493,7 +493,7 @@ def return_volcano_filter_viz():
 # ************************************
 # RETURNS ALL TSUNAMI FROM TSUNAMI_FILTER_VIZ TABLE
 # ************************************
-@app.route("/tsunami_filter_viz", methods=['GET'])
+@app.route("/api/tsunami_filter_viz", methods=['GET'])
 def return_tsunami_filter_viz():
 
     # Step 1: set up columns needed for this run
@@ -520,7 +520,7 @@ def return_tsunami_filter_viz():
 # ************************************
 # RETURNS ALL TORNADOES FROM TORNADOES DATA TABLE
 # ************************************
-@app.route("/tornadoes", methods=['GET'])
+@app.route("/api/tornadoes", methods=['GET'])
 def return_all_tornadoes():
 
     # Step 1: set up columns needed for this run
@@ -544,7 +544,7 @@ def return_all_tornadoes():
 # ************************************
 # RETURNS ALL HAIL FROM HAILS TABLE
 # ************************************
-@app.route("/hail", methods=['GET'])
+@app.route("/api/hail", methods=['GET'])
 def return_all_hail():
 
     # Step 1: set up columns needed for this run
@@ -569,7 +569,7 @@ def return_all_hail():
 # ************************************
 # RETURNS ALL WIND FROM WIND TABLE
 # ************************************
-@app.route("/wind", methods=['GET'])
+@app.route("/api/wind", methods=['GET'])
 def return_all_wind():
 
     # Step 1: set up columns needed for this run
@@ -592,7 +592,7 @@ def return_all_wind():
 # ************************************
 # RETURNS ALL TSUNAMI FROM TSUNAMI TABLE
 # ************************************
-@app.route("/tsunamis", methods=['GET'])
+@app.route("/api/tsunamis", methods=['GET'])
 def return_all_tsunamis():
 
     # Step 1: set up columns needed for this run
@@ -615,7 +615,7 @@ def return_all_tsunamis():
 # ************************************
 # RETURNS ALL VOLCANOES FROM VOLCANOE TABLE
 # ************************************
-@app.route("/volcanoes", methods=['GET'])
+@app.route("/api/volcanoes", methods=['GET'])
 def return_all_volcanoes():
 
     # Step 1: set up columns needed for this run
@@ -638,7 +638,7 @@ def return_all_volcanoes():
 # ************************************
 # MACHINE LEARNING ROUTE
 # ************************************
-@app.route("/machine-learning", methods=['GET'])
+@app.route("/api/machine-learning", methods=['GET'])
 def machine_learning():
     
     # Step 1: set up columns needed for this run
