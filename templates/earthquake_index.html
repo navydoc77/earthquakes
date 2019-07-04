@@ -23,12 +23,12 @@
   <header>
     <div class="navbar">
         <a class="active" href="{{ url_for('index') }}">Home</a>
-        <a class="active" href="{{ url_for('sig_earthquake') }}">Historical Earthquakes</a>
         <div class="dropdown">
             <button class="dropbtn">Natural Disasters 
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+              <a class="active" href="{{ url_for('sig_earthquake') }}">Historical Earthquakes</a>
               <a href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>  
               <a href="{{ url_for('tsunamis_landing') }}">Tsunamis</a>
             </div>
