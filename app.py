@@ -1,9 +1,25 @@
 from flask import Flask
 from flask import jsonify
 from flask import render_template
+from flask import request
+from flask import url_for
+from flask import redirect
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
+from sklearn.svm import SVC
+from sklearn.metrics import roc_curve
+from sklearn.metrics import confusion_matrix
+from sklearn import neighbors
 
 # Import the database connection.
 import db_conn
+
 
 app = Flask(__name__)
 
@@ -122,7 +138,8 @@ def create_tornadoes_dict(r):
     "fb": int(r[25]),
     "fc": int(r[26]),
     "fd": int(r[27]),
-    "fe": int(r[28])
+    "fe": int(r[28]),
+    "dtg": r[29]
     }
 
 def create_hail_dict(r):
@@ -201,6 +218,7 @@ def create_tsunami_dict(r):
     "house_code": int(r[21])
     }
 
+
 def create_volcanoes_dict(r):
     return {
     "year" : int(r[0]),
@@ -224,8 +242,38 @@ def create_volcanoes_dict(r):
     "damage": float(r[18]),
     "damage_code": int(r[19]),
     "houses": r[20],
-    "houses_code": int(r[21])
+    "houses_code": int(r[21]),
+    "dtg": r[22]
     }
+
+def create_eq_filter_viz(r):
+    return {
+    "dtg" : r[0],
+    "lat": float(r[1]),
+    "lng": float(r[2]),
+    "mag": float(r[3]),
+    "depth": int(r[4])
+    }
+    
+def create_volcano_filter_viz(r):
+    return {
+    "dtg" : r[0],
+    "lat": float(r[1]),
+    "lng": float(r[2]),
+    "volcanic_index": float(r[3]),
+    "death": int(r[4])
+    }    
+
+def create_tsunami_filter_viz(r):
+    return {
+    "dtg" : r[0],
+    "lat": float(r[1]),
+    "lng": float(r[2]),
+    "mag": float(r[3]),
+    "water_height": float(r[4])
+    }   
+
+
 
 #################################################
 # Functions
@@ -249,31 +297,140 @@ def get_all_earthquakes(sql_to_py):
     
     return (all_earthquakes)
 
+
+# ############ Machine Learning Function ############### #
+# This will produce the data for plotting KNN analysis   #
+
+def kNeighborAnalysis(X, y):
+
+    ################ TRAIN TEST SPLIT ####################
+    X_train, X_test, y_train, y_test = train_test_split(
+    X, y, random_state=42)
+
+    ################ K-NEAREST NEIGHBOR ####################
+    training_accuracy = []
+    test_accuracy = []
+    # try n_neighbors from 1 to 10
+    neighbors_settings = range(1, 11)
+
+    for n_neighbors in neighbors_settings:
+        # build the model
+        clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+        clf.fit(X_train, y_train)
+        # record training set accuracy
+        training_accuracy.append(clf.score(X_train, y_train))
+        # record generalization accuracy
+        test_accuracy.append(clf.score(X_test, y_test))
+
+    knn_annalysis_dict = {
+        "x" : [1,2,3,4,5,6,7,8,9,10],
+        "y1": test_accuracy,
+        "y2": training_accuracy}
+
+    return (knn_annalysis_dict)
+
 #################################################
 # Flask Routes
 #################################################  
     
+
+
+#*************** WEBPAGES***********************#
 # Renders index page
 @app.route("/")
 def index():
+    return render_template('index.html')
+
+# Renders earthquake index page
+@app.route("/earthquake-index")
+def earthquake_index():
+    return render_template('earthquake_index.html')
+
+# Renders ml page
+@app.route("/ml-landing")
+def ml_machine():
+    return render_template('ml_landing.html', data_source_url=url_for('machine_learning'))
+
+# Renders sentiment analysis page
+@app.route("/sentiment-landing")
+def sentiment_analysis():
+    return render_template('sentiment_landing.html')
+
+# Renders sig_earthquakes page
+@app.route("/sig_earthquake-landing")
+def sig_earthquake():
+    return render_template('sig_earthquakes.html')    
+
+# Renders tornadoes page
+@app.route("/tornadoes-landing")
+def tornadoes_landing():
+    return render_template('tornadoes_landing.html') 
+
+# Renders volcanoes page
+@app.route("/volcanoes-landing")
+def volcanoes_landing():
+    return render_template('volcanoes_landing.html') 
+
+# Renders tsunamis page
+@app.route("/tsunamis-landing")
+def tsunamis_landing():
+    return render_template('tsunamis_landing.html')
+
+# Renders wind page
+@app.route("/wind-landing")
+def wind_landing():
+    return render_template('wind_landing.html')
+
+# Renders wind page
+@app.route("/hail-landing")
+def hail_landing():
+    return render_template('hail_landing.html')
+
+# Renders weather warnings page
+@app.route("/warnings-landing")
+def warnings_landing():
+    return render_template('warnings_landing.html')
+
+#*************** WEBPAGES***********************#
+
+# Renders earthquake filter dashboard
+@app.route("/earthquake-filter-dashb")
+def earthquake_filter_dashb():
     """Return the homepage."""
-    return render_template("index.html")
+    return render_template("eq_filter_viz.html")
 
-#################################################
-# API Routes
-#################################################  
+# Renders tornado filter dashboard    
+@app.route("/tornado-filter-dashb")
+def tornado_filter_dashb():
+    """Return the homepage."""
+    return render_template("tornado_filter_dashb.html")    
 
-# Returns a list of all the cuisine categories
+# Renders volcano filter dashboard
+@app.route("/volcano-filter-dashb")
+def volcano_filter_dashb():
+    """Return the homepage."""
+    return render_template("volcano_filter_dashb.html")
+
+# Renders tsunami filter dashboard
+@app.route("/tsunami-filter-dashb")
+def tsunami_filter_dashb():
+    """Return the homepage."""
+    return render_template("tsunami_filter_dashb.html")
+
+# EQ Magnitudes
 @app.route("/api/magnitudes")
 def magnitudes():
     """Return a list of earthquake magnitudes"""
     magnitudes = db_conn.session.query(db_conn.earthquakes.magnitude.distinct()).all()
+    print(magnitudes)
 
     # converts a list of list into a single list (flattens list)
     earthquake_list = [item for sublist in list(magnitudes) for item in sublist]
 
     # return a list of column names (sample names)
+    print(earthquake_list)
     float_earthquakes = [float(x) for x in earthquake_list]
+    print(float_earthquakes)
     return jsonify(earthquake_list)
 
 # ************************************
@@ -307,10 +464,14 @@ def return_all_significant_earthquakes():
 
     # Step 1: set up columns needed for this run
     
-    sel = [db_conn.significant_earthquakes.db_id, db_conn.significant_earthquakes.yr,db_conn.significant_earthquakes.month, db_conn.significant_earthquakes.day, db_conn.significant_earthquakes.hr, db_conn.significant_earthquakes.minute, db_conn.significant_earthquakes.eq_mag_primary, db_conn.significant_earthquakes.depth, db_conn.significant_earthquakes.intensity, db_conn.significant_earthquakes.country, db_conn.significant_earthquakes.location_name, db_conn.significant_earthquakes.lat, db_conn.significant_earthquakes.lng, db_conn.significant_earthquakes.deaths, db_conn.significant_earthquakes.damage_millions, db_conn.significant_earthquakes.total_deaths, db_conn.significant_earthquakes.total_injuries, db_conn.significant_earthquakes.total_damage_millions]
+    sel = [db_conn.significant_earthquakes.tb_id, db_conn.significant_earthquakes.yr,db_conn.significant_earthquakes.month, db_conn.significant_earthquakes.day, db_conn.significant_earthquakes.hr, db_conn.significant_earthquakes.minute, db_conn.significant_earthquakes.eq_mag_primary, db_conn.significant_earthquakes.depth, db_conn.significant_earthquakes.intensity, db_conn.significant_earthquakes.country, db_conn.significant_earthquakes.location_name, db_conn.significant_earthquakes.lat, db_conn.significant_earthquakes.lng, db_conn.significant_earthquakes.deaths, db_conn.significant_earthquakes.damage_millions, db_conn.significant_earthquakes.total_deaths, db_conn.significant_earthquakes.total_injuries, db_conn.significant_earthquakes.total_damage_millions]
     
+    print(sel)
+
+
     # Step 2: Run and store filtered query in results variable 
     all_sig_results = db_conn.session.query(*sel).all()
+    print(all_sig_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_sig_earthquakes = []
@@ -318,8 +479,91 @@ def return_all_significant_earthquakes():
         transformed_dict = create_sig_earthquake_dict(r)
         all_sig_earthquakes.append(transformed_dict)
     
+    print(all_sig_earthquakes)
+
     return jsonify(all_sig_earthquakes)
 
+
+# ************************************
+# RETURNS ALL EARTHQUAKES FROM EQ_FILTER_VIZ TABLE
+# ************************************
+@app.route("/api/eq_filter_viz", methods=['GET'])
+def return_eq_filter_viz():
+
+    # Step 1: set up columns needed for this run
+    
+    sel = [db_conn.eq_filter_viz.dtg, db_conn.eq_filter_viz.lat, db_conn.eq_filter_viz.lng, db_conn.eq_filter_viz.mag, db_conn.eq_filter_viz.depth]
+    
+    print(sel)
+
+
+    # Step 2: Run and store filtered query in results variable 
+    all_eq_filter_viz_results = db_conn.session.query(*sel).all()
+    print(all_eq_filter_viz_results)
+
+    # Step 3: Build a list of dictionary that contains all the earthquakes
+    all_eq_filter_viz = []
+    for r in all_eq_filter_viz_results:
+        transformed_dict = create_eq_filter_viz(r)
+        all_eq_filter_viz.append(transformed_dict)
+    
+    print(all_eq_filter_viz)
+
+    return jsonify(all_eq_filter_viz)
+
+# ************************************
+# RETURNS VOLCANO ACTIVITY FROM VOLCANO_FILTER_VIZ TABLE
+# ************************************
+@app.route("/api/volcano_filter_viz", methods=['GET'])
+def return_volcano_filter_viz():
+
+    # Step 1: set up columns needed for this run
+    
+    sel = [db_conn.volcano_filter_viz.dtg, db_conn.volcano_filter_viz.lat, db_conn.volcano_filter_viz.lng, db_conn.volcano_filter_viz.volcanic_index, db_conn.volcano_filter_viz.death]
+    
+    print(sel)
+
+
+    # Step 2: Run and store filtered query in results variable 
+    all_volcano_filter_viz_results = db_conn.session.query(*sel).all()
+    print(all_volcano_filter_viz_results)
+
+    # Step 3: Build a list of dictionary that contains all the earthquakes
+    all_volcano_filter_viz = []
+    for r in all_volcano_filter_viz_results:
+        transformed_dict = create_volcano_filter_viz(r)
+        all_volcano_filter_viz.append(transformed_dict)
+    
+    print(all_volcano_filter_viz)
+
+    return jsonify(all_volcano_filter_viz)
+
+# ************************************
+# RETURNS ALL TSUNAMI FROM TSUNAMI_FILTER_VIZ TABLE
+# ************************************
+@app.route("/api/tsunami_filter_viz", methods=['GET'])
+def return_tsunami_filter_viz():
+
+    # Step 1: set up columns needed for this run
+    
+    sel = [db_conn.tsunami_filter_viz.dtg, db_conn.tsunami_filter_viz.lat, db_conn.tsunami_filter_viz.lng, db_conn.tsunami_filter_viz.mag, db_conn.tsunami_filter_viz.water_height]
+    
+    print(sel)
+
+
+    # Step 2: Run and store filtered query in results variable 
+    all_tsunami_filter_viz_results = db_conn.session.query(*sel).all()
+    print(all_tsunami_filter_viz_results)
+
+    # Step 3: Build a list of dictionary that contains all the earthquakes
+    all_tsunami_filter_viz = []
+    for r in all_tsunami_filter_viz_results:
+        transformed_dict = create_tsunami_filter_viz(r)
+        all_tsunami_filter_viz.append(transformed_dict)
+    
+    print(all_tsunami_filter_viz)
+
+    return jsonify(all_tsunami_filter_viz)
 
 # ************************************
 # RETURNS ALL TORNADOES FROM TORNADOES DATA TABLE
@@ -328,7 +572,7 @@ def return_all_significant_earthquakes():
 def return_all_tornadoes():
 
     # Step 1: set up columns needed for this run
-    sel = [db_conn.tornadoes.id, db_conn.tornadoes.year, db_conn.tornadoes.month, db_conn.tornadoes.day, db_conn.tornadoes.date, db_conn.tornadoes.time, db_conn.tornadoes.timezone, db_conn.tornadoes.state, db_conn.tornadoes.state_fips, db_conn.tornadoes.state_nbr, db_conn.tornadoes.mag, db_conn.tornadoes.injuries, db_conn.tornadoes.deaths, db_conn.tornadoes.damage, db_conn.tornadoes.crop_loss, db_conn.tornadoes.s_lat, db_conn.tornadoes.s_lng, db_conn.tornadoes.e_lat, db_conn.tornadoes.e_lng, db_conn.tornadoes.length_traveled, db_conn.tornadoes.width, db_conn.tornadoes.nbr_states_affected, db_conn.tornadoes.sn, db_conn.tornadoes.sg, db_conn.tornadoes.fa, db_conn.tornadoes.fb, db_conn.tornadoes.fc, db_conn.tornadoes.fd, db_conn.tornadoes.fe]
+    sel = [db_conn.tornadoes.id, db_conn.tornadoes.year, db_conn.tornadoes.month, db_conn.tornadoes.day, db_conn.tornadoes.date, db_conn.tornadoes.time, db_conn.tornadoes.timezone, db_conn.tornadoes.state, db_conn.tornadoes.state_fips, db_conn.tornadoes.state_nbr, db_conn.tornadoes.mag, db_conn.tornadoes.injuries, db_conn.tornadoes.deaths, db_conn.tornadoes.damage, db_conn.tornadoes.crop_loss, db_conn.tornadoes.s_lat, db_conn.tornadoes.s_lng, db_conn.tornadoes.e_lat, db_conn.tornadoes.e_lng, db_conn.tornadoes.length_traveled, db_conn.tornadoes.width, db_conn.tornadoes.nbr_states_affected, db_conn.tornadoes.sn, db_conn.tornadoes.sg, db_conn.tornadoes.fa, db_conn.tornadoes.fb, db_conn.tornadoes.fc, db_conn.tornadoes.fd, db_conn.tornadoes.fe, db_conn.tornadoes.dtg]
 
 
     # Step 2: Run and store filtered query in results variable 
@@ -341,6 +585,8 @@ def return_all_tornadoes():
         transformed_dict = create_tornadoes_dict(r)
         all_tornadoes.append(transformed_dict)
     
+    print(all_tornadoes)
+
     return jsonify(all_tornadoes)
 
 # ************************************
@@ -363,6 +609,8 @@ def return_all_hail():
         transformed_dict = create_hail_dict(r)
         all_hail.append(transformed_dict)
     
+    print(all_hail)
+
     return jsonify(all_hail)
 
 
@@ -385,6 +633,8 @@ def return_all_wind():
         transformed_dict = create_wind_dict(r)
         all_wind.append(transformed_dict)
     
+    print(all_wind)
+
     return jsonify(all_wind)
 
 # ************************************
@@ -406,6 +656,8 @@ def return_all_tsunamis():
         transformed_dict = create_tsunami_dict(r)
         all_tsunamis.append(transformed_dict)
     
+    print(all_tsunamis)
+
     return jsonify(all_tsunamis)
 
 # ************************************
@@ -427,6 +679,8 @@ def return_all_volcanoes():
         transformed_dict = create_volcanoes_dict(r)
         all_vocanoes.append(transformed_dict)
     
+    print(all_vocanoes)
+
     return jsonify(all_vocanoes)
 
 # ************************************
@@ -463,6 +717,244 @@ def return_all_warning():
     
     return jsonify(all_warning_updates)
 
+
+# ************************************
+# MACHINE LEARNING ROUTE
+# ************************************
+@app.route("/api/machine-learning", methods=['GET'])
+def machine_learning():
+
+    # Step 1: set up columns needed for this run
+
+    sel = [db_conn.earthquakes.magnitude, db_conn.earthquakes.place, db_conn.earthquakes.time, db_conn.earthquakes.timezone, db_conn.earthquakes.url, db_conn.earthquakes.tsunami, db_conn.earthquakes.id, db_conn.earthquakes.specific_type, db_conn.earthquakes.title, db_conn.earthquakes.country_de, db_conn.earthquakes.lng, db_conn.earthquakes.lat, db_conn.earthquakes.depth]
+
+
+    # Step 2: Run and store filtered query in results variable 
+    all_results = db_conn.session.query(*sel).all()
+
+    # Step 3: Build a list of dictionary that contains all the earthquakes
+    all_earthquakes = []
+
+    for r in all_results:
+        transformed_dict = create_earthquake_dict(r)
+        all_earthquakes.append(transformed_dict)
+    
+    
+    df = pd.DataFrame(all_earthquakes)
+    
+    ################ FEATURES PREPROCESSING FOR KNN MODEL ###################
+    DROP_COLUMNS = ["place", "time", "timezone", "url",  "id", "specific_type", "title", "country"]
+    knn_df = df.drop(DROP_COLUMNS, axis = 1)
+
+    # **************************************************** #
+    # ############### FEATURE SELECTION ################## #
+    # **************************************************** #
+
+    # Case 1: LNG, DEPTH, MAG
+    # CASE 2: LNG, DEPTH
+    # CASE 3: LNG, MAG
+    # CASE 4: DEPTH, MAG
+    # CASE 5: LNG,
+    # CASE 6: DEPTH
+    # CASE 7: MAG
+    # CASE 8: 
+    
+    ################# Lat "Lng Depth Magnitude "###############
+    # CASE 1: ALL Subfeatures included: Lng Depth Magnitude
+    # CASE 1: ALL CHECKED OFF
+    # CASE 1: PREFIX DESIGNATION: All
+
+    # Step 1: Drop columns
+    # NONE
+
+    # Step 2: Assign X and y values
+    y = knn_df["tsunami"].values
+    X = knn_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    all_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Lng Depth" ###############
+    # CASE 2: LNG, DEPTH CHECKED OFF
+    # CASE 2: MAGNITUDE NOT CHECKED OFF
+    # CASE 2: PREFIX DESIGNATION: lng_depth_df
+
+    # Step 1: Drop columns
+    CASE2_DROP_COLUMNS = ["magnitude"]
+    lng_depth_df = knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = lng_depth_df["tsunami"].values
+    X = lng_depth_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    lng_depth_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Lng Magnitude" ###############
+    # CASE 3: LNG AND MAGNITUDE CHECKED OFF
+    # CASE 3: DEPTH NOT CHECKED OFF
+    # CASE 3: PREFIX DESIGNATION: lng_magnitude
+
+    # Step 1: Drop columns
+    CASE3_DROP_COLUMNS = ["depth"]
+    lng_magnitude_df = knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = lng_magnitude_df["tsunami"].values
+    X = lng_magnitude_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    lng_magnitude_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Depth Magnitude" ###############
+    # CASE 4: DEPTH AND MAGNITUDE CHECKED OFF
+    # CASE 4: LNG NOT CHECKED OFF
+    # CASE 4: PREFIX DESIGNATION: depth_magnitude
+
+    # Step 1: Drop columns
+    CASE4_DROP_COLUMNS = ["lng"]
+    depth_magnitude_df = knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = depth_magnitude_df["tsunami"].values
+    X = depth_magnitude_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    depth_magnitude_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Lng" ###############
+    # CASE 5: LNG CHECKED OFF
+    # CASE 5: MAGNITUDE AND DEPTH NOT CHECKED OFF
+    # CASE 5: PREFIX DESIGNATION: lng_df
+
+    # Step 1: Drop columns
+    CASE5_DROP_COLUMNS = ["magnitude", "depth"]
+    lng_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = lng_df["tsunami"].values
+    X = lng_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    lng_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Depth" ###############
+    # CASE 6: DEPTH CHECKED OFF
+    # CASE 6: LNG AND MAG NOT CHECKED OFF
+    # CASE 6: PREFIX DESIGNATION: depth
+
+    # Step 1: Drop columns
+    CASE6_DROP_COLUMNS = ["magnitude", "lng"]
+    depth_df = knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = depth_df["tsunami"].values
+    X = depth_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    depth_data = kNeighborAnalysis(X,y)
+
+    ################# Lat "Magnitude" ###############
+    # CASE 7: MAGNITUDE CHECKED OFF
+    # CASE 7: LNG DEPTH NOT CHECKED OFF
+    # CASE 7: PREFIX DESIGNATION: magnitude
+
+    # Step 1: Drop columns
+    CASE5_DROP_COLUMNS = ["depth", "lng"]
+    magnitude_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = magnitude_df["tsunami"].values
+    X = magnitude_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    magnitude_data = kNeighborAnalysis(X,y)
+
+    ################# Lat ###############
+    # CASE 8: NO FEATURES SELECTED 
+    # CASE 8: ALL BOXED UNCHECKED
+    # CASE 8: PREFIX DESIGNATION: lat_df
+
+    # Step 1: Drop columns
+    DROP_NEW_COLUMNS = ["magnitude", "depth", "lng"]
+    lat_df = knn_df.drop(DROP_NEW_COLUMNS, axis = 1)
+
+    # Step 2: Assign X and y values
+    y = lat_df["tsunami"].values
+    X = lat_df.drop('tsunami', axis=1).values
+
+    # Step 3: Conducted Analysis and store reust in variable
+    lat_data = kNeighborAnalysis(X,y)
+
+
+    ################# RETURNING ALL CASE RESULTS #########################
+    all_knn_analysis_data = {
+        "case1" : all_data,
+        "case2" : lng_depth_data,
+        "case3" : lng_magnitude_data,
+        "case4" : depth_magnitude_data,
+        "case5" : lng_data,
+        "case6" : depth_data, 
+        "case7" : magnitude_data,
+        "case8" : lat_data
+    }
+
+    return jsonify(all_knn_analysis_data)
+
+
+    ################ KNN CONFUSION MATRIX ####################
+    # knn = neighbors.KNeighborsClassifier(n_neighbors=5)
+    # knn.fit(X_train, y_train)
+    # y_pred = knn.predict_proba(X_test)
+    # confusion_matrix(y_test, y_pred)
+
+    ################ LOGISTIC REGRESSION ####################
+    # logreg = LogisticRegression()
+    # logreg.fit(X_train, y_train)
+    # y_pred = logreg.predict(X_test)
+    # y_pred_prob = logreg.predict_proba(X_test)[:,1]
+    # fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
+    # log_reg_train_score = logreg.score(X_train, y_train)
+    # log_reg_test_score = logreg.score(X_test, y_test)
+
+
+    ################ RETURNING MACHINE LEARNING DATA ####################
+    # ml_data = {
+    #     "x" : [1,2,3,4,5,6,7,8,9,10],
+    #     "y1": test_accuracy,
+    #     "y2": training_accuracy}
+        # "fpr": fpr,
+        # "tpr": tpr,
+        # "thresholds": thresholds,
+        # "log_reg_train_score": log_reg_train_score,
+        # "log_reg_test_score" : log_reg_test_score
+
 if __name__ == "__main__":
     app.run()
 
+
+
+    # ################ TRAIN TEST SPLIT ####################
+    # X_train, X_test, y_train, y_test = train_test_split(
+    # X, y, random_state=42)
+
+    # ################ K-NEAREST NEIGHBOR ####################
+    # all_test_accuracy = []
+    # all_training_accuracy = []
+
+    # # try n_neighbors from 1 to 10
+    # neighbors_settings = range(1, 11)
+
+    # for n_neighbors in neighbors_settings:
+    #     # build the model
+    #     clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+    #     clf.fit(X_train, y_train)
+    #     # record training set accuracy
+    #     all_training_accuracy.append(clf.score(X_train, y_train))
+    #     # record generalization accuracy
+    #     all_test_accuracy.append(clf.score(X_test, y_test))
+
+    # all_data =  {
+    #     "x" : [1,2,3,4,5,6,7,8,9,10],
+    #     "y1": all_test_accuracy,
+    #     "y2": all_training_accuracy}

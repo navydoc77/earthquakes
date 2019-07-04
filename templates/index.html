@@ -1,27 +1,58 @@
 <!DOCTYPE html>
 <!-- CSS Stylesheets with Relative Paths -->
 <html lang="en-us">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <style>
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+      
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+      
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+      
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+      </style>
 </head>
 
 <body>
 
   <header>
     <div class="navbar">
-        <a class="active" href="earthquake_index.html">Earthquakes</a>
-        <a class="active" href="tornadoes_landing.html">Tornadoes</a>
-        <a class="active" href="volcanoes_landing.html">Volcanoes</a>
-        <a class="active" href="tsunamis_landing.html">Tsunamis</a>
+        <div class="dropdown">
+            <button class="dropbtn">Natural Disasters 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a class="active" href="{{ url_for('earthquake_index') }}">Recent Earthquake</a>
+                <a class="active" href="{{ url_for('sig_earthquake') }}">Historic Earthquakes</a>
+                <a class="active" href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>
+                <a class="active" href="{{ url_for('tsunamis_landing') }}">Tsunamis</a>
+            </div>
+        </div>
         <div class="dropdown">
             <button class="dropbtn">Extreme Weather 
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="wind_landing.html">Wind</a>
-              <a href="hail_landing.html">Hail</a>
-              <a href="warnings_landing.html">Weather Warnings</a>
+              <a href="{{ url_for('tornadoes_landing') }}">Tornadoes</a>
+              <a href="{{ url_for('wind_landing') }}">Wind</a>
+              <a href="{{ url_for('hail_landing') }}">Hail</a>
+              <a href="{{ url_for('warnings_landing') }}">Weather Warnings</a>
             </div>
         </div>
         <div class="dropdown">
@@ -29,21 +60,49 @@
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
-              <a href="ml_landing.html">Machine Learning</a>
-            <a href="sentiment_landing.html">Sentiment Analysis</a>
+              <a class="drop-link" href="{{ url_for('ml_machine') }}">Machine Learning</a>
+              <a class="drop-link" href="{{ url_for('sentiment_analysis') }}">Sentiment Analysis</a>
           </div>
         </div> 
     </div>
   </header>
 
+  <!-- <div class="gallery">
+      <a target="_blank" href="img_5terre.jpg">
+        <img src="{{ url_for('static', filename='resources/images/earthquake.jpg') }}" alt="Cinque Terre" width="600" height="400">
+      </a>
+      <div class="desc">Earthquakes</div>
+    </div> -->
+    
+    <!-- <div class="gallery">
+      <a target="_blank" href="img_forest.jpg">
+        <img src="img_forest.jpg" alt="Forest" width="600" height="400">
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+    
+    <div class="gallery">
+      <a target="_blank" href="img_lights.jpg">
+        <img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+    
+    <div class="gallery">
+      <a target="_blank" href="img_mountains.jpg">
+        <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div> -->
+
 
   <div>
     <h1>Welcome to our app - learn about terrible and stochastic events that happen on planet earth</h1>
         <p>
-            Earthquakes
-            UFOS
-            Volcanoes
-            Tornadoes
+            A natural disaster is a major adverse event resulting from natural processes of the Earth; examples are floods, hurricanes, tornadoes, volcanic eruptions, earthquakes, tsunamis, and other geologic processes. A natural disaster can cause loss of life or damage property,[1] and typically leaves some economic damage in its wake, the severity of which depends on the affected population's resilience, or ability to recover and also on the infrastructure available.[2]
+
+            An adverse event will not rise to the level of a disaster if it occurs in an area without vulnerable population.[3][4] In a vulnerable area, however, such as Nepal during the 2015 earthquake, an earthquake can have disastrous consequences and leave lasting damage, which can require years to repair.
+            Source: <a href = "https://en.wikipedia.org/wiki/Natural_disaster">wikipedia citation</a>
          </p>
     <h3>
         <p>
@@ -94,7 +153,7 @@
   <!-- Logis for map -->
   <!-- Javascript_code create one with example: tornado_map.js -->
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  <script type="text/javascript" src="logic.js"></script>
+  <!-- <script type="text/javascript" src="logic.js"></script> -->
 </body>
 
 </html>

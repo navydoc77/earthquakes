@@ -22,6 +22,7 @@ database = os.getenv("DATABASE_NAME")
 #
 connection = f"{dialect}://{username}:{password}@{host}:{port}/{database}"
 
+
 # Create an engine to the database
 engine = create_engine(connection, echo=False)
 
@@ -40,6 +41,9 @@ wind = Base.classes.wind
 tsunamis = Base.classes.tsunamis
 volcanoes = Base.classes.volcanoes
 warnings = Base.classes.warnings
+eq_filter_viz = Base.classes.eq_filter_viz
+volcano_filter_viz = Base.classes.volcano_filter_viz
+tsunami_filter_viz = Base.classes.tsunami_filter_viz
 
 # Create a session
 session = Session(bind=engine)
