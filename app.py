@@ -191,7 +191,6 @@ def create_wind_dict(r):
     "mag_type": r[20]
     }
 
-
 def create_tsunami_dict(r):
     return {
     "year" : int(r[0]),
@@ -217,7 +216,6 @@ def create_tsunami_dict(r):
     "house_destroyed": r[20],
     "house_code": int(r[21])
     }
-
 
 def create_volcanoes_dict(r):
     return {
@@ -274,7 +272,6 @@ def create_tsunami_filter_viz(r):
     }   
 
 
-
 #################################################
 # Functions
 #################################################  
@@ -310,23 +307,95 @@ def kNeighborAnalysis(X, y):
     ################ K-NEAREST NEIGHBOR ####################
     training_accuracy = []
     test_accuracy = []
+    confusion_matrix_arrays = []
+    fpr_array = []
+    tpr_array = []
+    threshold_array = []
+    # fpr_array_0 = []
+    # fpr_array_1 = []
+    # fpr_array_2 = []
+    # tpr_array_0 = []
+    # tpr_array_1 = []
+    # tpr_array_2 = []
+    # threshold_array_0 = []
+    # threshold_array_1 = []
+    # threshold_array_2 = []
+    # true_negative = []
+    # false_positive = []
+    # false_negative = []
+    # true_positive = []
+
     # try n_neighbors from 1 to 10
     neighbors_settings = range(1, 11)
 
     for n_neighbors in neighbors_settings:
-        # build the model
+        # Instantiates the KNeighbor Model
         clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+
+        # Fits the model to the training data
         clf.fit(X_train, y_train)
+
         # record training set accuracy
         training_accuracy.append(clf.score(X_train, y_train))
+        # print(training_accuracy)
+        # print(type(training_accuracy))
+
         # record generalization accuracy
         test_accuracy.append(clf.score(X_test, y_test))
 
+        # Compute Receiver operating characteristic (ROC)
+        y_scores = clf.predict_proba(X_test)
+        fpr, tpr, threshold = roc_curve(y_test, y_scores[:, 1])
+        fpr = fpr.tolist()
+        tpr = tpr.tolist()
+        threshold = threshold.tolist()
+        fpr_array.append(fpr)
+        tpr_array.append(tpr)
+        threshold_array.append(threshold)
+        # print(fpr_array_0)
+        # fpr_array_0.append(fpr[0])
+        # fpr_array_1.append(fpr[1])
+        # fpr_array_2.append(fpr[2])
+        # tpr_array_0.append(tpr[0])
+        # tpr_array_1.append(tpr[1])
+        # tpr_array_2.append(tpr[2])
+        # threshold_array_0.append(threshold[0])
+        # threshold_array_1.append(threshold[1])
+        # threshold_array_2.append(threshold[2])
+
+
+        # Computes the tn, fp, fn, tp in confusion matrix
+        cm = confusion_matrix(y_test, clf.predict(X_test))
+        tn, fp, fn, tp = cm.ravel()
+        cm_list = [int(tn), int(fp), int(fn), int(tp)]
+        confusion_matrix_arrays.append(cm_list)
+        # true_negative.append(int(cm_list[0]))
+        # false_positive.append(int(cm_list[1]))
+        # false_negative.append(int(cm_list[2]))
+        # true_positive.append(int(cm_list[3]))
+
     knn_annalysis_dict = {
         "x" : [1,2,3,4,5,6,7,8,9,10],
-        "y1": test_accuracy,
-        "y2": training_accuracy}
-
+        "training_scores": training_accuracy,
+        "test_scores": test_accuracy,
+        "fpr_array" : fpr_array,
+        "tpr_array" : tpr_array,
+        "threshold_array" : threshold_array,
+        # "frp0" : fpr_array_0,
+        # "frp1" : fpr_array_1,
+        # "frp2" : fpr_array_2,
+        # "trp0" : tpr_array_0,
+        # "trp1" : tpr_array_1,
+        # "trp2" : tpr_array_2,
+        # "threshold0" : threshold_array_0,
+        # "threshold1" : threshold_array_1,
+        # "threshold2" : threshold_array_2,
+        "confusion_matrix_arrays" : confusion_matrix_arrays
+        # "true_negative" : true_negative,
+        # "false_positive" : false_positive,
+        # "false_negative" : false_negative,
+        # "true_positive" : true_positive
+        }
     return (knn_annalysis_dict)
 
 #################################################
@@ -422,15 +491,12 @@ def tsunami_filter_dashb():
 def magnitudes():
     """Return a list of earthquake magnitudes"""
     magnitudes = db_conn.session.query(db_conn.earthquakes.magnitude.distinct()).all()
-    print(magnitudes)
 
     # converts a list of list into a single list (flattens list)
     earthquake_list = [item for sublist in list(magnitudes) for item in sublist]
 
     # return a list of column names (sample names)
-    print(earthquake_list)
     float_earthquakes = [float(x) for x in earthquake_list]
-    print(float_earthquakes)
     return jsonify(earthquake_list)
 
 # ************************************
@@ -465,21 +531,16 @@ def return_all_significant_earthquakes():
     # Step 1: set up columns needed for this run
     
     sel = [db_conn.significant_earthquakes.tb_id, db_conn.significant_earthquakes.yr,db_conn.significant_earthquakes.month, db_conn.significant_earthquakes.day, db_conn.significant_earthquakes.hr, db_conn.significant_earthquakes.minute, db_conn.significant_earthquakes.eq_mag_primary, db_conn.significant_earthquakes.depth, db_conn.significant_earthquakes.intensity, db_conn.significant_earthquakes.country, db_conn.significant_earthquakes.location_name, db_conn.significant_earthquakes.lat, db_conn.significant_earthquakes.lng, db_conn.significant_earthquakes.deaths, db_conn.significant_earthquakes.damage_millions, db_conn.significant_earthquakes.total_deaths, db_conn.significant_earthquakes.total_injuries, db_conn.significant_earthquakes.total_damage_millions]
-    
-    print(sel)
 
 
     # Step 2: Run and store filtered query in results variable 
     all_sig_results = db_conn.session.query(*sel).all()
-    print(all_sig_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_sig_earthquakes = []
     for r in all_sig_results:
         transformed_dict = create_sig_earthquake_dict(r)
         all_sig_earthquakes.append(transformed_dict)
-    
-    print(all_sig_earthquakes)
 
     return jsonify(all_sig_earthquakes)
 
@@ -493,21 +554,17 @@ def return_eq_filter_viz():
     # Step 1: set up columns needed for this run
     
     sel = [db_conn.eq_filter_viz.dtg, db_conn.eq_filter_viz.lat, db_conn.eq_filter_viz.lng, db_conn.eq_filter_viz.mag, db_conn.eq_filter_viz.depth]
-    
-    print(sel)
+
 
 
     # Step 2: Run and store filtered query in results variable 
     all_eq_filter_viz_results = db_conn.session.query(*sel).all()
-    print(all_eq_filter_viz_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_eq_filter_viz = []
     for r in all_eq_filter_viz_results:
         transformed_dict = create_eq_filter_viz(r)
         all_eq_filter_viz.append(transformed_dict)
-    
-    print(all_eq_filter_viz)
 
     return jsonify(all_eq_filter_viz)
 
@@ -521,12 +578,12 @@ def return_volcano_filter_viz():
     
     sel = [db_conn.volcano_filter_viz.dtg, db_conn.volcano_filter_viz.lat, db_conn.volcano_filter_viz.lng, db_conn.volcano_filter_viz.volcanic_index, db_conn.volcano_filter_viz.death]
     
-    print(sel)
+    # print(sel)
 
 
     # Step 2: Run and store filtered query in results variable 
     all_volcano_filter_viz_results = db_conn.session.query(*sel).all()
-    print(all_volcano_filter_viz_results)
+    # print(all_volcano_filter_viz_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_volcano_filter_viz = []
@@ -534,7 +591,7 @@ def return_volcano_filter_viz():
         transformed_dict = create_volcano_filter_viz(r)
         all_volcano_filter_viz.append(transformed_dict)
     
-    print(all_volcano_filter_viz)
+    # print(all_volcano_filter_viz)
 
     return jsonify(all_volcano_filter_viz)
 
@@ -548,12 +605,12 @@ def return_tsunami_filter_viz():
     
     sel = [db_conn.tsunami_filter_viz.dtg, db_conn.tsunami_filter_viz.lat, db_conn.tsunami_filter_viz.lng, db_conn.tsunami_filter_viz.mag, db_conn.tsunami_filter_viz.water_height]
     
-    print(sel)
+    # print(sel)
 
 
     # Step 2: Run and store filtered query in results variable 
     all_tsunami_filter_viz_results = db_conn.session.query(*sel).all()
-    print(all_tsunami_filter_viz_results)
+    # print(all_tsunami_filter_viz_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_tsunami_filter_viz = []
@@ -561,7 +618,7 @@ def return_tsunami_filter_viz():
         transformed_dict = create_tsunami_filter_viz(r)
         all_tsunami_filter_viz.append(transformed_dict)
     
-    print(all_tsunami_filter_viz)
+    # print(all_tsunami_filter_viz)
 
     return jsonify(all_tsunami_filter_viz)
 
@@ -585,7 +642,7 @@ def return_all_tornadoes():
         transformed_dict = create_tornadoes_dict(r)
         all_tornadoes.append(transformed_dict)
     
-    print(all_tornadoes)
+    # print(all_tornadoes)
 
     return jsonify(all_tornadoes)
 
@@ -609,7 +666,7 @@ def return_all_hail():
         transformed_dict = create_hail_dict(r)
         all_hail.append(transformed_dict)
     
-    print(all_hail)
+    # print(all_hail)
 
     return jsonify(all_hail)
 
@@ -633,7 +690,7 @@ def return_all_wind():
         transformed_dict = create_wind_dict(r)
         all_wind.append(transformed_dict)
     
-    print(all_wind)
+    # print(all_wind)
 
     return jsonify(all_wind)
 
@@ -656,7 +713,7 @@ def return_all_tsunamis():
         transformed_dict = create_tsunami_dict(r)
         all_tsunamis.append(transformed_dict)
     
-    print(all_tsunamis)
+    # print(all_tsunamis)
 
     return jsonify(all_tsunamis)
 
@@ -679,7 +736,7 @@ def return_all_volcanoes():
         transformed_dict = create_volcanoes_dict(r)
         all_vocanoes.append(transformed_dict)
     
-    print(all_vocanoes)
+    # print(all_vocanoes)
 
     return jsonify(all_vocanoes)
 
@@ -902,59 +959,5 @@ def machine_learning():
     return jsonify(all_knn_analysis_data)
 
 
-    ################ KNN CONFUSION MATRIX ####################
-    # knn = neighbors.KNeighborsClassifier(n_neighbors=5)
-    # knn.fit(X_train, y_train)
-    # y_pred = knn.predict_proba(X_test)
-    # confusion_matrix(y_test, y_pred)
-
-    ################ LOGISTIC REGRESSION ####################
-    # logreg = LogisticRegression()
-    # logreg.fit(X_train, y_train)
-    # y_pred = logreg.predict(X_test)
-    # y_pred_prob = logreg.predict_proba(X_test)[:,1]
-    # fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
-    # log_reg_train_score = logreg.score(X_train, y_train)
-    # log_reg_test_score = logreg.score(X_test, y_test)
-
-
-    ################ RETURNING MACHINE LEARNING DATA ####################
-    # ml_data = {
-    #     "x" : [1,2,3,4,5,6,7,8,9,10],
-    #     "y1": test_accuracy,
-    #     "y2": training_accuracy}
-        # "fpr": fpr,
-        # "tpr": tpr,
-        # "thresholds": thresholds,
-        # "log_reg_train_score": log_reg_train_score,
-        # "log_reg_test_score" : log_reg_test_score
-
 if __name__ == "__main__":
     app.run()
-
-
-
-    # ################ TRAIN TEST SPLIT ####################
-    # X_train, X_test, y_train, y_test = train_test_split(
-    # X, y, random_state=42)
-
-    # ################ K-NEAREST NEIGHBOR ####################
-    # all_test_accuracy = []
-    # all_training_accuracy = []
-
-    # # try n_neighbors from 1 to 10
-    # neighbors_settings = range(1, 11)
-
-    # for n_neighbors in neighbors_settings:
-    #     # build the model
-    #     clf = KNeighborsClassifier(n_neighbors=n_neighbors)
-    #     clf.fit(X_train, y_train)
-    #     # record training set accuracy
-    #     all_training_accuracy.append(clf.score(X_train, y_train))
-    #     # record generalization accuracy
-    #     all_test_accuracy.append(clf.score(X_test, y_test))
-
-    # all_data =  {
-    #     "x" : [1,2,3,4,5,6,7,8,9,10],
-    #     "y1": all_test_accuracy,
-    #     "y2": all_training_accuracy}

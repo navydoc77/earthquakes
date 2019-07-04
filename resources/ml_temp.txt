@@ -1,0 +1,88 @@
+
+// ################### SWITCH IDEAS ###############################
+// CASE 1:
+// IF (TRUE, TRUE, TRUE) THEN
+// CASE 1 PLOT
+// 
+// CASE 2:
+// IF (TRUE, TRUE, FALSE) THEN
+// CASE 2 PLOT
+// 
+// CASE 3:
+// IF (TRUE, FALSE, TRUE) THEN
+// CASE 3 PLOT
+// 
+// CASE 4:
+// IF (FALSE, TRUE, TRUE) THEN
+// CASE 4 PLOT
+// 
+// CASE 5:
+// IF (TRUE, FALSE, FALSE) THEN
+// CASE 5 PLOT
+// 
+// CASE 6:
+// IF (FALSE, TRUE, FALSE) THEN
+// CASE 6 PLOT
+// 
+// CASE 7:
+// IF (FALSE, FALSE, TRUE) THEN
+// CASE 7 PLOT
+// 
+// CASE 8:
+// IF (FALSE, FALSE, FALSE) THEN
+// CASE PLOT 8
+
+// ############# CASE STRUCTURE FOR KNEIGHBOR SCORE ANALYSIS ################### /
+// Data structure from app.py
+// all_knn_analysis_data = {
+//   "case1" : all_data,
+//   "case2" : lng_depth_data,
+//   "case3" : lng_magnitude_data,
+//   "case4" : depth_magnitude_data,
+//   "case5" : lng_data,
+//   "case6" : depth_data, 
+//   "case7" : magnitude_data,
+//   "case8" : lat_data
+//  }
+// ############# CASE STRUCTURE FOR KNEIGHBOR SCORE ANALYSIS ################### /
+
+
+// Make the plot a function
+// parameters will be the case_x, case_train_scores, case_test_scores
+// returns the plot_data that is fed into plotly.plot();
+// 
+// get the checkbox information
+// check the case statement
+// get case statement parameters
+// feed parameters to plotting function
+// plot
+
+// switch(check_array) {
+//   case case1:
+//     console.log(case1);
+//     isEqual(case1, check_array);
+//     console.log("Case 1 True");
+//     break;
+//   case case2:
+//     console.log("Case 2 True");
+//     break;
+//   case case3:
+//     console.log("Case 3 True");
+//     break;
+//   case case4:
+//     console.log("Case 4 True");
+//     break;
+//   case case5:
+//     console.log("Case 5 True");
+//     break;
+//   case case6:
+//     console.log("Case 6 True");
+//     break;
+//   case case7:
+//     console.log("Case 7 True");
+//     break;
+//   case case8:
+//     console.log("Case 8 True");   
+//   default:
+//     console.log("Nothing Evaluated");   
+// }
