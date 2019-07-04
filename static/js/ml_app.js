@@ -56,6 +56,17 @@ function buildRocCurve(fpr, tpr) {
       color: "#281158"
     }
   };
+
+  var trace4 = {
+    x: [0,1],
+    y: [0,1],
+    mode: lines,
+    line: {
+      color : "navy",
+      width : lw,
+      dash : 'dash',
+    }
+  };
   
   var layout = { 
     title: 'ROC Curve (AUC)',
@@ -63,7 +74,7 @@ function buildRocCurve(fpr, tpr) {
     yaxis: { title: "True Positive Rate", autorange: true, type: "linear"},
   };
 
-  var roc_plot_data = [trace3];
+  var roc_plot_data = [trace3, trace4];
 
   Plotly.plot("roc_plot", roc_plot_data, layout);
 
@@ -113,7 +124,12 @@ function getCheckedAndPlot() {
       var case_train_scores = plot_data["case1"]["training_scores"];
       console.log(case1);
 
+      var fpr = [plot_data["case1"]["frp0"][0], plot_data["case1"]["frp0"][0], plot_data["case1"]["frp0"][0]];
+      console.log(fpr);
+      var tpr = [plot_data["case1"]["trp0"][0], plot_data["case1"]["trp1"][0], plot_data["case1"]["trp2"][0]];
+      console.log(fpr);
       buildplot(case_x, case_train_scores, case_test_scores);
+      buildRocCurve(fpr, tpr);
     } else if (isEqual(check_array, case2) == "True") {
       Plotly.deleteTraces("plot", 0);
       var case_x = plot_data["case2"]["x"];
@@ -121,6 +137,10 @@ function getCheckedAndPlot() {
       var case_train_scores = plot_data["case2"]["training_scores"];
       console.log(case2);
 
+      var fpr = [plot_data["case2"]["frp0"][1], plot_data["case2"]["frp0"][1], plot_data["case2"]["frp0"][1]];
+      console.log(fpr);
+      var tpr = [plot_data["case2"]["trp0"][1], plot_data["case2"]["trp1"][1], plot_data["case2"]["trp2"][1]];
+      console.log(fpr);
       buildplot(case_x, case_train_scores, case_test_scores);      
     } else if (isEqual(check_array, case3) == "True") {
       Plotly.deleteTraces("plot", 0);
