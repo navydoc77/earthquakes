@@ -168,9 +168,8 @@ function mapEarthquakes() {
                             return L.circleMarker(latlng, {
                             radius: +feature.properties.mag * 2,
                             fillColor: colorScale(+feature.properties.mag),
-                            color: '#000',
-                            weight: 1,
-                            opacity: 1,
+                            color: feature.properties.tsunami ? '#00FF00' : '#000000',
+                            weight: feature.properties.tsunami ? 2 : 1,
                             fillOpacity: 0.9,
                         });
                         },
@@ -194,9 +193,8 @@ function mapEarthquakes() {
                         return L.circleMarker(latlng, {
                         radius: +quake.properties.mag * 2,
                         fillColor: colorScale(+quake.properties.mag),
-                        color: '#000',
-                        weight: 1,
-                        opacity: 1,
+                        color: quake.properties.tsunami ? '#00FF00' : '#000000',
+                        weight: quake.properties.tsunami ? 2 : 1,
                         fillOpacity: 0.9,
                     });
                     },
