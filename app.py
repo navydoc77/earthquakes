@@ -191,7 +191,6 @@ def create_wind_dict(r):
     "mag_type": r[20]
     }
 
-
 def create_tsunami_dict(r):
     return {
     "year" : int(r[0]),
@@ -217,7 +216,6 @@ def create_tsunami_dict(r):
     "house_destroyed": r[20],
     "house_code": int(r[21])
     }
-
 
 def create_volcanoes_dict(r):
     return {
@@ -274,7 +272,6 @@ def create_tsunami_filter_viz(r):
     }   
 
 
-
 #################################################
 # Functions
 #################################################  
@@ -310,23 +307,84 @@ def kNeighborAnalysis(X, y):
     ################ K-NEAREST NEIGHBOR ####################
     training_accuracy = []
     test_accuracy = []
+    # roc_data_arrays = []
+    # confusion_matrix_arrays = []
+    fpr_array_0 = []
+    fpr_array_1 = []
+    fpr_array_2 = []
+    tpr_array_0 = []
+    tpr_array_1 = []
+    tpr_array_2 = []
+    threshold_array_0 = []
+    threshold_array_1 = []
+    threshold_array_2 = []
+    true_negative = []
+    false_positive = []
+    false_negative = []
+    true_positive = []
+
     # try n_neighbors from 1 to 10
     neighbors_settings = range(1, 11)
 
     for n_neighbors in neighbors_settings:
-        # build the model
+        # Instantiates the KNeighbor Model
         clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+
+        # Fits the model to the training data
         clf.fit(X_train, y_train)
+
         # record training set accuracy
         training_accuracy.append(clf.score(X_train, y_train))
+        # print(training_accuracy)
+        # print(type(training_accuracy))
+
         # record generalization accuracy
         test_accuracy.append(clf.score(X_test, y_test))
+
+        # Compute Receiver operating characteristic (ROC)
+        y_scores = clf.predict_proba(X_test)
+        fpr, tpr, threshold = roc_curve(y_test, y_scores[:, 1])
+        fpr = fpr.tolist()
+        tpr = tpr.tolist()
+        threshold = threshold.tolist()
+        fpr_array_0.append(fpr[0])
+        fpr_array_1.append(fpr[1])
+        fpr_array_2.append(fpr[2])
+        tpr_array_0.append(tpr[0])
+        tpr_array_1.append(tpr[1])
+        tpr_array_2.append(tpr[2])
+        threshold_array_0.append(threshold[0])
+        threshold_array_1.append(threshold[1])
+        threshold_array_2.append(threshold[2])
+
+
+        # Computes the tn, fp, fn, tp in confusion matrix
+        cm = confusion_matrix(y_test, clf.predict(X_test))
+        tn, fp, fn, tp = cm.ravel()
+        cm_list = [tn, fp, fn, tp]
+        true_negative.append(int(cm_list[0]))
+        false_positive.append(int(cm_list[1]))
+        false_negative.append(int(cm_list[2]))
+        true_positive.append(int(cm_list[3]))
 
     knn_annalysis_dict = {
         "x" : [1,2,3,4,5,6,7,8,9,10],
         "training_scores": training_accuracy,
-        "test_scores": test_accuracy}
-
+        "test_scores": test_accuracy,
+        "frp0" : fpr_array_0,
+        "frp1" : fpr_array_1,
+        "frp2" : fpr_array_2,
+        "trp0" : tpr_array_0,
+        "trp1" : tpr_array_1,
+        "trp2" : tpr_array_2,
+        "threshold0" : threshold_array_0,
+        "threshold1" : threshold_array_1,
+        "threshold2" : threshold_array_2,
+        "true_negative" : true_negative,
+        "false_positive" : false_positive,
+        "false_negative" : false_negative,
+        "true_positive" : true_positive
+        }
     return (knn_annalysis_dict)
 
 #################################################
@@ -890,59 +948,5 @@ def machine_learning():
     return jsonify(all_knn_analysis_data)
 
 
-    ################ KNN CONFUSION MATRIX ####################
-    # knn = neighbors.KNeighborsClassifier(n_neighbors=5)
-    # knn.fit(X_train, y_train)
-    # y_pred = knn.predict_proba(X_test)
-    # confusion_matrix(y_test, y_pred)
-
-    ################ LOGISTIC REGRESSION ####################
-    # logreg = LogisticRegression()
-    # logreg.fit(X_train, y_train)
-    # y_pred = logreg.predict(X_test)
-    # y_pred_prob = logreg.predict_proba(X_test)[:,1]
-    # fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
-    # log_reg_train_score = logreg.score(X_train, y_train)
-    # log_reg_test_score = logreg.score(X_test, y_test)
-
-
-    ################ RETURNING MACHINE LEARNING DATA ####################
-    # ml_data = {
-    #     "x" : [1,2,3,4,5,6,7,8,9,10],
-    #     "y1": test_accuracy,
-    #     "y2": training_accuracy}
-        # "fpr": fpr,
-        # "tpr": tpr,
-        # "thresholds": thresholds,
-        # "log_reg_train_score": log_reg_train_score,
-        # "log_reg_test_score" : log_reg_test_score
-
 if __name__ == "__main__":
     app.run()
-
-
-
-    # ################ TRAIN TEST SPLIT ####################
-    # X_train, X_test, y_train, y_test = train_test_split(
-    # X, y, random_state=42)
-
-    # ################ K-NEAREST NEIGHBOR ####################
-    # all_test_accuracy = []
-    # all_training_accuracy = []
-
-    # # try n_neighbors from 1 to 10
-    # neighbors_settings = range(1, 11)
-
-    # for n_neighbors in neighbors_settings:
-    #     # build the model
-    #     clf = KNeighborsClassifier(n_neighbors=n_neighbors)
-    #     clf.fit(X_train, y_train)
-    #     # record training set accuracy
-    #     all_training_accuracy.append(clf.score(X_train, y_train))
-    #     # record generalization accuracy
-    #     all_test_accuracy.append(clf.score(X_test, y_test))
-
-    # all_data =  {
-    #     "x" : [1,2,3,4,5,6,7,8,9,10],
-    #     "y1": all_test_accuracy,
-    #     "y2": all_training_accuracy}

@@ -45,6 +45,30 @@ function buildplot(x, train, test) {
   Plotly.plot("plot", plot_data, layout);
 }
 
+function buildRocCurve(fpr, tpr) {
+
+  var trace3 = {
+    mode: lines,
+    name: "Test Data",
+    x: fpr,
+    y: tpr,
+    line: {
+      color: "#281158"
+    }
+  };
+  
+  var layout = { 
+    title: 'ROC Curve (AUC)',
+    xaxis: { title: 'False Positive Rate' },
+    yaxis: { title: "True Positive Rate", autorange: true, type: "linear"},
+  };
+
+  var roc_plot_data = [trace3];
+
+  Plotly.plot("roc_plot", roc_plot_data, layout);
+
+}
+
 // **************************************************
 // *************** RESPONCE AND PLOT ****************
 // **************************************************
