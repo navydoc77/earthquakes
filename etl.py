@@ -13,6 +13,7 @@ from sqlalchemy import create_engine
 from pandas.io import sql
 
 url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson'
+warning_url = 'https://api.weather.gov/alerts/active'
 
 def extract_transform_load(): 
 
@@ -26,24 +27,17 @@ def extract_transform_load():
     cursor.execute("CREATE DATABASE IF NOT EXISTS natural_disasterdb")
     cursor.execute("USE natural_disasterdb")
 
-    # cursor.execute("DROP TABLE IF EXISTS earthquakes")
-    # cursor.execute("DROP TABLE IF EXISTS tornadoes")
-    # cursor.execute("DROP TABLE IF EXISTS hail")
-    # cursor.execute("DROP TABLE IF EXISTS wind")
-    # cursor.execute("DROP TABLE IF EXISTS tsunamis")
-    # cursor.execute("DROP TABLE IF EXISTS volcanoes")
-
     engine = create_engine('mysql+pymysql://root:root@127.0.0.1/natural_disasterdb', echo=False)
 
     # Response
     response = requests.get(url).json()
 
     # Write json file from api call
-    with open('all_earthquakes.json', 'w') as json_file:  
-        json.dump(response, json_file)
+    # with open('all_earthquakes.json', 'w') as json_file:  
+    #     json.dump(response, json_file)
 
-    with open('all_earthquakes.json', 'r') as JSON:
-        dict = json.load(JSON)
+    # with open('all_earthquakes.json', 'r') as JSON:
+    #     dict = json.load(JSON)
     
     earthquake_dict = []
     earthquakes = response["features"]
@@ -79,11 +73,74 @@ def extract_transform_load():
         'depth': r["geometry"]['coordinates'][2]
         }
 
+    #################################################
+    # CREATES DICTIONARY FOR USGS EARTHQUAKE DATA AND CLEANS IT UP
+    #################################################
+
     for r in earthquakes:
         if is_valid(r):
             transformed_dict = create_dict(r)
             earthquake_dict.append(transformed_dict)
+    
+    #################################################
+    # CREATES DICTIONARY FOR WARNINGS ALERT DATA AND CLEANS IT UP
+    #################################################
 
+    # Response
+    warning_response = requests.get(warning_url).json()
+    
+    # Write json file from api call
+    # with open('all_warning.json', 'w') as json_file:  
+    #     json.dump(warning_response, json_file)
+
+    # with open('all_warning.json', 'r') as JSON:
+    #     dict = json.load(JSON)
+    
+    warnings_dict = []
+    warnings = warning_response["features"]
+
+    def is_valid_warning(r):
+        return (
+        r['id'] != None and
+        r['geometry'] != None and
+        r['properties']['effective'] != None and
+        r['properties']['expires'] != None and
+        r['properties']['messageType'] != None and
+        r['properties']['severity'] != None and    
+        r['properties']['certainty'] != None and
+        r['properties']['urgency'] != None and
+        r['properties']['event'] != None and
+        r['properties']['senderName'] != None and
+        r['properties']['headline'] != None and
+        r['properties']['description'] != None)
+
+    def create_warnings_dict(r):
+        return {
+        "warning_id": r['id'],
+        "lat" : r['geometry']['coordinates'][0][0][1],
+        "lng" : r['geometry']['coordinates'][0][0][0],    
+        "effective_time" :  r['properties']['effective'],
+        "expiration_time" : r['properties']['expires'],
+        "message_type" : r['properties']['messageType'],
+        "severity" : r['properties']['severity'],
+        "certainty" : r['properties']['certainty'],
+        "urgency" : r['properties']['urgency'],
+        "events" : r['properties']['event'],
+        "warning_source" : r['properties']['senderName'],
+        "headlines" : r['properties']['headline'],
+        "warning_description" : r['properties']['description']
+        }
+
+    for r in warnings:
+        if is_valid_warning(r):
+            transformed_dict = create_warnings_dict(r)
+            warnings_dict.append(transformed_dict)
+
+    # cleans up the ids column removes commas
+    for i in warnings_dict: 
+        value = i['warning_description']
+        formated_value = value.replace('\n', ' ')
+        i["warning_description"] = formated_value
 
     #################################################
     # CREATE TABLES
@@ -94,6 +151,9 @@ def extract_transform_load():
 
     # Create significant_earthquakes table
     cursor.execute("CREATE TABLE IF NOT EXISTS significant_earthquakes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, yr INT(5), month INT(3), day INT(3), hr INT(3), minute INT(2), eq_mag_primary DECIMAL(4,2), depth VARCHAR(255), intensity VARCHAR(255), country VARCHAR(255), location_name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), deaths INT(10), damage_millions VARCHAR(255), total_deaths INT(10), total_injuries VARCHAR(255), total_damage_millions VARCHAR(255), dtg varchar(25)) ENGINE=InnoDB")
+
+    # Create warnings table
+    cursor.execute("CREATE TABLE IF NOT EXISTS warnings (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, warning_id VARCHAR(255), lat DECIMAL(7,3), lng DECIMAL(7,3), effective_time VARCHAR(255), expiration_time VARCHAR(255), message_type VARCHAR(255), severity VARCHAR(255), certainty VARCHAR(255), urgency VARCHAR(255), events VARCHAR(255), warning_source VARCHAR(255), headlines VARCHAR(255), warning_description TEXT NOT NULL ) ENGINE=InnoDB")
     
     # Create tornadoes table
     cursor.execute("CREATE TABLE IF NOT EXISTS tornadoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag INT(2), injuries INT(4), deaths INT(4), damage DECIMAL(20, 10), crop_loss DECIMAL(20, 10) ,s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), length_traveled DECIMAL(10, 6), width INT(5), nbr_states_affected INT(2), sn INT(2), sg INT(2), fa INT(4), fb INT(4), fc INT(4), fd INT(4), fe INT(2), dtg varchar(25)) ENGINE=InnoDB")
@@ -109,6 +169,34 @@ def extract_transform_load():
     
     # Create volcanoes table
     cursor.execute("CREATE TABLE IF NOT EXISTS volcanoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), tsu INT(4), eq INT(4), name VARCHAR(255), location VARCHAR(255), country VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), elevation DECIMAL(8,2), type VARCHAR(255), volcanic_index INT(2), fatality_cause VARCHAR(255), death INT(6), death_code INT(1), injuries INT(6), injuries_code INT(1), damage DECIMAL(8, 4), damage_code INT(1), houses INT(5), houses_code INT(1), dtg varchar(25))ENGINE=InnoDB")
+
+
+    #################################################
+    # LOAD WEATHER WARNINGS TABLE
+    #################################################
+    # Load earthquake data to earthquake table
+    warning_values = []
+    def w_listify(v):
+        return v["warning_id"], v["lat"], v["lng"], v["effective_time"], v["expiration_time"], v["message_type"], v["severity"], v["certainty"], v["urgency"],  v["events"], v["warning_source"], v["headlines"], v["warning_description"]
+
+    for v in warnings_dict:
+        entry_tuple = w_listify(v)
+        warning_values.append(entry_tuple) 
+
+    ## defining the Query 
+    # area_desc, , %s
+    query = "INSERT INTO warnings (warning_id, lat, lng, effective_time, expiration_time, message_type, severity, certainty, urgency, events, warning_source, headlines, warning_description) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+
+    ## storing values in a variable
+    values = warning_values
+
+    ## executing the query with values
+    cursor.executemany(query, values)
+
+    ## to make final output we have to run the 'commit()' method of the database object
+    db.commit()
+    print(cursor.rowcount, "records inserted")
+
 
     #################################################
     # LOAD EARTHQUAKE TABLE

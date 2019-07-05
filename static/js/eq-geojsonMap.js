@@ -2,9 +2,6 @@
 // Create a map.
 function createMap(eqLayers, timelineLayer, legend) {
 
-    console.log(eqLayers); // tbg
-    console.log(timelineLayer); // tbg
-
     // Create the tile layer that will be the background of the world map displaying earthquakes.
     var eqMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
         attribution: "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://mapbox.com\">Mapbox</a>",
@@ -33,7 +30,6 @@ function createMap(eqLayers, timelineLayer, legend) {
         "World Map": eqMap,
         "Timeline": tlMap
     };
-    console.log(baseMaps); // tbg
 
     // Create a timeline control.
     var timelineControl = L.timelineSliderControl({
@@ -41,14 +37,12 @@ function createMap(eqLayers, timelineLayer, legend) {
                 return new Date(date).toString();
             }
         });
-    console.log(timelineControl); // tbg
 
     // Create a layer control, passing in the baseMaps and eqLayers.
     // Add the layer control to the map.
     var layersControl = L.control.layers(baseMaps, eqLayers, {
         collapsed: false
     }).addTo(map);
-    console.log(layersControl); // tbg
 
     // Add the legend to the map.
     legend.addTo(map);
@@ -110,13 +104,10 @@ function addPopupInfo(feature, layer) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
+// This function makes the API call that returns the earthquake data that's stored in the 'earthquakes' table
+// in our database. It returns this data as a geojson object.
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Perform an API call to the USGS API to get earthquake information (past 7 days, 2.5+ magnitude and greater)
-//
-// tbg d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson').then((geojsonData) => {
-
 function mapEarthquakes() {
 
     // Query the DB for the geojson earthquake data.
@@ -126,8 +117,6 @@ function mapEarthquakes() {
         var colorRange = ['#E5E4DA','#A11F22'],
             minMaxEQ   = d3.extent(geojsonData.features.map((f) => f.properties.mag)),
             range      = [0, geojsonData.features.length - 1];
-    
-        console.log(minMaxEQ); // tbg
     
         // Scale the magnitudes.
         var logScale =  d3.scaleLog().domain(minMaxEQ).range(range);
@@ -179,9 +168,8 @@ function mapEarthquakes() {
                             return L.circleMarker(latlng, {
                             radius: +feature.properties.mag * 2,
                             fillColor: colorScale(+feature.properties.mag),
-                            color: '#000',
-                            weight: 1,
-                            opacity: 1,
+                            color: feature.properties.tsunami ? '#00FF00' : '#000000',
+                            weight: feature.properties.tsunami ? 2 : 1,
                             fillOpacity: 0.9,
                         });
                         },
@@ -205,9 +193,8 @@ function mapEarthquakes() {
                         return L.circleMarker(latlng, {
                         radius: +quake.properties.mag * 2,
                         fillColor: colorScale(+quake.properties.mag),
-                        color: '#000',
-                        weight: 1,
-                        opacity: 1,
+                        color: quake.properties.tsunami ? '#00FF00' : '#000000',
+                        weight: quake.properties.tsunami ? 2 : 1,
                         fillOpacity: 0.9,
                     });
                     },
