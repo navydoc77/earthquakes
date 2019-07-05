@@ -70,9 +70,9 @@ def create_eq_geojson_dict(r):
             'time'    : int(r[2]),
             'tz'      : float(r[3]),
             'url'     : r[4],
-            'tsunami' :  int(r[5]),
-            'type'    :  r[7],
-            'title'   :  r[8]
+            'tsunami' : int(r[5]),
+            'type'    : r[7],
+            'title'   : r[8]
         },
         'geometry' :
         {
@@ -191,7 +191,6 @@ def create_wind_dict(r):
     "mag_type": r[20]
     }
 
-
 def create_tsunami_dict(r):
     return {
     "year" : int(r[0]),
@@ -218,6 +217,30 @@ def create_tsunami_dict(r):
     "house_code": int(r[21])
     }
 
+def create_tsunami_geojson_dict(r):
+    return {
+        'type' : "Feature",
+        'properties' :
+        {
+            'year'      : r[0],
+            'validity'  : r[6],
+            'source'    : r[7],
+            'country'   : r[9],
+            'locale'    : r[10],
+            'date'      : r[22],
+            'intensity' : 1
+        },
+        'geometry' :
+        {
+            'type' : 'Point',
+            'coordinates' : [
+               float(r[12]),
+               float(r[11]),
+               float(0)
+            ]
+        },
+        'id' : int(r[23])
+    }
 
 def create_volcanoes_dict(r):
     return {
@@ -297,6 +320,23 @@ def get_all_earthquakes(sql_to_py):
     
     return (all_earthquakes)
 
+
+def get_all_tsunamis(sql_to_py):
+    
+    # Step 1: set up columns needed for this run
+    sel = [db_conn.tsunamis.year, db_conn.tsunamis.month, db_conn.tsunamis.day, db_conn.tsunamis.hour, db_conn.tsunamis.min, db_conn.tsunamis.second, db_conn.tsunamis.validity, db_conn.tsunamis.source, db_conn.tsunamis.earthquake_mag, db_conn.tsunamis.country, db_conn.tsunamis.name, db_conn.tsunamis.lat, db_conn.tsunamis.lng, db_conn.tsunamis.water_height, db_conn.tsunamis.tsunami_mag_lida, db_conn.tsunamis.tsunami_intensity, db_conn.tsunamis.death_nbr, db_conn.tsunamis.injuries_nbr, db_conn.tsunamis.damage_mill, db_conn.tsunamis.damage_code, db_conn.tsunamis.house_destroyed, db_conn.tsunamis.house_code, db_conn.tsunamis.dtg, db_conn.tsunamis.tb_id]
+
+    # Step 2: Run and store filtered query in results variable 
+    tsunamis_results = db_conn.session.query(*sel).all()
+
+    # Step 3: Build a list of dictionary that contains all the tsunamis
+    all_tsunamis = []
+
+    for r in tsunamis_results:
+        transformed_dict = sql_to_py(r)
+        all_tsunamis.append(transformed_dict)
+    
+    return (all_tsunamis)
 
 # ############ Machine Learning Function ############### #
 # This will produce the data for plotting KNN analysis   #
@@ -422,15 +462,12 @@ def tsunami_filter_dashb():
 def magnitudes():
     """Return a list of earthquake magnitudes"""
     magnitudes = db_conn.session.query(db_conn.earthquakes.magnitude.distinct()).all()
-    print(magnitudes)
 
     # converts a list of list into a single list (flattens list)
     earthquake_list = [item for sublist in list(magnitudes) for item in sublist]
 
     # return a list of column names (sample names)
-    print(earthquake_list)
     float_earthquakes = [float(x) for x in earthquake_list]
-    print(float_earthquakes)
     return jsonify(earthquake_list)
 
 # ************************************
@@ -466,12 +503,8 @@ def return_all_significant_earthquakes():
     
     sel = [db_conn.significant_earthquakes.tb_id, db_conn.significant_earthquakes.yr,db_conn.significant_earthquakes.month, db_conn.significant_earthquakes.day, db_conn.significant_earthquakes.hr, db_conn.significant_earthquakes.minute, db_conn.significant_earthquakes.eq_mag_primary, db_conn.significant_earthquakes.depth, db_conn.significant_earthquakes.intensity, db_conn.significant_earthquakes.country, db_conn.significant_earthquakes.location_name, db_conn.significant_earthquakes.lat, db_conn.significant_earthquakes.lng, db_conn.significant_earthquakes.deaths, db_conn.significant_earthquakes.damage_millions, db_conn.significant_earthquakes.total_deaths, db_conn.significant_earthquakes.total_injuries, db_conn.significant_earthquakes.total_damage_millions]
     
-    print(sel)
-
-
     # Step 2: Run and store filtered query in results variable 
     all_sig_results = db_conn.session.query(*sel).all()
-    print(all_sig_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_sig_earthquakes = []
@@ -479,8 +512,6 @@ def return_all_significant_earthquakes():
         transformed_dict = create_sig_earthquake_dict(r)
         all_sig_earthquakes.append(transformed_dict)
     
-    print(all_sig_earthquakes)
-
     return jsonify(all_sig_earthquakes)
 
 
@@ -494,12 +525,8 @@ def return_eq_filter_viz():
     
     sel = [db_conn.eq_filter_viz.dtg, db_conn.eq_filter_viz.lat, db_conn.eq_filter_viz.lng, db_conn.eq_filter_viz.mag, db_conn.eq_filter_viz.depth]
     
-    print(sel)
-
-
     # Step 2: Run and store filtered query in results variable 
     all_eq_filter_viz_results = db_conn.session.query(*sel).all()
-    print(all_eq_filter_viz_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_eq_filter_viz = []
@@ -507,8 +534,6 @@ def return_eq_filter_viz():
         transformed_dict = create_eq_filter_viz(r)
         all_eq_filter_viz.append(transformed_dict)
     
-    print(all_eq_filter_viz)
-
     return jsonify(all_eq_filter_viz)
 
 # ************************************
@@ -521,12 +546,8 @@ def return_volcano_filter_viz():
     
     sel = [db_conn.volcano_filter_viz.dtg, db_conn.volcano_filter_viz.lat, db_conn.volcano_filter_viz.lng, db_conn.volcano_filter_viz.volcanic_index, db_conn.volcano_filter_viz.death]
     
-    print(sel)
-
-
     # Step 2: Run and store filtered query in results variable 
     all_volcano_filter_viz_results = db_conn.session.query(*sel).all()
-    print(all_volcano_filter_viz_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_volcano_filter_viz = []
@@ -534,8 +555,6 @@ def return_volcano_filter_viz():
         transformed_dict = create_volcano_filter_viz(r)
         all_volcano_filter_viz.append(transformed_dict)
     
-    print(all_volcano_filter_viz)
-
     return jsonify(all_volcano_filter_viz)
 
 # ************************************
@@ -548,12 +567,8 @@ def return_tsunami_filter_viz():
     
     sel = [db_conn.tsunami_filter_viz.dtg, db_conn.tsunami_filter_viz.lat, db_conn.tsunami_filter_viz.lng, db_conn.tsunami_filter_viz.mag, db_conn.tsunami_filter_viz.water_height]
     
-    print(sel)
-
-
     # Step 2: Run and store filtered query in results variable 
     all_tsunami_filter_viz_results = db_conn.session.query(*sel).all()
-    print(all_tsunami_filter_viz_results)
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_tsunami_filter_viz = []
@@ -561,8 +576,6 @@ def return_tsunami_filter_viz():
         transformed_dict = create_tsunami_filter_viz(r)
         all_tsunami_filter_viz.append(transformed_dict)
     
-    print(all_tsunami_filter_viz)
-
     return jsonify(all_tsunami_filter_viz)
 
 # ************************************
@@ -585,8 +598,6 @@ def return_all_tornadoes():
         transformed_dict = create_tornadoes_dict(r)
         all_tornadoes.append(transformed_dict)
     
-    print(all_tornadoes)
-
     return jsonify(all_tornadoes)
 
 # ************************************
@@ -609,8 +620,6 @@ def return_all_hail():
         transformed_dict = create_hail_dict(r)
         all_hail.append(transformed_dict)
     
-    print(all_hail)
-
     return jsonify(all_hail)
 
 
@@ -633,8 +642,6 @@ def return_all_wind():
         transformed_dict = create_wind_dict(r)
         all_wind.append(transformed_dict)
     
-    print(all_wind)
-
     return jsonify(all_wind)
 
 # ************************************
@@ -643,22 +650,23 @@ def return_all_wind():
 @app.route("/api/tsunamis", methods=['GET'])
 def return_all_tsunamis():
 
-    # Step 1: set up columns needed for this run
-    sel = [db_conn.tsunamis.year, db_conn.tsunamis.month, db_conn.tsunamis.day, db_conn.tsunamis.hour, db_conn.tsunamis.min, db_conn.tsunamis.second, db_conn.tsunamis.validity, db_conn.tsunamis.source, db_conn.tsunamis.earthquake_mag, db_conn.tsunamis.country, db_conn.tsunamis.name, db_conn.tsunamis.lat, db_conn.tsunamis.lng, db_conn.tsunamis.water_height, db_conn.tsunamis.tsunami_mag_lida, db_conn.tsunamis.tsunami_intensity, db_conn.tsunamis.death_nbr, db_conn.tsunamis.injuries_nbr, db_conn.tsunamis.damage_mill, db_conn.tsunamis.damage_code, db_conn.tsunamis.house_destroyed, db_conn.tsunamis.house_code]
+    return jsonify(get_all_tsunamis(create_tsunami_dict))
 
-    # Step 2: Run and store filtered query in results variable 
-    tsunamis_results = db_conn.session.query(*sel).all()
-
-    # Step 3: Build a list of dictionary that contains all the tsunamis
-    all_tsunamis = []
-
-    for r in tsunamis_results:
-        transformed_dict = create_tsunami_dict(r)
-        all_tsunamis.append(transformed_dict)
+# ************************************
+# RETURNS ALL TSUNAMI FROM TSUNAMI TABLE IN GEOJSON FORMAT
+# ************************************
+@app.route("/api/tsunamis-geojson", methods=['GET'])
+def return_all_tsunamis_geojson():
     
-    print(all_tsunamis)
+    geojson_obj = {}
 
-    return jsonify(all_tsunamis)
+    geojson_obj['type'] = 'FeatureCollection'
+    geojson_obj['features'] = get_all_tsunamis(create_tsunami_geojson_dict)
+    geojson_obj['metadata'] = { 'count' : len(geojson_obj['features']) }
+
+    return jsonify(geojson_obj)
+
+# ************************************
 
 # ************************************
 # RETURNS ALL VOLCANOES FROM VOLCANOE TABLE
@@ -679,8 +687,6 @@ def return_all_volcanoes():
         transformed_dict = create_volcanoes_dict(r)
         all_vocanoes.append(transformed_dict)
     
-    print(all_vocanoes)
-
     return jsonify(all_vocanoes)
 
 # ************************************
