@@ -585,8 +585,6 @@ def return_all_tornadoes():
         transformed_dict = create_tornadoes_dict(r)
         all_tornadoes.append(transformed_dict)
     
-    print(all_tornadoes)
-
     return jsonify(all_tornadoes)
 
 # ************************************
