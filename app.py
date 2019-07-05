@@ -311,19 +311,6 @@ def kNeighborAnalysis(X, y):
     fpr_array = []
     tpr_array = []
     threshold_array = []
-    # fpr_array_0 = []
-    # fpr_array_1 = []
-    # fpr_array_2 = []
-    # tpr_array_0 = []
-    # tpr_array_1 = []
-    # tpr_array_2 = []
-    # threshold_array_0 = []
-    # threshold_array_1 = []
-    # threshold_array_2 = []
-    # true_negative = []
-    # false_positive = []
-    # false_negative = []
-    # true_positive = []
 
     # try n_neighbors from 1 to 10
     neighbors_settings = range(1, 11)
@@ -346,33 +333,22 @@ def kNeighborAnalysis(X, y):
         # Compute Receiver operating characteristic (ROC)
         y_scores = clf.predict_proba(X_test)
         fpr, tpr, threshold = roc_curve(y_test, y_scores[:, 1])
+
+        # Listify the unpacked values
         fpr = fpr.tolist()
         tpr = tpr.tolist()
         threshold = threshold.tolist()
+        
+        # append values to an array
         fpr_array.append(fpr)
         tpr_array.append(tpr)
         threshold_array.append(threshold)
-        # print(fpr_array_0)
-        # fpr_array_0.append(fpr[0])
-        # fpr_array_1.append(fpr[1])
-        # fpr_array_2.append(fpr[2])
-        # tpr_array_0.append(tpr[0])
-        # tpr_array_1.append(tpr[1])
-        # tpr_array_2.append(tpr[2])
-        # threshold_array_0.append(threshold[0])
-        # threshold_array_1.append(threshold[1])
-        # threshold_array_2.append(threshold[2])
-
 
         # Computes the tn, fp, fn, tp in confusion matrix
         cm = confusion_matrix(y_test, clf.predict(X_test))
         tn, fp, fn, tp = cm.ravel()
         cm_list = [int(tn), int(fp), int(fn), int(tp)]
         confusion_matrix_arrays.append(cm_list)
-        # true_negative.append(int(cm_list[0]))
-        # false_positive.append(int(cm_list[1]))
-        # false_negative.append(int(cm_list[2]))
-        # true_positive.append(int(cm_list[3]))
 
     knn_annalysis_dict = {
         "x" : [1,2,3,4,5,6,7,8,9,10],
@@ -381,21 +357,9 @@ def kNeighborAnalysis(X, y):
         "fpr_array" : fpr_array,
         "tpr_array" : tpr_array,
         "threshold_array" : threshold_array,
-        # "frp0" : fpr_array_0,
-        # "frp1" : fpr_array_1,
-        # "frp2" : fpr_array_2,
-        # "trp0" : tpr_array_0,
-        # "trp1" : tpr_array_1,
-        # "trp2" : tpr_array_2,
-        # "threshold0" : threshold_array_0,
-        # "threshold1" : threshold_array_1,
-        # "threshold2" : threshold_array_2,
         "confusion_matrix_arrays" : confusion_matrix_arrays
-        # "true_negative" : true_negative,
-        # "false_positive" : false_positive,
-        # "false_negative" : false_negative,
-        # "true_positive" : true_positive
         }
+
     return (knn_annalysis_dict)
 
 #################################################
@@ -816,13 +780,13 @@ def machine_learning():
     # CASE 7: MAG
     # CASE 8: 
     
-    ################# Lat "Lng Depth Magnitude "###############
+    ################# Lat "Lng Depth Magnitude" ###############
     # CASE 1: ALL Subfeatures included: Lng Depth Magnitude
     # CASE 1: ALL CHECKED OFF
     # CASE 1: PREFIX DESIGNATION: All
 
     # Step 1: Drop columns
-    # NONE
+    # DEFAULT
 
     # Step 2: Assign X and y values
     y = knn_df["tsunami"].values
