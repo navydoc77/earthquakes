@@ -791,6 +791,7 @@ def machine_learning():
     # Step 2: Assign X and y values
     y = knn_df["tsunami"].values
     X = knn_df.drop('tsunami', axis=1).values
+    case1_df = (knn_df.drop('tsunami', axis=1)).to_json(orient='index')
 
     # Step 3: Conducted Analysis and store reust in variable
     all_data = kNeighborAnalysis(X,y)
@@ -803,6 +804,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE2_DROP_COLUMNS = ["magnitude"]
     lng_depth_df = knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)
+    case2_df = (knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lng_depth_df["tsunami"].values
@@ -819,6 +821,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE3_DROP_COLUMNS = ["depth"]
     lng_magnitude_df = knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)
+    case3_df = (knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lng_magnitude_df["tsunami"].values
@@ -835,6 +838,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE4_DROP_COLUMNS = ["lng"]
     depth_magnitude_df = knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)
+    case4_df = (knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = depth_magnitude_df["tsunami"].values
@@ -851,6 +855,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["magnitude", "depth"]
     lng_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+    case5_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lng_df["tsunami"].values
@@ -867,6 +872,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE6_DROP_COLUMNS = ["magnitude", "lng"]
     depth_df = knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)
+    case6_df = (knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = depth_df["tsunami"].values
@@ -883,6 +889,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["depth", "lng"]
     magnitude_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+    case7_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = magnitude_df["tsunami"].values
@@ -899,6 +906,7 @@ def machine_learning():
     # Step 1: Drop columns
     DROP_NEW_COLUMNS = ["magnitude", "depth", "lng"]
     lat_df = knn_df.drop(DROP_NEW_COLUMNS, axis = 1)
+    case8_df = (knn_df.drop(DROP_NEW_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lat_df["tsunami"].values
@@ -917,7 +925,15 @@ def machine_learning():
         "case5" : lng_data,
         "case6" : depth_data, 
         "case7" : magnitude_data,
-        "case8" : lat_data
+        "case8" : lat_data,
+        "case1_df" : case1_df,
+        "case2_df" : case2_df,
+        "case3_df" : case3_df,
+        "case4_df" : case4_df,
+        "case5_df" : case5_df,
+        "case6_df" : case6_df,
+        "case7_df" : case7_df,
+        "case8_df" : case8_df
     }
 
     return jsonify(all_knn_analysis_data)
