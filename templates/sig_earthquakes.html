@@ -29,8 +29,8 @@
             </button>
             <div class="dropdown-content">
                 <a class="active" href="{{ url_for('earthquake_index') }}">Recent Earthquake</a>
+                <a class="active" href="{{ url_for('tsunamis_landing') }}">Historical Tsunamis</a>
                 <a class="active" href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>  
-                <a class="active" href="{{ url_for('tsunamis_landing') }}">Tsunamis</a>
             </div>
         </div> 
         <div class="dropdown">
@@ -97,7 +97,6 @@
       <h5>Events by Year</h5>
     </div>
   </div>
-
   <div class='row'>
 	<div class='pie-graph span12'>
       <table class='table table-hover' id='dc-table-graph'>
