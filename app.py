@@ -451,6 +451,11 @@ def volcanoes_landing():
 def tsunamis_landing():
     return render_template('tsunamis_landing.html')
 
+# Renders tsunamis map page
+@app.route("/tsunami-map")
+def tsunami_map():
+    return render_template('tsunami_map.html')
+
 # Renders wind page
 @app.route("/wind-landing")
 def wind_landing():
