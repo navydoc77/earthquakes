@@ -100,10 +100,10 @@ d3.json("/api/tornadoes").then(function (data) {
     .margins({top: 10, right: 10, bottom: 20, left: 40})
     .dimension(widthValue)
     .group(widthValueGroup)
-	.transitionDuration(500)
+	.transitionDuration(1000)
     .centerBar(true)	
-	.gap(1)                    // bar width Keep increasing to get right then back off.
-    .x(d3.scaleLinear().domain([0, 100]))
+	.gap(50)                    // bar width Keep increasing to get right then back off.
+    .x(d3.scaleLinear().domain([0, 4600]))
 	.elasticY(true)
 	.xAxis().tickFormat(function(v) {return v;});
 
