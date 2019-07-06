@@ -20,7 +20,7 @@ function createMap(eqLayers, timelineLayer, legend) {
 
     // Create a map using the eqMap tile layer and the earthquake layers (eqLayers).
     var map = L.map("map-id", {
-        center: [30.0, 0.0],
+        center: [25.0, 0.0],
         zoom: 2,
         layers: [eqMap].concat(d3.values(eqLayers))
     });
@@ -34,7 +34,7 @@ function createMap(eqLayers, timelineLayer, legend) {
     // Create a timeline control.
     var timelineControl = L.timelineSliderControl({
             formatOutput: function(date) {
-                return new Date(date).toString();
+                return new Date(date).toString().slice(0, 24).replace(/ /g, '_');
             }
         });
 

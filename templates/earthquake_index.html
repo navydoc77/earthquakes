@@ -11,7 +11,7 @@
   crossorigin=""/>
 
   <!-- v1.2.1 Leaflet.timeline CSS -->
-<!-- tbg  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/leaflet.timeline.css') }}"> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/leaflet.timeline.css') }}">
 
   <!-- Bootcamp CSS -->
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
@@ -29,8 +29,8 @@
             </button>
             <div class="dropdown-content">
               <a class="active" href="{{ url_for('sig_earthquake') }}">Historical Earthquakes</a>
+              <a href="{{ url_for('tsunamis_landing') }}">Historical Tsunamis</a>
               <a href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>  
-              <a href="{{ url_for('tsunamis_landing') }}">Tsunamis</a>
             </div>
         </div> 
         <div class="dropdown">

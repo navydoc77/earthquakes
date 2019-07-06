@@ -12,7 +12,7 @@ function createMap(tsunamiLayer) {
 
     // Create a map using the tsunamiMap tile layer and tsunamiLayer.
     var map = L.map("map-id", {
-        center: [30.0, 0.0],
+        center: [25.0, 0.0],
         zoom: 2,
         layers: [tsunamiMap].concat(tsunamiLayer)
     });
