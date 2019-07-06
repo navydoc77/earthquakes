@@ -1,74 +1,67 @@
 # Natural Disasters
 ![Earth Hackers!](resources/disaster_collage_funny.jpg "Earth Hackers!")
----
 
-This application is designed to be educational and provide information, data, and graphics for natural disasters.
+This application is designed to be educational and provide information, data, and graphics for natural disasters.  You can view the application by clicking on this link: <a href="http://example.com/" target="_blank">Natural Disasters</a>
 
-## Data Source
+If you want to install the application on your device, see **ETL/Run the Application Procedure** below.
+
+### Repository Contents
+
+- [`etl.py`] (etl.py)  This contains the extract, transform, and load logic for the database.
+- [`db_conn.py`] (db_conn.py)  This uses sqlalchemy for database connection, engine creation, reflection, and session logic.
+- [`app.py`] (app.py)  This will run the natural disasters application.
+
+## Requirements 
+
+See [`Requirements.txt`] (Requirements.txt) file.  Ensure these requirements are satisifed on your local device before performing the ETL steps below.
+
+
+## ETL/Run the Application Procedure
+
+### Step 1:
+
+- In the application folder, create a **.env** file by typing the following:
+ 
+```
+$ touch .env
+```
+
+### Step 2:
+
+- Edit the .env file.  See below as an example of the .env file contents.
+
+```
+# Example Database Connection
+# Replace with your own values for deployment
+DATABASE_DIALECT=mysql
+DATABASE_USERNAME=your_username
+DATABASE_PASSWORD=your_password
+DATABASE_HOST=127.0.0.1
+DATABASE_PORT=3306
+DATABASE_NAME=natural_disasterdb
+``` 
+
+### Step 3:
+
+- At the command line, run the following command:
+``` 
+$ python etl.py 
+```
+
+This will build the MySQL database and load the tables. 
+
+### Step 4:
+- Within the application folder, type the following at the command line:
+
+```
+$ python app.py
+```
+
+### Step 5:
+- Open a web browser and for the url type: ``127.0.0.1:5000``.  You can now view the application.
+
+## Data Sources
 
 The data used in this application was ingested from:
-<li><a href="https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1" target="_blank">National Geophysical Data Center</a></li>
 <li><a href="https://earthquake.usgs.gov/earthquakes/feed/" target="_blank">United States Geological Survey</a></li>
-
-
-## Requirements:
-
-Flask ... etc etc
-
-Modules required:
-mysql-connector
-mysql
-flask_sqlalchemy
-
-Start database before running etl.py
-
-
-## To run:
-
-Run app.py at terminal line
-
-Routes:
-<strong>@app.route("/")</strong>
-<p>-renders homepage
-
-<strong>@app.route("/magnitudes")</strong>
-<p>-access usgs earthquake data
-<p>-returns a list of unique earthquakes by magnitude
-
-<strong>@app.route("/earthquakes", methods=['GET'])</strong>
-<p>-access usgs earthquake data
-<p>-returns a json of all earthquake events and corresponding data
-
-<strong>@app.route("/significant_earthquakes", methods=['GET'])</strong>
-<p>-access signficant earthquake data from csv file</p>
-<p>-returns a json of all significant earthquake events</p>
-
-<strong>@app.route("/hail", methods=['GET'])</strong>
-<p>-access signficant hail data from csv file
-<p>-returns a json of all significant hail events
-
-<strong>@app.route("/wind", methods=['GET'])</strong>
-<p>-access signficant wind data from csv file
-<p>-returns a json of all significant wind events
-
-<strong>@app.route("/tsunamis", methods=['GET'])</strong>
-<p>-access signficant tsunamis data from csv file
-<p>-returns a json of all significant tsunamis events
-
-<strong>@app.route("/volcanoes", methods=['GET'])</strong>
-<p>-access signficant volcanoes data from csv file
-<p>-returns a json of all significant volcanoes events
-
-### Load data by doing:
-
-Run etl.py at terminal line
--This extracts the data from api and csv files.
--A mysqyl database is created
--Data is loaded into mysqual
-
-Note that for iOS, in the `config.py` file you will have to use `engine = create_engine('mysql+pymysql://root:root@localhost')`
-
-### Run application by performing the following:
-
-Run app.py at terminal line
--routes
+<li><a href="https://www.ngdc.noaa.gov/ngdcinfo/onlineaccess.html" target="_blank">National Centers for Environmental Information</a></li>

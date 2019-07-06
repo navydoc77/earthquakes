@@ -3,10 +3,10 @@
 ***********************************/
 
 
-var url = 'http://127.0.0.1:5000/tornadoes'
+//var url = 'http://127.0.0.1:5000/tornadoes'
 
-d3.json(url).then(function (data) { 
-  
+d3.json("/api/tornadoes").then(function (data) { 
+
   var parseDate = d3.timeParse("%Y-%m-%d %H:%M:%S");
 
     data.forEach(function(d) { 
