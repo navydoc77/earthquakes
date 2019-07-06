@@ -355,3 +355,13 @@ function initializeRocCurve() {
 //     Plotly.plot("roc_plot", roc_plot_data, roc_layout);
 //   });
 // }
+
+         <!-- </form> -->
+      <!-- <div class="panel panel-primary"> -->
+        <!-- <div class="panel-heading">
+          <h3 class="panel-title">Model Performance</h3>
+        </div> -->
+            <!-- <div id="sample-metadata" class="panel-body"></div>
+              <h3 class="panel-title">Confusion Matrix</h3>
+            <div id="pie_test"></div> -->
+      <!-- </div> -->

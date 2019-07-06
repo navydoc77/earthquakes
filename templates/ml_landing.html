@@ -62,24 +62,14 @@
             <input type="checkbox" id="depth" value="depth"> Depth<br>
             <input type="checkbox" id="magnitude" value="magnitude"> Magnitude<br>
             <input type="submit" value="Submit" onclick="getCheckedAndPlot(this.value)">
-         <!-- </form> -->
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">Model Performance</h3>
-        </div>
-        <div id="sample-metadata" class="panel-body"></div>
-          <h3 class="panel-title">Confusion Matrix</h3>
-        <div id="pie_test"></div>
-      </div>
+
     </div>
-    <div class="col-md-8">
-        <h3 class="panel-title">Accuracy and KNearestNeighbhor</h3>
-      <div id="plot"></div>
-    </div>
-    <div class="col-md-2">
-      <div id="extra"></div>
+      <div class="col-md-10">
+        <h3 class="panel-title">Global Map of Tsunamis in Past 30 days</h3>
+      <div id="map-id"></div>
     </div>
   </div>
+
 
   </div>
     <div class="row">
@@ -89,13 +79,6 @@
     </div>
   </div>
 
-<!-- </div>
-  <div class="row">
-      <div class="col-md-12">
-        <div id="pie"></div>
-      </div>
-  </div>
-</div> -->
 
 </div>
     <div class="row">
@@ -122,11 +105,11 @@
   </div>
 
 </div>
-<div class="row">
-    <div class="col-md-12">
-      <div id="table"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="table"></div>
+      </div>
     </div>
-</div>
 </div>
 
 

@@ -324,8 +324,6 @@ def kNeighborAnalysis(X, y):
 
         # record training set accuracy
         training_accuracy.append(clf.score(X_train, y_train))
-        # print(training_accuracy)
-        # print(type(training_accuracy))
 
         # record generalization accuracy
         test_accuracy.append(clf.score(X_test, y_test))
@@ -935,8 +933,6 @@ def machine_learning():
         "case6_df" : case6_df,
         "case7_df" : case7_df,
         "case8_df" : case8_df
-        # "case1_df_html" : case1_df_html,
-        # "case8_df_html" : case8_df_html
     }
 
     return jsonify(all_knn_analysis_data)
