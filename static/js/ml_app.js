@@ -10,6 +10,7 @@ function isEqual(a,b) {
     return "True";
   }
 
+
 // **************************************************
 // *************** INITIALIZE PLOT *****************
 // **************************************************
@@ -301,6 +302,36 @@ function initialStackedPlot() {
   });
 }
 
+function initializeTable() {
+  d3.json(data_source_url).then(function(data) {
+  var table_data = data["case8_df"];
+  var toArray = JSON.parse("[" + table_data + "]");
+  var lat_array = toArray[0].map(function(x) {return x[0];});
+  var tsunami_array = toArray[0].map(function(x) {return x[1];});
+  var values = [lat_array, tsunami_array]
+
+  var data = [{
+    type: 'table',
+    header: {
+      values: [["<b>Latitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]],
+      align: "center",
+      line: {width: 1, color: 'black'},
+      fill: {color: "grey"},
+      font: {family: "Arial", size: 12, color: "white"}
+    },
+    cells: {
+      values: values,
+      align: "center",
+      line: {color: "black", width: 1},
+      font: {family: "Arial", size: 11, color: ["black"]}
+    }
+  }]
+
+Plotly.plot('table', data);
+
+  });
+}
+
 // **************************************************
 // ******* RESPONCE AND REPLOT FUNCTIONS ************
 // **************************************************
@@ -560,7 +591,7 @@ function reStackPlot(case_x) {
   var trace3 = {
     x: x,
     y: fn_array,
-    name: 'False Neagative',
+    name: 'False Negative',
     type: 'bar'
   };
 
@@ -576,6 +607,37 @@ function reStackPlot(case_x) {
   var layout = {barmode: 'stack'};
   
   Plotly.newPlot('stack', data, layout);
+  });
+}
+
+function reBuildTable(table_names, values) {
+  d3.json(data_source_url).then(function(data) {
+  // while('table'.data.length>0)
+  // {
+  //   Plotly.deleteTraces('table', [0]);
+  // }
+  // Plotly.deleteTraces('table', 0);
+
+
+  var data = [{
+    type: 'table',
+    header: {
+      values: table_names,
+      align: "center",
+      line: {width: 1, color: 'black'},
+      fill: {color: "grey"},
+      font: {family: "Arial", size: 12, color: "white"}
+    },
+    cells: {
+      values: values,
+      align: "center",
+      line: {color: "black", width: 1},
+      font: {family: "Arial", size: 11, color: ["black"]}
+    }
+  }]
+
+Plotly.newPlot('table', data);
+
   });
 }
 
@@ -621,9 +683,21 @@ function getCheckedAndPlot() {
       var case1_tpr = plot_data["case1"]["tpr_array"];
       buildRocCurve(case1_fpr, case1_tpr);
 
-      //////////////// STACKED BAR PLOT  ////////////////////      
+      //////////////// STACKED BAR PLOT  ///////////////////////      
       var casex = 'case1';    
       reStackPlot(casex);
+
+      //////////////////////  TABLE  ////////////////////////////
+      var table_data = data["case1_df"];
+      var toArray = JSON.parse("[" + table_data + "]");
+      var depth_array = toArray[0].map(function(x) {return x[0];});
+      var lat_array = toArray[0].map(function(x) {return x[1];});
+      var lng_array = toArray[0].map(function(x) {return x[2];});
+      var magnitude_array = toArray[0].map(function(x) {return x[3];});
+      var tsunami_array = toArray[0].map(function(x) {return x[4];});
+      var table_names =   [["<b>Depth</b>"], ["<b>Latitude</b>"], ["<b>Longitude</b>"], ["<b>Magnitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]]
+      var values = [depth_array, lat_array, lng_array, magnitude_array, tsunami_array];
+      reBuildTable(table_names, values);
 
     } else if (isEqual(check_array, case2) == "True") {
 
@@ -642,6 +716,17 @@ function getCheckedAndPlot() {
       var casex = 'case2';    
       reStackPlot(casex);
     
+      //////////////////////  TABLE  ////////////////////////////
+      var table_data = data["case2_df"];
+      var toArray = JSON.parse("[" + table_data + "]");
+      var depth_array = toArray[0].map(function(x) {return x[0];});
+      var lat_array = toArray[0].map(function(x) {return x[1];});
+      var lng_array = toArray[0].map(function(x) {return x[2];});
+      var tsunami_array = toArray[0].map(function(x) {return x[3];});
+      var values = [depth_array, lat_array, lng_array, tsunami_array];
+      var table_names =   [["<b>Depth</b>"], ["<b>Latitude</b>"], ["<b>Longitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]]
+      reBuildTable(table_names, values);
+
     } else if (isEqual(check_array, case3) == "True") {
 
 
@@ -660,6 +745,17 @@ function getCheckedAndPlot() {
       var casex = 'case3';
       reStackPlot(casex);
 
+      //////////////////////  TABLE  ////////////////////////////
+      var table_data = data["case3_df"];
+      var toArray = JSON.parse("[" + table_data + "]");
+      var lat_array = toArray[0].map(function(x) {return x[0];});
+      var lng_array = toArray[0].map(function(x) {return x[1];});
+      var magnitude_array = toArray[0].map(function(x) {return x[2];});
+      var tsunami_array = toArray[0].map(function(x) {return x[3];});
+      var values = [lat_array, lng_array, magnitude_array, tsunami_array];
+      var table_names =   [["<b>Latitude</b>"], ["<b>Longitude</b>"], ["<b>Magnitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]]
+      reBuildTable(table_names, values);
+
     } else if (isEqual(check_array, case4) == "True") {
 
       //////////////// KNN vs N_NEIGHBOR PLOT  ////////////////////  
@@ -676,6 +772,17 @@ function getCheckedAndPlot() {
       //////////////// STACKED BAR PLOT  //////////////////// 
       var casex = 'case4';
       reStackPlot(casex);
+
+      //////////////////////  TABLE  ////////////////////////////
+      var table_data = data["case4_df"];
+      var toArray = JSON.parse("[" + table_data + "]");
+      var depth_array = toArray[0].map(function(x) {return x[0];});
+      var lat_array = toArray[0].map(function(x) {return x[1];});
+      var magnitude_array = toArray[0].map(function(x) {return x[2];});
+      var tsunami_array = toArray[0].map(function(x) {return x[3];});
+      var values = [depth_array, lat_array, magnitude_array, tsunami_array];
+      var table_names =   [["<b>Depth</b>"], ["<b>Latitude</b>"],  ["<b>Magnitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]]
+      reBuildTable(table_names, values);
 
     } else if (isEqual(check_array, case5) == "True") {
 
@@ -694,6 +801,16 @@ function getCheckedAndPlot() {
       var casex = 'case5';
       reStackPlot(casex);
       
+      //////////////////////  TABLE  ////////////////////////////
+      var table_data = data["case5_df"];
+      var toArray = JSON.parse("[" + table_data + "]");
+      var lat_array = toArray[0].map(function(x) {return x[0];});
+      var lng_array = toArray[0].map(function(x) {return x[1];});
+      var tsunami_array = toArray[0].map(function(x) {return x[2];});
+      var values = [lat_array, lng_array, tsunami_array];
+      var table_names =   [["<b>Latitude</b>"], ["<b>Longtidue</b>"],  ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
+      reBuildTable(table_names, values);
+
     } else if (isEqual(check_array, case6) == "True") {
 
       //////////////// KNN vs N_NEIGHBOR PLOT  ////////////////////      
@@ -710,6 +827,17 @@ function getCheckedAndPlot() {
       //////////////// STACKED BAR PLOT  //////////////////// 
       var casex = 'case6';
       reStackPlot(casex);
+
+      //////////////////////  TABLE  ////////////////////////////
+      var table_data = data["case6_df"];
+      var toArray = JSON.parse("[" + table_data + "]");
+      var depth_array = toArray[0].map(function(x) {return x[0];});
+      var lat_array = toArray[0].map(function(x) {return x[1];});
+      var tsunami_array = toArray[0].map(function(x) {return x[2];});
+      var values = [depth_array, lat_array, tsunami_array];
+      var table_names =   [["<b>Depth</b>"], ["<b>Latitude</b>"],  ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
+      reBuildTable(table_names, values);
+
 
     } else if (isEqual(check_array, case7) == "True") {
 
@@ -728,6 +856,16 @@ function getCheckedAndPlot() {
       var casex = 'case7';
       reStackPlot(casex);
 
+      //////////////////////  TABLE  ////////////////////////////
+      var table_data = data["case7_df"];
+      var toArray = JSON.parse("[" + table_data + "]");
+      var lat_array = toArray[0].map(function(x) {return x[0];});
+      var magnitude_array = toArray[0].map(function(x) {return x[1];});
+      var tsunami_array = toArray[0].map(function(x) {return x[2];});
+      var values = [lat_array, magnitude_array, tsunami_array];
+      var table_names =   [["<b>Latitude</b>"], ["<b>Magnitude</b>"],  ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
+      reBuildTable(table_names, values);
+
     } else if (isEqual(check_array, case8) == "True") {
 
       //////////////// KNN vs N_NEIGHBOR PLOT  ////////////////////       
@@ -744,6 +882,15 @@ function getCheckedAndPlot() {
       //////////////// STACKED BAR PLOT  //////////////////// 
       var casex = 'case8';
       reStackPlot(casex);
+
+      //////////////////////  TABLE  ////////////////////////////
+      var table_data = data["case8_df"];
+      var toArray = JSON.parse("[" + table_data + "]");
+      var lat_array = toArray[0].map(function(x) {return x[0];});
+      var tsunami_array = toArray[0].map(function(x) {return x[1];});
+      var values = [lat_array, tsunami_array];
+      var table_names =   [["<b>Latitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
+      reBuildTable(table_names, values);
       
     } else {
       console.log("failed")
@@ -759,6 +906,7 @@ function init() {
   initializeKNNPlot();
   initializeRocCurve();
   initialStackedPlot();
+  initializeTable();
 }
 
 init();
