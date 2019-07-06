@@ -684,11 +684,8 @@ def return_volcano_filter_viz():
         transformed_dict = create_volcano_filter_viz(r)
         all_volcano_filter_viz.append(transformed_dict)
     
-<<<<<<< HEAD
     print(all_volcano_filter_viz)
 
-=======
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
     return jsonify(all_volcano_filter_viz)
 
 # ************************************
@@ -701,17 +698,14 @@ def return_tsunami_filter_viz():
     
     sel = [db_conn.tsunami_filter_viz.dtg, db_conn.tsunami_filter_viz.lat, db_conn.tsunami_filter_viz.lng, db_conn.tsunami_filter_viz.mag, db_conn.tsunami_filter_viz.water_height]
     
-<<<<<<< HEAD
     print(sel)
 
 
     # Step 2: Run and store filtered query in results variable 
     all_tsunami_filter_viz_results = db_conn.session.query(*sel).all()
     print(all_tsunami_filter_viz_results)
-=======
     # Step 2: Run and store filtered query in results variable 
     all_tsunami_filter_viz_results = db_conn.session.query(*sel).all()
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_tsunami_filter_viz = []
@@ -719,11 +713,8 @@ def return_tsunami_filter_viz():
         transformed_dict = create_tsunami_filter_viz(r)
         all_tsunami_filter_viz.append(transformed_dict)
     
-<<<<<<< HEAD
     print(all_tsunami_filter_viz)
 
-=======
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
     return jsonify(all_tsunami_filter_viz)
 
 # ************************************
@@ -818,7 +809,6 @@ def return_all_tsunamis_geojson():
     geojson_obj['features'] = get_all_tsunamis(create_tsunami_geojson_dict)
     geojson_obj['metadata'] = { 'count' : len(geojson_obj['features']) }
 
-<<<<<<< HEAD
     for r in tsunamis_results:
         transformed_dict = create_tsunami_dict(r)
         all_tsunamis.append(transformed_dict)
@@ -826,9 +816,7 @@ def return_all_tsunamis_geojson():
     print(all_tsunamis)
 
     return jsonify(all_tsunamis)
-=======
     return jsonify(geojson_obj)
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
 # ************************************
 # RETURNS ALL VOLCANOES FROM VOLCANOE TABLE
@@ -929,29 +917,20 @@ def machine_learning():
     # CASE 7: MAG
     # CASE 8: 
     
-<<<<<<< HEAD
     ################# Lat "Lng Depth Magnitude "###############
-=======
     ################# Lat "Lng Depth Magnitude" ###############
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
     # CASE 1: ALL Subfeatures included: Lng Depth Magnitude
     # CASE 1: ALL CHECKED OFF
     # CASE 1: PREFIX DESIGNATION: All
 
     # Step 1: Drop columns
-<<<<<<< HEAD
     # NONE
-=======
     # DEFAULT
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 2: Assign X and y values
     y = knn_df["tsunami"].values
     X = knn_df.drop('tsunami', axis=1).values
-<<<<<<< HEAD
-=======
     case1_df = (knn_df.drop('tsunami', axis=1)).to_json(orient='index')
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 3: Conducted Analysis and store reust in variable
     all_data = kNeighborAnalysis(X,y)
@@ -964,10 +943,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE2_DROP_COLUMNS = ["magnitude"]
     lng_depth_df = knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)
-<<<<<<< HEAD
-=======
     case2_df = (knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)).to_json(orient='index')
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 2: Assign X and y values
     y = lng_depth_df["tsunami"].values
@@ -984,10 +960,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE3_DROP_COLUMNS = ["depth"]
     lng_magnitude_df = knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)
-<<<<<<< HEAD
-=======
     case3_df = (knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)).to_json(orient='index')
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 2: Assign X and y values
     y = lng_magnitude_df["tsunami"].values
@@ -1004,10 +977,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE4_DROP_COLUMNS = ["lng"]
     depth_magnitude_df = knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)
-<<<<<<< HEAD
-=======
     case4_df = (knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)).to_json(orient='index')
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 2: Assign X and y values
     y = depth_magnitude_df["tsunami"].values
@@ -1024,10 +994,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["magnitude", "depth"]
     lng_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
-<<<<<<< HEAD
-=======
     case5_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='index')
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 2: Assign X and y values
     y = lng_df["tsunami"].values
@@ -1044,10 +1011,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE6_DROP_COLUMNS = ["magnitude", "lng"]
     depth_df = knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)
-<<<<<<< HEAD
-=======
     case6_df = (knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)).to_json(orient='index')
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 2: Assign X and y values
     y = depth_df["tsunami"].values
@@ -1064,10 +1028,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["depth", "lng"]
     magnitude_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
-<<<<<<< HEAD
-=======
     case7_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='index')
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 2: Assign X and y values
     y = magnitude_df["tsunami"].values
