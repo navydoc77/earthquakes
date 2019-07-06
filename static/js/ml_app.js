@@ -611,11 +611,6 @@ function reStackPlot(case_x) {
 
 function reBuildTable(table_names, values) {
   d3.json(data_source_url).then(function(data) {
-  // while('table'.data.length>0)
-  // {
-  //   Plotly.deleteTraces('table', [0]);
-  // }
-  // Plotly.deleteTraces('table', 0);
 
 
   var data = [{
