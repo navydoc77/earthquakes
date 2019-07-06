@@ -3,7 +3,16 @@
 <html lang="en-us">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <title>Historical Earthquake Data</title>
+
+  <!-- v1.5.1 Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+
+  <!-- Bootcamp CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/eq-map-style.css') }}">
 </head>
 
 <body>
@@ -44,34 +53,31 @@
     </div>
   </header>
   
-  <h1>Tsunami Landing Page</h1>
-
-
   <div class="row">
     <div class="col-md-12">
-      <div id="map"></div>
+
+      <!-- The container that holds the GEOJSON map -->
+      <div id="map-holder">
+        <div class="container fill">
+          <div id="map-id"></div>
+        </div>
+      </div>
     </div>
   </div>
 
-  </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div id="plot"></div>
-        </div>
-      </div>
-  </div>
+  <!-- v5+ D3 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
 
+  <!-- v1.5.1 Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
 
+  <!-- API Key -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
 
-  <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  
-  <!-- Javascript_code create one with example: tornado_map.js -->
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
-  <!-- Logic for map name example tornadoes_logic.js -->
-  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+  <!-- JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/tsunami-geojsonMap.js') }}"></script>
 </body>
 
 </html>
