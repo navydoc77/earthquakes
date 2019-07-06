@@ -95,8 +95,8 @@ d3.json("api/volcano_filter_viz").then(function (data) { 19
     .group(deathValueGroup)
 	.transitionDuration(500)
     .centerBar(true)	
-	.gap(10000)                    // bar width Keep increasing to get right then back off.
-    .x(d3.scaleLinear().domain([0, 28000]))
+	.gap(500)                    // bar width Keep increasing to get right then back off.
+    .x(d3.scaleLinear().domain([0, 10000]))
 	.elasticY(true)
 	.xAxis().tickFormat(function(v) {return v;});
 
