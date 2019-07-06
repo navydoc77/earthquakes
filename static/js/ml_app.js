@@ -802,7 +802,7 @@ function getCheckedAndPlot() {
       var lng_array = toArray[0].map(function(x) {return x[1];});
       var tsunami_array = toArray[0].map(function(x) {return x[2];});
       var values = [lat_array, lng_array, tsunami_array];
-      var table_names =   [["<b>Latitude</b>"], ["<b>Longtidue</b>"],  ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
+      var table_names =   [["<b>Latitude</b>"], ["<b>Longitude</b>"],  ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
       reBuildTable(table_names, values);
 
     } else if (isEqual(check_array, case6) == "True") {
