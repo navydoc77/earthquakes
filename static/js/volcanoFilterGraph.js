@@ -3,9 +3,9 @@
 ***********************************/
 
 
-var url = 'http://127.0.0.1:5000/volcano_filter_viz'
+//var url = 'http://127.0.0.1:5000/volcano_filter_viz'
 
-d3.json(url).then(function (data) { 19
+d3.json("api/volcano_filter_viz").then(function (data) { 19
   
   var parseDate = d3.timeParse("%Y-%m-%d %H:%M:%S");
 
@@ -88,15 +88,15 @@ d3.json(url).then(function (data) { 19
 	.xAxis().tickFormat(function(v) {return v;});	
 
   // death bar graph
-  deathChart.width(480)
+  deathChart.width(500)
     .height(150)
     .margins({top: 10, right: 10, bottom: 20, left: 40})
     .dimension(deathValue)
     .group(deathValueGroup)
 	.transitionDuration(500)
     .centerBar(true)	
-	.gap(1)                    // bar width Keep increasing to get right then back off.
-    .x(d3.scaleLinear().domain([0, 100]))
+	.gap(10000)                    // bar width Keep increasing to get right then back off.
+    .x(d3.scaleLinear().domain([0, 28000]))
 	.elasticY(true)
 	.xAxis().tickFormat(function(v) {return v;});
 
