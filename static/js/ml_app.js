@@ -10,14 +10,6 @@ function isEqual(a,b) {
     return "True";
   }
 
-function isEqual(a,b) {  
-    if (a.length != b.length) {return false};
-    for(var i=0; i<a.length; i++) 
-      if(a[i]!=b[i]) {
-        return "False"};  
-    return "True";
-  }
-
 // **************************************************
 // *************** INITIALIZE PLOT *****************
 // **************************************************
@@ -61,7 +53,7 @@ function initializeKNNPlot() {
     var plot_data = [trace1, trace2];
 
     var layout = { 
-      title: "knnAnalysisPlot",
+      title: "Comparison of Training and Test Accuracy as a function of the number of neighbors.",
       xaxis: { title: "Number of Nearest Neighbors" },
       yaxis: { title: "Accuracy", autorange: true, type: "linear"},
     };
@@ -247,7 +239,7 @@ function initializeRocCurve() {
     };
     
     var layout = { 
-      title: 'ROC Curve (AUC)',
+      title: 'Receiver Operating Characteristic (ROC)',
       xaxis: { title: 'False Positive Rate' },
       yaxis: { title: "True Positive Rate", autorange: true, type: "linear"},
     };
@@ -303,7 +295,7 @@ function initialStackedPlot() {
   
   var data = [trace1, trace2, trace3, trace4];
   
-  var layout = {barmode: 'stack'};
+  var layout = {barmode: 'stack', title : 'Confusion Matrix Analysis by Number of Nearest Neighbor'};
 
   Plotly.newPlot('stack', data, layout);
   });
@@ -371,7 +363,7 @@ function buildplot(x, train, test) {
   var plot_data = [trace1, trace2];
 
   var layout = { 
-    title: "knnAnalysisPlot",
+    title: "Comparison of Training and Test Accuracy as a function of the number of neighbors.",
     xaxis: { title: "Number of Nearest Neighbors" },
     yaxis: { title: "Accuracy", autorange: true, type: "linear"},
   };
@@ -556,7 +548,7 @@ function buildRocCurve(case_fpr, case_tpr) {
   };
   
   var layout = { 
-    title: 'ROC Curve (AUC)',
+    title: 'Receiver Operating Characteristic (ROC)',
     xaxis: { title: 'False Positive Rate' },
     yaxis: { title: "True Positive Rate", autorange: true, type: "linear"},
   };
@@ -611,7 +603,7 @@ function reStackPlot(case_x) {
   
   var data = [trace1, trace2, trace3, trace4];
   
-  var layout = {barmode: 'stack'};
+  var layout = {barmode: 'stack', title : 'Confusion Matrix Analysis by Number of Nearest Neighbor'};
   
   Plotly.newPlot('stack', data, layout);
   });
@@ -619,11 +611,6 @@ function reStackPlot(case_x) {
 
 function reBuildTable(table_names, values) {
   d3.json(data_source_url).then(function(data) {
-  // while('table'.data.length>0)
-  // {
-  //   Plotly.deleteTraces('table', [0]);
-  // }
-  // Plotly.deleteTraces('table', 0);
 
 
   var data = [{
