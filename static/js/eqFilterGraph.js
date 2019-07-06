@@ -3,9 +3,9 @@
 **********************************/
 
 
-var url = 'http://127.0.0.1:5000/eq_filter_viz'
+// var url = 'http://127.0.0.1:5000/eq_filter_viz'
 
-d3.json(url).then(function (data) { 
+d3.json("/api/eq_filter_viz").then(function (data) { 
 // load data from a csv file
 //d3.csv("quakes.csv").then(function (data) {
   //console.log(data);

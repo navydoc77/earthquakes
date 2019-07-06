@@ -702,8 +702,6 @@ def return_all_tsunamis_geojson():
     return jsonify(geojson_obj)
 
 # ************************************
-
-# ************************************
 # RETURNS ALL VOLCANOES FROM VOLCANOE TABLE
 # ************************************
 @app.route("/api/volcanoes", methods=['GET'])
