@@ -3,9 +3,9 @@
 **********************************/
 
 
-var url = 'http://127.0.0.1:5000/tsunamis'
+//var url = 'http://127.0.0.1:5000/tsunamis'
 
-d3.json(url).then(function (data) { 
+d3.json("/api/tsunami_filter_viz").then(function (data) { 
 // load data from a csv file
 //d3.csv("quakes.csv").then(function (data) {
   //console.log(data);
@@ -116,10 +116,10 @@ d3.json(url).then(function (data) {
     .x(d3.scaleTime().domain([new Date(1900, 1, 1), new Date(2019, 12, 31)])) // scale and domain of the graph
     .xAxis();
 
-  // Table of earthquake data
+  // Table of tsunami data
   dataTable.width(960).height(800)
     .dimension(timeDimension)
-	.section(function(d) { return "List of all earthquakes corresponding to the filters"
+	.section(function(d) { return "List of all tsunamis corresponding to the filters"
 	 })
 	.size(500)							// number of rows to return
     .columns([
