@@ -311,19 +311,6 @@ def kNeighborAnalysis(X, y):
     fpr_array = []
     tpr_array = []
     threshold_array = []
-    # fpr_array_0 = []
-    # fpr_array_1 = []
-    # fpr_array_2 = []
-    # tpr_array_0 = []
-    # tpr_array_1 = []
-    # tpr_array_2 = []
-    # threshold_array_0 = []
-    # threshold_array_1 = []
-    # threshold_array_2 = []
-    # true_negative = []
-    # false_positive = []
-    # false_negative = []
-    # true_positive = []
 
     # try n_neighbors from 1 to 10
     neighbors_settings = range(1, 11)
@@ -346,33 +333,22 @@ def kNeighborAnalysis(X, y):
         # Compute Receiver operating characteristic (ROC)
         y_scores = clf.predict_proba(X_test)
         fpr, tpr, threshold = roc_curve(y_test, y_scores[:, 1])
+
+        # Listify the unpacked values
         fpr = fpr.tolist()
         tpr = tpr.tolist()
         threshold = threshold.tolist()
+        
+        # append values to an array
         fpr_array.append(fpr)
         tpr_array.append(tpr)
         threshold_array.append(threshold)
-        # print(fpr_array_0)
-        # fpr_array_0.append(fpr[0])
-        # fpr_array_1.append(fpr[1])
-        # fpr_array_2.append(fpr[2])
-        # tpr_array_0.append(tpr[0])
-        # tpr_array_1.append(tpr[1])
-        # tpr_array_2.append(tpr[2])
-        # threshold_array_0.append(threshold[0])
-        # threshold_array_1.append(threshold[1])
-        # threshold_array_2.append(threshold[2])
-
 
         # Computes the tn, fp, fn, tp in confusion matrix
         cm = confusion_matrix(y_test, clf.predict(X_test))
         tn, fp, fn, tp = cm.ravel()
         cm_list = [int(tn), int(fp), int(fn), int(tp)]
         confusion_matrix_arrays.append(cm_list)
-        # true_negative.append(int(cm_list[0]))
-        # false_positive.append(int(cm_list[1]))
-        # false_negative.append(int(cm_list[2]))
-        # true_positive.append(int(cm_list[3]))
 
     knn_annalysis_dict = {
         "x" : [1,2,3,4,5,6,7,8,9,10],
@@ -381,21 +357,9 @@ def kNeighborAnalysis(X, y):
         "fpr_array" : fpr_array,
         "tpr_array" : tpr_array,
         "threshold_array" : threshold_array,
-        # "frp0" : fpr_array_0,
-        # "frp1" : fpr_array_1,
-        # "frp2" : fpr_array_2,
-        # "trp0" : tpr_array_0,
-        # "trp1" : tpr_array_1,
-        # "trp2" : tpr_array_2,
-        # "threshold0" : threshold_array_0,
-        # "threshold1" : threshold_array_1,
-        # "threshold2" : threshold_array_2,
         "confusion_matrix_arrays" : confusion_matrix_arrays
-        # "true_negative" : true_negative,
-        # "false_positive" : false_positive,
-        # "false_negative" : false_negative,
-        # "true_positive" : true_positive
         }
+
     return (knn_annalysis_dict)
 
 #################################################
@@ -816,17 +780,18 @@ def machine_learning():
     # CASE 7: MAG
     # CASE 8: 
     
-    ################# Lat "Lng Depth Magnitude "###############
+    ################# Lat "Lng Depth Magnitude" ###############
     # CASE 1: ALL Subfeatures included: Lng Depth Magnitude
     # CASE 1: ALL CHECKED OFF
     # CASE 1: PREFIX DESIGNATION: All
 
     # Step 1: Drop columns
-    # NONE
+    # DEFAULT
 
     # Step 2: Assign X and y values
     y = knn_df["tsunami"].values
     X = knn_df.drop('tsunami', axis=1).values
+    case1_df = (knn_df.drop('tsunami', axis=1)).to_json(orient='index')
 
     # Step 3: Conducted Analysis and store reust in variable
     all_data = kNeighborAnalysis(X,y)
@@ -839,6 +804,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE2_DROP_COLUMNS = ["magnitude"]
     lng_depth_df = knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)
+    case2_df = (knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lng_depth_df["tsunami"].values
@@ -855,6 +821,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE3_DROP_COLUMNS = ["depth"]
     lng_magnitude_df = knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)
+    case3_df = (knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lng_magnitude_df["tsunami"].values
@@ -871,6 +838,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE4_DROP_COLUMNS = ["lng"]
     depth_magnitude_df = knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)
+    case4_df = (knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = depth_magnitude_df["tsunami"].values
@@ -887,6 +855,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["magnitude", "depth"]
     lng_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+    case5_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lng_df["tsunami"].values
@@ -903,6 +872,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE6_DROP_COLUMNS = ["magnitude", "lng"]
     depth_df = knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)
+    case6_df = (knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = depth_df["tsunami"].values
@@ -919,6 +889,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["depth", "lng"]
     magnitude_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+    case7_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = magnitude_df["tsunami"].values
@@ -935,6 +906,7 @@ def machine_learning():
     # Step 1: Drop columns
     DROP_NEW_COLUMNS = ["magnitude", "depth", "lng"]
     lat_df = knn_df.drop(DROP_NEW_COLUMNS, axis = 1)
+    case8_df = (knn_df.drop(DROP_NEW_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lat_df["tsunami"].values
@@ -953,7 +925,15 @@ def machine_learning():
         "case5" : lng_data,
         "case6" : depth_data, 
         "case7" : magnitude_data,
-        "case8" : lat_data
+        "case8" : lat_data,
+        "case1_df" : case1_df,
+        "case2_df" : case2_df,
+        "case3_df" : case3_df,
+        "case4_df" : case4_df,
+        "case5_df" : case5_df,
+        "case6_df" : case6_df,
+        "case7_df" : case7_df,
+        "case8_df" : case8_df
     }
 
     return jsonify(all_knn_analysis_data)
