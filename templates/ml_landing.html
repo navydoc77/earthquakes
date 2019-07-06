@@ -5,6 +5,36 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+      
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+      
+      div.gallery img {
+        width: 100%;
+        height: auto;
+
+      }
+      
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+
+      div.wrapper{
+        display:block;
+        width:90%;
+        margin:auto;
+      }
+      </style>
+
 </head>
 
 <body>
@@ -57,27 +87,58 @@
     <div class="col-md-2">
       <div id="checkbox"></div>
         <h3>Select Feature(s):</h3>
-         <!-- <form method ="post"> -->
             <input type="checkbox" id="lng" value="lng"> Longitude<br>
             <input type="checkbox" id="depth" value="depth"> Depth<br>
             <input type="checkbox" id="magnitude" value="magnitude"> Magnitude<br>
             <input type="submit" value="Submit" onclick="getCheckedAndPlot(this.value)">
-
     </div>
-      <div class="col-md-10">
-        <h3 class="panel-title">Global Map of Tsunamis in Past 30 days</h3>
-      <div id="map-id"></div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="panel-title">k-NN Nearest Neighbors</h3>
+                <div class="gallery">
+                    <a target="_blank" href="../static/images/ml_example_n1.jpg">
+                      <img src="../static/images/ml_example_n1.jpg" width="1200" height="800">
+                    </a>
+                    <div class="desc">Model with 1 neighbor</div>
+                </div>
+                  
+                <div class="gallery"> 
+                    <a target="_blank" href="../static/images/ml_example_n3.jpg">
+                      <img src="../static/images/ml_example_n3.jpg" width="1200" height="800">
+                    </a>
+                    <div class="desc">Model with 3 neighbors</div>
+                </div>
+                  
+                <div class="gallery">
+                    <a target="_blank" href="../static/images/ml_example_residual.jpg">
+                      <img src="../static/images/ml_example_residual.jpg" width="1200" height="800">
+                    </a>
+                    <div class="desc">Residual Plots with neights = 1, 3, and 5</div>
+                </div>
+            </div>
+          </div>
+          <br><br><br><br><p>Images taken from: Müller, A. C., & Guido, S. (2017). Introduction to machine learning with Python: A guide for data scientists.</p>
     </div>
   </div>
 
-
-  </div>
-    <div class="row">
-        <div class="col-md-12">
-          <div id="plot"></div>
-        </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <br><br><br>
+        <p>This model is considered the simplest of the machine learning algorithms. It operates by sorting the training data set, and for new data, groups this to the closest data point in the training dataset.  This is referred to as its "nearest neighbor", and the algorithm takes a single paramater, the number of neighbors that will be used to build the model.  As the number of neighbors are increased, the algorithm considers the number of k neighbors, before classifying the new data point.  The new data point is assigned the class that is its most frequent neighbor.</p>
     </div>
   </div>
+</div>
+
+
+</div>
+  <div class="row">
+      <div class="col-md-12">
+        <div id="plot"></div>
+      </div>
+  </div>
+</div>
 
 
 </div>
@@ -122,9 +183,8 @@
   <!-- Javascript_code create one with example: tornado_map.js -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="{{ url_for('static', filename='js/ml_app.js') }}"></script>
-  
-  
 
+  
 
 </body>
 

@@ -754,7 +754,6 @@ def return_all_warning():
     
     return jsonify(all_warning_updates)
 
-
 # ************************************
 # MACHINE LEARNING ROUTE
 # ************************************
