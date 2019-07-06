@@ -34,16 +34,16 @@
   <header>
     <div class="navbar">
         <div class="dropdown">
-            <button class="dropbtn">Earthquakes 
+            <button class="dropbtn">Natural Disasters 
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                 <a class="active" href="{{ url_for('earthquake_index') }}">Recent Earthquake</a>
                 <a class="active" href="{{ url_for('sig_earthquake') }}">Historic Earthquakes</a>
+                <a class="active" href="{{ url_for('tsunamis_landing') }}">Historical Tsunamis</a>
+                <a class="active" href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>
             </div>
         </div>
-        <a class="active" href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>
-        <a class="active" href="{{ url_for('tsunamis_landing') }}">Tsunamis</a>
         <div class="dropdown">
             <button class="dropbtn">Extreme Weather 
               <i class="fa fa-caret-down"></i>
