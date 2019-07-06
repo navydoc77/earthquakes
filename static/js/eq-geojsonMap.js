@@ -20,7 +20,7 @@ function createMap(eqLayers, timelineLayer, legend) {
 
     // Create a map using the eqMap tile layer and the earthquake layers (eqLayers).
     var map = L.map("map-id", {
-        center: [30.0, 0.0],
+        center: [25.0, 0.0],
         zoom: 2,
         layers: [eqMap].concat(d3.values(eqLayers))
     });
@@ -34,7 +34,7 @@ function createMap(eqLayers, timelineLayer, legend) {
     // Create a timeline control.
     var timelineControl = L.timelineSliderControl({
             formatOutput: function(date) {
-                return new Date(date).toString();
+                return new Date(date).toString().slice(0, 24).replace(/ /g, '_');
             }
         });
 
@@ -168,9 +168,8 @@ function mapEarthquakes() {
                             return L.circleMarker(latlng, {
                             radius: +feature.properties.mag * 2,
                             fillColor: colorScale(+feature.properties.mag),
-                            color: '#000',
-                            weight: 1,
-                            opacity: 1,
+                            color: feature.properties.tsunami ? '#00FF00' : '#000000',
+                            weight: feature.properties.tsunami ? 2 : 1,
                             fillOpacity: 0.9,
                         });
                         },
@@ -194,9 +193,8 @@ function mapEarthquakes() {
                         return L.circleMarker(latlng, {
                         radius: +quake.properties.mag * 2,
                         fillColor: colorScale(+quake.properties.mag),
-                        color: '#000',
-                        weight: 1,
-                        opacity: 1,
+                        color: quake.properties.tsunami ? '#00FF00' : '#000000',
+                        weight: quake.properties.tsunami ? 2 : 1,
                         fillOpacity: 0.9,
                     });
                     },
