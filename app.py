@@ -217,8 +217,6 @@ def create_tsunami_dict(r):
     "house_code": int(r[21])
     }
 
-<<<<<<< HEAD
-=======
 def create_tsunami_geojson_dict(r):
     return {
         'type' : "Feature",
@@ -243,7 +241,6 @@ def create_tsunami_geojson_dict(r):
         },
         'id' : int(r[23])
     }
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
 def create_volcanoes_dict(r):
     return {
@@ -270,7 +267,6 @@ def create_volcanoes_dict(r):
     "houses": r[20],
     "houses_code": int(r[21]),
     "dtg": r[22]
-<<<<<<< HEAD
     }
 
 def create_eq_filter_viz(r):
@@ -280,8 +276,6 @@ def create_eq_filter_viz(r):
     "lng": float(r[2]),
     "mag": float(r[3]),
     "depth": int(r[4])
-=======
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
     }
     
 def create_volcano_filter_viz(r):
@@ -355,8 +349,6 @@ def get_all_earthquakes(sql_to_py):
     return (all_earthquakes)
 
 
-<<<<<<< HEAD
-=======
 def get_all_tsunamis(sql_to_py):
     
     # Step 1: set up columns needed for this run
@@ -374,7 +366,6 @@ def get_all_tsunamis(sql_to_py):
     
     return (all_tsunamis)
 
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 # ############ Machine Learning Function ############### #
 # This will produce the data for plotting KNN analysis   #
 
@@ -387,19 +378,15 @@ def kNeighborAnalysis(X, y):
     ################ K-NEAREST NEIGHBOR ####################
     training_accuracy = []
     test_accuracy = []
-<<<<<<< HEAD
-=======
     confusion_matrix_arrays = []
     fpr_array = []
     tpr_array = []
     threshold_array = []
 
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
     # try n_neighbors from 1 to 10
     neighbors_settings = range(1, 11)
 
     for n_neighbors in neighbors_settings:
-<<<<<<< HEAD
         # build the model
         clf = KNeighborsClassifier(n_neighbors=n_neighbors)
         clf.fit(X_train, y_train)
@@ -412,7 +399,6 @@ def kNeighborAnalysis(X, y):
         "x" : [1,2,3,4,5,6,7,8,9,10],
         "y1": test_accuracy,
         "y2": training_accuracy}
-=======
         # Instantiates the KNeighbor Model
         clf = KNeighborsClassifier(n_neighbors=n_neighbors)
 
@@ -454,7 +440,6 @@ def kNeighborAnalysis(X, y):
         "threshold_array" : threshold_array,
         "confusion_matrix_arrays" : confusion_matrix_arrays
         }
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     return (knn_annalysis_dict)
 
@@ -599,12 +584,9 @@ def return_all_significant_earthquakes():
     # Step 1: set up columns needed for this run
     
     sel = [db_conn.significant_earthquakes.tb_id, db_conn.significant_earthquakes.yr,db_conn.significant_earthquakes.month, db_conn.significant_earthquakes.day, db_conn.significant_earthquakes.hr, db_conn.significant_earthquakes.minute, db_conn.significant_earthquakes.eq_mag_primary, db_conn.significant_earthquakes.depth, db_conn.significant_earthquakes.intensity, db_conn.significant_earthquakes.country, db_conn.significant_earthquakes.location_name, db_conn.significant_earthquakes.lat, db_conn.significant_earthquakes.lng, db_conn.significant_earthquakes.deaths, db_conn.significant_earthquakes.damage_millions, db_conn.significant_earthquakes.total_deaths, db_conn.significant_earthquakes.total_injuries, db_conn.significant_earthquakes.total_damage_millions]
-<<<<<<< HEAD
     
     print(sel)
 
-=======
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 2: Run and store filtered query in results variable 
     all_sig_results = db_conn.session.query(*sel).all()
@@ -615,11 +597,8 @@ def return_all_significant_earthquakes():
     for r in all_sig_results:
         transformed_dict = create_sig_earthquake_dict(r)
         all_sig_earthquakes.append(transformed_dict)
-<<<<<<< HEAD
     
     print(all_sig_earthquakes)
-=======
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     return jsonify(all_sig_earthquakes)
 
@@ -634,17 +613,14 @@ def return_eq_filter_viz():
     
     sel = [db_conn.eq_filter_viz.dtg, db_conn.eq_filter_viz.lat, db_conn.eq_filter_viz.lng, db_conn.eq_filter_viz.mag, db_conn.eq_filter_viz.depth]
     
-<<<<<<< HEAD
     print(sel)
 
 
     # Step 2: Run and store filtered query in results variable 
     all_eq_filter_viz_results = db_conn.session.query(*sel).all()
     print(all_eq_filter_viz_results)
-=======
     # Step 2: Run and store filtered query in results variable 
     all_eq_filter_viz_results = db_conn.session.query(*sel).all()
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_eq_filter_viz = []
@@ -652,11 +628,8 @@ def return_eq_filter_viz():
         transformed_dict = create_eq_filter_viz(r)
         all_eq_filter_viz.append(transformed_dict)
     
-<<<<<<< HEAD
     print(all_eq_filter_viz)
 
-=======
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
     return jsonify(all_eq_filter_viz)
 
 # ************************************
@@ -669,17 +642,14 @@ def return_volcano_filter_viz():
     
     sel = [db_conn.volcano_filter_viz.dtg, db_conn.volcano_filter_viz.lat, db_conn.volcano_filter_viz.lng, db_conn.volcano_filter_viz.volcanic_index, db_conn.volcano_filter_viz.death]
     
-<<<<<<< HEAD
     print(sel)
 
 
     # Step 2: Run and store filtered query in results variable 
     all_volcano_filter_viz_results = db_conn.session.query(*sel).all()
     print(all_volcano_filter_viz_results)
-=======
     # Step 2: Run and store filtered query in results variable 
     all_volcano_filter_viz_results = db_conn.session.query(*sel).all()
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
 
     # Step 3: Build a list of dictionary that contains all the earthquakes
     all_volcano_filter_viz = []
@@ -1048,14 +1018,6 @@ def machine_learning():
     # Step 1: Drop columns
     DROP_NEW_COLUMNS = ["magnitude", "depth", "lng"]
     lat_df = knn_df.drop(DROP_NEW_COLUMNS, axis = 1)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    case8_df = (knn_df.drop(DROP_NEW_COLUMNS, axis = 1)).to_json(orient='index')
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
-=======
-    case8_df = (knn_df.drop(DROP_NEW_COLUMNS, axis = 1)).to_json(orient='values')
->>>>>>> 69d5febe84c46aad19f1b5b55f2b7aa1c3eba58a
 
     # Step 2: Assign X and y values
     y = lat_df["tsunami"].values
@@ -1074,9 +1036,7 @@ def machine_learning():
         "case5" : lng_data,
         "case6" : depth_data, 
         "case7" : magnitude_data,
-<<<<<<< HEAD
         "case8" : lat_data
-=======
         "case8" : lat_data,
         "case1_df" : case1_df,
         "case2_df" : case2_df,
@@ -1086,13 +1046,11 @@ def machine_learning():
         "case6_df" : case6_df,
         "case7_df" : case7_df,
         "case8_df" : case8_df
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
     }
 
     return jsonify(all_knn_analysis_data)
 
 
-<<<<<<< HEAD
     ################ KNN CONFUSION MATRIX ####################
     # knn = neighbors.KNeighborsClassifier(n_neighbors=5)
     # knn.fit(X_train, y_train)
@@ -1149,7 +1107,5 @@ if __name__ == "__main__":
     #     "x" : [1,2,3,4,5,6,7,8,9,10],
     #     "y1": all_test_accuracy,
     #     "y2": all_training_accuracy}
-=======
 if __name__ == "__main__":
     app.run()
->>>>>>> b6fb19551a4f734019eec02497a89c0ac77642a0
