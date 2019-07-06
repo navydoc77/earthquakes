@@ -297,7 +297,6 @@ def create_tsunami_filter_viz(r):
     }   
 
 
-
 #################################################
 # Functions
 #################################################  
@@ -350,22 +349,58 @@ def kNeighborAnalysis(X, y):
     ################ K-NEAREST NEIGHBOR ####################
     training_accuracy = []
     test_accuracy = []
+    confusion_matrix_arrays = []
+    fpr_array = []
+    tpr_array = []
+    threshold_array = []
+
     # try n_neighbors from 1 to 10
     neighbors_settings = range(1, 11)
 
     for n_neighbors in neighbors_settings:
-        # build the model
+        # Instantiates the KNeighbor Model
         clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+
+        # Fits the model to the training data
         clf.fit(X_train, y_train)
+
         # record training set accuracy
         training_accuracy.append(clf.score(X_train, y_train))
+        # print(training_accuracy)
+        # print(type(training_accuracy))
+
         # record generalization accuracy
         test_accuracy.append(clf.score(X_test, y_test))
 
+        # Compute Receiver operating characteristic (ROC)
+        y_scores = clf.predict_proba(X_test)
+        fpr, tpr, threshold = roc_curve(y_test, y_scores[:, 1])
+
+        # Listify the unpacked values
+        fpr = fpr.tolist()
+        tpr = tpr.tolist()
+        threshold = threshold.tolist()
+        
+        # append values to an array
+        fpr_array.append(fpr)
+        tpr_array.append(tpr)
+        threshold_array.append(threshold)
+
+        # Computes the tn, fp, fn, tp in confusion matrix
+        cm = confusion_matrix(y_test, clf.predict(X_test))
+        tn, fp, fn, tp = cm.ravel()
+        cm_list = [int(tn), int(fp), int(fn), int(tp)]
+        confusion_matrix_arrays.append(cm_list)
+
     knn_annalysis_dict = {
         "x" : [1,2,3,4,5,6,7,8,9,10],
-        "y1": test_accuracy,
-        "y2": training_accuracy}
+        "training_scores": training_accuracy,
+        "test_scores": test_accuracy,
+        "fpr_array" : fpr_array,
+        "tpr_array" : tpr_array,
+        "threshold_array" : threshold_array,
+        "confusion_matrix_arrays" : confusion_matrix_arrays
+        }
 
     return (knn_annalysis_dict)
 
@@ -502,7 +537,7 @@ def return_all_significant_earthquakes():
     # Step 1: set up columns needed for this run
     
     sel = [db_conn.significant_earthquakes.tb_id, db_conn.significant_earthquakes.yr,db_conn.significant_earthquakes.month, db_conn.significant_earthquakes.day, db_conn.significant_earthquakes.hr, db_conn.significant_earthquakes.minute, db_conn.significant_earthquakes.eq_mag_primary, db_conn.significant_earthquakes.depth, db_conn.significant_earthquakes.intensity, db_conn.significant_earthquakes.country, db_conn.significant_earthquakes.location_name, db_conn.significant_earthquakes.lat, db_conn.significant_earthquakes.lng, db_conn.significant_earthquakes.deaths, db_conn.significant_earthquakes.damage_millions, db_conn.significant_earthquakes.total_deaths, db_conn.significant_earthquakes.total_injuries, db_conn.significant_earthquakes.total_damage_millions]
-    
+
     # Step 2: Run and store filtered query in results variable 
     all_sig_results = db_conn.session.query(*sel).all()
 
@@ -511,7 +546,7 @@ def return_all_significant_earthquakes():
     for r in all_sig_results:
         transformed_dict = create_sig_earthquake_dict(r)
         all_sig_earthquakes.append(transformed_dict)
-    
+
     return jsonify(all_sig_earthquakes)
 
 
@@ -765,17 +800,18 @@ def machine_learning():
     # CASE 7: MAG
     # CASE 8: 
     
-    ################# Lat "Lng Depth Magnitude "###############
+    ################# Lat "Lng Depth Magnitude" ###############
     # CASE 1: ALL Subfeatures included: Lng Depth Magnitude
     # CASE 1: ALL CHECKED OFF
     # CASE 1: PREFIX DESIGNATION: All
 
     # Step 1: Drop columns
-    # NONE
+    # DEFAULT
 
     # Step 2: Assign X and y values
     y = knn_df["tsunami"].values
     X = knn_df.drop('tsunami', axis=1).values
+    case1_df = (knn_df.drop('tsunami', axis=1)).to_json(orient='index')
 
     # Step 3: Conducted Analysis and store reust in variable
     all_data = kNeighborAnalysis(X,y)
@@ -788,6 +824,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE2_DROP_COLUMNS = ["magnitude"]
     lng_depth_df = knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)
+    case2_df = (knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lng_depth_df["tsunami"].values
@@ -804,6 +841,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE3_DROP_COLUMNS = ["depth"]
     lng_magnitude_df = knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)
+    case3_df = (knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lng_magnitude_df["tsunami"].values
@@ -820,6 +858,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE4_DROP_COLUMNS = ["lng"]
     depth_magnitude_df = knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)
+    case4_df = (knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = depth_magnitude_df["tsunami"].values
@@ -836,6 +875,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["magnitude", "depth"]
     lng_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+    case5_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lng_df["tsunami"].values
@@ -852,6 +892,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE6_DROP_COLUMNS = ["magnitude", "lng"]
     depth_df = knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)
+    case6_df = (knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = depth_df["tsunami"].values
@@ -868,6 +909,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["depth", "lng"]
     magnitude_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
+    case7_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = magnitude_df["tsunami"].values
@@ -884,6 +926,7 @@ def machine_learning():
     # Step 1: Drop columns
     DROP_NEW_COLUMNS = ["magnitude", "depth", "lng"]
     lat_df = knn_df.drop(DROP_NEW_COLUMNS, axis = 1)
+    case8_df = (knn_df.drop(DROP_NEW_COLUMNS, axis = 1)).to_json(orient='index')
 
     # Step 2: Assign X and y values
     y = lat_df["tsunami"].values
@@ -902,65 +945,19 @@ def machine_learning():
         "case5" : lng_data,
         "case6" : depth_data, 
         "case7" : magnitude_data,
-        "case8" : lat_data
+        "case8" : lat_data,
+        "case1_df" : case1_df,
+        "case2_df" : case2_df,
+        "case3_df" : case3_df,
+        "case4_df" : case4_df,
+        "case5_df" : case5_df,
+        "case6_df" : case6_df,
+        "case7_df" : case7_df,
+        "case8_df" : case8_df
     }
 
     return jsonify(all_knn_analysis_data)
 
 
-    ################ KNN CONFUSION MATRIX ####################
-    # knn = neighbors.KNeighborsClassifier(n_neighbors=5)
-    # knn.fit(X_train, y_train)
-    # y_pred = knn.predict_proba(X_test)
-    # confusion_matrix(y_test, y_pred)
-
-    ################ LOGISTIC REGRESSION ####################
-    # logreg = LogisticRegression()
-    # logreg.fit(X_train, y_train)
-    # y_pred = logreg.predict(X_test)
-    # y_pred_prob = logreg.predict_proba(X_test)[:,1]
-    # fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
-    # log_reg_train_score = logreg.score(X_train, y_train)
-    # log_reg_test_score = logreg.score(X_test, y_test)
-
-
-    ################ RETURNING MACHINE LEARNING DATA ####################
-    # ml_data = {
-    #     "x" : [1,2,3,4,5,6,7,8,9,10],
-    #     "y1": test_accuracy,
-    #     "y2": training_accuracy}
-        # "fpr": fpr,
-        # "tpr": tpr,
-        # "thresholds": thresholds,
-        # "log_reg_train_score": log_reg_train_score,
-        # "log_reg_test_score" : log_reg_test_score
-
 if __name__ == "__main__":
     app.run()
-
-
-
-    # ################ TRAIN TEST SPLIT ####################
-    # X_train, X_test, y_train, y_test = train_test_split(
-    # X, y, random_state=42)
-
-    # ################ K-NEAREST NEIGHBOR ####################
-    # all_test_accuracy = []
-    # all_training_accuracy = []
-
-    # # try n_neighbors from 1 to 10
-    # neighbors_settings = range(1, 11)
-
-    # for n_neighbors in neighbors_settings:
-    #     # build the model
-    #     clf = KNeighborsClassifier(n_neighbors=n_neighbors)
-    #     clf.fit(X_train, y_train)
-    #     # record training set accuracy
-    #     all_training_accuracy.append(clf.score(X_train, y_train))
-    #     # record generalization accuracy
-    #     all_test_accuracy.append(clf.score(X_test, y_test))
-
-    # all_data =  {
-    #     "x" : [1,2,3,4,5,6,7,8,9,10],
-    #     "y1": all_test_accuracy,
-    #     "y2": all_training_accuracy}
