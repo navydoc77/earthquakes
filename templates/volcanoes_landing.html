@@ -30,6 +30,7 @@
                 <a class="active" href="{{ url_for('earthquake_index') }}">Recent Earthquake</a>
                 <a class="active" href="{{ url_for('sig_earthquake') }}">Historical Earthquakes</a>
                 <a class="active" href="{{ url_for('tsunamis_landing') }}">Historical Tsunamis</a>
+                <a class="active" href="{{ url_for('tsunami_map') }}">Historical Tsunami Map</a>
             </div>
         </div> 
         <div class="dropdown">
@@ -38,8 +39,6 @@
             </button>
             <div class="dropdown-content">
                 <a href="{{ url_for('tornadoes_landing') }}">Tornadoes</a>
-                <a href="{{ url_for('wind_landing') }}">Wind</a>
-                <a href="{{ url_for('hail_landing') }}">Hail</a>
                 <a href="{{ url_for('warnings_landing') }}">Weather Warnings</a>
             </div>
         </div>

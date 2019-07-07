@@ -454,16 +454,6 @@ def tsunamis_landing():
 def tsunami_map():
     return render_template('tsunami_map.html')
 
-# Renders wind page
-@app.route("/wind-landing")
-def wind_landing():
-    return render_template('wind_landing.html')
-
-# Renders wind page
-@app.route("/hail-landing")
-def hail_landing():
-    return render_template('hail_landing.html')
-
 # Renders weather warnings page
 @app.route("/warnings-landing")
 def warnings_landing():

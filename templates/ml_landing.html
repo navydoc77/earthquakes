@@ -50,6 +50,7 @@
                 <a class="active" href="{{ url_for('earthquake_index') }}">Recent Earthquake</a>
                 <a class="active" href="{{ url_for('sig_earthquake') }}">Historical Earthquakes</a>
                 <a class="active" href="{{ url_for('tsunamis_landing') }}">Historical Tsunamis</a>
+                <a class="active" href="{{ url_for('tsunami_map') }}">Historical Tsunami Map</a>
                 <a class="active" href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>  
             </div>
         </div> 
@@ -59,8 +60,6 @@
             </button>
             <div class="dropdown-content">
                 <a class="drop-link" href="{{ url_for('tornadoes_landing') }}">Tornadoes</a>
-                <a class="drop-link" href="{{ url_for('wind_landing') }}">Wind</a>
-                <a class="drop-link" href="{{ url_for('hail_landing') }}">Hail</a>
                 <a class="drop-link" href="{{ url_for('warnings_landing') }}">Weather Warnings</a>
             </div>
         </div>
@@ -78,7 +77,7 @@
   <h1>Using Machine Learning to Predict Tsunamis</h1>
 
   <h2>The Mathematics of Predictions </h2>
-  <p>Machine learning is an area of artificial intelligence that integrates computer science, and statistics to extract knowledge from data.  This knowledge includes pattern finding, and predictive analytics, and the application of which are ubiquitous. Machine learning is used to make movie recommendations, to determine if a tumor is benign, to recommend new products, to detect fraudulent activity in credit card transcations, and to identify the best commute routes, to name a few.  More recently, machine learning is used in natural disaster response.  Given the stochasticity of natural disasters, and the damage and deaths associated with a poor response, there is a growing need to evaluate past natural disasters, and identify patterns that can be used to make prediction about future disasters. This information could be used to reduce damage, death, and injury. <br><br>
+  <p>Machine learning is an area of artificial intelligence that integrates computer science, and statistics to extract knowledge from data.  This knowledge includes pattern finding, and predictive analytics, and the application of which are ubiquitous. Machine learning is used to make movie recommendations, to determine if a tumor is benign, to recommend new products, to detect fraudulent activity in credit card transcations, and to identify the best commute routes, to name a few.  More recently, machine learning is used in natural disaster response.  Given the stochasticity of natural disasters, and the damage and deaths associated with a poor response, there is a growing need to evaluate past natural disasters, and identify patterns that can be used to make predictions about future disasters. This information could be used to reduce damage, death, and injury. <br><br>
   <strong>In this activity</strong><br>
   <li>You will be exposed to Binary Classification Supervised Learning.</li>
   <li>You will learn how to evaluate the performance of this model.</li>
