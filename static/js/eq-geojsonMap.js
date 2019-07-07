@@ -152,7 +152,7 @@ function mapEarthquakes() {
                     '<i style="background: ' + colorScale(magBins[i]) + '"></i> ' +
                     magBins[i] + (magBins[i + 1] ? '&ndash;' + magBins[i + 1] : '+') + '<br>';
             }
-            div.innerHTML += '<i style="background: ' + tsuColor + '"></i> TSU';
+            div.innerHTML += '<i style="background: ' + tsuColor + '"></i> tsu';
     
             return div;
         }
