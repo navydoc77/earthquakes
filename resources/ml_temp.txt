@@ -1,0 +1,367 @@
+
+// ################### SWITCH IDEAS ###############################
+// CASE 1:
+// IF (TRUE, TRUE, TRUE) THEN
+// CASE 1 PLOT
+// 
+// CASE 2:
+// IF (TRUE, TRUE, FALSE) THEN
+// CASE 2 PLOT
+// 
+// CASE 3:
+// IF (TRUE, FALSE, TRUE) THEN
+// CASE 3 PLOT
+// 
+// CASE 4:
+// IF (FALSE, TRUE, TRUE) THEN
+// CASE 4 PLOT
+// 
+// CASE 5:
+// IF (TRUE, FALSE, FALSE) THEN
+// CASE 5 PLOT
+// 
+// CASE 6:
+// IF (FALSE, TRUE, FALSE) THEN
+// CASE 6 PLOT
+// 
+// CASE 7:
+// IF (FALSE, FALSE, TRUE) THEN
+// CASE 7 PLOT
+// 
+// CASE 8:
+// IF (FALSE, FALSE, FALSE) THEN
+// CASE PLOT 8
+
+// ############# CASE STRUCTURE FOR KNEIGHBOR SCORE ANALYSIS ################### /
+// Data structure from app.py
+// all_knn_analysis_data = {
+//   "case1" : all_data,
+//   "case2" : lng_depth_data,
+//   "case3" : lng_magnitude_data,
+//   "case4" : depth_magnitude_data,
+//   "case5" : lng_data,
+//   "case6" : depth_data, 
+//   "case7" : magnitude_data,
+//   "case8" : lat_data
+//  }
+// ############# CASE STRUCTURE FOR KNEIGHBOR SCORE ANALYSIS ################### /
+
+
+// Make the plot a function
+// parameters will be the case_x, case_train_scores, case_test_scores
+// returns the plot_data that is fed into plotly.plot();
+// 
+// get the checkbox information
+// check the case statement
+// get case statement parameters
+// feed parameters to plotting function
+// plot
+
+// switch(check_array) {
+//   case case1:
+//     console.log(case1);
+//     isEqual(case1, check_array);
+//     console.log("Case 1 True");
+//     break;
+//   case case2:
+//     console.log("Case 2 True");
+//     break;
+//   case case3:
+//     console.log("Case 3 True");
+//     break;
+//   case case4:
+//     console.log("Case 4 True");
+//     break;
+//   case case5:
+//     console.log("Case 5 True");
+//     break;
+//   case case6:
+//     console.log("Case 6 True");
+//     break;
+//   case case7:
+//     console.log("Case 7 True");
+//     break;
+//   case case8:
+//     console.log("Case 8 True");   
+//   default:
+//     console.log("Nothing Evaluated");   
+// }
+
+
+
+# fpr_array_0 = []
+# fpr_array_1 = []
+# fpr_array_2 = []
+# tpr_array_0 = []
+# tpr_array_1 = []
+# tpr_array_2 = []
+# threshold_array_0 = []
+# threshold_array_1 = []
+# threshold_array_2 = []
+# true_negative = []
+# false_positive = []
+# false_negative = []
+# true_positive = []
+
+
+# print(fpr_array_0)
+# fpr_array_0.append(fpr[0])
+# fpr_array_1.append(fpr[1])
+# fpr_array_2.append(fpr[2])
+# tpr_array_0.append(tpr[0])
+# tpr_array_1.append(tpr[1])
+# tpr_array_2.append(tpr[2])
+# threshold_array_0.append(threshold[0])
+# threshold_array_1.append(threshold[1])
+# threshold_array_2.append(threshold[2])
+
+# true_negative.append(int(cm_list[0]))
+# false_positive.append(int(cm_list[1]))
+# false_negative.append(int(cm_list[2]))
+# true_positive.append(int(cm_list[3]))
+
+# "frp0" : fpr_array_0,
+# "frp1" : fpr_array_1,
+# "frp2" : fpr_array_2,
+# "trp0" : tpr_array_0,
+# "trp1" : tpr_array_1,
+# "trp2" : tpr_array_2,
+# "threshold0" : threshold_array_0,
+# "threshold1" : threshold_array_1,
+# "threshold2" : threshold_array_2,
+# "true_negative" : true_negative,
+# "false_positive" : false_positive,
+# "false_negative" : false_negative,
+# "true_positive" : true_positive
+
+
+// initializePie();
+// Plotly.deleteTraces('pie', 0);
+// function initializePie(){
+//   d3.json(data_source_url).then(function(data) {
+//     var plot_data = data;
+//     console.log(plot_data);
+//     var tn = plot_data["case1"]["confusion_matrix_arrays"][0][0];
+//     var fp = plot_data["case1"]["confusion_matrix_arrays"][0][1];
+//     var fn = plot_data["case1"]["confusion_matrix_arrays"][0][2];
+//     var tp = plot_data["case1"]["confusion_matrix_arrays"][0][3];
+//     console.log(tn);
+//     console.log(fp);
+//     console.log(fn);
+//     console.log(tp);
+
+//     var label_text = ["True Positive",
+//     "False Negative",
+//     "False Positive",
+//     "True Negative"]
+
+//     var pie_data = [{
+//       values : [tp, fn, fp, tn],
+//       // labels : ["TP", "FN", "FP", "TN"],
+//       labels : ["True Positive", "False Negative", "False Positive", "True Negative"],
+//       type: 'pie',
+//       name: "Confusion Matrix",
+//       hoverinfo: label_text
+//       }];
+    
+
+
+//     var pie_layout = {
+//       height: 400,
+//       width: 500
+//     };
+
+//    Plotly.newPlot('pie', pie_data, pie_layout);
+//   });
+// }
+
+
+function reBuildPie(values){
+    console.log(values);
+
+    var pie_data = [{
+      values : values,
+      labels : ["True Positive", "False Negative", "False Positive", "True Negative"],
+      type: 'pie',
+      name: "Confusion Matrix",
+      hoverinfo: ["True Positive", "False Negative", "False Positive", "True Negative"]
+      }];
+    
+    var pie_layout = {
+      height: 400,
+      width: 500
+    };
+
+    Plotly.deleteTraces('pie', 0);
+    Plotly.newPlot('pie', pie_data, pie_layout);
+}
+
+function rePlotPie() {
+  d3.json(data_source_url).then(function(data) {
+    var plot_data = data;
+
+    ////////  GET INFORMATION FROM CHECKED FIELD  //////////////
+    var lng = document.getElementById("lng").checked;
+    var depth = document.getElementById("depth").checked;
+    var magnitude =  document.getElementById("magnitude").checked;
+    
+    ////////  STORE CHECKED INFORMATION INTO AN ARRAY //////////////
+    var check_array = [lng, depth, magnitude];
+    console.log(check_array);
+
+
+    ////////  POTENTIAL CHECKBOX PROFILES ON SUBMIT //////////////
+    var case1 = [true, true, true];
+    var case2 = [true, true, false];
+    var case3 = [true, true, false];
+    var case4 = [false, true, true];
+    var case5 = [true, false, false];
+    var case6 = [false, true, false];
+    var case7 = [false, false, true];
+    var case8 = [false, false, false];
+
+    
+    Plotly.deleteTraces("pie", 0);
+    if (isEqual(check_array, case1) == "True") {
+      Plotly.deleteTraces("pie", 0);
+
+      var tn = plot_data["case1"]["confusion_matrix_arrays"][5][0];
+      var fp = plot_data["case1"]["confusion_matrix_arrays"][5][1];
+      var fn = plot_data["case1"]["confusion_matrix_arrays"][5][2];
+      var tp = plot_data["case1"]["confusion_matrix_arrays"][5][3];
+      var values = [tp, fn, fp, tn];
+      reBuildPie(values);
+
+    } else if (isEqual(check_array, case2) == "True") {
+      Plotly.deleteTraces("pie", 0);
+
+      var tn = plot_data["case2"]["confusion_matrix_arrays"][5][0];
+      var fp = plot_data["case2"]["confusion_matrix_arrays"][5][1];
+      var fn = plot_data["case2"]["confusion_matrix_arrays"][5][2];
+      var tp = plot_data["case2"]["confusion_matrix_arrays"][5][3];
+      var values = [tp, fn, fp, tn];
+      reBuildPie(values);
+
+
+      
+    } else if (isEqual(check_array, case3) == "True") {
+      Plotly.deleteTraces("pie", 0);
+
+      var tn = plot_data["case3"]["confusion_matrix_arrays"][5][0];
+      var fp = plot_data["case3"]["confusion_matrix_arrays"][5][1];
+      var fn = plot_data["case3"]["confusion_matrix_arrays"][5][2];
+      var tp = plot_data["case3"]["confusion_matrix_arrays"][5][3];
+      var values = [tp, fn, fp, tn];
+      reBuildPie(values);
+
+    } else if (isEqual(check_array, case4) == "True") {
+      Plotly.deleteTraces("pie", 0);
+
+      var tn = plot_data["case4"]["confusion_matrix_arrays"][5][0];
+      var fp = plot_data["case4"]["confusion_matrix_arrays"][5][1];
+      var fn = plot_data["case4"]["confusion_matrix_arrays"][5][2];
+      var tp = plot_data["case4"]["confusion_matrix_arrays"][5][3];
+      var values = [tp, fn, fp, tn];
+      reBuildPie(values);      
+
+    } else if (isEqual(check_array, case5) == "True") {
+      Plotly.deleteTraces("pie", 0);
+
+      var tn = plot_data["case5"]["confusion_matrix_arrays"][5][0];
+      var fp = plot_data["case5"]["confusion_matrix_arrays"][5][1];
+      var fn = plot_data["case5"]["confusion_matrix_arrays"][5][2];
+      var tp = plot_data["case5"]["confusion_matrix_arrays"][5][3];
+      var values = [tp, fn, fp, tn];
+      reBuildPie(values);  
+
+    } else if (isEqual(check_array, case6) == "True") {
+      Plotly.deleteTraces("pie", 0);
+
+      var tn = plot_data["case6"]["confusion_matrix_arrays"][5][0];
+      var fp = plot_data["case6"]["confusion_matrix_arrays"][5][1];
+      var fn = plot_data["case6"]["confusion_matrix_arrays"][5][2];
+      var tp = plot_data["case6"]["confusion_matrix_arrays"][5][3];
+      var values = [tp, fn, fp, tn];
+      reBuildPie(values);  
+
+    } else if (isEqual(check_array, case7) == "True") {
+      Plotly.deleteTraces("pie", 0);
+
+      var tn = plot_data["case7"]["confusion_matrix_arrays"][5][0];
+      var fp = plot_data["case7"]["confusion_matrix_arrays"][5][1];
+      var fn = plot_data["case7"]["confusion_matrix_arrays"][5][2];
+      var tp = plot_data["case7"]["confusion_matrix_arrays"][5][3];
+      var values = [tp, fn, fp, tn];
+      reBuildPie(values);        
+      
+    } else if (isEqual(check_array, case8) == "True") {
+      Plotly.deleteTraces("pie", 0);
+
+      var tn = plot_data["case8"]["confusion_matrix_arrays"][5][0];
+      var fp = plot_data["case8"]["confusion_matrix_arrays"][5][1];
+      var fn = plot_data["case8"]["confusion_matrix_arrays"][5][2];
+      var tp = plot_data["case8"]["confusion_matrix_arrays"][5][3];
+      var values = [tp, fn, fp, tn];
+      reBuildPie(values);   
+
+    } else {
+      console.log("failed")
+    }
+  });
+}
+
+function initializeRocCurve() {
+//   d3.json(data_source_url).then(function(data) {
+//     var plot_data = data;
+//     console.log(plot_data);
+//     var fpr = plot_data["case8"]["fpr_array"][0];
+//     console.log(fpr);
+//     var tpr = plot_data["case8"]["tpr_array"][0];
+//     console.log(tpr);
+
+//     var trace3 = {
+//       marker: {'symbol': 1},
+//       type: "scatter",
+//       mode: "markers+lines",
+//       name: "Test Data",
+//       showlegend: false,
+//       x: fpr,
+//       y: tpr,
+//       line: {
+//         color: "#281158"
+//       }
+//     };
+
+//     var trace4 = {
+//       x: [0,1],
+//       y: [0,1],
+//       mode: "markers+lines",
+//       showlegend: false,
+//       line: {
+//         color : "navy",
+//         width : 4,
+//         dash : 'dash'
+//       }
+//     };
+    
+//     var roc_layout = { 
+//       title: 'ROC Curve (AUC)',
+//       xaxis: { title: 'False Positive Rate' },
+//       yaxis: { title: "True Positive Rate", autorange: true, type: "linear"},
+//     };
+
+//     var roc_plot_data = [trace3, trace4];
+
+//     Plotly.plot("roc_plot", roc_plot_data, roc_layout);
+//   });
+// }
+
+         <!-- </form> -->
+      <!-- <div class="panel panel-primary"> -->
+        <!-- <div class="panel-heading">
+          <h3 class="panel-title">Model Performance</h3>
+        </div> -->
+            <!-- <div id="sample-metadata" class="panel-body"></div>
+              <h3 class="panel-title">Confusion Matrix</h3>
+            <div id="pie_test"></div> -->
+      <!-- </div> -->

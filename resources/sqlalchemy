@@ -1,0 +1,4 @@
+tsunamis.year, tsunamis.month, tsunamis.day, tsunamis.hour, tsunamis.min, tsunamis.second, tsunamis.validity, tsunamis.source, tsunamis.earthquake_mag, tsunamis.country, tsunamis.name, tsunamis.lat, tsunamis.lng, tsunamis.water_height, tsunamis.tsunami_mag_lida, tsunamis.tsunami_intensity,tsunamis.death_nbr, tsunamis.injuries_nbr, tsunamis.damage_mill, tsunamis.damage_code, tsunamis.house_destroyed, tsunamis.house_code
+
+
+volcanoes.year, volcanoes.month, volcanoes.day, volcanoes.tsu, volcanoes.eq, volcanoes.name, volcanoes.location, volcanoes.country, volcanoes.lat, volcanoes.lng, volcanoes.elevation,  volcanoes.type, volcanoes.volcanic_index, volcanoes.fatality_cause, volcanoes.death, volcanoes.death_code, volcanoes.injuries, volcanoes.injuries_code, volcanoes.damage, volcanoes.damage_code, volcanoes.houses, volcanoes.houses_code

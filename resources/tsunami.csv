@@ -1,0 +1,1480 @@
+﻿year,month,day,hour,min,second,validity,source,earthquake_mag,country,name,lat,lng,water_height,tsunami_mag_lida,tsunami_intensity,death_nbr,injuries_nbr,damage_mill,damage_code,house_destroyed,house_code
+-1300,0,0,0,0,0,questionable tsunami,Unknown,7,TURKEY,"IONIAN COASTS, TROAD",39.96,26.24,0,0,5,0,0,0,0,0,0
+-479,0,0,0,0,0,questionable tsunami,Earthquake,7,GREECE,NORTH AEGEAN,39.7,23.3,0,0,3,0,0,0,0,0,0
+-426,6,0,0,0,0,definite tsunami,Earthquake,7.1,GREECE,CORINTHOS-PATRAS GULF,38.9,22.7,0,0,5,0,0,5,2,0,2
+-373,0,0,0,0,0,definite tsunami,Earthquake and Landslide,7.3,GREECE,CORINTHOS-PATRAS GULF,38.25,22.25,0,0,5,0,0,24,3,0,3
+-330,0,0,0,0,0,very doubtful tsunami,Earthquake,7,GREECE,"E. SPORADES ISLANDS, AEGEAN ISLANDS",40,25,0,0,0,0,0,0,0,0,0
+-227,0,0,0,0,0,questionable tsunami,Earthquake,7.2,GREECE,DODECANESE ISLANDS,36.3,28.3,0,0,3,0,0,1,1,0,0
+-60,0,0,0,0,0,very doubtful tsunami,Earthquake,6.7,PORTUGAL,CABO SAN VICENTE,36,-10,0,0,0,0,0,0,0,0,0
+-58,0,0,0,0,0,questionable tsunami,Earthquake,6.6,ALBANIA,ALBANIA,41.3,19.5,0,0,3,0,0,0,0,0,0
+-50,0,0,0,0,0,very doubtful tsunami,Earthquake,5.5,GEORGIA,BLACK SEA,43,41,0,0,0,0,0,5,2,0,0
+46,0,0,0,0,0,definite tsunami,Volcano,0,GREECE,THERA ISLAND (SANTORINI),36.404,25.396,0,0,3,0,0,0,0,0,0
+62,0,0,0,0,0,questionable tsunami,Earthquake,6.9,GREECE,CRETE,35.2,25.1,0,0,3,0,0,0,0,0,0
+76,6,20,0,0,0,very doubtful tsunami,Earthquake,6.3,CYPRUS,LEVANTIAN SEA,34.8,32,0,0,4,0,0,0,0,0,0
+115,12,13,0,0,0,questionable tsunami,Earthquake,7.5,TURKEY,ANTAKYA (ANTIOCH),36.1,36.1,0,0,0,0,0,0,0,0,0
+120,0,0,0,0,0,questionable tsunami,Earthquake,7.2,TURKEY,MARMARA SEA,40.77,29.92,0,0,2,0,0,0,0,0,0
+123,0,0,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,6.3,SOUTH KOREA,SEA OF JAPAN,35.8,129.2,0,0,0,0,0,1,1,0,2
+142,0,0,0,0,0,probable tsunami,Earthquake,7,GREECE,DODECANESE ISLANDS,36.7,28,0,0,4,0,0,5,2,0,2
+346,0,0,0,0,0,very doubtful tsunami,Earthquake,6.8,ALBANIA,ADRIATIC SEA,41.4,19.4,0,0,0,0,0,1,1,0,1
+348,0,0,0,0,0,very doubtful tsunami,Earthquake,4.1,TURKEY,LEVANTIAN SEA,33.9,35.5,0,0,3,0,0,0,0,0,0
+365,7,21,0,0,0,definite tsunami,Earthquake,8,GREECE,CRETE,35,23,0,0,4,5000,0,25,4,0,3
+368,0,0,0,0,0,questionable tsunami,Earthquake,6.4,TURKEY,MARMARA SEA,40.5,29.6,0,0,0,0,0,0,0,0,0
+407,4,1,0,0,0,very doubtful tsunami,Earthquake,6.6,TURKEY,MARMARA SEA,41,29,0,0,4,0,0,1,1,0,0
+447,1,26,0,0,0,very doubtful tsunami,Earthquake,7.3,TURKEY,MARMARA SEA,40.9,28.5,0,0,4,0,0,0,0,0,0
+450,1,26,0,0,0,very doubtful tsunami,Earthquake,7,TURKEY,MARMARA SEA,40.4,28.4,0,0,0,0,0,0,0,0,0
+543,0,0,0,0,0,probable tsunami,Earthquake,6.8,TURKEY,BLACK SEA,40.3,27.8,0,0,4,0,0,24,3,0,0
+551,4,0,0,0,0,definite tsunami,Earthquake and Landslide,7.1,GREECE,ETOLIA,38.4,22.3,0,0,4,0,0,0,0,0,0
+551,7,9,0,0,0,definite tsunami,Earthquake,7.8,TURKEY,LEVANTIAN SEA,40.8,29.9,0,0,3,0,0,0,0,0,0
+552,5,0,0,0,0,probable tsunami,Earthquake,0,GREECE,MALIAKOS GULF,38.4,22.4,0,0,0,0,0,0,0,0,0
+554,8,15,0,0,0,probable tsunami,Earthquake,7,GREECE,ISLAND OF KOS,36.5,27.5,0,0,4,0,0,0,0,0,0
+557,0,0,0,0,0,probable tsunami,Earthquake,7,TURKEY,MARMARA SEA,40.9,27.6,0,1,3,0,0,0,0,0,0
+558,12,14,0,0,0,questionable tsunami,Earthquake,7,TURKEY,"MARMARA SEA, STRAIT OF BOSPORUS",40.9,28.8,0,0,0,0,0,0,0,0,0
+558,0,0,0,0,0,definite tsunami,Earthquake,0,GREECE,DODECANESE ISLANDS,37.1,27.7,0,0,6,0,0,0,0,0,0
+684,11,29,0,0,0,definite tsunami,Earthquake,8.4,JAPAN,NANKAIDO,32.5,134,3,1.6,1,0,0,24,3,0,0
+701,5,12,0,0,0,definite tsunami,Earthquake,7,JAPAN,SEA OF JAPAN,35.7,135.4,0,2,1,0,0,2,3,0,0
+704,8,2,0,0,0,definite tsunami,Earthquake,7,JAPAN,KUMANONADA,33.8,136.7,0,2,2,0,0,0,0,0,0
+740,10,26,0,0,0,questionable tsunami,Earthquake,7.3,TURKEY,MARMARA SEA,40.7,29.3,0,0,3,0,0,0,0,0,0
+744,6,30,0,0,0,definite tsunami,Earthquake,6.4,JAPAN,SW. KYUSHU ISLAND,32.4,130.5,0,2,2,1520,0,5,2,470,2
+745,6,9,0,0,0,probable tsunami,Earthquake,6.5,JAPAN,"OSAKA BAY, JAPAN",34.6,135.3,0,1,1,0,0,0,0,0,0
+746,1,18,0,0,0,questionable tsunami,Earthquake,7,SYRIA,SYRIAN and EGYPTIAN COASTS,32,35.5,0,0,3,0,0,0,0,0,0
+766,7,20,0,0,0,definite tsunami,Volcano,6.5,JAPAN,N. KAGOSHIMA BAY,31.6,130.7,0,1.5,1.5,0,0,0,0,0,0
+818,8,0,0,0,0,definite tsunami,Earthquake and Landslide,7.9,JAPAN,TOKAIDO,35.2,139.3,0,2,1,0,0,0,0,0,0
+850,11,27,0,0,0,definite tsunami,Earthquake and Landslide,7,JAPAN,NW. HONSHU ISLAND,39,139.9,0,2,1,0,0,5,2,0,0
+863,7,10,0,0,0,definite tsunami,Earthquake and Landslide,7,JAPAN,NW. HONSHU ISLAND,37.1,138,0,2,2,0,0,0,0,0,0
+869,7,13,0,0,0,definite tsunami,Earthquake,8.6,JAPAN,SANRIKU,38.5,143.8,0,4,4,1000,0,24,3,0,0
+887,8,2,0,0,0,probable tsunami,Earthquake,6.5,JAPAN,NIIGATA,37.5,138.1,0,2,1,2000,0,0,0,0,0
+887,8,26,0,0,0,definite tsunami,Earthquake,8.6,JAPAN,NANKAIDO,33,135.3,0,3,3,0,0,24,3,0,0
+922,0,0,0,0,0,definite tsunami,Earthquake,7,JAPAN,KUMANONADA,33.8,136.7,2,1,1,0,0,0,0,0,0
+986,10,26,0,0,0,probable tsunami,Earthquake,0,TURKEY,MARMARA SEA,40.8,29.2,0,0,4,0,0,0,0,0,0
+1008,4,11,0,0,0,questionable tsunami,Earthquake,6.5,IRAN,PERSIAN GULF,27.665,52.348,0,0,0,0,0,1,1,0,0
+1026,6,16,0,0,0,probable tsunami,Earthquake,7.5,JAPAN,"OFF MASUDA, SHIMANE PREFECTURE",34.8,131.8,10,3.3,3,1001,0,25,4,3000,4
+1039,2,2,0,0,0,very doubtful tsunami,Earthquake,6.8,TURKEY,CONSTANTINOPLE,38.4,27.3,0,0,0,0,0,0,0,0,0
+1088,6,10,0,0,0,definite tsunami,Earthquake,7,JAPAN,"MIYAKO, IWATE PREFECTURE",40.5,143,0,1,1.5,0,0,0,0,0,0
+1096,12,17,0,0,0,definite tsunami,Earthquake,8.4,JAPAN,ENSHUNADA,34,137.5,7,2.5,2,0,0,5,2,400,2
+1099,2,22,0,0,0,definite tsunami,Earthquake,8.4,JAPAN,NANKAIDO,33,135.5,0,2.5,0,0,0,1,1,0,0
+1114,3,12,0,0,0,Erroneous entry,Earthquake,0,ITALY,CALABRIAN ARC,36.5,36,0,0,3,0,0,0,0,0,0
+1169,2,4,7,0,0,definite tsunami,Earthquake,7,ITALY,EASTERN SICILY,37.3,15.03,0,0,4,0,0,1,1,0,0
+1202,5,20,0,0,0,definite tsunami,Earthquake and Landslide,7.6,SYRIA,SOUTHWESTERN SYRIA,33.5,36,0,0,5,0,0,1,1,0,0
+1222,5,0,0,0,0,probable tsunami,Earthquake,6.6,CYPRUS ISLAND,CYPRUS,34.5,33,0,0,4,0,0,0,0,0,0
+1231,3,11,0,0,0,questionable tsunami,Earthquake,6.9,TURKEY,MARMARA SEA,41,28.6,0,0,3,0,0,0,0,0,0
+1241,5,22,0,0,0,definite tsunami,Earthquake,7,JAPAN,"KAMAKURA, SAGAMI BAY",35.2,139.4,0,1,1,0,0,1,1,0,0
+1257,10,9,0,0,0,definite tsunami,Earthquake,7.5,JAPAN,OFF SANRIKU,39,144,0,2,2,0,0,0,0,0,0
+1257,10,9,0,0,0,definite tsunami,Earthquake,7,JAPAN,"SAGAMI BAY, JAPAN",35.2,139.5,0,1,1,0,0,1,1,0,0
+1265,8,11,0,0,0,probable tsunami,Earthquake,0,TURKEY,MARMARA SEA,40.7,27.4,0,0,3,0,0,0,0,0,0
+1273,9,0,0,0,0,questionable tsunami,Earthquake,6.5,ALBANIA,ALBANIAN COASTS,41.3,19.7,0,0,3,0,0,0,0,0,0
+1293,5,27,0,0,0,Erroneous entry,Earthquake,7.1,JAPAN,"KAMAKURA, SAGAMI BAY",35.2,139.4,0,1,1,0,0,0,0,0,0
+1303,8,8,0,0,0,probable tsunami,Earthquake,8,GREECE,AEGEAN SEA,34,26,0,0,4,0,0,24,3,0,3
+1331,8,15,0,0,0,definite tsunami,Earthquake,7,JAPAN,"OFF TANABE, WAKAYAMA PREFECTURE",33.7,135.2,0,0,0,0,0,0,0,0,0
+1332,2,12,0,0,0,questionable tsunami,Earthquake,6.8,TURKEY,CONSTANTINOPLE,40.9,28.9,0,0,3,0,0,0,0,0,0
+1341,1,1,0,0,0,Erroneous entry,Earthquake,6,UKRAINE,CRIMEA,44.3,34.3,0,0,0,0,0,0,0,0,0
+1341,10,31,0,0,0,probable tsunami,Earthquake,7,JAPAN,"JUSANKO, TSUGARU AOMORI PREFECTURE",41,139.5,0,2.5,2.5,2600,0,0,0,0,0
+1343,10,18,0,0,0,definite tsunami,Earthquake,7.5,TURKEY,"MARMARA SEA, STRAIT OF BOSPORUS",40.8,28.3,0,0,5,0,0,5,2,0,2
+1360,11,22,0,0,0,definite tsunami,Earthquake,7,JAPAN,KUMANONADA,33.4,136.2,0,2.5,2,0,0,0,0,0,0
+1361,8,3,0,0,0,definite tsunami,Earthquake,8.4,JAPAN,NANKAIDO,33,135,0,4,3,660,0,25,4,1700,4
+1389,3,20,0,0,0,questionable tsunami,Earthquake,6.8,GREECE,"CHIOS ISLAND, AEGEAN ISLANDS",38.4,26.3,0,0,3,0,0,0,0,0,0
+1402,6,0,0,0,0,questionable tsunami,Earthquake,0,GREECE,GULF OF CORINTH,38.11,22.41,0,0,5,0,0,0,0,0,0
+1403,12,0,0,0,0,definite tsunami,Earthquake,7,JAPAN,KUMANONADA,33.7,136.5,2,1,1,0,0,0,0,0,0
+1406,10,16,0,0,0,Erroneous entry,Meteorological,6.2,JAPAN,"SHIZUOKA, JAPAN",34.4,138.4,0,1,1,0,0,0,0,0,0
+1408,1,21,0,0,0,definite tsunami,Earthquake,7,JAPAN,KUMANONADA,33.8,136.9,2,1,1,0,0,0,0,0,0
+1433,11,7,0,0,0,definite tsunami,Earthquake,7.1,JAPAN,OFF IZU-OSHIMA,34.9,139.5,2,1,1,0,0,0,0,0,0
+1448,9,19,0,0,0,probable tsunami,Earthquake,7,JAPAN,"SADO, JAPAN",37.5,138.2,0,2,2,0,0,5,2,0,0
+1481,5,3,0,0,0,questionable tsunami,Earthquake,7.1,GREECE,ISLAND OF RHODES,36,28,3,0,3,0,0,24,3,0,0
+1494,7,1,0,0,0,probable tsunami,Earthquake,7.2,GREECE,ISLAND OF CRETE,35.5,25.5,0,0,2,0,0,1,1,0,0
+1495,9,12,0,0,0,definite tsunami,Earthquake,7.1,JAPAN,"KAMAKURA, SAGAMI BAY, TOKAIDO",35.1,139.5,5,2,2,200,0,0,0,0,0
+1498,7,9,0,0,0,questionable tsunami,Earthquake,6.4,JAPAN,ENSHUNADA,34.4,137.7,0,0,0,0,0,0,0,0,0
+1498,9,20,0,0,0,definite tsunami,Earthquake,8.3,JAPAN,ENSHUNADA SEA,34,138.1,10,3,4,5000,0,25,4,1000,4
+1498,9,20,0,0,0,definite tsunami,Earthquake,7.5,JAPAN,NANKAIDO,33.5,135.2,0,2,0,0,0,1,1,0,0
+1508,5,29,0,0,0,questionable tsunami,Earthquake,7.1,GREECE,ISLAND OF CRETE,35,25.5,0,0,3,0,0,0,0,0,0
+1509,9,10,0,0,0,probable tsunami,Earthquake,7.7,TURKEY,MARMARA SEA,40.8,28.1,0,0,3,0,0,0,0,0,0
+1510,9,21,0,0,0,definite tsunami,Earthquake,6.7,JAPAN,OSAKA BAY,34.6,135.4,2,1,1,0,0,1,1,0,0
+1511,3,26,0,0,0,questionable tsunami,Earthquake,6.5,ITALY,NORTH ADRIATIC,46.2,13.433,0,0,3,0,0,0,0,0,0
+1513,0,0,0,0,0,questionable tsunami,Earthquake,8.7,PERU,CALLAO,-17.2,-72.3,0,0,3,0,0,0,0,0,0
+1520,4,4,0,0,0,definite tsunami,Earthquake,7,JAPAN,"KII, KUMANANONADA",33.6,136.3,2,1,1,0,0,1,1,0,2
+1531,1,26,0,0,0,definite tsunami,Earthquake,7.7,PORTUGAL,"TAGUS RIVER, LISBON",38.7,-9.1,0,0,0,0,0,1,1,0,0
+1531,1,0,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,4.8,CHINA,JIANGSU PROVINCE,30.7,117.5,0,0,0,0,0,0,0,0,0
+1542,12,10,0,0,0,probable tsunami,Earthquake,6.6,ITALY,"SICILY, ITALY",37.07,15.3,0,0,0,0,0,0,0,0,0
+1546,1,14,0,0,0,probable tsunami,Earthquake,6.5,ISRAEL,GAZA - JAFFA,32,35.5,0,0,3,0,0,0,0,0,0
+1562,10,28,10,0,0,probable tsunami,Earthquake,8,CHILE,SOUTHERN CHILE,-38.7,-73.5,0,4,3.5,0,0,24,3,0,0
+1564,7,20,0,0,0,definite tsunami,Earthquake,5.8,FRANCE,LIGURIA-COTE D'AZUR,44.017,7.283,0,0,4,0,0,1,1,0,0
+1570,2,8,13,0,0,probable tsunami,Earthquake,8.3,CHILE,CENTRAL CHILE,-36.75,-73,0,2,3,2000,0,24,3,0,3
+1575,12,16,18,30,0,probable tsunami,Earthquake,8.5,CHILE,SOUTHERN CHILE,-39.8,-73.2,0,2,2.5,1300,0,5,2,0,2
+1580,4,6,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,6.2,UK,"DOVER STRAITS, ENGLAND",51.019,1.309,0,0,0,0,0,0,0,0,0
+1582,1,22,16,30,0,very doubtful tsunami,Earthquake,8.2,PERU,S. PERU,-16.6,-71.6,0,0,0,0,0,0,0,0,0
+1584,3,11,10,30,0,questionable tsunami,Earthquake and Landslide,5.9,SWITZERLAND,SWITZERLAND,46.33,6.97,18,0,0,0,0,24,3,0,1
+1584,3,17,0,0,0,questionable tsunami,Earthquake,8.4,PERU,PERU,-11.8,-77.8,0,0,0,0,0,0,0,0,0
+1586,1,18,0,0,0,definite tsunami,Earthquake,8.2,JAPAN,ISE BAY,35,136.8,0,2,1,0,0,24,3,0,3
+1586,7,10,0,30,0,definite tsunami,Earthquake,8.5,PERU,CENTRAL PERU,-12.3,-77.7,26,4.6,3.5,0,0,24,3,0,0
+1589,3,21,0,0,0,definite tsunami,Earthquake,6.7,JAPAN,"SURUGA, JAPAN",34.8,138.2,0,1,1,0,0,24,3,0,0
+1590,0,0,0,0,0,questionable tsunami,Earthquake,7.7,PERU,S. PERU,-17.2,-72.9,0,0,1.5,0,0,5,2,0,2
+1596,9,4,0,0,0,definite tsunami,Earthquake and Landslide,6.9,JAPAN,"BEPPU BAY, KYUSHU",33.3,131.7,5,2,2,708,0,1,1,80,1
+1597,9,10,0,0,0,probable tsunami,Earthquake and Landslide,6.4,JAPAN,"BEPPU BAY, JAPAN",33.3,131.6,0,1,1,40,0,0,0,0,0
+1601,9,8,1,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,6.2,SWITZERLAND,,46.8,8.5,0,0,0,0,0,0,0,0,0
+1602,2,8,0,0,0,definite tsunami,Earthquake and Landslide,7.2,JAPAN,"BOSO, JAPAN",35.1,140.5,0,1,1,0,0,0,0,0,0
+1604,11,24,18,30,0,definite tsunami,Earthquake,8.5,PERU,S. PERU,-17.88,-70.94,5,4,3.5,74,0,24,3,0,3
+1604,12,29,0,0,0,very doubtful tsunami,Earthquake,8,CHINA,SOUTH CHINA SEA,25,119.5,0,0,0,0,0,5,2,0,0
+1605,2,3,0,0,0,definite tsunami,Earthquake,7.9,JAPAN,NANKAIDO,33,134.9,10,3,3,5000,0,24,3,700,3
+1605,2,3,0,0,0,definite tsunami,Earthquake,7.9,JAPAN,ENSHUNADA,33.5,138.5,0,3,0,1001,0,1,1,80,1
+1608,4,20,0,0,0,probable tsunami,Earthquake,7.6,IRAN,CASPIAN SEA,36.4,50.5,0,0,0,0,0,0,0,0,0
+1609,4,0,0,0,0,questionable tsunami,Earthquake,0,GREECE,ISLAND OF RHODES,36.4,28.4,0,0,4,0,0,0,0,0,0
+1611,12,2,0,0,0,definite tsunami,Earthquake,8.1,JAPAN,SANRIKU,39,144.5,25,3.5,4,5000,0,24,3,0,0
+1612,11,8,0,0,0,definite tsunami,Earthquake,6.7,GREECE,ISLAND OF CRETE,35.5,25.5,0,0,4,0,0,0,0,0,0
+1613,8,25,0,0,0,questionable tsunami,Earthquake,5.6,ITALY,MESSINA,38.117,14.783,0,0,4,0,0,0,0,0,0
+1614,11,26,0,0,0,definite tsunami,Earthquake,7.7,JAPAN,NIIGATA PREFECTURE,37.5,138,0,2,1,0,0,0,0,0,0
+1615,6,5,0,0,0,definite tsunami,Earthquake,5.7,UKRAINE,BLACK SEA,44.9,35.5,1,0,2,0,0,0,0,0,0
+1615,9,16,0,0,0,questionable tsunami,Earthquake,7.5,CHILE,NORTHERN CHILE,-18.5,-70.35,4,2,1.5,0,0,0,0,0,0
+1616,9,9,0,0,0,definite tsunami,Earthquake,7,JAPAN,MIYAGI PREFECTURE,38.1,142,0,1,1,0,0,1,1,0,0
+1616,12,6,0,0,0,questionable tsunami,Earthquake,7.5,JAPAN,SANRIKU,39,144.5,0,1,1,200,0,0,0,0,0
+1619,5,1,0,0,0,definite tsunami,Earthquake,6.4,JAPAN,"YATSUSHIRO, JAPAN",32.5,130.6,0,0,0,0,0,1,1,0,0
+1622,5,5,0,0,0,questionable tsunami,Earthquake,6.6,GREECE,ISLAND OF ZAKYNTHOS,37.6,21,0,0,0,0,0,0,0,0,0
+1627,7,30,10,50,0,definite tsunami,Earthquake,6.7,ITALY,GARGANO PENINSULA,41.733,15.35,0,0,5,0,0,0,0,0,0
+1627,9,14,0,0,0,probable tsunami,Earthquake,8,PHILIPPINES,W. LUZON ISLAND,18.4,121.6,0,2,3.5,0,0,0,0,0,0
+1629,3,9,9,0,0,probable tsunami,Earthquake,7,GREECE,CRETE,36,25,0,0,3,0,0,0,0,0,0
+1633,3,1,0,0,0,definite tsunami,Earthquake,7.1,JAPAN,SAGAMI BAY,35.2,139.2,0,1,1,0,0,5,2,0,0
+1633,11,5,0,0,0,definite tsunami,Earthquake,6.9,GREECE,ISLAND OF ZAKYNTHOS,37.6,21,0,0,3,0,0,1,1,0,0
+1634,3,0,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,5.5,CHINA,HUBEI PROVINCE,30.7,115.1,1,0,0,0,0,0,0,0,0
+1636,9,30,18,30,0,event that only caused a seiche or disturbance in an inland river,Earthquake,7.2,GREECE,IONIAN SEA,38.1,20.3,0,0,3,0,0,0,0,0,0
+1638,3,27,15,5,0,questionable tsunami,Earthquake,7,ITALY,TYRRHENIAN CALABRIA,39.033,16.283,0,0,5,0,0,0,0,0,0
+1640,7,31,0,0,0,definite tsunami,Volcano,6.5,JAPAN,SE. HOKKAIDO ISLAND,42.07,140.68,0,2,1,700,0,1,1,20,1
+1642,9,4,0,0,0,definite tsunami,Earthquake,6.7,JAPAN,"BOSO, JAPAN",35.2,140.6,0,1,1,0,0,0,0,0,0
+1643,7,25,0,0,0,definite tsunami,Earthquake,6.5,SOUTH KOREA,SEA OF JAPAN,35.5,129.5,0,1,1,0,0,0,0,0,0
+1644,10,18,0,0,0,definite tsunami,Earthquake,6.9,JAPAN,"HONJO, AKITA",39.4,140.1,0,1,1,117,0,0,0,0,0
+1645,11,30,12,0,0,very doubtful tsunami,Earthquake,8,PHILIPPINES,W. LUZON ISLAND,14.4,121,0,0,0,0,0,0,0,0,0
+1646,4,5,20,0,0,definite tsunami,Earthquake,5.2,ITALY,LIVORNO,43.55,10.317,0,0,3,0,0,0,0,0,0
+1646,6,9,0,0,0,very doubtful tsunami,Earthquake,7.6,JAPAN,SANRIKU,37.7,141.7,0,0,0,0,0,0,0,0,0
+1649,1,0,0,0,0,very doubtful tsunami,Earthquake,5,ITALY,MESSINA STRAITS,38.183,15.55,0,0,5,0,0,1,1,0,0
+1649,12,9,0,0,0,definite tsunami,Earthquake,6.5,SOUTH KOREA,YELLOW SEA,35.5,126,0,1,1,0,0,5,2,0,0
+1650,9,29,0,0,0,definite tsunami,Volcano and Landslide,0,GREECE,THERA ISLAND (SANTORINI),36.404,25.396,30,5.6,6,0,0,1,1,0,0
+1655,11,13,16,45,0,very doubtful tsunami,Earthquake,7.7,PERU,CENTRAL PERU,-12.3,-77.6,0,0,0,0,0,0,0,0,0
+1657,3,15,23,30,0,probable tsunami,Earthquake,8,CHILE,CENTRAL CHILE,-36.83,-73.03,0,3,2.5,40,0,24,3,0,3
+1659,2,17,17,2,0,very doubtful tsunami,Earthquake,0,GREECE,AEGEAN SEA,41,27.8,0,0,0,0,0,0,0,0,0
+1661,1,8,0,0,0,questionable tsunami,Earthquake,6,TAIWAN,SOUTH CHINA SEA,23,120.1,0,0,1.5,0,0,0,0,0,0
+1662,10,30,14,0,0,definite tsunami,Earthquake,7.6,JAPAN,HIUGANADA,31.7,132,1,2,2.5,200,0,25,4,2500,4
+1666,5,31,0,0,0,probable tsunami,Earthquake,6.4,JAPAN,AICHI PREFECTURE,35,136.8,0,1,1,0,0,1,1,0,0
+1667,4,6,7,10,0,questionable tsunami,Earthquake,7.2,CROATIA,DALMATIAN COASTS,42.6,18.1,0,0,4,0,0,1,1,0,0
+1667,11,30,0,0,0,questionable tsunami,Earthquake,6.6,TURKEY,IZMIR,38.4,27.1,0,0,2,0,0,0,0,0,0
+1667,0,0,0,0,0,definite tsunami,Earthquake,6.7,JAPAN,"MIYAKOJIMA, JAPAN",25,125.5,0,1,1,0,0,0,0,0,0
+1668,7,10,0,0,0,probable tsunami,Earthquake,6.6,TURKEY,"SMYRNA, W. TURKEY",38.4,27.1,0,0,2,0,0,0,0,0,0
+1668,7,25,0,0,0,probable tsunami,Earthquake,8.5,CHINA,"TANCHENG, SHANDONG PROVINCE",35.3,118.6,0,0,0,0,0,0,0,0,0
+1668,7,31,0,0,0,questionable tsunami,Earthquake,6.4,NORTH KOREA,YELLOW SEA,38,126,0,1,1.5,0,0,1,1,0,1
+1670,8,19,0,0,0,definite tsunami,Earthquake,6.8,CHINA,EAST CHINA SEA,33,122.5,0,1,1.5,0,0,0,0,0,0
+1670,12,17,0,0,0,definite tsunami,Earthquake,6.4,JAPAN,"BOSO, JAPAN",35.5,141,2,1,1,0,0,1,1,0,0
+1671,2,27,0,0,0,very doubtful tsunami,Earthquake,6.9,JAPAN,NANKAIDO,33.4,134.7,0,0,0,0,0,0,0,0,0
+1672,4,14,15,45,0,definite tsunami,Earthquake,5.6,ITALY,CENTRAL ADRIATIC,43.933,12.583,0,0,3,0,0,0,0,0,0
+1672,4,0,0,0,0,very doubtful tsunami,Earthquake,6.5,GREECE,ISLAND OF TENEDOS,40,26,0,0,0,0,0,0,0,0,0
+1674,2,17,11,30,0,definite tsunami,Earthquake,6.8,INDONESIA,BANDA SEA,-3.75,127.75,100,2,1.5,2244,6,24,3,0,3
+1674,5,6,0,0,0,probable tsunami,Earthquake,6,INDONESIA,BANDA SEA,-3.7,128.2,0,1,0,0,0,0,0,0,0
+1677,4,13,0,0,0,definite tsunami,Earthquake,8.1,JAPAN,SANRIKU,40,144,6,2.6,2,0,0,1,1,0,1
+1677,11,4,0,0,0,definite tsunami,Earthquake,7.4,JAPAN,OFF SE. BOSO PENINSULA,35,141.5,8,3,3,500,0,24,3,1001,4
+1678,6,18,1,45,0,probable tsunami,Earthquake,8.4,PERU,CENTRAL PERU,-9,-79,0,2,2.5,0,0,24,3,0,3
+1681,3,10,0,0,0,very doubtful tsunami,Earthquake,7.5,CHILE,NORTHERN CHILE,-18.5,-70.35,0,0,0,0,0,0,0,0,0
+1687,7,12,0,0,0,very doubtful tsunami,Earthquake,7.5,CHILE,CENTRAL CHILE,-32.8,-70.7,0,0,0,0,0,0,0,0,0
+1687,10,20,10,30,0,definite tsunami,Earthquake,8.5,PERU,S. PERU,-13.5,-76.5,0,3,3.5,5000,0,24,3,0,0
+1688,7,10,11,45,0,questionable tsunami,Earthquake,7,TURKEY,IZMIR,38.4,26.9,0,0,2,0,0,0,0,0,0
+1690,4,16,0,0,0,definite tsunami,Earthquake,8,ANTIGUA AND BARBUDA,ANTIGUA; SAINT KITTS AND NEVIS,17.5,-61.5,0,0,0,0,0,0,0,0,0
+1692,6,7,0,0,0,definite tsunami,Earthquake and Landslide,7.7,JAMAICA,PORT ROYAL,17.8,-76.7,1.8,0,0,2000,0,24,3,0,3
+1693,1,9,21,0,0,questionable tsunami,Earthquake,6,ITALY,EASTERN SICILY,37.333,15.167,0,0,2,0,0,0,0,0,0
+1693,1,11,13,30,0,definite tsunami,Earthquake,0,ITALY,ISLAND OF SICILY,37.133,15.017,0,0,4,0,0,0,0,0,0
+1694,4,0,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,5.5,TAIWAN,TAIWAN,25,121.5,0,0,0,0,0,0,0,0,0
+1698,12,22,0,0,0,definite tsunami,Earthquake,6.4,JAPAN,SEIKAIDO-NANKAIDO,33.3,131.7,0,0,0,0,0,0,0,0,0
+1700,1,27,5,0,0,definite tsunami,Earthquake,9,USA,CASCADIA SUBDUCTION ZONE,45,-125,0,0,0,2,0,24,3,0,0
+1700,4,16,0,0,0,questionable tsunami,Earthquake,7,JAPAN,"TSUSHIMA, NAGASAKI PREFECTURE",34.2,129.3,6,0,0,1000,0,24,3,0,3
+1700,9,12,0,0,0,definite tsunami,Earthquake,6.5,SOUTH KOREA,YELLOW SEA,36.5,126.5,0,0,1,0,0,0,0,0,0
+1703,2,2,21,11,5,event that only caused a seiche or disturbance in an inland river,Earthquake,6.7,ITALY,LATIUM,42.467,13.2,0,0,3,0,0,0,0,0,0
+1703,7,2,0,0,0,questionable tsunami,Earthquake,3.2,ITALY,LIGURIA-COTE D'AZUR,44.4,8.917,0,0,3,0,0,0,0,0,0
+1703,12,30,17,0,0,definite tsunami,Earthquake,8.2,JAPAN,OFF SW BOSO PENINSULA,34.7,139.8,11.7,4,3,5233,0,25,4,20162,4
+1707,10,28,4,0,0,definite tsunami,Earthquake,8.4,JAPAN,ENSHUNADA,34.1,137.8,11,3,0,2000,0,25,4,10000,4
+1707,10,28,5,0,0,definite tsunami,Earthquake,8.4,JAPAN,NANKAIDO,33.2,134.8,25.7,3.5,4,5000,0,25,4,17000,4
+1708,2,13,0,0,0,definite tsunami,Earthquake,7,JAPAN,TOKAIDO,34,137,0,1,1,0,0,1,1,0,0
+1710,4,16,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,5.5,CHINA,HUNAN PROVINCE,27.8,111.6,2,0,0,0,0,0,0,0,0
+1711,9,5,0,0,0,definite tsunami,Earthquake,7,INDONESIA,BANDA SEA,-4,129,1.2,1,1.5,2,0,1,1,2,1
+1711,12,20,0,0,0,definite tsunami,Earthquake,6.7,JAPAN,"SEIONAIKAI, JAPAN",34.3,134,2,1,1,0,0,0,0,0,0
+1715,8,23,0,0,0,probable tsunami,Earthquake,7.5,PERU,PERU,-17.3,-70.8,0,0,0,0,0,0,0,0,0
+1715,12,29,0,0,0,definite tsunami,Earthquake,6.6,JAPAN,SEIKAIDO,33.3,131.7,0,0,0,0,0,0,0,0,0
+1723,2,18,2,0,0,very doubtful tsunami,Earthquake,7,GREECE,IONIAN SEA,38.5,20.5,0,0,3,0,0,0,0,0,0
+1726,4,1,0,0,0,definite tsunami,Earthquake,6.6,JAPAN,KATSUYAMA,36.3,136,0,1,1,0,0,5,2,0,2
+1726,9,1,21,55,0,definite tsunami,Earthquake,5.8,ITALY,NORTHERN SICILY,38.117,13.35,0,0,3,0,0,0,0,0,0
+1727,7,4,0,0,0,questionable tsunami,Earthquake,5.2,ITALY,SICILY CHANNEL,37.5,13,0,0,3,0,0,0,0,0,0
+1730,7,8,8,45,0,definite tsunami,Earthquake,9.1,CHILE,CENTRAL CHILE,-32.5,-71.5,8,4,3.5,3,0,24,3,0,3
+1730,11,10,0,0,0,very doubtful tsunami,Earthquake,7.6,JAPAN,KASHIMA,36.2,142.2,0,0,0,0,0,0,0,0,0
+1732,12,4,0,0,0,probable tsunami,Earthquake,6.5,JAPAN,"KUJUKURI BEACH, JAPAN",35.2,140.8,2,1,1,0,0,0,0,0,0
+1737,12,17,0,0,0,Erroneous entry,Earthquake,7.5,RUSSIA,KAMCHATKA,50,157,0,0,0,0,0,0,0,0,0
+1737,12,24,0,0,0,very doubtful tsunami,Earthquake,8,CHILE,SOUTHERN CHILE,-43,-74,0,0,0,0,0,0,0,0,0
+1738,7,19,0,0,0,very doubtful tsunami,Earthquake,6.5,GREECE,"MILOS ISLAND, AEGEAN ISLANDS",36.8,24.4,0,0,3,0,0,0,0,0,0
+1741,1,31,0,0,0,probable tsunami,Earthquake,0,GREECE,ISLAND OF RHODES,36.2,28.5,0,0,4,0,0,0,0,0,0
+1741,8,29,0,0,0,definite tsunami,Volcano,0,JAPAN,W. HOKKAIDO ISLAND,41.5,139.37,90,3.2,2.5,2000,0,24,3,871,3
+1742,11,18,0,0,0,probable tsunami,Earthquake,7,RUSSIA,N. KURIL ISLANDS,51.5,157,0,1,1.5,0,0,0,0,0,0
+1743,2,20,23,30,0,very doubtful tsunami,Earthquake,6.9,ITALY,IONIAN AND ADRIATIC SEAS,39,20.3,0,0,0,0,0,0,0,0,0
+1746,10,29,3,30,0,definite tsunami,Earthquake,8,PERU,CENTRAL PERU,-11.996,-77.198,24,4.6,3.5,4800,0,25,4,0,3
+1748,5,14,0,0,0,definite tsunami,Earthquake,6.8,GREECE,CORINTHOS-PATRAS GULF,38.3,22.1,0,0,3,0,0,5,2,0,2
+1751,5,20,0,0,0,definite tsunami,Earthquake and Landslide,6.6,JAPAN,NW. HONSHU ISLAND,37.2,138.1,0,1,1,2100,0,25,4,9100,4
+1751,5,25,5,30,0,definite tsunami,Earthquake,8.5,CHILE,CENTRAL CHILE,-37,-73,3.5,1.8,3.5,65,0,1,1,0,0
+1751,9,15,19,0,0,Erroneous entry,Earthquake,7.3,HAITI,PORT-AU-PRINCE,18.5,-72.3,0,0,0,0,0,0,0,0,0
+1751,10,18,19,0,0,probable tsunami,Earthquake,7.3,DOMINICAN REPUBLIC,AZUA DE COMPOSTELA,18.5,-70.7,0,0,0,0,0,24,3,0,3
+1754,4,0,0,0,0,Erroneous entry,Earthquake,0,TAIWAN,E. CHINA SEA,25.3,121.4,0,0,0.5,0,0,1,1,0,0
+1754,8,18,0,0,0,probable tsunami,Earthquake,6.5,INDONESIA,BANDA SEA,-3.5,128.5,0,0,0,0,0,0,0,0,0
+1754,9,2,21,30,0,questionable tsunami,Earthquake,0,TURKEY,MARMARA SEA,40.6,30,0,0,0,0,0,0,0,0,0
+1755,11,1,9,30,0,definite tsunami,Earthquake,8.5,PORTUGAL,LISBON,37,-10,18.3,3.6,0,50000,0,25,4,0,4
+1756,10,22,15,30,0,very doubtful tsunami,Earthquake,0,ITALY,GARGANO PENINSULA,37.7,22.8,0,0,4,0,0,0,0,0,0
+1757,8,24,0,0,0,questionable tsunami,Earthquake,7.5,INDONESIA,JAKARTA,-6,107,0.5,0,-0.5,0,0,0,0,0,0
+1761,3,31,12,1,0,probable tsunami,Earthquake,8.5,PORTUGAL,SW PORTUGAL,34.5,-13,2.4,1.3,2,0,0,0,0,0,0
+1762,10,31,5,0,0,definite tsunami,Earthquake,6.6,JAPAN,NW. HONSHU ISLAND,38.1,138.7,0,1,1,0,0,1,1,26,1
+1763,1,29,9,0,0,probable tsunami,Earthquake,7.4,JAPAN,SANRIKU,40.8,142,5,2,2,0,0,1,1,2,1
+1763,3,11,0,0,0,definite tsunami,Earthquake,7.8,JAPAN,N. SANRIKU,41,142.5,0,1,1,0,0,5,2,0,2
+1763,3,15,0,0,0,definite tsunami,Earthquake,7.1,JAPAN,"SANRIKU, HACHIONHE",40.7,142,0,1,1,0,0,24,3,0,0
+1766,3,8,0,0,0,definite tsunami,Earthquake,6.9,JAPAN,SANRIKU,40.9,140.7,0,-0.1,1,1700,0,25,4,8200,4
+1766,5,22,5,30,0,questionable tsunami,Earthquake,6.5,TURKEY,MARMARA SEA,40.8,29,0,0,2,0,0,0,0,0,0
+1766,6,12,4,45,0,Erroneous entry,Earthquake,6.8,CUBA,SANTIAGO DE CUBA,19.9,-76.1,0,0,0,0,0,0,0,0,0
+1766,10,21,9,0,0,very doubtful tsunami,Earthquake,7.5,VENEZUELA,CUMANA,10.47,-64.17,0,0,0,0,0,5,2,0,0
+1768,6,22,0,0,0,probable tsunami,Earthquake,7.5,PAPUA NEW GUINEA,"CAPE SAINT GEORGE, NEW IRELAND",-4.85,152.8,0,0,1,0,0,0,0,0,0
+1768,7,22,0,0,0,definite tsunami,Earthquake,6.5,JAPAN,RYUKYU ISLANDS,26.2,127.5,1.2,0.3,1,0,0,1,1,9,1
+1769,8,29,0,0,0,definite tsunami,Earthquake,7.4,JAPAN,SW. KYUSHU ISLAND,32.3,132,0,1,1,0,0,0,0,0,0
+1769,0,0,0,0,0,probable tsunami,Earthquake,0,GREECE,CORINTH GULF,38.4,12.2,0,0,0,0,0,0,0,0,0
+1770,0,0,0,0,0,probable tsunami,Earthquake,7,INDONESIA,SW. SUMATRA,-5,102,0,0,0.5,0,0,0,0,0,0
+1771,4,24,0,0,0,definite tsunami,Earthquake,7.4,JAPAN,RYUKYU ISLANDS,24,124.3,85.4,6.4,3,13486,0,25,4,3237,4
+1780,6,29,0,0,0,definite tsunami,Earthquake,7.5,RUSSIA,S. KURIL ISLANDS,45.3,151.2,12,3.6,3,12,0,1,1,0,1
+1782,5,22,0,0,0,questionable tsunami,Earthquake,7,TAIWAN,TAIWAN STRAIT,24.5,120.5,10,0,2.5,40000,0,24,3,0,3
+1782,8,22,0,0,0,definite tsunami,Earthquake and Landslide,7.3,JAPAN,"ODAWARA, SAGAMI BAY",35.1,139.7,0,1,1,0,0,0,0,0,0
+1783,2,5,12,0,0,definite tsunami,Earthquake,6.9,ITALY,TYRRHENIAN CALABRIA,38.3,15.967,0,0,4,0,0,1,1,0,1
+1783,2,6,0,20,0,definite tsunami,Earthquake and Landslide,5.9,ITALY,MESSINA STRAITS,38.217,15.633,16,0,0,1500,0,5,2,0,2
+1783,2,7,13,10,0,very doubtful tsunami,Earthquake,6.6,ITALY,TYRRHENIAN CALABRIA,38.583,16.2,0,0,0,0,0,0,0,0,0
+1783,3,1,1,40,0,probable tsunami,Earthquake,5.9,ITALY,TYRRHENIAN CALABRIA,38.767,16.3,0,0,3,0,0,0,0,0,0
+1783,3,28,18,55,0,probable tsunami,Earthquake,6.9,ITALY,TYRRHENIAN CALABRIA,38.783,16.467,0,0,0,0,0,0,0,0,0
+1784,1,7,0,0,0,definite tsunami,Earthquake,4.1,ITALY,IONIAN CALABRIA,38.317,16.4,0,0,5,0,0,1,1,0,3
+1784,1,19,0,0,0,questionable tsunami,Earthquake,4.1,ITALY,MESSINA STRAITS,38.167,15.633,0,0,3,0,0,1,1,0,0
+1784,5,13,12,35,0,questionable tsunami,Earthquake,8,PERU,S. PERU,-16.5,-72,0,0,0,0,0,1,1,0,1
+1787,3,28,17,30,0,definite tsunami,Earthquake,8.3,MEXICO,SAN MARCOS,16.5,-98.5,4,2,2.5,11,0,24,3,0,3
+1787,4,3,15,30,0,questionable tsunami,Earthquake,7.3,MEXICO,SAN MARCOS,15.5,-97,4,2,1,0,0,0,0,0,0
+1788,7,21,0,0,0,definite tsunami,Earthquake,8,USA,"ALASKA PENINSULA, AK",57,-153,30,3,4,0,0,1,1,0,1
+1788,8,6,0,0,0,definite tsunami,Earthquake,8,USA,"SHUMAGIN ISLANDS, AK",55,-161,88,3.3,4,0,0,0,0,0,0
+1791,4,15,0,0,0,very doubtful tsunami,Earthquake,6.8,RUSSIA,KAMCHATKA,56,163,0,0,0,0,0,0,0,0,0
+1791,9,13,0,0,0,probable tsunami,Earthquake,6.5,JAPAN,OASAKA BAY,34.5,135.4,0,1,1,0,0,1,1,0,0
+1791,11,2,21,0,0,questionable tsunami,Earthquake,7,GREECE,IONIAN SEA,37.8,21,0,0,3,0,0,0,0,0,0
+1792,5,21,0,0,0,definite tsunami,Volcano,6.4,JAPAN,"SHIMABARA BAY, KYUSHU ISLAND",32.75,130.3,55,3.5,3,15000,707,25,4,6200,4
+1792,6,13,0,0,0,definite tsunami,Earthquake,6.9,JAPAN,W. HOKKAIDO ISLAND,43.5,140.6,0,1,1,0,0,1,1,0,0
+1792,8,9,0,0,0,questionable tsunami,Earthquake,6,TAIWAN,TAINAN,23.6,120.5,10,0,0,0,0,0,0,0,0
+1792,8,22,18,0,0,very doubtful tsunami,Earthquake,8.4,RUSSIA,KAMCHATKA,54,162,0,0,2,0,0,0,0,0,0
+1793,2,8,3,0,0,definite tsunami,Earthquake,6.9,JAPAN,W. OFF AOMORI,40.85,139.95,1.8,1,2,12,0,1,1,0,1
+1793,2,17,0,0,0,definite tsunami,Earthquake,8.3,JAPAN,SANRIKU,38.5,144,4.5,2.2,2,720,0,24,3,100,2
+1794,6,11,3,0,0,probable tsunami,Earthquake and Landslide,0,GREECE,CORINTH GULF,38.3,22.3,0,0,0,0,0,0,0,0,0
+1797,2,10,0,0,0,definite tsunami,Earthquake,8,INDONESIA,SW. SUMATRA,0.001,99,0,0,3,300,0,5,2,0,3
+1799,6,29,0,0,0,definite tsunami,Earthquake,6.4,JAPAN,SW. HONSHU ISLAND,36.6,136.6,0,1,1,0,0,5,2,0,0
+1802,12,9,5,0,0,definite tsunami,Earthquake,6.6,JAPAN,NW. HONSHU ISLAND,37.7,138.3,0,0,0,0,0,0,0,0,0
+1804,6,8,3,0,0,probable tsunami,Earthquake,6.7,GREECE,CORINTHOS-PATRAS GULF,38.3,21.8,0,0,3,0,0,0,0,0,0
+1804,7,10,13,0,0,definite tsunami,Earthquake,7.3,JAPAN,NW. HONSHU ISLAND,39.05,139.95,1,0.5,1,0,0,5,2,0,0
+1805,7,26,20,57,0,definite tsunami,Earthquake,0,ITALY,CAMPANIA,41.5,14.467,0,0,2,0,0,0,0,0,0
+1806,12,1,23,0,0,probable tsunami,Earthquake,7.5,PERU,CENTRAL PERU,-12.1,-77.1,1,0,0.5,0,0,1,1,0,0
+1808,4,2,16,43,0,questionable tsunami,Earthquake,5.7,ITALY,ITALIAN COAST,44.833,7.25,0.15,0,2,0,0,0,0,0,0
+1808,8,8,0,0,0,definite tsunami,Earthquake,6.5,JAPAN,"E. AWA, TOKUSHIMA PREFECTURE",33.9,134.8,1.5,0.5,0.5,0,0,0,0,0,0
+1810,8,27,0,0,0,definite tsunami,Earthquake and Landslide,7.4,MEXICO,MEXICO,26,-111.35,0,0,0,0,0,1,1,0,0
+1810,9,25,0,0,0,definite tsunami,Earthquake,6.6,JAPAN,NW. HONSHU ISLAND,39.9,139.9,1,1,0,0,0,0,0,0,0
+1811,12,16,8,15,0,event that only caused a seiche or disturbance in an inland river,Earthquake,8.5,USA,AR: NE - NEW MADRID EARTHQUAKES,35.6,-90.4,0,0,0,0,0,5,2,0,0
+1811,12,16,14,15,0,event that only caused a seiche or disturbance in an inland river,Earthquake,8,USA,AR: NE - NEW MADRID EARTHQUAKES,35.6,-90.4,0,0,0,0,0,0,0,0,0
+1812,1,23,15,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,8.4,USA,"NEW MADRID, MO",36.3,-89.6,0,0,0,0,1,5,2,0,0
+1812,2,7,9,45,0,event that only caused a seiche or disturbance in an inland river,Earthquake,8.8,USA,"NEW MADRID, MO",36.5,-89.6,0,0,0,0,1,5,2,0,0
+1812,3,26,20,7,0,questionable tsunami,Earthquake,7.7,VENEZUELA,LA GUAIRA,10.6,-66.9,0,0,0,0,0,1,1,0,0
+1812,12,21,19,0,0,definite tsunami,Earthquake and Landslide,7.5,USA,S. CALIFORNIA,34.2,-119.9,3.4,1.8,1.5,0,0,1,1,0,0
+1815,11,22,0,0,0,probable tsunami,Earthquake and Landslide,7,INDONESIA,BALI SEA,-8,115,0,1,1.5,1200,0,0,0,0,0
+1817,8,23,8,0,0,probable tsunami,Earthquake,6.8,GREECE,CORINTHOS-PATRAS GULF,38.3,22.1,5,0,3,0,0,0,0,0,0
+1818,2,20,18,15,0,definite tsunami,Earthquake,0,ITALY,EASTERN SICILY,37.6,15.133,0,0,3,0,0,0,0,0,0
+1818,2,23,18,10,0,questionable tsunami,Earthquake,5.6,ITALY,LIGURIA-COTE D'AZUR,43.917,8.033,0,0,3,0,0,0,0,0,0
+1818,3,18,0,0,0,probable tsunami,Earthquake and Landslide,7,INDONESIA,"BENGKULU, SUMATRA",-4,101.5,0,0,1.5,0,0,1,1,0,0
+1818,11,8,0,0,0,questionable tsunami,Earthquake,8.5,INDONESIA,BALI SEA,-7,117,3.5,0,2,0,0,0,0,0,0
+1819,4,12,3,0,0,definite tsunami,Earthquake,8.5,CHILE,NORTHERN CHILE,-27,-71.5,4,2,2,0,0,5,2,0,2
+1819,6,16,0,0,0,probable tsunami,Earthquake,7.7,INDIA,KUTCH,23,71,0,0,0,0,0,5,2,0,2
+1819,8,31,0,0,0,probable tsunami,Earthquake,5.8,NORWAY,NORWAY: RANA REGION: LUROY,66.416,12.85,0,0,0,0,0,0,0,0,0
+1820,3,17,0,0,0,Erroneous entry,Earthquake,0,GREECE,ISLAND OF LEVKAS,38.8,20.8,0,0,0,0,0,0,0,0,0
+1820,5,4,0,0,0,definite tsunami,Earthquake,7.6,MEXICO,S. MEXICO,17.2,-99.6,4,1,1.5,0,0,0,0,0,0
+1820,12,29,0,0,0,definite tsunami,Earthquake,7.5,INDONESIA,FLORES SEA,-7,119,25,4,3.5,500,0,5,2,0,3
+1820,12,29,0,0,0,questionable tsunami,Earthquake,6.9,GREECE,ISLAND OF ZAKYNTHOS,37.75,21.25,0,0,3,0,0,0,0,0,0
+1820,0,0,0,0,0,questionable tsunami,Earthquake,6.2,CONGO,GOLD COAST,-4.5,11.6,0,0,0,0,0,1,1,0,0
+1821,1,6,0,0,0,definite tsunami,Earthquake,6.5,GREECE,IONIAN SEA,37.8,21.3,0,0,0,0,0,1,1,0,0
+1822,5,7,0,0,0,questionable tsunami,Earthquake,7.6,COSTA RICA,MATINA,10.1,-83.3,0,0,0,0,0,0,0,0,0
+1822,8,13,20,0,0,questionable tsunami,Earthquake,7.1,TURKEY,ANTIOCHIA,36,36,0,0,3,0,0,0,0,0,0
+1822,11,20,2,30,0,definite tsunami,Earthquake,8.5,CHILE,CENTRAL CHILE,-33,-72,3.6,1.8,2,0,0,0,0,0,0
+1823,9,9,0,0,0,questionable tsunami,Earthquake,6.8,INDONESIA,JAVA,-6.5,108.5,0.3,0,-1.5,0,0,0,0,0,0
+1825,1,19,11,45,0,very doubtful tsunami,Earthquake,6.8,GREECE,IONIAN SEA,38.8,20.7,0,0,3,0,0,0,0,0,0
+1825,2,26,0,0,0,very doubtful tsunami,Earthquake,6.3,COLOMBIA,SANTA MARTA,11.1,-74.1,0,0,0,0,0,0,0,0,0
+1827,11,16,22,45,0,Erroneous entry,Earthquake,7,ECUADOR,ECUADOR,-1.8,-76.4,0,0,0,0,0,0,0,0,0
+1828,5,26,0,0,0,definite tsunami,Earthquake,6.4,JAPAN,AMAKUSA SEA,32.6,129.9,0,0,0,0,0,0,0,0,0
+1828,11,9,10,30,0,very doubtful tsunami,Earthquake,7.5,PHILIPPINES,W. LUZON ISLAND,14.55,120.9,0,0,0.5,0,0,0,0,0,0
+1829,5,23,0,0,0,questionable tsunami,Earthquake,0,TURKEY,CONSTANTINOPLE,41.1,24.3,0,0,2,0,0,0,0,0,0
+1833,1,19,0,0,0,questionable tsunami,Earthquake,6.4,ALBANIA,ALBANIA,40.4,19.9,0,0,4,0,0,0,0,0,0
+1833,9,6,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,8,CHINA,YUNNAN PROVINCE,25.2,103,0,0,0,0,0,0,0,0,0
+1833,9,18,10,45,0,very doubtful tsunami,Earthquake,7.7,PERU,S. PERU,-18.251,-71.01,9,0,0,0,0,0,0,0,0
+1833,11,24,0,0,0,definite tsunami,Earthquake,8.3,INDONESIA,SW. SUMATRA,-2.5,100.5,0,0,2.5,0,0,5,2,0,1
+1833,12,7,0,0,0,definite tsunami,Earthquake,7.4,JAPAN,NW. HONSHU ISLAND,38.9,139.15,9,2.5,2.5,50,0,24,3,600,3
+1834,2,9,1,0,0,definite tsunami,Earthquake,6.4,JAPAN,W. HOKKAIDO ISLAND,43.3,141.4,0,2,1,0,0,1,1,50,1
+1834,3,14,0,0,0,very doubtful tsunami,Earthquake,7,MEXICO,S. MEXICO,16.8,-99.9,0,1,0,0,0,1,1,0,2
+1835,2,20,16,22,0,definite tsunami,Earthquake,8.2,CHILE,CENTRAL CHILE,-36.83,-73.03,24,4,3,3,0,5,2,0,3
+1835,7,20,0,0,0,definite tsunami,Earthquake,7.6,JAPAN,SANRIKU,37.9,141.9,5,2.3,2,0,0,24,3,0,3
+1836,7,3,0,0,0,questionable tsunami,Earthquake,7.5,CHILE,NORTHERN CHILE,-22.6,-70.3,0,1,1,0,0,0,0,0,0
+1836,9,5,0,0,0,Erroneous entry,Earthquake,0,JAPAN,SANRIKU,37.7,142,0,1,1,0,0,0,0,0,0
+1836,11,28,0,0,0,questionable tsunami,Earthquake,7.5,INDONESIA,FLORES SEA,-8.3,118.7,0,0,0.5,0,0,0,0,0,0
+1837,8,9,0,0,0,questionable tsunami,Earthquake,6.5,MEXICO,ACAPULCO,16.86,-99.88,0,0,0,0,0,0,0,0,0
+1837,9,29,0,0,0,questionable tsunami,Earthquake,7.3,INDONESIA,BANDA ACEH,5.5,96,0,0,0.5,0,0,0,0,0,0
+1837,10,18,0,0,0,questionable tsunami,Earthquake,7,MEXICO,MEXICO CITY,19.45,-99.15,0,0,0,0,0,0,0,0,0
+1837,11,7,12,51,0,definite tsunami,Earthquake,8.5,CHILE,SOUTHERN CHILE,-42.5,-74,6,3,3,16,0,5,2,0,3
+1839,5,1,0,0,0,very doubtful tsunami,Earthquake,7.3,JAPAN,SE. HOKKAIDO ISLAND,42.5,145,0,1,1,0,0,0,0,0,0
+1840,1,4,0,0,0,questionable tsunami,Earthquake,7,INDONESIA,JAVA,-8,110.5,0,0,0,0,0,0,0,0,0
+1840,3,22,0,0,0,very doubtful tsunami,Earthquake,6.5,PHILIPPINES,PHILIPPINE SEA,12.9,123.9,0,1,1,35,0,1,1,0,0
+1840,11,11,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,5.2,USA,"PHILADELPHIA, PENNSYLVANIA",39.8,-75.2,0,0,0,0,0,0,0,0,0
+1841,5,17,21,30,0,definite tsunami,Earthquake,8.4,RUSSIA,KAMCHATKA,52,158,15,3.9,3,0,0,1,1,0,0
+1841,12,16,0,0,0,probable tsunami,Earthquake,6,INDONESIA,BANDA SEA,-4,127.5,1.5,1,1.5,0,0,5,2,0,3
+1842,5,7,21,0,0,definite tsunami,Earthquake,8.1,HAITI,CAP-HAITIAN,19.75,-72.2,5,4.2,0,300,0,24,3,0,3
+1842,11,11,0,0,0,very doubtful tsunami,Earthquake,6,BANGLADESH,BAY OF BENGAL: NORTHERN END,24,89.25,0,0,0,0,0,0,0,0,0
+1843,1,5,0,0,0,definite tsunami,Earthquake,7.3,INDONESIA,SW. SUMATRA,1.5,98,0,0,2,0,0,24,3,0,3
+1843,2,7,0,0,0,very doubtful tsunami,Earthquake,6,INDONESIA,BALI SEA,-7.2,114,0,0,0,0,0,0,0,0,0
+1843,2,8,14,50,0,definite tsunami,Earthquake,8.3,GUADELOUPE (FRENCH TERRITORY),POINTE-A-PITRE,16.5,-62.2,1.2,0.3,0,0,0,0,0,0,0
+1843,4,25,0,0,0,definite tsunami,Earthquake,8.4,JAPAN,SE. HOKKAIDO ISLAND,42,146,4.5,2.2,2.5,45,0,5,2,75,2
+1843,7,8,5,5,0,questionable tsunami,Earthquake,7.5,NEW ZEALAND,NEW ZEALAND,-39.9,175,0,0,0,0,0,0,0,0,0
+1843,9,14,10,30,0,questionable tsunami,Earthquake,0,CROATIA,DUBROVNIK,42.6,18.1,0,0,4,0,0,0,0,0,0
+1843,10,18,0,0,0,questionable tsunami,Earthquake,6.5,GREECE,ISLAND OF CHALKI,36.3,27.6,0,0,4,0,0,0,0,0,0
+1844,5,0,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,7.4,NICARAGUA,LAKE NICARAGUA,11.2,-84.8,0,0,0,0,0,1,1,0,1
+1845,2,8,7,30,0,probable tsunami,Earthquake,7,INDONESIA,CELEBES SEA,1.5,124.85,0,0,0,0,0,0,0,0,0
+1845,4,7,0,0,0,probable tsunami,Earthquake,8,MEXICO,S. MEXICO,17,-100.6,0,0,1.5,0,0,0,0,0,0
+1845,6,19,0,0,0,probable tsunami,Earthquake,6.3,INDIA,RANN OF KUTCH,23.583,68.367,0,0,0,0,0,5,2,0,2
+1846,1,25,0,0,0,definite tsunami,Earthquake,7.3,INDONESIA,"TERNATE ISLAND, N. MOLUCCAS ISLANDS",2,126.5,1.2,0,0.5,0,0,0,0,0,0
+1846,3,0,0,0,0,definite tsunami,Earthquake,6.9,JAPAN,SANRIKU,39.5,142.5,2,1,1,0,0,0,0,0,0
+1846,8,14,12,35,0,probable tsunami,Earthquake,6.1,ITALY,LIVORNO,43.4,10.6,0,0,3,0,0,0,0,0,0
+1848,10,15,14,10,0,very doubtful tsunami,Earthquake and Landslide,7.9,NEW ZEALAND,COOK STRAIT,-41.9,173.6,0.3,-1,0.5,0,0,0,0,0,0
+1849,1,25,5,10,0,probable tsunami,Earthquake,7.5,USA TERRITORY,"GUAM, MARIANA ISLANDS",14,143.3,6.1,1,2,0,1,5,2,0,0
+1849,11,17,10,10,0,definite tsunami,Earthquake,7.5,CHILE,CENTRAL CHILE,-29.95,-71.37,5,2.3,2.5,0,0,1,1,0,0
+1851,2,28,15,0,0,questionable tsunami,Earthquake,0,GREECE,DODECANESE ISLANDS,36.5,28.7,0,0,0,0,0,0,0,0,0
+1851,2,28,0,0,0,probable tsunami,Earthquake,7.2,TURKEY,"FETIYE, ASIA MINOR",35.5,28.7,0.9,-0.1,3,0,0,0,0,0,0
+1851,5,26,18,14,0,questionable tsunami,Earthquake,7.2,CHILE,NORTHERN CHILE,-27.35,-70.35,3,1.6,2,0,0,1,1,0,0
+1851,7,28,18,33,0,very doubtful tsunami,Earthquake,0,ITALY,LIGURIAN SEA,43.75,10.3,0,0,2,0,0,0,0,0,0
+1851,10,12,6,0,0,questionable tsunami,Earthquake,6.6,ALBANIA,ALBANIAN COASTS,40.5,19.7,0.66,-0.1,3,0,0,0,0,0,0
+1852,1,9,0,0,0,probable tsunami,Earthquake,6.5,INDONESIA,JAVA,-6.5,105.5,0,0,0.5,0,0,0,0,0,0
+1852,9,16,10,30,0,questionable tsunami,Earthquake,7.5,PHILIPPINES,W. LUZON ISLAND,14,120.5,0,0,1.5,0,0,0,0,0,0
+1852,11,11,0,0,0,very doubtful tsunami,Earthquake,6.8,INDONESIA,"SIBOLGA, SUMATRA",1.5,98,0,0,0,0,0,0,0,0,0
+1852,11,25,22,40,0,definite tsunami,Earthquake,8.3,INDONESIA,BANDA SEA,-5.25,129.75,8,3,2.5,60,0,5,2,0,2
+1852,11,29,0,0,0,probable tsunami,Earthquake,7,MEXICO,N. MEXICO,32.5,-115.5,3,0,1,0,0,0,0,0,0
+1852,12,4,0,0,0,questionable tsunami,Earthquake,7,MEXICO,S. MEXICO,17,-100,0,0,0,0,0,0,0,0,0
+1852,12,24,0,0,0,very doubtful tsunami,Earthquake,7,INDONESIA,BANDANEIRA,-5,130.5,0,0,2,0,0,1,1,0,0
+1853,7,15,0,0,0,definite tsunami,Earthquake,6.7,VENEZUELA,CUMANA,10.5,-64.2,5,0,0,0,0,1,1,0,1
+1854,1,4,0,0,0,questionable tsunami,Earthquake,6,INDONESIA,BANDA SEA,-3.5,128.6,0,0,0,0,0,0,0,0,0
+1854,6,27,0,0,0,Erroneous entry,Earthquake,0,RUSSIA,N. KURIL ISLANDS,51,158,0,0,2,0,0,0,0,0,0
+1854,8,4,0,0,0,questionable tsunami,Earthquake,7.2,COSTA RICA,COSTA RICA-PANAMA,8.5,-83,0,0,1.5,0,0,0,0,0,0
+1854,8,7,0,0,0,questionable tsunami,Earthquake and Landslide,7.2,COSTA RICA,COSTA RICA-PANAMA,8.5,-83,0,0,1.5,0,0,24,3,0,1
+1854,12,23,0,0,0,definite tsunami,Earthquake,8.3,JAPAN,ENSHUNADA SEA,34,137.9,21,4,3,300,0,25,4,8300,4
+1854,12,24,8,0,0,definite tsunami,Earthquake,8.4,JAPAN,NANKAIDO,33.1,135,28,4,2.5,3000,0,25,4,15000,4
+1855,1,23,9,0,0,probable tsunami,Earthquake,8,NEW ZEALAND,NORTHERN ISLAND,-41.25,175,11,3.2,3,0,0,0,0,0,0
+1855,2,11,12,0,0,questionable tsunami,Earthquake and Landslide,5.5,NEW ZEALAND,,-39.2,177.6,0,0,0,0,0,0,0,0,0
+1855,3,20,0,30,0,very doubtful tsunami,Earthquake,6,USA,N. CALIFORNIA,40.75,-124.2,0,0,0,0,0,0,0,0,0
+1855,7,11,4,15,0,probable tsunami,Earthquake and Landslide,6,USA,S. CALIFORNIA,34.1,-118.1,0,0,0,0,0,0,0,0,0
+1855,11,7,0,0,0,definite tsunami,Earthquake,7,JAPAN,ENSHUNADA,34.5,137.6,3,1,0,0,0,0,0,0,0
+1855,11,11,0,0,0,definite tsunami,Earthquake,7,JAPAN,TOKAIDO,35.65,139.8,0,0,0,0,0,0,0,0,0
+1855,12,3,0,0,0,very doubtful tsunami,Earthquake,7,JAPAN,NANKAIDO,32.5,134.5,0,0,0,0,0,0,0,0,0
+1855,0,0,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,4.8,CHINA,SICHUAN PROVINCE,29.2,108.1,3,0,0,0,0,1,1,0,0
+1856,2,15,13,25,0,probable tsunami,Earthquake and Landslide,5.5,USA,N. CALIFORNIA,37.5,-122.3,0.6,0,-1,0,0,0,0,0,0
+1856,8,4,0,0,0,definite tsunami,Earthquake and Landslide,7.5,HONDURAS,BAY OF HONDURAS,16,-88,5,0,0,0,0,5,2,0,0
+1856,8,23,4,30,0,definite tsunami,Earthquake,8,JAPAN,SE. HOKKAIDO ISLAND,40.5,143.5,6,2.6,2,26,0,5,2,193,3
+1856,10,12,0,45,0,questionable tsunami,Earthquake,8.3,GREECE,CRETE,35.5,26,0,0,3,0,0,0,0,0,0
+1856,11,13,0,0,0,probable tsunami,Earthquake,6.6,GREECE,"CHIOS ISLAND, AEGEAN ISLANDS",38.5,26.25,0,0,3,0,0,0,0,0,0
+1857,4,17,0,0,0,definite tsunami,Earthquake and Landslide,8,PAPUA NEW GUINEA,BISMARCK SEA,-5.5,147,0,0,1.5,0,0,5,2,0,2
+1857,5,13,0,0,0,definite tsunami,Earthquake,7,INDONESIA,BALI SEA,-8,115.5,3.4,1.6,2,0,0,0,0,0,0
+1857,7,13,22,0,0,definite tsunami,Earthquake,6.4,JAPAN,TOKAIDO,34.8,138.3,0,0,0,0,0,1,1,0,0
+1858,2,21,9,2,0,very doubtful tsunami,Earthquake,0,GREECE,GULF OF CORINTH,37.9,22.9,0,0,0,0,0,0,0,0,0
+1858,4,24,11,15,0,questionable tsunami,Earthquake,6.5,CHILE,CENTRAL CHILE,-30,-71.4,0,1,1,0,0,0,0,0,0
+1858,12,13,0,0,0,questionable tsunami,Earthquake,7.3,INDONESIA,N. MOLUCCAS ISLANDS,1,126,0,0,1.5,0,0,24,3,0,3
+1859,6,28,0,0,0,definite tsunami,Earthquake,7,INDONESIA,N. MOLUCCAS ISLANDS,1,126.5,10,3.2,3,0,0,0,0,0,0
+1859,7,29,0,0,0,definite tsunami,Earthquake,7.3,INDONESIA,N. MOLUCCAS ISLANDS,0.009,125.5,1,1,1.5,0,0,5,2,0,2
+1859,8,21,11,55,0,probable tsunami,Earthquake,0,TURKEY,IMROZ - AEGEAN SEA,40,26,0,0,3,0,0,0,0,0,0
+1859,8,25,0,0,0,probable tsunami,Earthquake,6.2,EL SALVADOR,EL SALVADOR,13.33,-87.81,0,1,1.5,0,0,1,1,0,0
+1859,9,25,0,0,0,questionable tsunami,Earthquake,6.8,INDONESIA,BANDA SEA,-5.5,130.5,0,1,0.5,0,0,0,0,0,0
+1859,10,5,12,0,0,definite tsunami,Earthquake,7.6,CHILE,NORTHERN CHILE,-27.35,-70.35,6,2.5,2.5,0,0,1,1,0,0
+1859,12,9,2,0,0,probable tsunami,Earthquake,7,EL SALVADOR,EL SALVADOR,13.7,-89.8,0,1,1.5,0,0,1,1,0,1
+1860,4,8,0,0,0,definite tsunami,Earthquake,7.5,HAITI,ANSE-A-VEAU,18.52,-73.35,0,0,0,0,0,0,0,0,0
+1861,2,16,0,0,0,definite tsunami,Earthquake,8.5,INDONESIA,SW. SUMATRA,-1,97.5,7,0,3,1105,0,5,2,0,0
+1861,3,9,0,0,0,definite tsunami,Earthquake,7,INDONESIA,SW. SUMATRA,0.009,98,0,0,2,950,0,1,1,96,1
+1861,4,26,0,0,0,definite tsunami,Earthquake,7,INDONESIA,SW. SUMATRA,1,97.5,0,0,1.5,0,0,0,0,0,0
+1861,6,17,0,0,0,probable tsunami,Earthquake,6.8,INDONESIA,SW. SUMATRA,1,97.5,0,0,0.5,0,0,0,0,0,0
+1861,9,25,0,0,0,probable tsunami,Earthquake,6.5,INDONESIA,SW. SUMATRA,-1.5,100,0,0,1.5,0,0,1,1,0,1
+1861,10,20,17,30,0,definite tsunami,Earthquake,7.4,JAPAN,OFF MIYAGI,38.5,142,3.9,2,2,0,0,1,1,0,0
+1861,12,26,0,0,0,definite tsunami,Earthquake and Landslide,7.3,GREECE,CORINTH GULF,38.2,22.2,2.1,1.1,4,0,0,5,2,0,3
+1862,3,4,9,30,0,very doubtful tsunami,Earthquake,6,PHILIPPINES,W. LUZON ISLAND,14.5,121,0,0,0.5,0,0,1,1,0,0
+1862,5,27,20,0,0,definite tsunami,Earthquake and Landslide,5.9,USA,S. CALIFORNIA,32.7,-117.2,1.2,0.3,0,0,0,0,0,0,0
+1862,7,10,0,0,0,questionable tsunami,Earthquake,6.5,GHANA,GOLD COAST,7,0.4,0,0,0,0,0,0,0,0,0
+1863,6,3,11,20,0,questionable tsunami,Earthquake,6.5,PHILIPPINES,W. LUZON ISLAND,14.5,121,0,1,1,0,0,1,1,0,0
+1863,8,17,0,0,0,questionable tsunami,Earthquake,7.5,VANUATU,VANUATU ISLANDS,-19,168.5,0,0,1,0,0,0,0,0,0
+1863,9,20,0,0,0,probable tsunami,Earthquake,6.4,JAPAN,NW. HOKKAIDO ISLAND,44.6,141.5,0,0,0,0,0,0,0,0,0
+1864,5,23,0,0,0,probable tsunami,Earthquake,7.8,INDONESIA,NW. IRIAN JAYA,-1,135,3,3.6,1.5,250,0,24,3,0,3
+1865,10,8,20,46,0,probable tsunami,Earthquake and Landslide,6.3,USA,N. CALIFORNIA,37.2,-121.9,0,0,0.5,0,0,0,0,0,0
+1865,10,19,0,0,0,questionable tsunami,Earthquake,6,PHILIPPINES,PHILIPPINES,13.25,123.5,0,0,0,0,0,5,2,223,3
+1865,11,18,0,0,0,definite tsunami,Earthquake,8,TONGA,TONGA ISLANDS,-19.5,-173.5,1.25,0,3,0,0,1,1,20,1
+1866,1,2,0,0,0,questionable tsunami,Earthquake,6.5,ALBANIA,ALBANIAN COASTS,40.3,19.4,0,0,4,0,0,0,0,0,0
+1866,1,31,0,0,0,very doubtful tsunami,Volcano and Earthquake,6.1,GREECE,THERA ISLAND (SANTORINI),36.4,25.3,0,0,0,0,0,0,0,0,0
+1866,2,6,0,0,0,probable tsunami,Earthquake,6,GREECE,"S. COASTS PELOPONNESUS, GREECE",36,23,8.6,0,4,0,0,0,0,0,0
+1866,3,2,15,30,0,probable tsunami,Earthquake,6.3,ALBANIA,ALBANIAN COASTS,40.4,19.5,0,0,3,0,0,0,0,0,0
+1866,3,6,0,0,0,probable tsunami,Earthquake,0,GREECE,THERA ISLAND (SANTORINI),36.404,25.396,0,0,4,0,0,0,0,0,0
+1867,2,4,0,0,0,probable tsunami,Earthquake,0,GREECE,IONIAN SEA,38.39,20.52,0,0,2,0,0,0,0,0,0
+1867,9,20,3,15,0,definite tsunami,Earthquake,7.1,GREECE,"PELOPONNESUS, GREECE",36.4,22.2,6,0,4,0,0,5,2,0,2
+1867,9,0,0,0,0,very doubtful tsunami,Earthquake,7.5,VENEZUELA,ISLA DE MARGARITA,10.9,-64.1,0,0,0,0,0,0,0,0,0
+1867,11,18,18,45,0,definite tsunami,"Volcano, Earthquake, and Landslide",7.5,USA TERRITORY,VIRGIN ISLANDS,18.1,-65.1,15.2,2.3,0,24,0,24,3,0,0
+1867,12,18,0,0,0,definite tsunami,Earthquake,7,TAIWAN,E. CHINA SEA,25.34,121.91,15,2,2,80,0,5,2,0,2
+1868,4,3,2,24,0,definite tsunami,Earthquake,7.9,USA,HAWAII,19,-155.5,13.7,4.3,3.5,47,0,5,2,108,3
+1868,8,13,21,30,0,definite tsunami,Earthquake,8.5,CHILE,NORTHERN CHILE,-18.6,-71,18,4.2,3.5,25000,0,25,4,0,0
+1868,8,13,0,0,0,questionable tsunami,Earthquake,8.5,VENEZUELA,RIO CARIBE,10.7,-63.1,0,0,0,0,0,0,0,0,0
+1868,8,14,1,30,0,definite tsunami,Earthquake,8.5,CHILE,NORTHERN CHILE,-18.6,-71,0.17,0,0,0,0,0,0,0,0
+1868,10,18,12,35,0,definite tsunami,Earthquake,7.6,NEW ZEALAND,,-40.2,173,3,0,0,0,0,0,0,0,0
+1868,10,21,15,53,0,probable tsunami,Earthquake and Landslide,6.8,USA,N. CALIFORNIA,37.7,-122.1,4.5,2.2,0.5,0,0,0,0,0,0
+1869,8,16,7,0,0,questionable tsunami,Earthquake,7,PHILIPPINES,SULU SEA,12.5,123.5,0,0,0,0,0,0,0,0,0
+1869,8,21,16,40,0,very doubtful tsunami,Earthquake,6.8,CHILE,NORTHERN CHILE,-21,-70,0,0,0,0,0,0,0,0,0
+1869,8,24,17,10,0,probable tsunami,Earthquake,7.5,CHILE,NORTHERN CHILE,-19.6,-70.23,2,0,1.5,0,0,1,1,0,0
+1869,10,11,13,0,0,very doubtful tsunami,Earthquake,5.6,UKRAINE,BLACK SEA,44.75,35,0,0,3,0,0,0,0,0,0
+1869,12,28,0,0,0,questionable tsunami,Earthquake,6.9,GREECE,IONIAN SEA,38.8,20.7,0,0,3,0,0,0,0,0,0
+1870,5,11,23,30,0,probable tsunami,Earthquake,7.9,MEXICO,"PUERTO ANGEL, MEXICO",15.4,-96.3,0,0,0,0,0,0,0,0,0
+1870,8,1,0,45,0,very doubtful tsunami,Earthquake,7,GREECE,IONIAN SEA,38.5,22.5,0,0,4,0,0,0,0,0,0
+1871,2,20,8,41,0,very doubtful tsunami,Earthquake,7,USA,HAWAII,20.7,-157,0,0,0,0,0,0,0,0,0
+1871,3,25,0,0,0,questionable tsunami,Earthquake,7.5,CHILE,CENTRAL CHILE,-35,-72.5,1,0,0.5,0,0,0,0,0,0
+1871,8,21,0,0,0,questionable tsunami,Earthquake,7,PERU,S. PERU,-13,-77,0,1,1,0,0,0,0,0,0
+1872,1,10,0,0,0,very doubtful tsunami,Earthquake,6.5,PERU,S. PERU,-16.4,-71.5,0,0,0,0,0,0,0,0,0
+1872,1,26,0,0,0,probable tsunami,Earthquake,6,PHILIPPINES,PHILIPPINES,16,119,0,0,1.5,0,0,0,0,0,0
+1872,3,14,8,20,0,definite tsunami,Earthquake,7.4,JAPAN,SW. HONSHU ISLAND,34.9,132,3,1.5,1,0,0,0,0,0,0
+1872,3,26,10,30,0,Erroneous entry,Earthquake,7.3,USA,S. CALIFORNIA,36.7,-118.1,0,0,0,0,0,0,0,0,0
+1873,11,23,5,9,0,probable tsunami,Earthquake and Landslide,6.7,USA,N. CALIFORNIA,42,-124,3.05,0,0,0,0,0,0,0,0
+1873,0,0,0,0,0,probable tsunami,Earthquake,8,PAPUA NEW GUINEA,MACLAY COAST,-5.5,146,0,1,2,0,0,5,2,0,2
+1875,3,28,0,0,0,probable tsunami,Earthquake,8,NEW CALEDONIA,"LIFOU ISLAND, LOYALTY ISLANDS",-20,168.5,4,2,2.5,25,0,24,3,0,3
+1875,5,10,0,0,0,questionable tsunami,Earthquake,7,VANUATU,VANUATU ISLANDS,-18.5,168,0,0,0.5,0,0,0,0,0,0
+1875,0,0,0,0,0,questionable tsunami,Earthquake,7,PAPUA NEW GUINEA,BISMARCK SEA,-6,147,0,0,0,0,0,0,0,0,0
+1876,5,28,0,0,0,probable tsunami,Earthquake,6.8,INDONESIA,CERAM SEA,-3,127.25,0.3,0,-1,0,0,0,0,0,0
+1877,5,10,0,59,0,definite tsunami,Earthquake,8.3,CHILE,NORTHERN CHILE,-21.5,-70.5,24,4.4,3.5,2282,0,24,3,0,3
+1878,1,10,0,0,0,probable tsunami,Earthquake,7.5,VANUATU,TANNA ISLAND,-19,168.5,12,3.6,3,0,0,1,1,0,0
+1878,1,23,12,5,0,very doubtful tsunami,Earthquake,7.9,CHILE,NORTHERN CHILE,-19.92,-70.335,0,0,0,0,0,0,0,0,0
+1878,2,11,0,0,0,probable tsunami,Earthquake,8,VANUATU,TANNA ISLAND,-19,168.5,0,1,1.5,0,0,0,0,0,0
+1878,4,19,9,0,0,very doubtful tsunami,Earthquake,6.7,TURKEY,GULF OF IZMIT,40.8,20.9,0,0,3,0,0,0,0,0,0
+1879,7,11,18,0,0,probable tsunami,Earthquake,5.9,EGYPT,GULF OF SUEZ,29,33,0,0,0,0,0,0,0,0,0
+1880,7,18,4,40,0,definite tsunami,Earthquake and Landslide,7.5,PHILIPPINES,E. LUZON ISLAND,16,121.85,0,0,0,0,0,0,0,0,0
+1880,8,15,12,48,0,very doubtful tsunami,Earthquake,7.7,CHILE,CENTRAL CHILE,-31.62,-71.18,0,0,0.5,0,0,0,0,0,0
+1880,9,8,9,30,0,probable tsunami,Earthquake,7,NEW ZEALAND,GISBORNE,-38.85,178.85,0,0,0,0,0,0,0,0,0
+1880,9,29,4,0,0,probable tsunami,Earthquake,6.3,USA,"CHIRIKOF ISLAND, AK",55.8,-155.6,0,0,0,0,0,0,0,0,0
+1880,10,26,22,20,0,probable tsunami,Earthquake and Landslide,6.3,USA,"SITKA, AK",57,-136,1.8,5.9,0,0,0,0,0,0,0
+1881,4,3,11,40,0,probable tsunami,Earthquake,6.5,GREECE,"CHIOS ISLAND, AEGEAN ISLANDS",38.2,26.2,0,0,2,0,0,0,0,0,0
+1881,10,25,0,0,0,questionable tsunami,Earthquake,7,JAPAN,HOKKAIDO ISLAND,43.3,147.3,0,0,1.5,0,0,0,0,0,0
+1881,12,31,0,0,0,probable tsunami,Earthquake,7.9,INDIA,BAY OF BENGAL: W OF CAR NICOBAR IS,8.52,92.43,1.22,0.3,0,0,0,0,0,0,0
+1882,9,7,7,50,0,definite tsunami,Earthquake and Landslide,7.9,PANAMA,SAN BLAS ARCHIPELAGO,10,-79,3,0,1,100,0,24,3,0,3
+1882,10,10,0,0,0,probable tsunami,Earthquake,7.5,INDONESIA,BANDA SEA,-4.5,129.9,0,0,0.5,0,0,0,0,0,0
+1882,12,9,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,6.2,TAIWAN,SOUTH CHINA SEA,24.5,120.5,0,0,0,0,0,0,0,0,0
+1884,7,20,9,30,0,definite tsunami,Earthquake,6.2,ERITREA,OFFSHORE MASSAWA,15.7,39.6,0,0,0,0,0,0,0,0,0
+1884,8,10,19,7,0,questionable tsunami,Earthquake,5.5,USA,"ROCKAWAY BEACH, NEW YORK",40.6,-73.75,1.8,0,0,0,0,0,0,0,0
+1884,11,5,0,0,0,very doubtful tsunami,Earthquake,7.5,PANAMA,GULF OF PANAMA,7.5,-79,0,0,0,0,0,5,2,0,2
+1885,4,30,0,0,0,probable tsunami,Earthquake,7.3,INDONESIA,MOLUCCAS ISLANDS,-2.5,127.5,1.2,0,0.5,0,0,1,1,3,1
+1886,8,27,21,32,0,probable tsunami,Earthquake,7.5,GREECE,IONIAN SEA,37.1,21.5,0,0,3,0,0,0,0,0,0
+1886,9,1,2,51,0,definite tsunami,Earthquake,7.3,USA,"CHARLESTON, SC",32.9,-80,0,0,0,0,0,0,0,0,0
+1887,5,3,0,0,0,very doubtful tsunami,Earthquake and Landslide,8,MEXICO,N. MEXICO,31,-109,0,0,1,0,0,0,0,0,0
+1887,10,3,0,0,0,questionable tsunami,Earthquake,6.2,GREECE,"PELOPONNESUS, GREECE",38.3,22.8,0,0,3,0,0,0,0,0,0
+1888,6,13,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,7.5,CHINA,BOHAI GULF,38.5,119,0,0,0,0,0,0,0,0,0
+1888,9,9,15,4,0,definite tsunami,Earthquake,0,GREECE,GULF OF CORINTH,38.2,22.1,0,0,0,0,0,0,0,0,0
+1889,5,25,18,23,0,probable tsunami,Earthquake,6.8,PHILIPPINES,MINDORO ISLAND,13.5,121,0.1,0,-3,0,0,0,0,0,0
+1889,9,6,12,0,0,definite tsunami,Earthquake,8,INDONESIA,N. MOLUCCAS ISLANDS,1,126.25,4,1,2.5,0,0,5,2,0,2
+1889,11,23,0,0,0,questionable tsunami,Earthquake,6,INDONESIA,JAVA,-7,113.5,0,0,1,0,0,0,0,0,0
+1890,7,11,7,55,0,probable tsunami,Earthquake,7.2,IRAN,CASPIAN SEA,36.6,54.6,0,0,0,0,0,0,0,0,0
+1891,10,5,0,0,0,probable tsunami,Earthquake,7,INDONESIA,TIMOR SEA,-9,124,0,0,0.5,0,0,0,0,0,0
+1892,5,16,11,10,0,definite tsunami,Earthquake,7.5,USA TERRITORY,"GUAM, MARIANA ISLANDS",14,143.3,0,0,0.5,0,0,0,0,0,0
+1892,11,18,0,0,0,probable tsunami,Earthquake,7,INDONESIA,SERAM ISLAND,-3,127.75,0,0,-1,0,0,0,0,0,0
+1892,12,9,0,0,0,definite tsunami,Earthquake,6.5,JAPAN,SW. HONSHU ISLAND,37,136.8,0,0,0,0,0,0,0,0,0
+1893,2,9,0,0,0,definite tsunami,Earthquake,6.5,GREECE,SAMOTHRACE,40.5,25.5,1,0,3,0,0,1,1,0,1
+1893,4,17,5,6,0,probable tsunami,Earthquake,6.4,GREECE,IONIAN SEA,37.7,20.9,0,0,0,0,0,0,0,0,0
+1893,6,4,2,27,0,definite tsunami,Earthquake,7,RUSSIA,S. KURIL ISLANDS,43.3,147.5,3,1.6,1.5,0,0,0,0,0,0
+1893,6,13,0,0,0,definite tsunami,Earthquake,6.9,JAPAN,"NEMURO, JAPAN",42.5,145.5,0,0,1,0,0,0,0,0,0
+1893,6,14,0,0,0,questionable tsunami,Earthquake,7.5,ALBANIA,ALBANIAN COASTS,40.2,19.7,0,0,3,0,0,0,0,0,0
+1893,7,31,0,0,0,very doubtful tsunami,Earthquake,6,VANUATU,"PORT VILA, EFATE ISLAND",-17.75,168.3,0,0,0,0,0,0,0,0,0
+1894,3,22,10,23,0,definite tsunami,Earthquake,7.9,JAPAN,SE. HOKKAIDO ISLAND,42.5,146,4,2,1.5,0,0,1,1,0,0
+1894,4,27,19,21,0,definite tsunami,Earthquake and Landslide,7,GREECE,NORTH EVOIKOS GULF,38.7,23.1,3,1.6,4,0,0,0,0,0,0
+1894,7,10,12,33,0,definite tsunami,Earthquake,6.7,TURKEY,MARMARA SEA,40.6,28.7,0,0,3,0,0,0,0,0,0
+1894,10,22,8,35,0,definite tsunami,Earthquake,7,JAPAN,"YAMAGATA, JAPAN",38.9,139.8,0,-1,-1,0,0,0,0,0,0
+1895,3,6,8,35,0,definite tsunami,Earthquake,7.3,PAPUA NEW GUINEA,SOLOMON SEA,-8.4,150.1,6,2.6,2,0,0,0,2,0,2
+1895,7,8,21,30,0,questionable tsunami,Earthquake,8.2,TURKMENISTAN,CASPIAN SEA,39.5,53.7,0,0,0,0,0,1,1,0,1
+1895,8,18,6,57,0,definite tsunami,Earthquake and Landslide,6,NEW ZEALAND,"LAKE TAUPO, NORTH ISLAND",-38.8,176,0,0,0,0,0,0,0,0,0
+1895,9,1,11,9,0,probable tsunami,Earthquake,4.3,USA,"HIGH BRIDGE, NJ",40.667,-74.883,0,0,0,0,1,0,0,0,0
+1895,10,31,11,8,0,event that only caused a seiche or disturbance in an inland river,Earthquake,6.7,USA,"CHARLESTON, MO",37,-89.4,0,0,0,0,1,0,0,0,0
+1896,1,9,0,0,0,definite tsunami,Earthquake,7.6,JAPAN,"KASHIMA, JAPAN",36.5,141,0.25,0,-2.5,0,0,0,0,0,0
+1896,6,15,10,33,0,definite tsunami,Earthquake,8.3,JAPAN,SANRIKU,39.5,144,38.2,5.2,3.8,27122,9247,25,4,11000,4
+1896,10,10,0,0,0,questionable tsunami,Earthquake,6.8,INDONESIA,SW. SUMATRA,-3.5,102.5,0,0,0,0,0,0,0,0,0
+1897,2,19,20,50,0,definite tsunami,Earthquake,7.4,JAPAN,SANRIKU,38.1,141.9,1,0,0,0,0,0,0,0,0
+1897,3,15,0,0,0,questionable tsunami,Earthquake,5.5,INDONESIA,FLORES SEA,-6.8,120.8,0,0,1,0,0,0,0,0,0
+1897,6,12,11,6,0,event that only caused a seiche or disturbance in an inland river,Earthquake,8.7,INDIA,ASSAM,26,91,0,0,0,0,0,0,0,0,0
+1897,6,20,0,0,0,questionable tsunami,Earthquake,7,MEXICO,S. MEXICO,16,-95,0,0,0,0,0,0,0,0,0
+1897,8,5,0,10,0,definite tsunami,Earthquake,7.7,JAPAN,SANRIKU,38,143.7,3.6,1.5,1,0,0,1,1,0,0
+1897,9,20,19,6,0,very doubtful tsunami,Earthquake,8.6,PHILIPPINES,SULU SEA,6,122,2,0,1,0,0,0,0,0,0
+1897,9,21,5,12,0,definite tsunami,Earthquake,8.7,PHILIPPINES,SULU SEA,6,122,7,2.6,2.5,13,14,1,1,33,1
+1897,10,18,23,48,0,probable tsunami,Earthquake,8.1,PHILIPPINES,SAMAR ISLAND,12,126,0,0,1.5,0,0,1,1,0,0
+1898,3,31,7,43,0,very doubtful tsunami,Meteorological,6.2,USA,"OAKLAND, N. CALIFORNIA",38.2,-122.4,0.31,2,2,0,0,0,0,0,0
+1898,4,22,23,37,0,definite tsunami,Earthquake,7.2,JAPAN,HONSHU ISLAND,38.6,142,0.1,0,-3,0,0,0,0,0,0
+1898,6,2,21,40,0,probable tsunami,Earthquake,0,GREECE,"PELOPONNESUS, GREECE",37.6,22.5,0,0,0,0,0,0,0,0,0
+1898,7,23,2,17,0,very doubtful tsunami,Earthquake,6.5,CHILE,CENTRAL CHILE,-36.83,-73.03,0,0,0,0,0,0,0,0,0
+1899,1,22,7,56,0,questionable tsunami,Earthquake,6.6,GREECE,IONIAN SEA,37.2,21.6,1,0,3,0,0,0,0,0,0
+1899,9,4,0,22,0,definite tsunami,Earthquake,8.2,USA,"CAPE YAKATAGA, AK",60,-142,3.1,0,0,0,0,1,1,0,0
+1899,9,10,21,41,0,definite tsunami,Earthquake and Landslide,8.2,USA,"YAKUTAT BAY, AK",60,-140,60.96,5.9,3,0,0,24,3,0,0
+1899,9,29,17,3,0,definite tsunami,Earthquake and Landslide,7.8,INDONESIA,BANDA SEA,-3,128.5,12,3.6,3,2460,300,24,3,0,0
+1899,11,24,18,43,0,definite tsunami,Earthquake,7.1,JAPAN,SEIKAIDO,31.9,132,0.3,-1.7,-1,0,0,0,0,0,0
+1899,11,25,18,55,0,definite tsunami,Earthquake,6.9,JAPAN,SEIKAIDO,32.7,132.3,0,-1,-2,0,0,0,0,0,0
+1899,12,25,12,25,0,very doubtful tsunami,Meteorological,6.4,USA,S. CALIFORNIA,33.8,-118.5,0,0,0.5,0,0,0,0,0,0
+1900,9,10,21,30,0,definite tsunami,Earthquake,6.8,PAPUA NEW GUINEA,BISMARCK SEA,-4,152,0,0,0,0,0,0,0,0,0
+1900,9,17,21,45,0,probable tsunami,Earthquake,7.1,PAPUA NEW GUINEA,RABAUL HARBOR,-5,148,3,0,1.5,0,0,0,0,0,0
+1900,10,7,21,4,0,probable tsunami,Earthquake,6.9,INDONESIA,BISMARCK SEA,-4,140,0,1,1.5,5,0,1,1,1,1
+1900,10,29,9,11,0,probable tsunami,Earthquake,8.4,VENEZUELA,MANCUTO,11,-66,10,0,0,0,0,0,0,0,0
+1901,3,3,7,45,0,probable tsunami,Earthquake and Landslide,6.7,USA,"MONTEREY BAY, N. CALIFORNIA",36,-120.5,0,0,0,0,0,0,0,0,0
+1901,3,31,7,12,0,very doubtful tsunami,Earthquake,7.2,BULGARIA,BLACK SEA,43.4,28.5,3,0,0,0,0,0,0,0,0
+1901,6,15,0,0,0,definite tsunami,Earthquake,6,JAPAN,"IWATE, JAPAN",39,143,0,0,0,0,0,0,0,0,0
+1901,6,24,0,0,0,definite tsunami,Earthquake,7.5,JAPAN,RYUKYU ISLANDS,28,130.3,0.25,-2.3,-1.5,0,0,1,1,0,0
+1901,8,9,9,23,30,definite tsunami,Earthquake,7.2,JAPAN,OFF NORTHEAST COAST HONSHU,40.5,142.5,0.6,0,-0.5,0,0,0,0,0,0
+1901,8,9,13,1,0,definite tsunami,Earthquake,7.9,NEW CALEDONIA,LOYALTY ISLANDS,-22,170,1.2,-0.7,0,0,0,5,2,0,0
+1901,8,9,18,33,45,definite tsunami,Earthquake,7.4,JAPAN,OFF NORTHEAST COAST HONSHU,40.6,142.3,0.25,-1,-1,0,0,0,0,0,0
+1901,8,9,20,0,0,definite tsunami,Earthquake,6.3,JAPAN,OFF NORTHEAST COAST HONSHU,40.5,142.5,0.02,-1,0,0,0,0,0,0,0
+1901,9,10,0,30,0,questionable tsunami,Earthquake,7,PHILIPPINES,E. LUZON ISLAND,14,121.6,0,0,0,0,0,0,0,0,0
+1901,10,8,2,16,0,probable tsunami,Earthquake,7,NICARAGUA,NICARAGUA,11,-86.5,1.5,0,0,0,0,0,0,0,0
+1901,12,31,9,2,30,very doubtful tsunami,Earthquake,7.1,USA,"FOX ISLANDS, ALEUTIAN ISLANDS, AK",51.45,-171.02,0,0,0,0,0,0,0,0,0
+1902,1,18,23,23,0,very doubtful tsunami,Questionable Earthquake,6.3,GUATEMALA,OCOSA,14.71,-91.59,0,0,0,0,0,0,0,0,0
+1902,2,26,0,0,0,probable tsunami,Earthquake,7,EL SALVADOR,EL SALVADOR-GUATEMALA,13.5,-89.5,0,2.3,2,185,100,24,3,0,0
+1902,4,19,2,23,30,event that only caused a seiche or disturbance in an inland river,Earthquake,7.5,GUATEMALA,OCOS,14,-91,0,0,0,0,0,0,0,0,0
+1902,7,5,14,56,30,probable tsunami,Earthquake,6.6,GREECE,AEGEAN SEA,40.75,23.25,0,0,2,0,0,0,0,0,0
+1902,8,21,11,17,0,very doubtful tsunami,Earthquake,7.3,PHILIPPINES,"ILLANA BAY, CELEBES SEA",7.5,123.5,0,0,2,0,0,0,0,0,0
+1903,3,30,0,0,0,questionable tsunami,Earthquake,6.5,INDONESIA,BANDA SEA,-3,127.5,1,-0.5,0,0,0,0,0,0,0
+1903,12,7,14,25,0,probable tsunami,Earthquake,6.5,CHILE,NORTHERN CHILE,-28.5,-71,0,0,0,0,0,0,0,0,0
+1904,1,20,14,52,6,very doubtful tsunami,Earthquake,7.9,COLOMBIA,OFF THE COAST PANAMA-COLOMBIA,7,-79,0,0,0,0,0,0,0,0,0
+1904,6,25,14,45,36,definite tsunami,Earthquake,8.3,RUSSIA,"KAMCHATKA PENINSULA, RUSSIA",52,159,0,1,2,0,0,0,0,0,0
+1904,6,25,21,0,36,probable tsunami,Earthquake,8.1,RUSSIA,"KAMCHATKA PENINSULA, RUSSIA",52,159,0,1,0,0,0,0,0,0,0
+1904,8,8,22,50,0,very doubtful tsunami,Earthquake,7.2,NEW ZEALAND,CAPE TURNAGAIN,-40.4,176.4,3,0,0,0,0,0,0,0,0
+1904,12,20,5,44,18,questionable tsunami,Earthquake,7.2,PANAMA,BOCAS DEL TORO,9.2,-82.8,0,0,0,0,0,0,0,0,0
+1905,1,20,2,32,30,questionable tsunami,Earthquake,0,GREECE,AEGEAN SEA,39.66,22.83,0,0,0,0,0,0,0,0,0
+1905,1,20,18,23,0,questionable tsunami,Earthquake,6.8,COSTA RICA,GULF OF NICOYA,9.85,-84.68,0,0,0,0,0,0,0,0,0
+1905,4,4,0,50,0,event that only caused a seiche or disturbance in an inland river,Earthquake,7.8,INDIA,"KANGRA, INDIA",33,76,0,0,0,0,0,0,0,0,0
+1905,7,6,16,21,0,probable tsunami,Earthquake,7,JAPAN,JAPAN: OFF FUKUSHIMA,37.4,142.6,0,-1,0,57,0,0,0,0,0
+1905,9,8,1,43,11,definite tsunami,Earthquake,7.1,ITALY,TYRRHENIAN CALABRIA,38.67,16.07,1.3,0,4,0,0,0,0,0,0
+1905,10,4,22,29,0,definite tsunami,Earthquake,5.1,RUSSIA,BLACK SEA,44.5,37.5,0.5,-1,2,0,0,0,0,0,0
+1905,10,21,11,1,37,very doubtful tsunami,Earthquake,7.5,GEORGIA,CAUCASUS,42,42,0,0,0,0,0,0,0,0,0
+1905,12,8,8,22,0,very doubtful tsunami,Earthquake,6.5,PHILIPPINES,W. LUZON ISLAND,11,123.5,0,-0.5,0,0,0,0,0,0,0
+1906,1,31,15,35,51,definite tsunami,Earthquake,8.8,ECUADOR,OFF COAST,1,-81.5,5,1,3,1000,0,24,3,0,3
+1906,4,18,13,12,0,definite tsunami,Earthquake and Landslide,7.9,USA,N. CALIFORNIA,37.7,-122.5,0.1,-3.3,-4,0,0,0,0,0,0
+1906,8,17,0,40,0,probable tsunami,Earthquake,8.2,CHILE,CENTRAL CHILE,-33,-72,3.5,1.8,2,0,0,1,1,0,0
+1906,9,14,16,4,18,definite tsunami,Earthquake,8,PAPUA NEW GUINEA,SOLOMON SEA,-7,149,1.5,0.6,1.5,0,0,1,1,0,0
+1906,10,2,1,50,0,probable tsunami,Earthquake,7.2,PAPUA NEW GUINEA,BISMARCK SEA,-4,149,1.2,0,1.5,0,0,0,0,0,0
+1906,11,20,21,0,0,probable tsunami,Earthquake,5,GHANA,GOLD COAST,6.5,0.3,0,0,0,0,0,0,0,0,0
+1906,12,26,6,53,28,questionable tsunami,Earthquake,7.9,PERU,S. PERU,-18,-71,0,0,0,0,0,0,0,0,0
+1907,1,4,5,19,12,definite tsunami,Earthquake,7.6,INDONESIA,NW. SUMATRA,2,94.5,0,1.5,2,400,0,24,3,0,3
+1907,1,14,21,36,0,definite tsunami,Earthquake,6.5,JAMAICA,JAMAICA,18,-76.8,2.5,1.3,0,0,0,5,2,0,0
+1907,3,29,20,46,30,very doubtful tsunami,Earthquake,7.3,INDONESIA,"KARAKELONG, TALAUD ISLANDS",3,122,4,2,2,0,0,0,0,0,0
+1907,4,14,6,8,6,probable tsunami,Earthquake,8.1,MEXICO,S. MEXICO,17,-100,2,1,0,0,0,0,0,0,0
+1907,9,24,12,58,0,probable tsunami,Earthquake and Landslide,5.5,USA,"SKAGWAY, AK",59.5,-135.5,0.7,-0.5,0,0,0,0,0,0,0
+1907,10,23,20,28,19,definite tsunami,Earthquake,5.9,ITALY,IONIAN CALABRIA,38.133,16.017,0,0,3,0,0,0,0,0,0
+1907,12,15,17,35,0,questionable tsunami,Earthquake,7.4,PAPUA NEW GUINEA,BISMARCK SEA,-3.1,142.5,0,0,0,0,0,24,2,0,3
+1908,2,6,0,0,0,probable tsunami,Earthquake,7.5,INDONESIA,SW. SUMATRA,-2,100,1.4,0.5,1,0,0,0,0,0,0
+1908,2,14,11,25,0,very doubtful tsunami,Earthquake and Landslide,6,USA,"PRINCE WILLIAM SOUND, AK",61,-146.2,0,0,0,0,0,0,0,0,0
+1908,3,23,12,20,0,Erroneous entry,Earthquake,6.6,INDONESIA,TIMOR SEA,-10,129,0,0,0,0,0,0,0,0,0
+1908,5,31,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,0,UKRAINE,CRIMEA,44,34,0,0,0,0,0,0,0,0,0
+1908,9,21,6,31,0,definite tsunami,Earthquake,6.8,USA,HAWAII,19,-155,1.2,-0.5,0,0,0,0,0,0,0
+1908,12,12,12,8,0,questionable tsunami,Earthquake,8.2,PERU,S. PERU,-14,-78,0,0,0,0,0,0,0,0,0
+1908,12,28,4,20,27,definite tsunami,Earthquake and Landslide,7,ITALY,"MESSINA STRAIT, IONIAN SEA",38.17,15.58,13,0,5,2000,0,25,4,0,4
+1909,3,12,23,19,0,definite tsunami,Earthquake,6.7,JAPAN,OFF BOSO PENINSULA,34.5,141.5,0,-1,0,0,0,0,0,0,0
+1909,3,13,14,29,0,definite tsunami,Earthquake,7.5,JAPAN,OFF BOSO PENINSULA,34.5,141.5,0,-1,0,0,0,0,0,0,0
+1909,6,3,18,40,48,questionable tsunami,Earthquake,7.6,INDONESIA,SUMATRA,-2,101,0,0.5,1,0,0,0,0,0,0
+1909,6,8,5,46,30,event that only caused a seiche or disturbance in an inland river,Earthquake,7.6,CHILE,NORTHERN CHILE,-26.5,-70.5,0,0,0,0,0,0,0,0,0
+1909,7,30,10,51,54,questionable tsunami,Earthquake,7.4,MEXICO,S. MEXICO,16.8,-99.8,9,3.2,0,0,0,0,0,0,0
+1909,8,14,6,30,0,definite tsunami,Earthquake,6.9,JAPAN,"ANEGAWA, JAPAN",35.4,136.3,1.8,1,0,0,0,0,0,0,0
+1909,12,9,23,28,0,definite tsunami,Earthquake,8,USA TERRITORY,"GUAM, MARIANA ISLANDS",12.5,145,0,0,0,0,0,0,0,0,0
+1910,2,25,0,0,0,very doubtful tsunami,Earthquake,6,PAPUA NEW GUINEA,MATUPI HARBOR,-4.25,152.25,0,0,0,0,0,0,0,0,0
+1910,11,10,12,19,54,probable tsunami,Earthquake,7.2,VANUATU,VANUATU ISLANDS,-14,166.5,0,0,0,0,0,0,0,0,0
+1910,12,18,2,42,0,questionable tsunami,Earthquake,6.7,INDONESIA,SULAWESI,4,127,0,-1.3,-1,0,0,0,0,0,0
+1910,12,30,0,0,0,very doubtful tsunami,Earthquake,6.2,PHILIPPINES,SULU SEA,9,125.5,0,0,1,0,0,0,0,0,0
+1911,2,18,21,35,12,probable tsunami,Earthquake,6.7,ALBANIA,OCHRIDA LAKE,40.9,20.8,0,0,0,0,0,0,0,0,0
+1911,5,11,0,0,0,questionable tsunami,Unknown,0,TOGO,GOLD COAST,6.1,1.2,5,0,0,0,0,1,1,0,0
+1911,6,15,14,26,0,definite tsunami,Earthquake,8,JAPAN,RYUKYU ISLANDS,28,130,0,1,1.5,0,0,5,2,0,3
+1911,7,12,4,7,36,very doubtful tsunami,Earthquake,7.8,PHILIPPINES,PHILIPPINE TRENCH,9,126,0,0,0,0,0,0,0,0,0
+1911,9,15,13,10,0,questionable tsunami,Earthquake,7.3,CHILE,NORTHERN CHILE,-20,-72,0,0,0,0,0,0,0,0,0
+1911,9,22,5,1,24,very doubtful tsunami,Earthquake and Landslide,6.9,USA,"PRINCE WILLIAM SOUND, AK",60.5,-149,0,0,0.5,0,0,0,0,0,0
+1912,1,24,16,22,51,questionable tsunami,Earthquake,0,GREECE,IONIAN SEA,38.12,20.67,0,0,0,0,0,0,0,0,0
+1912,6,8,4,42,0,probable tsunami,Earthquake,6.6,JAPAN,SANRIKU,40.5,142,0.5,-1,0,0,0,0,0,0,0
+1912,8,9,1,29,0,questionable tsunami,Earthquake,7.8,TURKEY,MARMARA SEA,40.5,27.2,0,0,0,0,0,0,0,0,0
+1912,10,31,17,24,0,very doubtful tsunami,Earthquake,6.9,"MICRONESIA, FED. STATES OF",CAROLINE ISLANDS,7,138,0,0,0,0,0,0,0,0,0
+1913,2,22,1,6,0,probable tsunami,Earthquake,6.8,NEW ZEALAND,TASMAN SEA,-41.8,171.5,1.5,0.6,0.5,0,0,0,0,0,0
+1913,3,14,8,45,4.3,Erroneous entry,Volcano and Earthquake,7.8,INDONESIA,SANGIHE ISLAND,5.354,126.121,0,0,0,0,0,0,0,0,0
+1913,7,28,6,40,0,very doubtful tsunami,Earthquake,7,PERU,S. PERU,-16.6,-73.3,0,0,0,0,0,0,0,0,0
+1913,8,6,22,14,24,questionable tsunami,Earthquake,7.9,PERU,S. PERU,-17,-74,0,0,0,0,0,0,0,0,0
+1913,10,2,4,23,28,questionable tsunami,Earthquake and Landslide,6.7,PANAMA,OFF COAST,7.1,-80.6,0,0,0,0,0,0,0,0,1
+1913,10,11,4,6,3,definite tsunami,Earthquake,7,PAPUA NEW GUINEA,SOLOMON SEA,-7,148,0.1,-3.3,0,0,0,0,0,0,0
+1914,1,12,9,28,0,definite tsunami,Volcano and Earthquake,7.1,JAPAN,SEIKAIDO,31.58,130.67,3,1.6,-1,0,0,1,1,0,0
+1914,2,26,4,58,12,very doubtful tsunami,Earthquake,7.2,PERU,S. PERU,-17,-72,0,0,0,0,0,0,0,0,0
+1914,5,26,14,22,47.7,definite tsunami,Earthquake,8.1,INDONESIA,NW. IRIAN JAYA,-1.829,136.943,0.1,1.5,2,0,0,0,0,0,0
+1914,6,25,19,7,25.9,questionable tsunami,Earthquake,7.6,INDONESIA,INDONESIA,-3.924,101.82,0,0,0,0,0,0,0,0,0
+1914,11,27,14,39,46,very doubtful tsunami,Earthquake and Landslide,6.3,GREECE,IONIAN SEA,38.8,20.6,3,1.7,4,0,0,0,0,0,0
+1915,1,27,1,9,56,questionable tsunami,Earthquake,0,GREECE,IONIAN SEA,38.4,20.6,0,0,0,0,0,0,0,0,0
+1915,8,7,15,4,3,probable tsunami,Earthquake,6.7,GREECE,IONIAN SEA,38.5,20.7,1.5,0,3,0,0,0,0,0,0
+1915,9,7,1,20,48,very doubtful tsunami,Earthquake,7.9,EL SALVADOR,EL SALVADOR,14,-89,0,0,0.5,0,0,0,0,0,0
+1915,11,1,7,23,43,definite tsunami,Earthquake,7.8,JAPAN,SANRIKU,38.3,142.9,1,0,0.5,0,0,0,0,0,0
+1915,11,6,0,0,0,questionable tsunami,Earthquake,6,INDONESIA,NW. IRIAN JAYA,-1,136,0,0,0,0,0,0,0,0,0
+1915,11,18,20,19,18,probable tsunami,Earthquake,6.4,PHILIPPINES,W. LUZON ISLAND,18,119.5,0,0,0.5,0,0,0,0,0,0
+1916,1,1,13,20,49.3,probable tsunami,Earthquake,7.9,PAPUA NEW GUINEA,BISMARCK SEA,-4.739,152.548,0,1.5,2,0,0,1,1,0,0
+1916,4,26,2,21,52,definite tsunami,Earthquake,7,PANAMA,BOCAS DEL TORO,9.6,-82,1.3,0,0,0,0,1,1,0,0
+1916,7,3,23,21,41,definite tsunami,Earthquake,5.1,ITALY,STROMBOLI ISLAND,38.817,15.233,10,0,4,0,0,0,0,0,0
+1916,8,16,7,6,0,definite tsunami,Earthquake,0,ITALY,CENTRAL ADRIATIC,43.967,12.667,0,0,2,0,0,0,0,0,0
+1917,1,20,23,11,34,probable tsunami,Earthquake,6.6,INDONESIA,BALI SEA,-7,116,2,1,0,0,0,0,0,0,0
+1917,1,25,0,0,0,definite tsunami,Earthquake,6.5,CHINA,SOUTH CHINA SEA,24.47,118.08,0,1,1,0,0,1,1,0,0
+1917,1,30,2,45,36,questionable tsunami,Earthquake,7.8,RUSSIA,KAMCHATKA,56.5,163,0,0,0,0,0,0,0,0,0
+1917,1,31,3,39,55,probable tsunami,Earthquake,6.4,PHILIPPINES,CELEBES SEA,6,125,1.5,0.6,0,0,0,0,0,0,0
+1917,5,1,18,27,0,definite tsunami,Earthquake,8,NEW ZEALAND,KERMADEC ISLANDS,-29.2,-177,0.3,3.6,3,0,0,0,0,0,0
+1917,5,6,12,19,0,definite tsunami,Earthquake,5.8,TAIWAN,TAIWAN,23.2,121.6,0.5,-1,-0.5,0,0,0,0,0,0
+1917,6,26,5,49,42,definite tsunami,Earthquake,8.3,SAMOA,SAMOA ISLANDS,-15.5,-173,12.2,3.6,3,2,0,5,2,0,3
+1917,7,29,21,52,31,questionable tsunami,Earthquake,7.5,PAPUA NEW GUINEA,BISMARCK SEA,-3.705,141.729,0.9,0,1,0,0,0,0,0,0
+1917,11,16,3,19,28,questionable tsunami,Earthquake,7.5,NEW ZEALAND,KERMADEC ISLANDS,-29,-177.5,2.5,1.3,1,0,0,0,0,0,0
+1918,2,13,6,7,13,definite tsunami,Earthquake and Landslide,7.5,CHINA,GUANGDONG PROVINCE,23.5,117.2,0,1,-1,0,0,0,0,0,0
+1918,5,20,17,55,10,questionable tsunami,Earthquake,7.9,CHILE,NORTHERN CHILE,-28.5,-71.5,0,0,0,0,0,0,0,0,0
+1918,8,14,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,5.5,CHINA,YUNNAN PROVINCE,26.9,103,0,0,0,0,0,0,0,0,0
+1918,8,15,12,18,12,definite tsunami,Earthquake,8.3,PHILIPPINES,CELEBES SEA,5.5,123,7.2,2.8,2.5,6,0,5,2,0,0
+1918,9,7,17,16,0,definite tsunami,Earthquake,8.2,RUSSIA,S. KURIL ISLANDS,45.5,151.5,12,3.6,3,23,7,5,2,0,2
+1918,10,11,14,14,30,definite tsunami,Earthquake and Landslide,7.3,USA TERRITORY,PUERTO RICO: MONA PASSAGE,18.5,-67.5,6.1,2.6,0,140,0,4,2,0,0
+1918,11,8,4,38,0,definite tsunami,Earthquake,7.8,RUSSIA,S. KURIL ISLANDS,44.5,151.5,0.5,1,2,0,0,0,0,0,0
+1918,12,4,11,47,48,definite tsunami,Earthquake,7.8,CHILE,NORTHERN CHILE,-26,-71,5,2.3,2.5,0,0,1,1,0,0
+1919,1,1,1,33,42,very doubtful tsunami,Earthquake,7.4,PHILIPPINES,"MINDANAO ISLAND, PHILIPPINES",8,126,0.44,-0.1,0,0,0,0,0,0,0
+1919,1,1,2,59,57,very doubtful tsunami,Earthquake,8.3,TONGA,TONGA ISLANDS,-19.6,-176.6,0.4,0,0,0,0,0,0,0,0
+1919,4,30,7,17,17.3,definite tsunami,Earthquake,8.1,TONGA,TONGA ISLANDS,-18.352,-172.515,2.5,1.3,1.5,0,0,0,0,0,0
+1919,5,6,19,41,13,probable tsunami,Earthquake,8.2,PAPUA NEW GUINEA,SOLOMON SEA,-4.806,153.859,0,2.6,1,0,0,0,0,0,0
+1919,6,29,23,14,13.4,probable tsunami,Earthquake,6.6,NICARAGUA,GULF OF FONSECA,12.33,-88.291,0,0,0,0,0,0,0,0,0
+1919,10,22,6,6,0,Erroneous entry,Earthquake,5.6,ITALY,TYRRHENIAN SEA,41.4,12.6,0,0,0,0,0,0,0,0,0
+1920,2,2,11,22,18,very doubtful tsunami,Earthquake,7.7,PAPUA NEW GUINEA,SOLOMON SEA,-6.5,150,0,0,0,0,0,0,0,0,0
+1920,8,20,16,15,38,probable tsunami,Earthquake,7,CHILE,CENTRAL CHILE,-38,-73.5,1.4,0.5,1,0,0,0,0,0,0
+1920,9,20,14,39,0,probable tsunami,Earthquake,7.8,VANUATU,VANUATU ISLANDS,-19.919,168.53,0,1,0,0,0,1,1,0,0
+1920,12,16,12,5,53,event that only caused a seiche or disturbance in an inland river,Earthquake,7.8,CHINA,CHINA: GANSU AND SHANXI PROVINCES,36.7,104.9,0.75,0,0,0,0,0,0,0,0
+1920,12,18,2,1,57,very doubtful tsunami,Earthquake,5.6,ALBANIA,ALBANIAN COASTS,40.5,19.5,0,0,5,0,0,24,3,0,3
+1921,5,14,11,17,45,questionable tsunami,Earthquake,6.2,INDONESIA,MAKASSAR STRAIT,0.7,117.9,1,0,0.5,0,0,5,2,0,0
+1921,9,11,4,1,38,definite tsunami,Earthquake,7.5,INDONESIA,JAVA,-11,111,0.1,-2.3,-2,0,0,0,0,0,0
+1921,11,11,18,36,8,probable tsunami,Earthquake,7.5,PHILIPPINES,PHILIPPINE TRENCH,8,127,0,0.5,1,0,0,1,1,0,1
+1922,1,6,14,11,2,questionable tsunami,Earthquake,7.2,PERU,S. PERU,-16.5,-73,0,0,0,0,0,0,0,0,0
+1922,1,19,21,58,58.5,probable tsunami,Earthquake,6.9,PAPUA NEW GUINEA,BISMARCK SEA,-7.111,143.53,1.8,0,0,0,0,0,0,0,0
+1922,2,27,20,39,50,questionable tsunami,Earthquake,6.3,PHILIPPINES,CEBU ISLAND,10.2,124.1,0.7,-0.5,0,0,0,0,0,0,0
+1922,3,1,9,10,23,questionable tsunami,Earthquake,6,PHILIPPINES,SULU SEA,9,123.25,0,0,0.5,0,0,0,0,0,0
+1922,8,8,3,49,6,questionable tsunami,Earthquake,0,GREECE,AEGEAN SEA,37.5,23.2,0,0,0,0,0,0,0,0,0
+1922,9,1,19,16,6,very doubtful tsunami,Earthquake,7.6,TAIWAN,TAIWAN,24.5,122,0,0,0,0,0,0,0,0,0
+1922,11,7,23,0,9,questionable tsunami,Earthquake,7,CHILE,NORTHERN CHILE,-28,-72,0,0,0,0,0,0,0,0,0
+1922,11,11,4,32,36,definite tsunami,Earthquake,8.7,CHILE,NORTHERN CHILE,-28.553,-70.755,9,3.2,2.5,200,0,24,3,0,3
+1922,12,25,3,33,10,probable tsunami,Earthquake,6.3,NEW ZEALAND,SE. NEW ZEALAND,-43,173,0.4,0,0,0,0,0,0,0,0
+1923,1,22,9,4,18,event that only caused a seiche or disturbance in an inland river,Earthquake,7.2,USA,N. CALIFORNIA,40.8,-124.5,0.1,-2,0,0,0,0,0,0,0
+1923,2,3,16,1,41,definite tsunami,Earthquake,8.3,RUSSIA,KAMCHATKA,54,161,8,3,0,3,0,1.5,2,0,0
+1923,3,2,16,48,52,probable tsunami,Earthquake,7.2,PHILIPPINES,"MINDANAO ISLAND, PHILIPPINES",6.5,124,0,0,0.5,0,0,0,0,0,0
+1923,4,13,15,31,2,definite tsunami,Earthquake,7.2,RUSSIA,KAMCHATKA,56.5,162.5,20,4.9,3.5,18,0,24,3,0,3
+1923,5,4,22,26,45,Erroneous entry,Earthquake,7,CHILE,NORTHERN CHILE,-28.75,-71.75,0,0,0,0,0,0,0,0,0
+1923,6,1,17,24,0,definite tsunami,Earthquake,7.3,JAPAN,"KASHIMA, JAPAN",35.4,141.8,0.4,-1.3,-1.5,0,0,0,0,0,0
+1923,7,18,2,24,19,very doubtful tsunami,Earthquake,5.5,PHILIPPINES,"BUTUAN, SULU SEA",9.3,125,0,0.5,1,0,0,0,0,0,0
+1923,9,1,2,58,37,definite tsunami,Earthquake,7.9,JAPAN,SAGAMI BAY,35.1,139.5,13,3.6,3,2144,166,24,3,868,3
+1923,9,2,2,46,40,definite tsunami,Earthquake,7.7,JAPAN,RYUKYU ISLANDS,34.9,140.2,0.3,-1.7,-1.5,0,0,0,0,0,0
+1923,11,2,21,8,11.5,probable tsunami,Earthquake,7.1,PAPUA NEW GUINEA,BISMARCK SEA,-4.653,154.232,0,0,0,0,0,0,0,0,0
+1923,11,4,0,4,47.8,very doubtful tsunami,Earthquake,7.1,PAPUA NEW GUINEA,NEW BRITAIN,-4.539,153.107,0,0,0,0,0,0,0,0,0
+1924,3,15,10,31,24.1,event that only caused a seiche or disturbance in an inland river,Earthquake,6.8,RUSSIA,TATAR STRAIT,49.179,142.436,0,0,0,0,0,0,0,0,0
+1924,4,14,16,20,23,definite tsunami,Earthquake and Landslide,8.3,PHILIPPINES,E. MINDANAO ISLAND,6.5,126.5,0,0,0.5,0,0,0,0,0,0
+1924,5,6,16,9,20,definite tsunami,Earthquake and Landslide,6.5,PHILIPPINES,PHILIPPINES,16,118,0,1,1.5,0,0,1,1,0,0
+1924,6,26,1,37,34,probable tsunami,Earthquake,7.8,AUSTRALIA,MACQUARIE ISLAND,-56,157.5,0,0,0,0,0,0,0,0,0
+1924,8,30,3,4,7,questionable tsunami,Earthquake,7.3,PHILIPPINES,E. MINDANAO ISLAND,8.5,126.5,0,0,0.5,0,0,0,0,0,0
+1925,2,23,23,53,36,probable tsunami,Earthquake and Landslide,6,USA,"GULF OF ALASKA, AK",60,-146,1.4,0.5,1,0,0,1,1,0,0
+1925,5,5,10,6,6,questionable tsunami,Earthquake,6.8,PHILIPPINES,W. LUZON ISLAND,9.3,122.7,0,0,0.5,0,0,0,0,0,0
+1925,5,15,11,56,57,questionable tsunami,Earthquake,7.1,CHILE,NORTHERN CHILE,-26,-71.5,0,0,0,0,0,0,0,0,0
+1925,5,25,3,43,6,questionable tsunami,Earthquake,6.3,PHILIPPINES,W. LUZON ISLAND,12.2,122.1,0,-0.5,0.5,0,0,0,0,0,0
+1925,11,13,12,14,45,questionable tsunami,Earthquake,7.3,PHILIPPINES,PHILIPPINE SEA,13,125,0,0,0.5,0,0,5,2,0,3
+1925,11,16,11,54,54,very doubtful tsunami,Earthquake,7,MEXICO,S. MEXICO,18.5,-107,11,3.5,3,0,0,0,0,0,0
+1926,1,25,0,36,25,probable tsunami,Earthquake,7.5,SOLOMON ISLANDS,SOLOMON SEA,-10.061,159.215,0,0,0,0,0,0,0,0,0
+1926,6,28,3,23,25,event that only caused a seiche or disturbance in an inland river,Earthquake,5.8,INDONESIA,SW. SUMATRA,-0.7,100.6,0,0,0,0,0,5,2,0,0
+1926,8,17,1,42,0,questionable tsunami,Earthquake,5.3,ITALY,AEOLIAN ISLANDS,38.567,14.833,0,0,3,0,0,0,0,0,0
+1926,8,30,11,38,12,probable tsunami,Earthquake,0,GREECE,ARGOLIKOS GULF,36.5,23.3,0,0,0,0,0,0,0,0,0
+1926,9,16,17,59,15,definite tsunami,Earthquake,6.9,SOLOMON ISLANDS,SOLOMON ISLANDS,-9.674,159.519,2,1,1.5,0,0,1,1,0,0
+1926,12,9,0,0,0,questionable tsunami,Earthquake,6,CHILE,NORTHERN CHILE,-28,-71,0,0.6,0.5,0,0,0,0,0,0
+1927,1,1,8,17,0,very doubtful tsunami,Meteorological,5.7,USA,S. CALIFORNIA,32.5,-115.5,0,0,1,1,0,3,2,0,0
+1927,1,24,5,18,22,questionable tsunami,Earthquake,0,NORWAY,WESTERN NORWAY,59,3,0,0,0,0,0,0,0,0,0
+1927,3,7,9,27,0,definite tsunami,Earthquake and Landslide,7.6,JAPAN,SW. HONSHU ISLAND,35.6,135.1,11.3,0.4,0.5,0,0,0,0,0,0
+1927,6,26,11,20,48,definite tsunami,Earthquake,6,UKRAINE,"CRIMEA, BLACK SEA",44.4,34.4,0.7,-0.5,2,0,0,0,0,0,0
+1927,7,11,13,4,0,questionable tsunami,Earthquake,6.3,ISRAEL,DEAD SEA,32,35.5,1,0,0,0,0,0,0,0,0
+1927,8,5,21,13,1.1,definite tsunami,Earthquake,6.9,JAPAN,SANRIKU,37.9,142,0.1,-3.3,0,0,0,0,0,0,0
+1927,8,18,19,28,0,definite tsunami,Earthquake,6.4,JAPAN,"KASHIMA, JAPAN",34.2,142,0.4,-1.3,0,0,0,0,0,0,0
+1927,9,11,22,15,48,definite tsunami,Earthquake,6.8,UKRAINE,"CRIMEA, BLACK SEA",44.4,34.5,1,0,2,0,0,0,1,1,2
+1927,10,24,15,59,44.8,probable tsunami,Earthquake and Landslide,7.1,USA,"SE. ALASKA, AK",57.69,-136.07,0,0,0,0,0,0,1,0,0
+1927,11,4,13,50,43,definite tsunami,Earthquake,7.3,USA,S. CALIFORNIA,34.813,-120.774,1.8,1,1,0,0,0,1,0,0
+1927,11,21,23,12,25,probable tsunami,Earthquake,7.1,CHILE,SOUTHERN CHILE,-44.6,-73,0,1.5,2,0,0,0,0,0,0
+1927,12,1,4,37,27,probable tsunami,Earthquake,6.3,INDONESIA,SULAWESI,-0.7,119.7,15,3.9,3,50,50,0,2,0,2
+1927,12,28,18,20,34.2,definite tsunami,Earthquake,7.5,RUSSIA,KAMCHATKA,55.663,160.039,2,1,0,0,0,0,0,0,0
+1928,2,9,0,0,0,questionable tsunami,Earthquake,5.8,CANADA,BRITISH COLUMBIA,49,-125,0,0,0,0,0,0,0,0,0
+1928,3,22,4,17,0,definite tsunami,Earthquake,7.7,MEXICO,MEXICO,15.67,-96.1,0,0,0,0,0,0,0,0,0
+1928,3,31,0,29,47,very doubtful tsunami,Earthquake,6.5,GREECE,EAST AEGEAN,38.1,27.4,0,0,2,0,0,0,0,0,0
+1928,4,9,17,34,15,very doubtful tsunami,Earthquake,6.9,PERU,S. PERU,-13,-69.6,0,0,1,10,0,0,0,0,0
+1928,4,22,20,13,46,probable tsunami,Earthquake,6,GREECE,CORINTHOS-PATRAS GULF,38,23,0.6,1.1,3,0,0,0,0,0,0
+1928,4,24,1,14,48,questionable tsunami,Earthquake,5,GREECE,AEGEAN SEA,38,23.5,0,0,3,0,0,0,0,0,0
+1928,4,25,0,31,18,very doubtful tsunami,Earthquake,5.2,GREECE,"GRECIAN ARCHIPELAGO, CRETE",38,23,0,0,0,0,0,0,0,0,0
+1928,4,27,20,34,58,event that only caused a seiche or disturbance in an inland river,Earthquake,6.8,PERU,S. PERU,-13,-69.5,0,0,0,0,0,0,0,0,0
+1928,5,2,21,54,32,very doubtful tsunami,Earthquake,0,GREECE,NORTH AEGEAN,39.6,29.1,0,0,0,0,0,0,0,0,0
+1928,5,3,1,25,13,questionable tsunami,Earthquake,4.3,TURKEY,WESTERN TURKEY,40.8,26.8,0,0,2,0,0,0,0,0,0
+1928,5,27,9,50,0,definite tsunami,Earthquake,7,JAPAN,SANRIKU,40,143.2,0.45,-2.3,-2,0,0,0,0,0,0
+1928,6,15,6,12,36,probable tsunami,Earthquake,7,PHILIPPINES,SULU SEA,12.4,120.9,0,0,0.5,0,0,0,1,0,0
+1928,6,17,3,19,33.1,definite tsunami,Earthquake,7.7,MEXICO,S. MEXICO,16.028,-97.036,0.2,3,1,0,0,0,1,0,0
+1928,7,18,19,5,0,questionable tsunami,Earthquake,7,PERU,N. PERU,-5.5,-79,0,0,0,0,0,0,0,0,0
+1928,11,20,20,35,7,questionable tsunami,Earthquake,7.1,CHILE,NORTHERN CHILE,-22.5,-70.5,0,0,0,0,0,0,0,0,0
+1928,12,1,4,6,12,probable tsunami,Earthquake,7.6,CHILE,CENTRAL CHILE,-35,-72,1.5,0.6,0.5,0,0,0,0,0,0
+1928,12,19,11,37,10,probable tsunami,Earthquake,7.3,PHILIPPINES,CELEBES SEA,7,124,0,0,1,4,102,0,2,0,0
+1929,1,17,11,52,0,definite tsunami,Earthquake,6.9,VENEZUELA,CUMANA,10.6,-65.6,0,0,0,0,0,0,3,0,3
+1929,3,7,1,34,37.9,definite tsunami,Earthquake,7.8,USA,"FOX ISLANDS, ALEUTIAN ISLANDS, AK",50.88,-169.71,1,0,0,0,0,0,1,0,0
+1929,5,21,16,35,0,definite tsunami,Earthquake,7.1,JAPAN,HIUGANADA,31.7,132.2,0.7,-0.5,0,0,0,0,0,0,0
+1929,5,26,22,39,54,probable tsunami,Earthquake,7,CANADA,BRITISH COLUMBIA,51,-131,1.5,0.6,0,0,0,0,0,0,0
+1929,6,13,9,24,34,questionable tsunami,Earthquake,7.2,PHILIPPINES,E. MINDANAO ISLAND,8.5,127,0,0,0.5,0,0,0,0,0,0
+1929,6,16,22,47,32,questionable tsunami,Earthquake and Landslide,7.5,NEW ZEALAND,TASMAN SEA,-41.75,172.25,2.5,1.3,1.5,0,0,0,0,0,0
+1929,11,18,20,32,0,definite tsunami,Earthquake and Landslide,7.3,CANADA,"GRAND BANKS, NEWFOUNDLAND",44.69,-56,13,2.2,0,28,0,1,2,0,0
+1930,1,3,0,0,0,event that only caused a seiche or disturbance in an inland river,Earthquake,5.5,CHINA,JIANGSU PROVINCE,32.2,119.4,0,0,0,0,0,0,0,0,0
+1930,5,5,13,45,58,definite tsunami,Earthquake,7.3,MYANMAR (BURMA),MYANMAR COAST,17.3,96.5,0,0,0,500,0,0,3,0,3
+1930,6,19,13,7,27,probable tsunami,Earthquake,6,INDONESIA,SOUTH OF JAVA,-5.6,105.3,1.5,-0.5,0,0,0,0,0,0,0
+1930,7,19,15,20,12,questionable tsunami,Earthquake,6.5,INDONESIA,SOUTH OF JAVA,-9.3,114.3,0.1,-3.3,0,0,0,0,0,0,0
+1930,8,31,0,40,38,probable tsunami,Earthquake and Landslide,5.2,USA,S. CALIFORNIA,34.03,-118.643,3.05,-1,-0.5,1,0,0,0,0,0
+1930,9,30,21,20,54.1,probable tsunami,Earthquake,6.6,PAPUA NEW GUINEA,BISMARCK SEA,-4.423,145.46,0,0,0,0,0,0,0,0,0
+1930,10,30,7,13,10,definite tsunami,Earthquake,5.9,ITALY,CENTRAL ADRIATIC,43.667,13.267,0,0,4,0,0,0,0,0,0
+1930,12,23,21,35,36,definite tsunami,Earthquake,6.5,PAPUA NEW GUINEA,BISMARCK SEA,-1.3,144.3,12,3.4,1.5,27,8,0,2,104,3
+1930,12,29,8,26,24,questionable tsunami,Earthquake,6,CHILE,NORTHERN CHILE,-28.5,-71,1,0,0.5,0,0,0,0,0,0
+1931,2,2,22,46,51.3,very doubtful tsunami,Earthquake,7.7,NEW ZEALAND,N. NEW ZEALAND,-39.772,176.025,0,0,0,0,0,0,0,0,0
+1931,2,13,1,27,16,very doubtful tsunami,Earthquake,7.1,NEW ZEALAND,N. NEW ZEALAND,-39.5,177,0.1,0,0,0,0,0,0,0,0
+1931,3,9,3,49,0,definite tsunami,Earthquake,7.6,JAPAN,SANRIKU,41.2,142.5,0.4,-1.3,-1,0,0,0,0,0,0
+1931,3,18,8,2,23,questionable tsunami,Earthquake,7.1,CHILE,CENTRAL CHILE,-32.5,-72,0,0,0,0,0,0,0,0,0
+1931,6,7,0,25,21,questionable tsunami,Earthquake,6,UK,"DOGGER BANK, ENGLAND",54,1.067,0,0,0,0,0,0,0,0,0
+1931,8,7,2,11,44.2,very doubtful tsunami,Earthquake,7,PAPUA NEW GUINEA,BISMARCK SEA,-3.417,142.077,0,0,0,0,0,0,0,0,0
+1931,9,25,5,59,44,probable tsunami,Earthquake,7.4,INDONESIA,SW. SUMATRA,-5,102.75,1,4.9,0,0,0,0,0,0,0
+1931,10,3,19,13,20.8,definite tsunami,Earthquake,7.8,SOLOMON ISLANDS,SAN CRISTOBAL ISLAND,-10.932,161.016,9,3.3,2.5,50,0,0,3,0,3
+1931,11,2,10,2,0,definite tsunami,Earthquake,7.1,JAPAN,SEIKAIDO,32.2,132.1,0.8,-0.3,0,0,0,0,0,0,0
+1932,2,3,6,16,0,questionable tsunami,Earthquake,6.7,CUBA,SANTIAGO DE CUBA,20,-75.8,0,0,0,0,0,0,0,0,0
+1932,6,3,10,36,50,definite tsunami,Earthquake,8.1,MEXICO,CENTRAL MEXICO,19.5,-104.25,10,1.5,2,4,0,0,2,0,2
+1932,6,18,10,12,16.1,definite tsunami,Earthquake,7.9,MEXICO,CENTRAL MEXICO,19.452,-103.632,1,1,0.5,0,0,0,0,0,0
+1932,6,22,12,59,24,definite tsunami,Earthquake,7,MEXICO,CENTRAL MEXICO,19,-104.5,10,3.3,1.5,75,100,0,3,0,0
+1932,9,9,13,38,52,questionable tsunami,Earthquake,6.2,INDONESIA,JAVA TRENCH,-3.57,128.35,0,0,0,0,0,0,0,0,0
+1932,9,15,13,54,54,questionable tsunami,Earthquake,6.8,NEW ZEALAND,N. NEW ZEALAND,-39,177.5,0,0,0,0,0,0,0,0,0
+1932,9,26,19,20,42,very doubtful tsunami,Earthquake,6.9,GREECE,NORTH AEGEAN,40.5,23.9,2,0,3,0,0,0,1,0,0
+1933,1,8,16,0,0,definite tsunami,Volcano,0,RUSSIA,"KHARIMKOTAN, N. KURIL ISLANDS",49.12,154.508,9,3.2,2,0,0,0,0,0,0
+1933,2,23,8,9,12,very doubtful tsunami,Earthquake,7.6,CHILE,NORTHERN CHILE,-20,-71,0,0,0,0,0,0,0,0,0
+1933,3,2,17,31,0.9,definite tsunami,Earthquake,8.4,JAPAN,SANRIKU,39.224,144.622,29,4.9,3.5,3022,0,0,4,6000,4
+1933,3,11,1,54,7.8,event that only caused a seiche or disturbance in an inland river,Meteorological,6.3,USA,S. CALIFORNIA,33.616,-117.966,0.1,-3.3,-3,0,0,0,0,0,0
+1933,4,23,5,57,0,very doubtful tsunami,Earthquake,6.4,GREECE,"COS, DODECANESE",36.8,27.2,0,0,0,0,0,0,0,0,0
+1933,6,18,21,37,0,definite tsunami,Earthquake,7.1,JAPAN,SANRIKU,38.1,142.4,0.2,-2.3,0,0,0,0,0,0,0
+1933,10,2,15,29,21,probable tsunami,Earthquake,6.9,ECUADOR,ECUADOR,-2,-81,0,0.6,1.5,0,0,0,0,0,0
+1934,1,15,8,43,18,event that only caused a seiche or disturbance in an inland river,Earthquake,8,NEPAL,"BIHAR-NEPAL, GANGES RIVER",26.773,86.76,0,0,0,0,0,0,0,0,0
+1934,2,14,3,59,34,definite tsunami,Earthquake,7.9,PHILIPPINES,SOUTH CHINA SEA,17.5,119,0,0,0.5,0,0,0,0,0,0
+1934,7,18,1,36,24,probable tsunami,Earthquake,7.7,PANAMA,COSTA RICA-PANAMA,8,-82.5,0,1,1.5,0,0,0,1,0,2
+1934,7,18,19,40,24,probable tsunami,Earthquake,7.8,SOLOMON ISLANDS,SOLOMON ISLANDS,-11.907,166.731,0.65,-0.7,0,0,0,0,0,0,0
+1934,7,21,6,18,23.3,probable tsunami,Earthquake,7.2,SOLOMON ISLANDS,SOLOMON ISLANDS,-11.139,165.503,0,0,0,0,0,0,0,0,0
+1934,11,30,2,5,10,definite tsunami,Earthquake,7,MEXICO,MEXICO,18.5,-105.5,0.11,0,0,0,0,0,0,0,0
+1934,12,4,17,24,38,very doubtful tsunami,Earthquake,6.9,CHILE,NORTHERN CHILE,-19.5,-69.5,0,0,0,0,0,0,0,0,0
+1935,5,30,21,32,46,event that only caused a seiche or disturbance in an inland river,Earthquake,7.5,PAKISTAN,QUETTA,29.5,66.8,0,0,0,0,0,0,0,0,0
+1935,7,19,0,50,0,definite tsunami,Earthquake,6.5,JAPAN,JAPAN,36.6,141.4,0.2,-2.3,0,0,0,0,0,0,0
+1935,9,20,1,46,43.5,probable tsunami,Earthquake,7.8,PAPUA NEW GUINEA,BISMARCK SEA,-3.824,141.416,0,0,0,0,0,0,0,0,0
+1935,10,12,16,45,0,definite tsunami,Earthquake,7.2,JAPAN,SANRIKU,39.9,143.7,0.3,-1.7,-1,0,0,0,0,0,0
+1935,10,18,0,11,0,definite tsunami,Earthquake,7,JAPAN,SANRIKU,40.7,144.3,0.2,-2.3,-2,0,0,0,0,0,0
+1935,11,25,10,3,3,questionable tsunami,Earthquake,6.5,INDONESIA,CELEBES SEA,5.5,94,0,0,0,0,0,0,0,0,0
+1935,12,18,7,10,36,event that only caused a seiche or disturbance in an inland river,Earthquake,6,CHINA,SICHUAN PROVINCE,28.7,103.6,0,0,0,0,0,0,0,0,0
+1935,12,28,2,35,0,very doubtful tsunami,Earthquake,7.9,INDONESIA,SW. SUMATRA,0.001,98.25,0,0,0,0,0,0,0,0,0
+1936,4,1,2,9,15,definite tsunami,Earthquake,7.7,INDONESIA,SULAWESI,4.5,126.5,3,1.5,2,0,0,0,0,0,0
+1936,7,13,11,12,15,definite tsunami,Earthquake,7.3,CHILE,NORTHERN CHILE,-24.5,-70,1,0,0.5,0,0,0,0,0,0
+1936,8,23,21,12,13,questionable tsunami,Earthquake,7.3,INDONESIA,OFF NORTHWEST COAST,6.1,94.7,0,0,0,0,0,0,0,0,0
+1936,11,2,20,46,0,definite tsunami,Earthquake,7.7,JAPAN,SANRIKU,38.2,142.2,0.7,-0.5,0,0,0,0,0,0,0
+1936,11,13,12,31,0,questionable tsunami,Earthquake,7.3,RUSSIA,KAMCHATKA,55.2,164,13,3.7,2,0,0,0,0,0,0
+1937,8,20,11,59,16,probable tsunami,Earthquake,7.5,PHILIPPINES,W. LUZON ISLAND,14.5,121.5,0,0.5,1,0,0,0,0,0,0
+1937,9,21,21,2,0,probable tsunami,Earthquake,5.7,RUSSIA,KAMCHATKA,56,162.5,0,0,1,0,0,0,0,0,0
+1937,9,21,0,0,0,Erroneous entry,Unknown,0,USA,"BERING SEA, AK",58,-165,0,0,1,0,0,0,0,0,0
+1937,9,22,0,0,0,very doubtful tsunami,Unknown,0,RUSSIA,KAMCHATKA,58,165,0,0,0,0,0,0,0,0,0
+1937,11,6,0,0,0,questionable tsunami,Earthquake,6,INDONESIA,BANDA SEA,-3,132.3,0.5,-1,0,0,0,0,0,0,0
+1938,2,1,19,4,18,definite tsunami,Earthquake,8.5,INDONESIA,BANDA SEA,-5.25,130.5,1,1,1.5,0,0,0,2,24,1
+1938,2,13,0,0,0,questionable tsunami,Earthquake,6,INDONESIA,BANDA SEA,-3,132.3,0.5,0,-0.5,0,0,0,0,0,0
+1938,3,22,15,22,0,Erroneous entry,Earthquake,6.3,CANADA,BRITISH COLUMBIA,52.2,-131.9,0,0,0,0,0,0,0,0,0
+1938,5,12,15,38,57,probable tsunami,Earthquake,7.5,PAPUA NEW GUINEA,SOLOMON SEA,-6,147.8,0,1,0,0,0,0,1,0,1
+1938,5,19,17,8,21,definite tsunami,Earthquake,7.6,INDONESIA,MAKASSAR STRAIT,-1,120,3,1.6,0,17,0,0,1,0,0
+1938,5,23,7,18,0,definite tsunami,Earthquake,7.1,JAPAN,JAPAN TRENCH,36.7,141.4,0.83,-0.3,0,0,0,0,0,0,0
+1938,5,28,16,42,0,definite tsunami,Earthquake,6.1,JAPAN,E. HOKKAIDO ISLAND,43.6,144.3,0.9,-0.1,0,1,0,0,1,7,1
+1938,6,10,9,53,44.6,definite tsunami,Earthquake,7.6,JAPAN,RYUKYU ISLANDS,25.321,125.115,1.5,0.6,0,0,0,0,1,0,0
+1938,11,5,8,43,21,definite tsunami,Earthquake,7.7,JAPAN,SANRIKU,37.1,141.7,0.57,0.1,-0.5,0,0,0,0,0,0
+1938,11,5,10,50,15,definite tsunami,Earthquake,7.6,JAPAN,SANRIKU,37.2,141.7,0.56,0.1,-0.5,0,0,0,0,0,0
+1938,11,6,8,53,53,definite tsunami,Earthquake,7.5,JAPAN,OFF FUKUSHIMA PREFECTURE,37.5,141.8,1.26,0.4,-0.5,0,0,0,0,0,0
+1938,11,6,21,38,47,definite tsunami,Earthquake,7.1,JAPAN,OFF FUKUSHIMA PREFECTURE,37,141.7,1.25,0.3,-0.5,0,0,0,0,0,0
+1938,11,9,2,22,0,Erroneous entry,Earthquake,6.5,JAPAN,SANRIKU,37.6,141.2,0,0,0,0,0,0,0,0,0
+1938,11,10,20,18,41.2,definite tsunami,Earthquake,8.2,USA,"SHUMAGIN ISLANDS, AK",55.48,-158.37,0.3,-1.7,0,0,0,0,0,0,0
+1938,11,13,22,31,0,definite tsunami,Earthquake,6,JAPAN,SANRIKU,37,141.5,0.75,-0.5,-1.5,0,0,0,0,0,0
+1938,11,16,11,8,0,Erroneous entry,Earthquake,0,JAPAN,SANRIKU,37.4,141.6,0,0,0,0,0,0,0,0,0
+1938,11,22,1,14,0,definite tsunami,Earthquake,6.9,JAPAN,SANRIKU,36.7,142.1,0.3,-1.7,-2.5,0,0,0,0,0,0
+1938,11,30,2,29,0,definite tsunami,Earthquake,7,JAPAN,SANRIKU,37,142.2,0.2,-2.3,-3,0,0,0,0,0,0
+1939,1,25,3,32,14,very doubtful tsunami,Earthquake,8.3,CHILE,CENTRAL CHILE,-36.25,-72.25,0,0,0,0,0,0,0,0,0
+1939,1,30,2,18,30,questionable tsunami,Earthquake,7.7,PAPUA NEW GUINEA,SOLOMON SEA,-7.08,155.386,0,0.9,1,0,0,0,0,0,0
+1939,3,20,3,22,0,definite tsunami,Earthquake,6.6,JAPAN,SEIKAIDO,32.3,132,0.8,-0.3,0,0,0,0,0,0,0
+1939,4,18,6,22,45,very doubtful tsunami,Earthquake,7.4,CHILE,NORTHERN CHILE,-27,-70.5,0,0,0,0,0,0,0,0,0
+1939,4,30,2,55,29.1,probable tsunami,Earthquake,7.9,SOLOMON ISLANDS,SOLOMON ISLANDS,-9.295,159.234,10.5,3.4,1.5,12,0,0,1,0,1
+1939,5,1,5,58,0,definite tsunami,Earthquake,7,JAPAN,NW. HONSHU ISLAND,40.1,139.5,1.2,-1.7,0,0,0,0,0,0,0
+1939,5,6,17,0,7,very doubtful tsunami,Earthquake,6.5,PHILIPPINES,"TAYABAS BAY, SULU SEA",13.5,121.25,0,0,0.5,0,0,0,0,0,0
+1939,5,8,1,46,52.9,definite tsunami,Earthquake,6.5,PORTUGAL,AZORES,37.053,-24.427,0,0,1,0,0,0,0,0,0
+1939,6,22,19,19,26,questionable tsunami,Earthquake,6.4,GHANA,GOLD COAST,5.18,-0.13,0,0,0,0,0,0,0,0,0
+1939,8,15,3,52,0,questionable tsunami,Earthquake,5.6,CUBA,SANTA CLARA,22.2,-79.1,0,0,0,0,0,0,0,0,0
+1939,12,26,23,57,22.6,definite tsunami,Earthquake,7.7,TURKEY,SOUTH BLACK SEA,39.77,39.533,0.53,0,4,0,0,0,0,0,0
+1940,1,15,13,19,24,questionable tsunami,Earthquake,5.1,ITALY,NORTHERN SICILY,38.067,13.467,0,0,3,0,0,0,0,0,0
+1940,5,24,16,33,57,questionable tsunami,Earthquake,8.2,PERU,CENTRAL PERU,-10.5,-77,2,1,1.5,0,0,0,0,0,0
+1940,8,1,15,8,24,definite tsunami,Earthquake,7.5,JAPAN,W. HOKKAIDO ISLAND,44.2,139.5,3.5,1.8,1.5,10,0,0,1,20,1
+1940,10,4,7,54,42,very doubtful tsunami,Earthquake,7.3,CHILE,NORTHERN CHILE,-22,-71,0,0,0,0,0,0,0,0,0
+1940,10,11,18,41,13,very doubtful tsunami,Earthquake,7,CHILE,SOUTHERN CHILE,-41.5,-74.5,0,0,0,0,0,0,0,0,0
+1941,1,13,16,27,44.7,definite tsunami,Earthquake,7.4,PAPUA NEW GUINEA,BISMARCK SEA,-4.175,152.071,0.15,-3.3,-2.5,0,0,0,0,0,0
+1941,2,9,9,44,4,event that only caused a seiche or disturbance in an inland river,Earthquake,6.6,USA,NORTHERN CALIFORNIA,40.5,-125.25,0,0,0,0,0,0,0,0,0
+1941,6,26,11,52,0,definite tsunami,Earthquake,7.6,INDIA,"ANDAMAN SEA, E. COAST INDIA",12.5,92.5,1.5,0,0,0,0,0,0,0,0
+1941,11,18,16,46,0,definite tsunami,Earthquake,7.4,JAPAN,SEIKAIDO,32,132.1,1.2,0.3,0,2,0,0,1,27,1
+1941,11,25,18,3,54,definite tsunami,Earthquake,8.3,ATLANTIC OCEAN,AZORES GIBRALTAR FRACTURE ZONE,37.417,-18.983,0.1,0,2,0,0,0,0,0,0
+1941,12,5,20,46,58,definite tsunami,Earthquake,7.6,COSTA RICA,COSTA RICA-PANAMA,8.7,-83.2,0.23,-3.3,-3,0,0,0,0,0,0
+1941,12,6,21,24,40,definite tsunami,Earthquake,6.9,COSTA RICA,COSTA RICA-PANAMA,8.5,-84,0.1,-3.3,-4,0,0,0,0,0,0
+1942,5,22,10,30,36,very doubtful tsunami,Earthquake,5.8,COLOMBIA,COLOMBIA,4.6,-74.5,1,0,1,0,0,0,0,0,0
+1942,8,24,22,50,27,definite tsunami,Earthquake and Landslide,8.2,PERU,S. PERU,-15,-76,2,1,1,0,0,0,1,0,1
+1943,4,6,16,7,15,definite tsunami,Earthquake,8.2,CHILE,CENTRAL CHILE,-30.75,-72,1,0,0,0,0,0,1,0,0
+1943,6,13,5,12,0,definite tsunami,Earthquake,7.1,JAPAN,SE. HOKKAIDO ISLAND,41.2,143.3,0.6,-0.7,-0.5,0,0,0,0,0,0
+1944,12,7,4,35,0,definite tsunami,Earthquake,8.1,JAPAN,OFF SOUTHEAST COAST KII PENINSULA,34,137.1,10,2.9,2.5,1223,2135,0,4,3059,4
+1945,1,12,18,38,0,definite tsunami,Earthquake,7.1,JAPAN,TOKAIDO,34.7,137.2,1,-0.7,-0.5,0,0,0,0,0,0
+1945,2,10,4,57,0,definite tsunami,Earthquake,7.3,JAPAN,SANRIKU,40.9,142.1,0.4,-1.3,-1.5,0,0,0,0,0,0
+1945,11,27,21,56,50,definite tsunami,Earthquake and Landslide,8,PAKISTAN,MAKRAN COAST,24.5,63,17,3.9,0,4000,0,25,4,0,0
+1946,4,1,12,29,1.3,definite tsunami,Earthquake and Landslide,8.6,USA,"UNIMAK ISLAND, AK",53.492,-162.832,42,5.1,4,167,0,26.271,4,0,3
+1946,6,23,17,13,19,definite tsunami,Earthquake and Landslide,7.3,CANADA,BRITISH COLUMBIA,49.87,-124.92,9,4.9,2,0,0,0,1,0,0
+1946,8,2,19,18,48,questionable tsunami,Earthquake,7.9,CHILE,NORTHERN CHILE,-26.5,-70.5,0,0,9,0,0,0,0,0,0
+1946,8,4,17,51,5,definite tsunami,Earthquake,7.9,DOMINICAN REPUBLIC,NORTHEASTERN COAST,19.25,-69,5,2.2,0,1790,0,0,3,0,3
+1946,8,8,13,28,33.8,definite tsunami,Earthquake,7.5,DOMINICAN REPUBLIC,NORTHEASTERN COAST,19.5,-69.5,0.6,0,0,75,0,0,0,0,0
+1946,9,30,0,59,40,questionable tsunami,Earthquake,7,PERU,S. PERU,-14,-76.25,0,0,0,0,0,0,0,0,0
+1946,11,1,11,14,24,very doubtful tsunami,Earthquake,7,USA,"ANDREANOF ISLANDS, AK",51.5,-174.5,0,0,0,0,0,0,0,0,0
+1946,12,20,19,19,5,definite tsunami,Earthquake,8.1,JAPAN,HONSHU: S COAST,33,135.6,6.6,2.7,2.5,1362,0,0,4,1451,4
+1947,3,25,20,32,15,probable tsunami,Earthquake and Landslide,7.1,NEW ZEALAND,OFF COAST OF NORTH ISLAND,-38.85,178.87,10,3.3,3,0,0,0,1,0,1
+1947,5,17,7,6,0,definite tsunami,Earthquake,6.9,NEW ZEALAND,OFF COAST OF NORTH ISLAND,-38.42,178.88,6,2.6,0,0,0,0,0,0,0
+1947,10,6,19,55,37,probable tsunami,Earthquake and Landslide,6.9,GREECE,"PELOPONNESUS, GREECE",37,22,1,0,2,0,0,0,0,0,0
+1947,11,4,0,9,10,definite tsunami,Earthquake,7,JAPAN,W. HOKKAIDO ISLAND,43.8,141,2,1,1,0,0,0,1,0,0
+1948,1,24,17,46,40,probable tsunami,Earthquake,8.3,PHILIPPINES,SULU SEA,10.5,122,0,1,1.5,2,0,0,0,0,0
+1948,2,9,12,58,13,definite tsunami,Earthquake,7.1,GREECE,"DODECANESE, KARPATHOS IS.",35.5,27.2,2.5,0,4,0,0,0,1,0,0
+1948,4,17,16,11,0,definite tsunami,Earthquake,7.2,JAPAN,TOKAIDO,33.1,135.6,0.6,-0.7,-1,0,0,0,0,0,0
+1948,4,22,10,42,47.1,definite tsunami,Earthquake,6.5,GREECE,IONIAN SEA,38.532,20.427,1,0,4,0,0,0,0,0,0
+1948,5,23,9,13,18,questionable tsunami,Earthquake,6,CHINA,SHANDONG PROVINCE,37.2,121.8,3,0,0,0,0,0,0,0,0
+1948,6,1,18,58,18,probable tsunami,Earthquake,6.3,INDONESIA,OFF NORTHWEST COAST,6,95,0,-0.5,0,0,0,0,0,0,0
+1948,9,8,15,9,0,definite tsunami,Earthquake,7.8,TONGA,TONGA TRENCH,-21,-174,2,1,1.5,0,0,0,0,0,0
+1948,12,3,0,22,48,questionable tsunami,Earthquake,6.9,MEXICO,MEXICO,22,-106,5,1,1.5,0,0,0,0,0,0
+1948,12,26,7,12,21,probable tsunami,Earthquake,7,CHILE,NORTHERN CHILE,-22.5,-69,0,-0.5,0,0,0,0,0,0,0
+1949,1,27,11,0,0,definite tsunami,Earthquake,5.9,RUSSIA,KAMCHATKA,54.6,163.5,0,0,0,0,0,0,0,0,0
+1949,4,13,19,56,0,probable tsunami,Earthquake and Landslide,7,USA,"PUGET SOUND, WA",47.167,-122.617,0,0,0,0,0,0,0,0,0
+1949,4,20,3,29,7,questionable tsunami,Earthquake,7.3,CHILE,CENTRAL CHILE,-38,-73.5,0,0,0,0,0,0,0,0,0
+1949,5,9,13,36,18,questionable tsunami,Earthquake,6.7,INDONESIA,BANDA ACEH,5,95,0,0,0,0,0,0,0,0,0
+1949,7,23,15,3,30,probable tsunami,Earthquake,6.7,GREECE,"CHIOS ISLAND, AEGEAN ISLANDS",38.58,26.23,2,0,2,0,0,0,0,0,0
+1949,8,22,4,1,0,definite tsunami,Earthquake and Landslide,8.1,CANADA,BRITISH COLUMBIA,53.6,-133.3,0.61,-1,0,0,0,0,0,0,0
+1949,9,5,2,54,1,event that only caused a seiche or disturbance in an inland river,Earthquake,6.4,PHILIPPINES,NORTHERN LUZON ISLAND,17,121.5,0.1,0,-4,0,0,0,0,0,0
+1949,9,27,15,30,45,Erroneous entry,Earthquake,0,USA,"GULF OF ALASKA, AK",59.75,-149,0,0,0,0,0,0,0,0,0
+1949,10,19,21,0,19,definite tsunami,Earthquake,7.5,PAPUA NEW GUINEA,SOLOMON SEA,-5.5,154,0.3,-1.7,-1,0,0,0,0,0,0
+1949,12,17,6,53,30,very doubtful tsunami,Earthquake,7.8,CHILE,SOUTHERN CHILE,-54,-71,0,0,0,0,0,0,0,0,0
+1949,12,17,15,7,55,questionable tsunami,Earthquake,7.8,CHILE,SOUTHERN CHILE,-54,-71,0,-0.5,0,0,0,0,0,0,0
+1949,12,29,3,3,54,very doubtful tsunami,Earthquake,7.2,PHILIPPINES,E. LUZON ISLAND,17,121.63,0,1,1.5,16,0,0,0,0,0
+1950,1,30,0,56,32,very doubtful tsunami,Earthquake,7,CHILE,SOUTHERN CHILE,-53.5,-71.5,0,0,0,0,0,0,0,0,0
+1950,3,14,18,10,41,questionable tsunami,Earthquake,5.8,NEW ZEALAND,N. NEW ZEALAND,-37.8,177.2,0,0,0,0,0,0,0,0,0
+1950,8,3,0,0,0,questionable tsunami,Earthquake,6.8,VENEZUELA,EL TOCUYO,10.5,-68,0,0,0,0,0,0,0,0,0
+1950,8,15,14,9,30,event that only caused a seiche or disturbance in an inland river,Earthquake,8.6,INDIA,INDIA-CHINA,28.5,96.5,0.5,0,0,0,0,0,0,0,0
+1950,10,5,16,9,31,definite tsunami,Earthquake,7.7,COSTA RICA,COSTA RICA-NICARAGUA,11,-85,0.1,-3.3,-2,0,0,0,0,0,0
+1950,10,8,3,23,9,probable tsunami,Earthquake,7.6,INDONESIA,JAVA TRENCH,-3.8,128.3,0,1.5,2,1,0,0,3,0,3
+1950,10,23,16,13,20,definite tsunami,Earthquake,7.5,GUATEMALA,GUATEMALA,14.31,-91.917,0.2,-1.3,-1,0,0,0,0,0,0
+1950,11,8,2,18,12,probable tsunami,Earthquake,7.3,SOLOMON ISLANDS,SOLOMON SEA,-10,159.5,1.2,0,0,0,0,0,0,0,0
+1950,12,2,19,51,49,probable tsunami,Earthquake,7.8,VANUATU,VANUATU ISLANDS,-18.25,167.5,2.5,0,0,0,0,0,0,0,0
+1950,12,10,2,50,42,questionable tsunami,Earthquake,7,PERU,S. PERU,-14.25,-77.75,0.7,-0.5,0,0,0,0,0,0,0
+1950,12,14,14,15,49,definite tsunami,Earthquake,7.5,MEXICO,S. MEXICO,16.48,-98.22,0.3,-1.5,0,0,0,0,0,0,0
+1951,2,22,1,45,48.9,questionable tsunami,Earthquake,6.1,PAPUA NEW GUINEA,BISMARCK SEA,-3.252,142.238,6,0,0,0,0,0,1,0,0
+1951,8,3,0,23,58,very doubtful tsunami,Earthquake and Landslide,6,NICARAGUA,COSIGUINA VOLCANO,13,-87.5,0,0,0,0,0,0,1,0,1
+1951,8,21,10,57,0,definite tsunami,Earthquake,6.9,USA,HAWAII,19.5,-156,3.6,1.8,0.5,0,0,0,1,0,0
+1951,10,22,5,43,1,definite tsunami,Earthquake,7.3,TAIWAN,TAIWAN,23.8,121.7,0.3,0,0,0,0,0,0,0,0
+1951,12,21,8,37,29,event that only caused a seiche or disturbance in an inland river,Earthquake,6.3,CHINA,CHINA: GANSU AND SHANXI PROVINCES,26.7,100,2,0,0,0,0,0,0,0,0
+1952,3,4,1,22,41,definite tsunami,Earthquake,8.1,JAPAN,SE. HOKKAIDO ISLAND,42.15,143.85,6.54,2.7,2,33,0,0,3,0,3
+1952,3,9,17,4,0,definite tsunami,Earthquake,7,JAPAN,SE. HOKKAIDO ISLAND,41.7,143.6,0.3,-1.7,-2,0,0,0,0,0,0
+1952,3,17,3,58,0,definite tsunami,Earthquake,4.5,USA,HAWAII,19.1,-155,1,0,0,0,0,0,0,0,0
+1952,3,19,10,57,12,definite tsunami,Earthquake,7.8,PHILIPPINES,"E. OF MINDANO, PHILIPPINES",9.5,127.25,0.33,0,0,0,0,0,0,0,0
+1952,5,13,19,32,0,questionable tsunami,Earthquake,6.9,COSTA RICA,COSTA RICA-PANAMA,10.3,-85.3,0.1,-3.3,-3,0,0,0,0,0,0
+1952,7,13,11,58,33,questionable tsunami,Earthquake,6.8,VANUATU,OFF EAST COAST OF VANUATU,-18.5,169.25,0,0,0,0,0,0,0,0,0
+1952,11,4,16,58,27.9,definite tsunami,Earthquake,9,RUSSIA,KAMCHATKA,52.755,160.057,23,4.2,4,10000,0,1,2,0,0
+1953,2,15,0,0,0,questionable tsunami,Earthquake,5.5,PERU,CENTRAL PERU,-12,-77.5,0.7,-0.5,0,0,0,0,0,0,0
+1953,3,17,13,4,0,probable tsunami,Earthquake,5.8,RUSSIA,N. KURIL ISLANDS,50,156.5,3,0.6,0,0,0,0,0,0,0
+1953,4,23,16,24,34,very doubtful tsunami,Earthquake,7.4,PAPUA NEW GUINEA,"RABAUL, NEW BRITAIN",-4.449,152.868,0,0,0,0,0,0,0,0,0
+1953,5,6,17,16,43,very doubtful tsunami,Earthquake,7.6,CHILE,CENTRAL CHILE,-36.5,-72.5,0,0,0,0,0,0,0,0,0
+1953,5,31,19,58,0,questionable tsunami,Earthquake,7.2,DOMINICAN REPUBLIC,PUERTO PLATA,19.8,-70.7,0.06,-3.3,0,0,0,0,0,0,0
+1953,8,12,9,23,52,questionable tsunami,Earthquake,7.2,GREECE,IONIAN SEA,38.3,20.8,0,0,0,0,0,0,0,0,0
+1953,9,10,4,5,58,probable tsunami,Earthquake,6.5,CYPRUS,LEVANTIAN SEA,35,32.5,0,0,0,0,0,0,0,0,0
+1953,9,14,0,26,36,definite tsunami,Earthquake and Landslide,6.4,FIJI,FIJI ISLANDS,-18.3,178.2,15,1,1,5,12,0,1,0,1
+1953,11,25,17,48,0,definite tsunami,Earthquake,7.4,JAPAN,"KASHIMA, JAPAN",34,141.7,3,1.5,1.5,0,0,0,1,0,0
+1953,12,12,17,31,25,definite tsunami,Earthquake,7.4,PERU,N. PERU,-3.4,-80.6,1,-1,0.5,0,0,0,0,0,0
+1954,9,9,1,4,37,definite tsunami,Earthquake and Landslide,6.7,ALGERIA,SEA OF ALBORAN,36.283,1.467,0.33,0,0,0,0,0,0,0,0
+1954,11,18,20,44,55,definite tsunami,Earthquake,6.1,JAPAN,"MIYAGI, JAPAN",38.9,142.2,0,0,-1,0,0,0,0,0,0
+1955,1,18,0,0,0,questionable tsunami,Earthquake,5.5,VENEZUELA,OFF THE COAST NEAR LA VELA,11.46,-69.57,0,0,0,0,0,0,1,0,0
+1955,4,19,16,47,19,probable tsunami,Earthquake,6.2,GREECE,VOLOS GULF,39.4,23.1,0,0,0,0,0,0,0,0,0
+1955,4,19,20,24,5,definite tsunami,Earthquake,7.1,CHILE,CENTRAL CHILE,-30,-72,1,0,1,1,0,0,1,0,1
+1955,5,17,14,49,49,questionable tsunami,Earthquake,7.3,INDIA,LITTLE NICOBAR ISLAND,6.5,94,0,0,0,0,0,0,0,0,0
+1955,9,8,3,27,14,probable tsunami,Earthquake,6.5,PAPUA NEW GUINEA,SOLOMON SEA,-6.9,155.7,0,0,0,0,0,0,0,0,0
+1955,9,23,15,6,23,event that only caused a seiche or disturbance in an inland river,Earthquake,6.8,CHINA,"JINSHA RIVER, YUNNAN PROVINCE",26.6,101.8,1,0,0,0,0,0,0,0,0
+1955,10,10,8,57,52.9,probable tsunami,Earthquake,7.3,PAPUA NEW GUINEA,BISMARCK SEA,-5.1,152.924,0,0,0,0,0,0,0,0,0
+1956,1,8,20,54,13,very doubtful tsunami,Earthquake,7.1,CHILE,NORTHERN CHILE,-19,-70,0,0,0,0,0,0,0,0,0
+1956,3,2,22,43,0,event that only caused a seiche or disturbance in an inland river,Earthquake,5.3,NEW ZEALAND,"LAKE TAUPO, NORTH ISLAND",-38.9,175.8,0.9,0,0,0,0,0,0,0,0
+1956,3,5,23,29,0,definite tsunami,Earthquake,6.3,JAPAN,NE. HOKKAIDO ISLAND,44.3,144.1,0.4,-1.3,-2,0,0,0,0,0,0
+1956,7,9,3,11,39,definite tsunami,Earthquake,7.8,GREECE,CYCLADES,36.9,26,30,5,5,3,0,0,2,0,0
+1956,7,9,3,24,0,probable tsunami,Earthquake,6.8,GREECE,"AMORGOS ISLAND, AEGEAN ISLANDS",36.8,25.5,10,0,0,0,0,0,0,0,0
+1956,8,12,16,59,37.6,Erroneous entry,Earthquake,6.5,JAPAN,IZU PENINSULA,33.8,138.8,0,-1,-1,0,0,0,0,0,0
+1956,11,2,16,4,33,questionable tsunami,Earthquake,5.8,GREECE,NORTH AEGEAN,39.5,23,1.2,0.3,2,0,0,0,0,0,0
+1956,12,18,2,31,3,very doubtful tsunami,Earthquake,7,CHILE,NORTHERN CHILE,-25.5,-71,0,0,0,0,0,0,0,0,0
+1957,3,9,14,22,31.9,definite tsunami,Earthquake,8.6,USA,"ANDREANOF ISLANDS, AK",51.292,-175.629,32,3.9,3,2,1,0,3,0,1
+1957,6,22,23,50,23,probable tsunami,Earthquake,7.3,INDONESIA,NW. IRIAN JAYA,-1.5,137,1.8,0.8,0,0,0,0,0,0,0
+1957,7,28,8,40,1,definite tsunami,Earthquake,7.9,MEXICO,S. MEXICO,16.5,-99.1,1.3,1.3,0.5,0,0,0,0,0,0
+1957,7,29,17,15,14,very doubtful tsunami,Earthquake,7,CHILE,NORTHERN CHILE,-23.5,-71.5,0,0,0,0,0,0,0,0,0
+1957,9,26,0,0,0,probable tsunami,Earthquake,5.5,INDONESIA,SOUTH OF JAVA,-8.2,107.3,0.7,-0.5,0,0,0,0,0,0,0
+1957,10,26,14,16,57,questionable tsunami,Earthquake,6,INDONESIA,MAKASSAR STRAIT,-2,116,0,0,0,0,0,0,0,0,0
+1958,1,19,14,7,27,definite tsunami,Earthquake,7.6,ECUADOR,COLOMBIA-ECUADOR,1.5,-79.5,0,0,2,4,0,0,1,0,1
+1958,2,7,23,23,36,event that only caused a seiche or disturbance in an inland river,Earthquake,6.2,CHINA,SICHUAN PROVINCE,31.5,105,0,0,0,0,0,0,0,0,0
+1958,4,21,22,37,46,questionable tsunami,Earthquake,6.5,INDONESIA,"BENGKULU, SUMATRA",-4.5,104,0,0,0.5,0,0,0,0,0,0
+1958,7,10,6,15,59.9,definite tsunami,Earthquake and Landslide,7.8,USA,"SE. ALASKA, AK",58.37,-136.665,524.6,4.6,5,5,0,0.1,1,0,1
+1958,9,17,12,24,0,questionable tsunami,Earthquake,5,RUSSIA,N. KURIL ISLANDS,48.6,156.1,0.23,-2.3,-1,0,0,0,0,0,0
+1958,11,4,22,54,46,very doubtful tsunami,Earthquake,6.1,PACIFIC OCEAN,EAST PACIFIC RISE,-50,-115,0.1,0,0,0,0,0,0,0,0
+1958,11,6,22,58,8.6,definite tsunami,Earthquake,8.3,RUSSIA,S. KURIL ISLANDS,44.53,148.54,5,2,2.5,0,0,0,2,0,0
+1958,11,12,20,23,0,questionable tsunami,Earthquake,7,RUSSIA,S. KURIL ISLANDS,44.2,148.8,1,0,-1,0,0,0,0,0,0
+1959,1,22,5,10,0,definite tsunami,Earthquake,6.8,JAPAN,SANRIKU,37.5,142.2,0.8,-0.3,-2,0,0,0,0,0,0
+1959,2,7,9,36,51,very doubtful tsunami,Earthquake,7.4,PERU,N. PERU,-4,-81.5,0.4,0,-2,0,0,0,0,0,0
+1959,4,9,12,24,20,questionable tsunami,Earthquake,5,RUSSIA,S. KURIL ISLANDS,44.3,149,0.1,-3.3,-2,0,0,0,0,0,0
+1959,5,4,7,15,42,definite tsunami,Earthquake,8.2,RUSSIA,KAMCHATKA,52.5,159.5,0.2,1,1,0,0,0,0,0,0
+1959,8,17,21,4,40,definite tsunami,Earthquake,7.3,SOLOMON ISLANDS,SOLOMON ISLANDS,-7.5,156,1,1.3,0,0,0,0,2,0,0
+1959,8,18,6,37,13.5,event that only caused a seiche or disturbance in an inland river,Earthquake and Landslide,7.5,USA,"HEGBEN LAKE, MONTANA",44.712,-111.215,1,0,0,0,0,0,0,0,0
+1959,10,26,7,35,0,definite tsunami,Earthquake,6.7,JAPAN,SANRIKU,37.5,143.2,0.11,-3.3,-4,0,0,0,0,0,0
+1960,1,13,15,40,34,very doubtful tsunami,Earthquake,7.8,PERU,S. PERU,-15.75,-72.75,5.7,2.6,3,0,0,0,0,0,0
+1960,2,29,23,40,12,very doubtful tsunami,Earthquake,6.8,MOROCCO,MOROCCO,30.5,-9.5,0,0,0,0,0,0,0,0,0
+1960,3,20,17,7,30,definite tsunami,Earthquake,7.5,JAPAN,SANRIKU,39.8,143.4,1,0,-2,0,0,0,0,0,0
+1960,3,23,0,23,0,definite tsunami,Earthquake,6.7,JAPAN,SANRIKU,39.4,143.7,0.75,-1,-2.5,0,0,0,0,0,0
+1960,5,21,10,2,50,definite tsunami,Earthquake,8.2,CHILE,CENTRAL CHILE,-37.872,-73.243,0.3,0,-1,0,0,0,0,0,0
+1960,5,22,19,11,17,definite tsunami,Earthquake,9.5,CHILE,SOUTHERN CHILE,-38.143,-73.407,25,4.6,4,2226,3000,1000,4,58622,4
+1960,6,11,15,14,9,probable tsunami,Earthquake,6.6,PAPUA NEW GUINEA,SOLOMON SEA,-9.4,152.3,0,-0.5,0,0,0,0,0,0,0
+1960,7,29,17,31,45,definite tsunami,Earthquake,6.7,JAPAN,SANRIKU,40.3,142.5,0.3,-1,-3,0,0,0,0,0,0
+1960,11,1,8,45,59,very doubtful tsunami,Earthquake,7.4,CHILE,SOUTHERN CHILE,-38.5,-75.1,0,0,0,0,0,0,0,0,0
+1960,11,20,22,1,56.4,probable tsunami,Earthquake,6.8,PERU,N. PERU,-6.8,-80.7,9,3.2,4,66,2,0.55,1,0,0
+1961,1,16,7,20,0,definite tsunami,Earthquake,6.8,JAPAN,"KASHIMA, JAPAN",36,142.3,0.4,-1.3,-2,0,0,0,0,0,0
+1961,1,16,11,19,0,definite tsunami,Earthquake,6.4,JAPAN,"KASHIMA, JAPAN",36,141.9,0.4,-1.3,-2,0,0,0,0,0,0
+1961,1,16,12,12,0,definite tsunami,Earthquake,6.5,JAPAN,"KASHIMA, JAPAN",36.2,141.9,0.4,-1.3,-2,0,0,0,0,0,0
+1961,2,12,21,53,0,definite tsunami,Earthquake,6.6,RUSSIA,S. KURIL ISLANDS,43.2,147.9,1,0,-0.5,0,0,0,0,0,0
+1961,2,26,18,10,48.7,definite tsunami,Earthquake,7.6,JAPAN,SEIKAIDO,31.6,131.8,0.65,0,-0.5,0,0,0,0,0,0
+1961,5,23,2,45,0,probable tsunami,Earthquake,6.5,TURKEY,ASIA MINOR,36.7,28.5,0,0,0,0,0,0,0,0,0
+1961,6,16,10,31,57.3,event that only caused a seiche or disturbance in an inland river,Questionable Earthquake,6.5,COLOMBIA,NORTHEASTERN,8.9,-73.4,0,0,0,0,0,0,0,0,0
+1961,7,18,14,4,0,definite tsunami,Earthquake,6.6,JAPAN,RYUKYU ISLANDS,29.6,131.8,0.2,-2.3,-3,0,0,0,0,0,0
+1961,7,23,21,51,10.5,probable tsunami,Earthquake,7.3,VANUATU,VANUATU ISLANDS,-18.421,168.411,0.9,0,-0.5,0,0,0,1,0,0
+1961,8,1,5,39,54.4,questionable tsunami,Earthquake,6.4,SOLOMON ISLANDS,SOLOMON SEA,-9.849,160.614,0.9,0,0,0,0,0,0,0,0
+1961,8,11,15,51,0,definite tsunami,Earthquake,7,JAPAN,SE. HOKKAIDO ISLAND,42.9,145.6,0.1,-3.3,-4,0,0,0,0,0,0
+1961,10,18,16,51,57,very doubtful tsunami,Earthquake,6.5,CHILE,CENTRAL CHILE,-36.7,-73,0,0,0,0,0,0,0,0,0
+1961,11,15,7,17,0,definite tsunami,Earthquake,6.9,JAPAN,SE. HOKKAIDO ISLAND,42.7,145.7,0.1,-3.3,-3.5,0,0,0,0,0,0
+1962,1,11,5,5,0,probable tsunami,Earthquake,6.1,CROATIA,DALMATIAN COASTS,43.3,17.1,0.04,0,0,0,0,0,0,0,0
+1962,3,12,11,40,16.7,probable tsunami,Earthquake,6.8,PANAMA,COSTA RICA-PANAMA,8.008,-82.757,0.1,-3.3,0,0,0,0,0,0,0
+1962,4,12,0,52,43,definite tsunami,Earthquake,7.2,JAPAN,SANRIKU,38.073,142.741,1,0,-2,0,0,0,0,0,0
+1962,4,23,5,58,0,definite tsunami,Earthquake,7,JAPAN,SE. HOKKAIDO ISLAND,42.2,143.9,0.1,-3.3,-3.5,0,0,0,0,0,0
+1962,5,11,14,11,54.1,definite tsunami,Earthquake,7,MEXICO,S. MEXICO,17.2,-99.6,0.81,-0.3,0,0,0,0,0,0,0
+1962,5,19,14,58,15,probable tsunami,Earthquake,7.2,MEXICO,S. MEXICO,17.2,-99.5,0.34,0,0,0,0,0,0,0,0
+1962,5,21,12,21,0,questionable tsunami,Earthquake,5.7,JAPAN,OFF COAST OF HONSHU ISLAND,41.8,142.4,0.1,0,-2,0,0,0,0,0,0
+1962,5,28,22,57,47,very doubtful tsunami,Earthquake,4.5,GREECE,NORTH AEGEAN SEA,39.8,25,0,0,0,0,0,0,0,0,0
+1962,12,21,8,42,43,very doubtful tsunami,Earthquake,6.5,USA,"FOX ISLANDS, ALEUTIAN ISLANDS, AK",52.47,-168.54,0,0,0,0,0,0,0,0,0
+1963,2,13,8,50,4.5,definite tsunami,Earthquake,7.3,TAIWAN,E. TAIWAN-RYUKYU ISLANDS,24.4,122.1,0.2,-2.3,-2,0,0,0,0,0,0
+1963,9,18,0,0,0,definite tsunami,Earthquake,6.1,TURKEY,MARMARA SEA,40.75,29,0,0,3,0,0,0,0,0,0
+1963,9,24,16,30,16,questionable tsunami,Earthquake,7,PERU,CENTRAL PERU,-10.385,-78.022,0,0,0,0,0,0,0,0,0
+1963,10,12,11,27,0.2,definite tsunami,Earthquake,7.1,RUSSIA,S. KURIL ISLANDS,44.426,149.272,0.12,-3.3,-2,0,0,0,0,0,0
+1963,10,13,5,17,53.4,definite tsunami,Earthquake,8.5,RUSSIA,S. KURIL ISLANDS,44.772,149.798,4.5,2.3,2.5,0,0,0,0,0,0
+1963,10,20,0,53,10.9,definite tsunami,Earthquake,7.9,RUSSIA,S. KURIL ISLANDS,44.772,150.563,15,3.9,3,0,0,0,0,0,0
+1963,12,16,1,51,31,questionable tsunami,Earthquake,6.6,INDONESIA,JAVA,-6.4,105.4,0,-0.5,0,0,0,0,0,0,0
+1963,12,18,0,30,0,questionable tsunami,Earthquake,7.2,TONGA,TONGA TRENCH,-24.8,-176.6,0,0,0.5,0,0,0,0,0,0
+1964,3,28,3,36,14,definite tsunami,Earthquake and Landslide,9.2,USA,"PRINCE WILLIAM SOUND, AK",61.017,-147.648,51.8,6.1,3.5,124,0,116,4,0,3
+1964,4,2,1,11,51,probable tsunami,Earthquake and Landslide,7,INDONESIA,OFF NORTHWEST COAST OF INDONESIA,5.8,95.4,0,-0.5,0,0,0,0,0,0,0
+1964,5,7,7,58,0,definite tsunami,Earthquake,6.9,JAPAN,NW. HONSHU ISLAND,40.3,139,0.6,-0.1,0,0,0,0,0,0,0
+1964,5,7,20,13,0,probable tsunami,Earthquake,6.6,JAPAN,NW. HONSHU ISLAND,40.4,139,0,0,-3,0,0,0,0,0,0
+1964,6,16,4,1,44.3,definite tsunami,Earthquake,7.5,JAPAN,NW. HONSHU ISLAND,38.65,139.2,5.8,2.7,2,26,450,80,4,1960,4
+1964,7,24,8,12,39,definite tsunami,Earthquake,6.8,RUSSIA,S. KURIL ISLANDS,47.159,153.876,0.08,-3.3,-2,0,0,0,0,0,0
+1964,11,17,8,15,39.3,probable tsunami,Earthquake,7.6,PAPUA NEW GUINEA,NEW BRITAIN,-5.7,150.7,0.05,0,0,0,0,0,0,0,0
+1964,12,10,15,11,7.6,definite tsunami,Earthquake,6.3,JAPAN,NW. HONSHU ISLAND,40.4,138.9,0.1,-3.3,-3,0,0,0,0,0,0
+1965,1,24,0,11,12.1,definite tsunami,Earthquake,7.6,INDONESIA,SANANA ISLAND,-2.4,126.1,0,2,2,71,0,0,4,3000,4
+1965,2,4,5,1,21.6,definite tsunami,Earthquake,8.7,USA,"RAT ISLANDS, ALEUTIAN ISLANDS, AK",51.29,178.55,10.7,3.3,2.5,0,0,0.01,1,0,0
+1965,2,23,22,11,46,very doubtful tsunami,Earthquake,7,CHILE,NORTHERN CHILE,-25.67,-70.63,0,0,0,0,0,0,0,0,0
+1965,3,9,17,57,53.7,probable tsunami,Earthquake,6.3,GREECE,AEGEAN SEA,39.4,24,0,0,0,0,0,0,0,0,0
+1965,3,22,22,56,28,very doubtful tsunami,Earthquake,6,CHILE,CENTRAL CHILE,-31.81,-71.26,0,0,0,0,0,0,0,0,0
+1965,3,30,2,27,3.4,definite tsunami,Earthquake,7.6,USA,"RAT ISLANDS, ALEUTIAN ISLANDS, AK",50.32,177.93,0.1,-2.3,-1,0,0,0,0,0,0
+1965,4,19,23,42,0,Erroneous entry,Earthquake,6,JAPAN,AICHI PREFECTURE,34.9,139,0.1,0,-4,0,0,0,0,0,0
+1965,6,11,3,34,2,definite tsunami,Earthquake,7.2,RUSSIA,S. KURIL ISLANDS,44.7,148.7,0.1,-3.3,-3,0,0,0,0,0,0
+1965,7,2,20,58,38.1,definite tsunami,Earthquake,6.5,USA,"FOX ISLANDS, ALEUTIAN ISLANDS, AK",53.03,-167.55,0.08,-3.3,-2,0,0,0,0,0,0
+1965,7,6,3,18,42.7,very doubtful tsunami,Earthquake and Landslide,6.3,GREECE,NORTH CORINTH GULF,38.267,22.3,0,4.3,2,1,0,0,0,0,0
+1965,8,11,22,31,45.9,definite tsunami,Earthquake,7,VANUATU,VANUATU ISLANDS,-15.8,167.2,7,2.8,2.5,0,0,0,0,0,0
+1965,8,13,12,40,32,questionable tsunami,Earthquake,7.3,VANUATU,VANUATU ISLANDS,-15.9,166.8,2,1,1,0,0,0,1,0,1
+1965,8,23,19,46,2.9,definite tsunami,Earthquake,7.8,MEXICO,MEXICO,16.3,-95.8,0.4,-1.3,0,0,0,0,0,0,0
+1965,10,3,16,14,56,questionable tsunami,Earthquake,6.5,CHILE,SOUTHERN CHILE,-42.9,-75.13,0,0,0,0,0,0,0,0,0
+1966,3,12,16,31,21.8,probable tsunami,Earthquake,7.6,TAIWAN,E. TAIWAN-RYUKYU ISLANDS,24.1,122.6,0.1,-3.3,0,0,0,0,0,0,0
+1966,6,15,0,59,42.7,probable tsunami,Earthquake,7.1,SOLOMON ISLANDS,SOLOMON ISLANDS,-10.343,160.883,0.2,0.5,1,0,0,0,0,0,0
+1966,7,12,18,53,0,definite tsunami,Earthquake,5.5,RUSSIA,BLACK SEA,44.75,37,0.2,0,1,0,0,0,0,0,0
+1966,10,17,21,41,56,definite tsunami,Earthquake,8.1,PERU,CENTRAL PERU,-10.748,-78.638,3,-1,1.5,0,0,2,2,0,3
+1966,12,28,8,18,7.4,definite tsunami,Earthquake,7.8,CHILE,NORTHERN CHILE,-25.5,-70.7,0.42,0,0.5,0,0,0,0,0,0
+1966,12,31,18,23,11.1,definite tsunami,Earthquake,7.8,SOLOMON ISLANDS,SANTA CRUZ ISLANDS,-11.893,166.445,2,0,1,0,0,0,0,0,0
+1966,12,31,22,15,16.6,definite tsunami,Earthquake,7.2,SOLOMON ISLANDS,SANTA CRUZ ISLANDS,-12.334,166.684,0.8,0,0,0,0,0,0,0,0
+1967,3,19,4,1,38.5,very doubtful tsunami,Earthquake,7,RUSSIA,S. KURIL ISLANDS,45.53,151.11,0,0,0,0,0,0,0,0,0
+1967,4,11,5,9,12.1,probable tsunami,Earthquake,5.5,INDONESIA,MAKASSAR STRAIT,-3.7,119.3,0,1.6,1,13,0,0,1,0,1
+1967,4,12,4,51,50.2,probable tsunami,Earthquake,6.1,INDONESIA,NORTHEAST SUMATRA,5.5,97.3,0,1,1.5,0,0,0,0,0,0
+1967,7,29,23,59,58.7,definite tsunami,Earthquake,6.5,VENEZUELA,CARACAS,10.6,-67.3,0.08,0,0,0,0,0,0,0,0
+1967,8,13,22,15,10,definite tsunami,Earthquake,6.4,PAPUA NEW GUINEA,BISMARCK SEA,-4.4,152.5,0.1,-3.3,0,0,0,0,0,0,0
+1967,9,3,0,0,0,questionable tsunami,Earthquake,7,PERU,CENTRAL PERU,-10.6,-79.8,2,1,-1.5,0,0,0,0,0,0
+1967,11,15,21,31,54,very doubtful tsunami,Earthquake,5.9,CHILE,NORTHERN CHILE,-28.78,-71.19,0,0,0,0,0,0,0,0,0
+1967,12,21,2,25,23,probable tsunami,Earthquake,7.5,CHILE,NORTHERN CHILE,-21.7,-69.5,0,-0.5,0,0,0,0,0,0,0
+1968,1,29,10,19,7.2,definite tsunami,Earthquake,7.3,RUSSIA,S. KURIL ISLANDS,43.586,146.701,0.18,-1.7,-1,0,0,0,0,0,0
+1968,2,19,22,45,45.7,definite tsunami,Earthquake,7.2,GREECE,"LEMNOS ISLAND, NORTH AEGEAN SEA",39.368,24.957,1.2,0.3,3,0,0,0,0,0,0
+1968,4,1,0,42,4.2,definite tsunami,Earthquake,7.5,JAPAN,SEIKAIDO,32.3,132.5,3.07,1.3,1,0,0,0,1,4,1
+1968,4,18,19,38,15,definite tsunami,Earthquake,4.6,ITALY,LIGURIA-COTE D'AZUR,44.08,8,3,0,2,0,0,0,0,0,0
+1968,5,16,0,48,55.4,definite tsunami,Earthquake,8.2,JAPAN,OFF EAST COAST OF HONSHU ISLAND,40.8,143.2,6,2.3,2,52,0,0,3,529,3
+1968,5,16,10,39,1.6,definite tsunami,Earthquake,7.5,JAPAN,OFF COAST OF HONSHU ISLAND,41.5,142.7,0.58,0,-0.5,0,0,0,0,0,0
+1968,6,12,13,41,50.7,definite tsunami,Earthquake,7.2,JAPAN,SANRIKU,39.4,143.1,0.95,1.6,0,0,0,0,0,0,0
+1968,7,25,7,23,7.8,questionable tsunami,Earthquake,7.3,NEW ZEALAND,KERMADEC ISLANDS,-30.8,-178.4,0.05,0,0,0,0,0,0,0,0
+1968,8,1,20,19,21.9,definite tsunami,Earthquake,7.3,PHILIPPINES,E. LUZON ISLAND,16.5,122.2,0.16,-1.7,0,1,0,0,0,0,0
+1968,8,5,7,17,0,very doubtful tsunami,Earthquake,6.5,JAPAN,SEIKAIDO-NANKAIDO,33.3,132.2,0.03,0,0,0,0,0,0,0,0
+1968,8,10,2,7,4.3,definite tsunami,Earthquake,7.6,INDONESIA,N. MOLUCCAS ISLANDS,1.4,126.2,0.4,-1.3,1,0,0,0,0,0,0
+1968,8,14,22,14,19.4,definite tsunami,Earthquake,7.8,INDONESIA,BANDA SEA,0.2,119.8,10,3.3,2.5,200,58,0,3,800,3
+1968,9,3,8,19,52.2,definite tsunami,Earthquake,6.6,TURKEY,BLACK SEA,41.8,32.3,3,0,0,0,0,0,0,0,0
+1968,9,20,6,9,0,questionable tsunami,Earthquake,6.2,VENEZUELA,CARUPANO,10.5,-62.6,0,0,0,0,0,0,0,0,0
+1968,9,25,0,0,0,very doubtful tsunami,Earthquake,7,MEXICO,S. MEXICO-GUATEMALA-NICARAGUA,15.6,-92.6,2,0,1,0,0,0,0,0,0
+1969,2,23,0,36,56.6,definite tsunami,Earthquake,6.9,INDONESIA,MAKASSAR STRAIT,-3.1,118.9,4,2,2,600,0,24,3,0,3
+1969,2,28,2,40,32.5,definite tsunami,Earthquake,7.8,PORTUGAL,PORTUGAL,36.017,-10.95,0.9,0,0,0,0,0,0,0,0
+1969,3,31,0,0,0,probable tsunami,Earthquake,7,EGYPT,GULF OF SUEZ,27.7,34,0,0,0,0,0,0,0,0,0
+1969,4,21,7,19,0,definite tsunami,Earthquake,6.5,JAPAN,RYUKYU ISLANDS,32.2,132.1,0.1,-2.3,-3,0,0,0,0,0,0
+1969,8,2,4,30,29,definite tsunami,Earthquake and Landslide,5.4,PAPUA NEW GUINEA,BISMARCK SEA,-6.6,146.9,0,0,-1,0,0,0,0,0,0
+1969,8,11,21,26,36,definite tsunami,Earthquake,8.2,RUSSIA,S. KURIL ISLANDS,43.6,147.9,5,1.4,2,0,0,0,0,0,0
+1969,11,22,23,9,37,definite tsunami,Earthquake,7.7,RUSSIA,KAMCHATKA,57.7,163.6,15,3.9,3,0,0,1,1,0,0
+1969,12,25,21,32,27.3,definite tsunami,Earthquake,7.2,GUADELOUPE (FRENCH TERRITORY),GRAND BOURG,15.8,-59.7,0.46,-3.3,0,0,0,0,0,0,0
+1970,1,10,12,7,8.6,definite tsunami,Earthquake,7.6,PHILIPPINES,PHILIPPINE TRENCH,6.8,126.7,0.06,0,0,0,0,0,0,0,0
+1970,3,11,22,38,34.6,definite tsunami,Earthquake,6,USA,"ANDREANOF ISLANDS, AK",57.5,-153.9,0.03,0,0,0,0,0,0,0,0
+1970,4,7,5,34,5.6,probable tsunami,Earthquake,7.3,PHILIPPINES,PHILIPPINE SEA,15.78,121.71,0,1,1,0,0,1,1,0,0
+1970,5,14,18,12,0,probable tsunami,Earthquake,6.5,RUSSIA,CASPIAN SEA,43,47.1,0,0,0,0,0,0,0,0,0
+1970,5,31,20,23,27.3,definite tsunami,Earthquake,7.9,PERU,N. PERU,-9.2,-78.8,0.38,0.8,0,0,0,0,0,0,0
+1970,6,14,0,0,0,questionable tsunami,Earthquake,6,CHILE,SOUTHERN CHILE,-52,-73.8,0,0,0,0,0,0,0,0,0
+1970,6,19,10,56,13.5,questionable tsunami,Earthquake,6.4,CHILE,NORTHERN CHILE,-22.28,-70.55,0,0,0,0,0,0,0,0,0
+1970,7,25,22,41,10.7,definite tsunami,Earthquake,7,JAPAN,SEIKAIDO,32.2,131.7,0.32,-0.7,0,0,0,0,0,0,0
+1970,9,28,19,1,0,questionable tsunami,Earthquake,5.1,NEW ZEALAND,NEW ZEALAND,-44.64,173.62,1,0,0,0,0,0,0,0,0
+1970,9,30,9,52,22.7,probable tsunami,Earthquake,5.3,PHILIPPINES,PHILIPPINE TRENCH,20.6,122,0,0,0.5,0,0,0,0,0,0
+1970,10,31,17,53,9.3,definite tsunami,Earthquake and Landslide,7.3,PAPUA NEW GUINEA,PAPUA NEW GUINEA,-4.907,145.471,3,0.3,0.5,3,0,0,0,0,0
+1970,11,28,11,8,40,questionable tsunami,Earthquake,6,CHILE,NORTHERN CHILE,-20.94,-69.81,0,0,0,0,0,0,0,0,0
+1970,12,4,1,59,25,definite tsunami,Earthquake,5.1,RUSSIA,BLACK SEA,43.84,39.34,0.8,0,2,0,0,0,0,0,0
+1971,5,2,6,8,27.8,definite tsunami,Earthquake,7.1,USA,"ANDREANOF ISLANDS, AK",51.228,-177.173,0.04,0,-3,0,0,0,0,0,0
+1971,7,9,3,3,18.7,definite tsunami,Earthquake,7.8,CHILE,CENTRAL CHILE,-32.5,-71.2,1.2,0.3,0,0,0,0,0,0,0
+1971,7,14,6,11,29.1,definite tsunami,Earthquake,7.9,PAPUA NEW GUINEA,SOLOMON SEA,-5.5,153.9,6,1.6,1,1,0,1,1,0,0
+1971,7,26,1,23,21.3,definite tsunami,Earthquake,7.9,PAPUA NEW GUINEA,SOLOMON SEA,-4.9,153.2,10,3.3,1.5,0,0,1,1,0,0
+1971,8,2,7,24,56.8,definite tsunami,Earthquake,7.3,JAPAN,JAPAN TRENCH,41.4,143.5,0.51,-2.3,-0.5,0,0,0,0,0,0
+1971,9,5,18,35,25,definite tsunami,Earthquake,7.1,RUSSIA,TATAR STRAIT,46.5,141.2,2,0,1,0,0,0,0,0,0
+1971,9,6,13,37,10.8,definite tsunami,Earthquake,5.5,RUSSIA,TATAR STRAIT,46.7,141.4,0.32,0,0,0,0,0,0,0,0
+1971,9,8,11,48,23.4,definite tsunami,Earthquake,6.6,RUSSIA,TATAR STRAIT,46.4,141.1,0.09,0,-3,0,0,0,0,0,0
+1971,9,8,16,59,52.6,definite tsunami,Earthquake,6.2,RUSSIA,TATAR STRAIT,46.3,140.9,0.07,-0.7,-3,0,0,0,0,0,0
+1971,9,25,4,36,14,questionable tsunami,Earthquake and Landslide,7,PAPUA NEW GUINEA,BISMARCK SEA,-6.5,146.6,1.8,0.8,0.5,0,0,0,0,0,0
+1971,9,27,19,1,45.3,definite tsunami,Earthquake,6,RUSSIA,TATAR STRAIT,46.4,141.1,0.03,0,-4,0,0,0,0,0,0
+1971,11,6,22,0,0.1,questionable tsunami,Earthquake,5.7,USA,"RAT ISLANDS, ALEUTIAN ISLANDS, AK",51.5,179.1,0.1,0,0,0,0,0,0,0,0
+1971,12,15,8,29,55.3,definite tsunami,Earthquake,7.8,RUSSIA,KAMCHATKA,56,163.3,0.47,0,0,0,0,0,0,0,0
+1972,1,25,2,6,23.3,definite tsunami,Earthquake,7.5,TAIWAN,E. TAIWAN,22.5,122.3,0.05,-3.3,-2,0,0,0,0,0,0
+1972,2,29,9,22,59.8,definite tsunami,Earthquake,7.4,JAPAN,EAST OFF HACHIJO ISLAND,33.3,140.8,0.42,-1.3,0.5,0,0,0,0,0,0
+1972,6,8,18,53,41.7,questionable tsunami,Earthquake,6.6,CHILE,CENTRAL CHILE,-30.5,-71.8,0,0,0,0,0,0,0,0,0
+1972,7,30,21,45,14.1,definite tsunami,Earthquake and Landslide,7.6,USA,"SE. ALASKA, AK",56.82,-135.685,0.1,-2.3,-2,0,0,0,0,0,0
+1972,8,17,23,44,5.9,definite tsunami,Earthquake,7.1,PAPUA NEW GUINEA,SOLOMON SEA,-6,152.9,0.6,-1,0,0,0,0,0,0,0
+1972,9,6,11,42,23.9,Erroneous entry,Earthquake,0,JAPAN,JAPAN,32.9,130.3,0,0,0,0,0,0,0,0,0
+1972,12,2,0,19,47.2,questionable tsunami,Earthquake,7.4,PHILIPPINES,"MINDANAO ISLAND, PHILIPPINES",6.5,126.6,0.5,-2.3,0,0,0,0,0,0,0
+1972,12,4,10,16,12,definite tsunami,Earthquake,7.4,JAPAN,CHICHI JIMA,33.3,140.7,0.5,-1,-1,0,0,0,0,0,0
+1972,12,29,4,51,1.6,questionable tsunami,Earthquake,5.4,CHILE,CENTRAL CHILE,-30.6,-71,0,0,0,0,0,0,0,0,0
+1973,1,30,21,1,12.5,definite tsunami,Earthquake,7.5,MEXICO,S. MEXICO,18.48,-103,1.13,0.1,0,0,0,0,0,0,0
+1973,2,28,6,37,49.5,definite tsunami,Earthquake,7.2,RUSSIA,N. KURIL ISLANDS,50.5,156.6,1.5,0.6,0.5,0,0,0,0,0,0
+1973,3,17,8,30,51.8,definite tsunami,Earthquake,7.5,PHILIPPINES,QUEZON,13.4,122.8,1.3,0,0,0,0,0,0,0,0
+1973,6,17,3,55,2.9,definite tsunami,Earthquake,7.7,JAPAN,HOKKAIDO ISLAND,43.2,145.8,5.96,2.2,1,0,0,5,2,2,1
+1973,6,24,2,43,25.5,definite tsunami,Earthquake,7.1,RUSSIA,S. KURIL ISLANDS,43.3,146.4,0.64,2.2,0,0,0,0,0,0,0
+1973,6,26,22,32,0.2,definite tsunami,Earthquake,6.6,RUSSIA,S. KURIL ISLANDS,43.2,146.6,0.21,0,0,0,0,0,0,0,0
+1973,10,5,5,47,51.1,definite tsunami,Earthquake,6.7,CHILE,CENTRAL CHILE,-32.5,-71.5,0.4,-1.3,-1,0,0,0,0,0,0
+1974,1,31,23,30,5.3,definite tsunami,Earthquake,7,SOLOMON ISLANDS,SOLOMON ISLANDS,-7.5,155.9,1.5,2.2,1,0,0,0,0,0,0
+1974,2,1,3,12,33.1,definite tsunami,Earthquake,7.1,SOLOMON ISLANDS,SOLOMON ISLANDS,-7.4,155.6,4.5,2.2,2,0,0,5,2,0,0
+1974,5,8,23,33,25.2,definite tsunami,Earthquake,6.7,JAPAN,TOKAIDO,34.6,138.7,0.2,-2.3,-2.5,0,0,0,0,0,0
+1974,8,18,10,44,12.8,very doubtful tsunami,Earthquake,7.1,CHILE,SOUTHERN CHILE,-38.5,-73.4,0,0,0,0,0,0,0,0,0
+1974,9,27,5,47,29.4,definite tsunami,Earthquake,6.7,RUSSIA,S. KURIL ISLANDS,43.2,146.7,0.37,0.6,-1,0,0,0,0,0,0
+1974,10,3,14,21,29.1,definite tsunami,Earthquake,8.1,PERU,CENTRAL PERU,-12.27,-77.79,0.92,0.8,1,0,0,0,0,0,0
+1974,12,28,12,11,43.7,event that only caused a seiche or disturbance in an inland river,Earthquake,6.2,PAKISTAN,PAKISTAN,35.1,72.9,0,0,0,0,0,0,0,0,0
+1975,1,15,9,42,24,very doubtful tsunami,Earthquake,5.9,INDONESIA,BANDA SEA,-5,130,0,0,0,0,0,0,0,0,0
+1975,3,13,15,26,42.5,very doubtful tsunami,Earthquake,6.9,CHILE,CENTRAL CHILE,-29.9,-71.3,0,0,0,0,0,0,0,0,0
+1975,5,26,9,11,51.5,definite tsunami,Earthquake,7.7,ATLANTIC OCEAN,AZORES GIBRALTAR FRACTURE ZONE,35.997,-17.649,0.76,0,0,0,0,0,0,0,0
+1975,6,10,13,47,14.5,definite tsunami,Earthquake,7,RUSSIA,S. KURIL ISLANDS,43.024,147.734,5.5,2.3,2,0,0,5,2,0,0
+1975,7,20,14,37,39.9,definite tsunami,Earthquake,7.9,PAPUA NEW GUINEA,SOLOMON SEA,-6.59,155.054,2,1,1,0,0,5,2,0,1
+1975,10,31,8,28,2.6,definite tsunami,Earthquake,7.6,PHILIPPINES,PHILIPPINE TRENCH,12.54,125.993,3,-0.7,-1.5,1,0,1,1,30,1
+1975,11,29,14,47,40.9,definite tsunami,Earthquake and Landslide,7.7,USA,HAWAII,19.451,-155.033,14.3,3,3,2,19,1.5,2,0,0
+1975,12,16,21,1,39,probable tsunami,Earthquake and Landslide,4.9,FIJI,FIJI ISLANDS,-18.672,178.464,0.25,0,0,0,0,0,0,0,0
+1975,12,26,15,56,38.7,definite tsunami,Earthquake,7.8,SAMOA,SAMOA ISLANDS,-16.265,-172.467,0.38,-0.3,0,0,0,0,0,0,0
+1976,1,14,16,47,33.5,definite tsunami,Earthquake,8,NEW ZEALAND,KERMADEC ISLANDS,-28.427,-177.657,0.9,-0.1,0,0,0,0,0,0,0
+1976,1,21,10,5,24.1,definite tsunami,Earthquake,7,RUSSIA,S. KURIL ISLANDS,44.915,149.123,0.38,-1.3,-2.5,0,0,0,0,0,0
+1976,2,4,9,1,43.4,definite tsunami,Earthquake,7.5,GUATEMALA,GUATEMALA,15.324,-89.101,0.12,0,0,0,0,0,0,0,0
+1976,7,11,16,54,31.8,very doubtful tsunami,Earthquake,6.7,PANAMA,PANAMA,7.4,-78.1,0,-1,0,0,0,0,0,0,0
+1976,8,16,16,11,7.3,definite tsunami,Earthquake,8,PHILIPPINES,MORO GULF,6.292,124.09,9,2.3,2.5,6800,6500,134,4,0,0
+1977,4,2,7,15,22.7,definite tsunami,Earthquake,7.6,SAMOA,SAMOA ISLANDS,-16.696,-172.095,0.08,-3.3,-2,0,0,0,0,0,0
+1977,4,20,23,13,10.4,definite tsunami,Earthquake,6.8,SOLOMON ISLANDS,SOLOMON ISLANDS,-9.828,163.323,0.15,-3.3,-1,0,0,0,0,0,0
+1977,4,20,23,42,50.5,definite tsunami,Earthquake,7.6,SOLOMON ISLANDS,SOLOMON ISLANDS,-9.89,160.348,0,0,0,0,0,0,0,0,0
+1977,4,21,4,24,9.6,definite tsunami,Earthquake,8.1,SOLOMON ISLANDS,SOLOMON ISLANDS,-9.965,160.731,0.04,-3.3,-1.5,0,0,0,0,0,0
+1977,6,22,12,8,33.4,definite tsunami,Earthquake,7.2,TONGA,TONGA TRENCH,-22.878,-175.9,0.4,0,0,0,0,0,0,0,0
+1977,8,19,6,8,55.2,definite tsunami,Earthquake,8,INDONESIA,SUNDA ISLANDS,-11.085,118.464,15,3.9,3,189,75,1.2,2,0,0
+1977,8,20,0,0,0,Erroneous entry,Earthquake,0,PAPUA NEW GUINEA,ADMIRALTY ISLANDS,-1.1,146.2,0.5,-1,0,0,0,0,0,0,0
+1977,8,28,20,10,5,questionable tsunami,Earthquake,5.5,PAPUA NEW GUINEA,ADMIRALTY ISLANDS,-1.081,146.23,0.6,-0.7,-0.5,0,0,0,0,0,0
+1977,10,10,11,53,53.6,questionable tsunami,Earthquake,7.2,TONGA,TONGA TRENCH,-25.856,-175.406,0.03,0,-3,0,0,0,0,0,0
+1978,1,14,3,24,39,definite tsunami,Earthquake,6.6,JAPAN,TOKAIDO,34.809,139.259,0.35,-0.7,0,0,0,0,0,0,0
+1978,3,22,0,50,32.2,definite tsunami,Earthquake,6.7,RUSSIA,S. KURIL ISLANDS,44.026,149.002,0.07,0.1,-2.5,0,0,0,0,0,0
+1978,3,22,21,34,33.4,definite tsunami,Earthquake,6.6,RUSSIA,S. KURIL ISLANDS,44.14,149.029,0.05,0,-3,0,0,0,0,0,0
+1978,3,23,0,31,2.1,definite tsunami,Earthquake,6.8,RUSSIA,S. KURIL ISLANDS,44.209,148.971,0.17,-2.3,-1.5,0,0,0,0,0,0
+1978,3,23,3,15,20.3,definite tsunami,Earthquake,7.5,RUSSIA,S. KURIL ISLANDS,44.932,148.439,0.3,-2.3,0,0,0,0,0,0,0
+1978,3,24,19,47,50.7,definite tsunami,Earthquake,7.6,RUSSIA,S. KURIL ISLANDS,44.244,148.862,0.65,-1.7,0,0,0,0,0,0,0
+1978,6,12,8,14,26.4,definite tsunami,Earthquake,7.7,JAPAN,SANRIKU,38.19,142.03,0.6,0,0.5,0,0,0,0,0,0
+1978,6,14,12,32,33.9,probable tsunami,Earthquake,6.9,PHILIPPINES,"MINDANAO ISLAND, PHILIPPINES",8.249,122.403,0.03,-3.3,0,0,0,0,0,0,0
+1978,6,20,20,3,21,questionable tsunami,Earthquake,6.4,GREECE,"THESSALONIKI (SALONICA), GREECE",40.739,23.229,0.45,0,2,0,0,0,0,0,0
+1978,7,23,14,42,36.9,probable tsunami,Earthquake,7.4,TAIWAN,TAIWAN,22.282,121.512,0.05,-3.3,-1,0,0,0,0,0,0
+1978,8,14,14,17,50.4,definite tsunami,Earthquake,4.4,SPAIN,CADIZ,36.37,-6.98,0.12,0,1,0,0,0,0,0,0
+1978,11,29,19,52,47.6,questionable tsunami,Earthquake,7.8,MEXICO,MEXICO,16.01,-96.591,1.5,0.6,0,0,0,0,0,0,0
+1979,2,20,6,32,32.2,definite tsunami,Earthquake,6.4,JAPAN,"IWATE, JAPAN",40.232,143.703,0.12,-1.7,0,0,0,0,0,0,0
+1979,2,28,21,27,8.1,definite tsunami,Earthquake and Landslide,7.5,USA,"SE. ALASKA, AK",60.691,-141.671,0.15,-1.7,0,0,0,0,0,0,0
+1979,3,14,11,7,16.3,definite tsunami,Earthquake,7.6,MEXICO,S. MEXICO,17.813,-101.276,1.3,-3.3,0,0,0,0,0,0,0
+1979,4,9,2,10,20.3,very doubtful tsunami,Earthquake,5.3,MONTENEGRO,MONTENEGRO: BAR ULCINJ,41.956,19.023,0,0,0,0,0,0,0,0,0
+1979,4,15,6,19,44.1,definite tsunami,Earthquake,6.9,MONTENEGRO,MONTENEGRO,42.096,19.209,0.6,0,1,0,0,0,1,0,0
+1979,5,15,6,59,21.2,event that only caused a seiche or disturbance in an inland river,Earthquake,5.6,GREECE,CRETE,34.53,24.437,0,0,1,0,0,0,0,0,0
+1979,9,3,2,12,0,questionable tsunami,Landslide,0,VENEZUELA,PUERTO CUMAREBO,11.517,-69.5,0,0,0,0,0,0,1,0,0
+1979,9,12,5,17,51.4,definite tsunami,Earthquake,7.9,INDONESIA,IRIAN JAYA,-1.679,136.04,2,1,0,100,0,0,2,400,2
+1979,11,16,15,21,25.7,questionable tsunami,Earthquake,6.9,FIJI,FIJI ISLANDS,-16.76,179.984,0,0,0,0,0,0,0,0,0
+1979,12,12,7,59,3.3,definite tsunami,Earthquake,7.7,COLOMBIA,"COLOMBIA: OFF SHORE, PACIFIC OCEAN",1.598,-79.358,6,2.3,2.5,600,20000,8,3,10000,4
+1980,1,1,16,42,40,definite tsunami,Earthquake,7.2,PORTUGAL,AZORES,38.815,-27.78,0,0,1,0,0,0,0,0,0
+1980,2,23,5,51,3.2,definite tsunami,Earthquake,7,RUSSIA,S. KURIL ISLANDS,43.53,146.753,0.16,-0.7,-2,0,0,0,0,0,0
+1980,6,29,7,20,5.5,definite tsunami,Earthquake,6.2,JAPAN,HONSHU ISLAND,34.808,139.181,0.56,-0.7,0,0,0,0,0,0,0
+1980,7,17,19,42,23.2,definite tsunami,Earthquake,7.9,SOLOMON ISLANDS,SOLOMON ISLANDS,-12.525,165.916,0.14,-1.7,0,0,0,0,0,0,0
+1980,10,10,12,25,23.5,definite tsunami,Earthquake and Landslide,7.7,ALGERIA,EL ASNAM,36.195,1.354,0.7,0,2,0,0,0,0,0,0
+1981,1,18,18,17,24.4,definite tsunami,Earthquake,6.9,JAPAN,E. HONSHU ISLAND,38.64,142.75,0.37,-1.3,0,0,0,0,0,0,0
+1981,2,24,20,53,38.4,definite tsunami,Earthquake,6.7,GREECE,ATHENS-EASTERN GULF OF CORINTH,38.222,22.934,0.3,0,3,0,0,0,0,0,0
+1981,3,4,21,58,5.9,probable tsunami,Earthquake,6.4,GREECE,GULF OF CORINTH,38.209,23.288,1,0,0,0,0,0,0,0,0
+1981,5,25,5,25,14.4,definite tsunami,Earthquake,7.6,NEW ZEALAND,NEW ZEALAND,-48.786,164.357,0.3,-1.7,0,0,0,0,0,0,0
+1981,9,1,9,29,31.5,definite tsunami,Earthquake,7.7,SAMOA,SAMOA ISLANDS,-14.96,-173.085,1,-3.3,-2,0,0,0,1,0,1
+1981,10,25,3,22,15.5,definite tsunami,Earthquake,7.3,MEXICO,MEXICO,18.084,-102.084,0.09,0,0,0,0,0,0,0,0
+1982,1,11,6,10,6.4,questionable tsunami,Earthquake,7.1,PHILIPPINES,PHILIPPINES,13.752,124.358,0.1,0,0,0,0,0,0,0,0
+1982,2,24,4,22,40.3,questionable tsunami,Earthquake,5.4,INDONESIA,JAVA TRENCH,4.374,97.755,0.1,0,0,0,0,0,0,0,0
+1982,3,11,10,32,27.1,very doubtful tsunami,Earthquake,6.6,INDONESIA,SUMBAWA ISLAND,-9.265,118.479,0.1,0,0,0,0,0,0,0,0
+1982,3,21,2,32,7.7,definite tsunami,Earthquake,6.9,JAPAN,HOKKAIDO ISLAND,42.158,142.361,1.3,0.4,0,0,0,0,0,0,0
+1982,7,23,14,23,53.5,definite tsunami,Earthquake,7.2,JAPAN,"IBARAKI, JAPAN",36.194,141.702,0.4,-1.3,-1,0,0,0,0,0,0
+1982,12,19,17,43,54.8,definite tsunami,Earthquake,7.5,TONGA,KERMADEC ISLANDS,-24.133,-175.864,0.2,-2.3,0,0,0,0,0,0,0
+1982,12,25,12,28,2.8,Erroneous entry,Earthquake and Landslide,6,INDONESIA,FLORES SEA,-8.405,123.08,0,0,0,0,0,0,0,0,0
+1982,12,28,6,37,42.5,definite tsunami,Earthquake,6.4,JAPAN,S. OF HONSHU ISLAND,33.826,139.434,0.19,-1.3,-1,0,0,0,0,0,0
+1983,1,17,12,41,29.7,probable tsunami,Earthquake,7.2,GREECE,IONIAN SEA,38.026,20.228,0,0,0,0,0,0,0,0,0
+1983,3,12,1,36,35.8,definite tsunami,Earthquake,6.9,INDONESIA,BANDA SEA,-4.056,127.924,3,1.6,1.5,0,0,0,0,0,0
+1983,3,18,9,5,50,definite tsunami,Earthquake,7.9,PAPUA NEW GUINEA,NEW BRITAIN,-4.883,153.581,0.13,-1.7,0,0,0,0,0,0,0
+1983,5,26,2,59,59.6,definite tsunami,Earthquake,7.8,JAPAN,"NOSHIRO, JAPAN",40.462,139.102,14.93,3.9,2,100,324,800,4,3513,4
+1983,6,9,12,49,3.8,definite tsunami,Earthquake,5.9,JAPAN,"NOSHIRO, JAPAN",40.249,138.948,0.6,0,0,0,0,0,0,0,0
+1983,6,21,6,25,27.3,definite tsunami,Earthquake,6.9,JAPAN,N. HONSHU ISLAND,41.346,139.099,1,0,0,0,0,0,0,0,0
+1983,8,6,15,43,51.2,questionable tsunami,Earthquake,7,GREECE,NORTH AEGEAN SEA,40.142,24.766,0,0,2,0,0,0,0,0,0
+1983,8,17,10,55,54.1,definite tsunami,Earthquake,7.1,RUSSIA,"KAMCHATKA BAY, RUSSIA",55.867,161.287,0.1,-3.3,0,0,0,0,0,0,0
+1983,8,17,12,17,56,definite tsunami,Earthquake,6.6,PHILIPPINES,LUZON ISLAND,18.231,120.86,0.1,0,0,0,0,0,0,0,0
+1983,10,4,18,52,13.3,definite tsunami,Earthquake,7.7,CHILE,NORTHERN CHILE,-26.535,-70.563,0.2,-2.3,0.2,0,0,0,0,0,0
+1983,11,30,17,46,0.6,definite tsunami,Earthquake,7.7,UK TERRITORY,CHAGOS ARCHIPELAGO REGION,-6.852,72.11,1.5,-1.3,0,0,0,0,1,0,0
+1984,1,8,15,24,13.5,very doubtful tsunami,Earthquake,6.8,INDONESIA,SULAWESI,-2.823,118.806,0.1,0,0,0,0,0,0,0,0
+1984,2,11,8,2,51.5,definite tsunami,Earthquake,5.4,GREECE,"CORINTHOS GULF, GREECE",38.396,22.094,0,0,3,0,0,0,0,0,0
+1984,3,24,9,44,2.6,definite tsunami,Earthquake,7.2,RUSSIA,S. KURIL ISLANDS,44.117,148.192,0.2,-2.3,-2,0,0,0,0,0,0
+1984,6,13,2,29,25.3,definite tsunami,Earthquake,5.5,JAPAN,"TORI SHIMA, OKINAWA",31.448,140.036,0.5,0.6,0,0,0,0,0,0,0
+1984,8,6,19,6,38.3,definite tsunami,Earthquake,7,JAPAN,"KYUSHU, JAPAN",32.386,131.945,0.2,-2.3,0,0,0,0,0,0,0
+1984,9,18,17,2,44.3,definite tsunami,Earthquake,6.9,JAPAN,HONSHU ISLAND,34.006,141.5,0.13,-3.3,0,0,0,0,0,0,0
+1984,12,28,10,37,53.7,definite tsunami,Earthquake,6.8,RUSSIA,KAMCHATKA,56.194,163.46,0.2,-2.3,0,0,0,0,0,0,0
+1985,3,3,22,47,9.5,definite tsunami,Earthquake,8,CHILE,CENTRAL CHILE,-33.132,-71.708,3.5,1.6,0,0,0,0,0,0,0
+1985,3,16,14,54,0.7,definite tsunami,Earthquake,6.4,GUADELOUPE (FRENCH TERRITORY),GUADELOUPE,17.013,-62.448,0.12,-3.3,0,0,0,0,0,0,0
+1985,4,13,1,6,0.1,questionable tsunami,Earthquake,6.2,INDONESIA,BALI ISLAND,-9.245,114.185,2,0,0,0,0,0,0,0,0
+1985,7,3,4,36,51.7,definite tsunami,Earthquake and Landslide,7.3,PAPUA NEW GUINEA,NEW IRELAND,-4.439,152.828,1.3,0.4,0,0,0,0,0,0,0
+1985,9,19,13,17,47.3,definite tsunami,Earthquake,8,MEXICO,MEXICO,18.19,-102.533,3,1.6,0,0,0,0,1,0,0
+1985,9,21,1,37,13.4,definite tsunami,Earthquake,7.6,MEXICO,MEXICO,17.802,-101.647,1.2,0.3,0,0,0,0,0,0,0
+1986,5,7,22,47,10.8,definite tsunami,Earthquake,8,USA,"ANDREANOF ISLANDS, AK",51.52,-174.776,0.9,-0.1,0,0,0,0,0,0,0
+1986,5,17,16,20,22.2,very doubtful tsunami,Earthquake,6.4,USA,"ANDREANOF ISLANDS, AK",52.327,-174.504,0,0,0,0,0,0,0,0,0
+1986,10,20,6,46,9.9,definite tsunami,Earthquake,7.8,NEW ZEALAND,KERMADEC ISLANDS,-28.117,-176.367,0.22,-2.18,0,0,0,0,0,0,0
+1986,11,14,21,20,10.5,definite tsunami,Earthquake,7.8,TAIWAN,TAIWAN,23.901,121.574,0.3,0,0,0,0,0,0,0,0
+1987,2,6,13,16,17.8,definite tsunami,Earthquake,6.7,JAPAN,E. HONSHU ISLAND,36.988,141.689,0.1,-3.3,0,0,0,0,0,0,0
+1987,2,8,18,33,58.3,definite tsunami,Earthquake,7.4,PAPUA NEW GUINEA,SOLOMON SEA,-6.088,147.689,1.5,1,0,0,0,0,0,0,0
+1987,3,5,9,17,5.2,definite tsunami,Earthquake,7.6,CHILE,NORTHERN CHILE,-24.388,-70.161,0.2,-2.3,0,0,0,0,0,0,0
+1987,3,18,3,36,30.3,definite tsunami,Earthquake,6.7,JAPAN,KYUSHU ISLAND,32.034,131.837,0.04,-3.3,0,0,0,0,0,0,0
+1987,3,24,12,49,47,definite tsunami,Earthquake,5.1,JAPAN,HONSHU ISLAND,37.447,137.865,0.16,0,0,0,0,0,0,0,0
+1987,6,18,14,3,16.7,very doubtful tsunami,Earthquake,6.3,SOLOMON ISLANDS,SOLOMON ISLANDS,-10.717,162.33,0,0,0,0,0,0,0,0,0
+1987,7,6,2,49,42.7,probable tsunami,Earthquake,6.7,VANUATU,VANUATU ISLANDS,-14.074,167.828,0.1,0,0,0,0,0,0,0,0
+1987,10,6,4,19,6,definite tsunami,Earthquake,7.3,TONGA,TONGA ISLANDS,-17.94,-172.225,0.25,-3.3,0,0,0,0,0,0,0
+1987,10,12,13,57,4.7,definite tsunami,Earthquake,7,PAPUA NEW GUINEA,SOLOMON SEA,-7.288,154.371,0.04,-0.5,0,0,0,0,0,0,0
+1987,10,16,20,48,1.6,definite tsunami,Earthquake,7.4,PAPUA NEW GUINEA,SOLOMON SEA,-6.266,149.06,0.07,-3.3,0,0,0,0,1,0,0
+1987,11,17,8,46,53.3,definite tsunami,Earthquake,7.2,USA,"GULF OF ALASKA, AK",58.586,-143.27,0.06,-3.3,0,0,0,0,0,0,0
+1987,11,26,1,43,14,Erroneous entry,Earthquake,6.6,INDONESIA,TIMOR SEA,-8.247,124.155,0.1,0,0,0,0,0,0,0,0
+1987,11,30,19,23,19.5,definite tsunami,Earthquake,7.9,USA,"GULF OF ALASKA, AK",58.679,-142.786,0.43,-1,0,0,0,0,1,0,0
+1988,2,5,14,1,2.7,definite tsunami,Earthquake,7.2,CHILE,NORTHERN CHILE,-24.753,-70.433,0.1,0,0,0,0,0,0,0,0
+1988,3,6,22,35,36.9,definite tsunami,Earthquake,7.8,USA,"GULF OF ALASKA, AK",57.262,-142.747,0.19,-2.3,0,0,0,0,0,0,0
+1988,6,24,2,6,26.3,definite tsunami,Earthquake,5.4,PHILIPPINES,NORTH OF LUZON ISLAND,18.606,121.013,1.03,0,0,0,0,0,0,0,0
+1988,7,5,20,32,7.2,definite tsunami,Earthquake,6.8,PAPUA NEW GUINEA,PAPUA NEW GUINEA,-5.964,148.78,0,0,0,0,0,0,0,0,0
+1988,8,6,0,36,24.6,event that only caused a seiche or disturbance in an inland river,Earthquake,7.2,BANGLADESH,"JAMUNA RIVER, ARICHA, BANGLADESH",25.149,95.127,0,0,0,3,0,0,0,0,0
+1988,8,10,4,38,29.2,definite tsunami,Earthquake,7.6,SOLOMON ISLANDS,SOLOMON ISLANDS,-10.258,160.896,0.09,-3.3,0,1,0,0,1,100,2
+1989,5,23,10,54,46.3,definite tsunami,Earthquake,8.1,AUSTRALIA,MACQUARIE ISLAND,-52.341,160.568,0.1,-1.7,0,0,0,0,0,0,0
+1989,6,26,3,27,3.9,definite tsunami,Earthquake and Landslide,6.5,USA,HAWAII,19.362,-155.083,0.29,-1.7,0,0,0,0,0,0,0
+1989,9,4,13,14,58.2,definite tsunami,Earthquake,7.1,USA,"SEMIDI ISLANDS, AK",55.543,-156.835,0.1,-3.3,0,0,0,0,0,0,0
+1989,10,18,0,4,15.2,definite tsunami,Earthquake,6.9,USA,N. CALIFORNIA,37.036,-121.883,1,-3.3,0,0,0,0,1,0,0
+1989,10,29,5,25,38.2,definite tsunami,Earthquake,6.5,JAPAN,N. HONSHU ISLAND,39.571,143.333,0.11,0,0,0,0,0,0,0,0
+1989,10,29,19,9,12.9,questionable tsunami,Earthquake,5.9,ALGERIA,"ALGIERS, CHERCHELL, TIPAZA",36.788,2.448,0,0,0,0,0,0,0,0,0
+1989,11,1,10,25,52.2,probable tsunami,Earthquake,4.4,USA TERRITORY,PUERTO RICO,18.986,-68.833,0.1,0,0,0,0,0,0,0,0
+1989,11,1,18,25,34.9,probable tsunami,Earthquake,7.4,JAPAN,JAPAN,39.837,142.76,0.9,-0.7,0,0,0,0,0,0,0
+1990,2,8,7,15,32.2,definite tsunami,Earthquake,6.6,PHILIPPINES,PHILIPPINES,9.755,124.694,2.1,0,0,0,0,0,0,0,0
+1990,2,20,6,53,39.8,definite tsunami,Earthquake,6.4,JAPAN,JAPAN,34.706,139.252,0.16,-1.7,0,0,0,0,0,0,0
+1990,3,25,13,22,55.6,definite tsunami,Earthquake,7,COSTA RICA,COSTA RICA,9.919,-84.808,1,0,0,0,0,0,0,0,0
+1990,4,5,21,12,35.5,definite tsunami,Earthquake,7.5,USA TERRITORY,"MARIANA TRENCH, N. MARIANA ISLANDS",15.125,147.596,1.8,-1,0,0,0,0,0,0,0
+1990,6,20,21,0,9.9,probable tsunami,Earthquake and Landslide,7.3,IRAN,CASPIAN SEA,36.957,49.409,2,0,0,0,0,0,0,0,0
+1990,9,23,21,13,7.4,definite tsunami,Earthquake,6.5,JAPAN,"W. OF BONIN ISLANDS, IZU IS., JAPAN",33.267,138.643,0.2,0,0,0,0,0,0,0,0
+1990,12,13,0,24,25.7,definite tsunami,Earthquake,5.3,ITALY,EASTERN SICILY,37.3,15.438,0.1,0,0,0,0,0,0,0,0
+1990,12,13,19,50,17.8,definite tsunami,Earthquake,6.3,TAIWAN,TAIWAN,23.722,121.627,0.04,0,0,0,0,0,0,0,0
+1991,2,9,16,18,58.3,definite tsunami,Earthquake,6.9,SOLOMON ISLANDS,SOLOMON ISLANDS,-9.929,159.139,0.02,-3.3,0,0,0,0,0,0,0
+1991,2,16,1,23,40.4,definite tsunami,Earthquake,5.7,RUSSIA,N. KURIL ISLANDS,48.268,154.328,0.1,-3.3,0,0,0,0,0,0,0
+1991,2,21,2,35,34,definite tsunami,Earthquake,6.7,USA,"BERING SEA, AK",58.427,-175.45,0.15,-1.7,0,0,0,0,0,0,0
+1991,4,22,21,56,51.8,definite tsunami,Earthquake,7.6,COSTA RICA,"LIMON, PANDORA",9.685,-83.073,3,1,0,2,0,0,1,0,2
+1991,10,14,15,58,12.7,definite tsunami,Earthquake,7.2,SOLOMON ISLANDS,SOLOMON ISLANDS,-9.094,158.442,0.15,-3.3,-2.5,0,0,0,0,0,0
+1991,12,22,8,43,13.4,very doubtful tsunami,Earthquake,7.6,RUSSIA,S. KURIL ISLANDS,45.533,151.021,0.52,0,0.5,0,0,0,0,0,0
+1992,1,5,6,0,0,definite tsunami,Earthquake,3.7,CHINA,SOUTH CHINA SEA,18,108,0.8,-0.3,0,0,0,0,1,0,0
+1992,4,25,18,6,4.2,definite tsunami,Earthquake,7.2,USA,"CAPE MENDOCINO, N. CALIFORNIA",40.368,-124.316,1.8,0.8,0.5,0,0,0,0,0,0
+1992,5,17,10,15,31.3,definite tsunami,Earthquake,7.3,PHILIPPINES,PHILIPPINES,7.191,126.762,6,0,0,0,0,0,1,12,0
+1992,5,27,5,13,38.8,definite tsunami,Earthquake,7.1,SOLOMON ISLANDS,SANTA CRUZ ISLANDS,-11.122,165.239,0,0,0,0,0,0,0,0,0
+1992,7,18,8,36,58.7,definite tsunami,Earthquake,7,JAPAN,HONSHU ISLAND,39.419,143.33,0.3,-2.3,-0.5,0,0,0,0,0,0
+1992,8,11,15,14,55.1,very doubtful tsunami,Earthquake,6.3,JAPAN,,32.536,141.641,0,0,0,0,0,0,0,0,0
+1992,9,2,0,16,2.8,definite tsunami,Earthquake,7.7,NICARAGUA,NICARAGUA,11.727,-87.386,9.9,3.3,2.8,170,489,30,4,1500,4
+1992,12,12,5,29,26.3,definite tsunami,Earthquake,7.8,INDONESIA,FLORES SEA,-8.48,121.896,26.2,4.7,2.7,1169,500,100,4,31785,4
+1993,2,7,13,27,42,definite tsunami,Earthquake,6.3,JAPAN,HONSHU ISLAND,37.634,137.245,0.5,-1,-0.5,0,0,0,0,0,0
+1993,3,12,14,1,35.4,probable tsunami,Earthquake,6.4,WALLIS AND FUTUNA (FRENCH TERRITORY),FUTUNA,-14.385,-178.252,0,0,0,0,0,0,1,0,0
+1993,6,8,13,3,36.4,definite tsunami,Earthquake,7.5,RUSSIA,KAMCHATKA,51.218,157.829,0.1,-1,-0.5,0,0,0,0,0,0
+1993,6,18,11,52,54.8,very doubtful tsunami,Earthquake,6.6,NEW ZEALAND,KERMADEC ISLANDS,-28.886,-176.819,0,0,0,0,0,0,0,0,0
+1993,7,12,13,17,11.9,definite tsunami,Earthquake,7.7,JAPAN,SEA OF JAPAN,42.851,139.197,32,5,3.1,208,233,1207,4,2374,4
+1993,8,7,19,42,41.9,definite tsunami,Earthquake,6.3,JAPAN,JAPAN,41.985,139.839,0.16,0,0,0,0,0,0,0,0
+1993,8,8,8,34,24.9,definite tsunami,Earthquake,7.8,USA TERRITORY,"GUAM, MARIANA ISLANDS",12.982,144.801,2.4,-1,0,0,0,0,1,0,0
+1993,11,13,1,18,4.1,definite tsunami,Earthquake,7,RUSSIA,KAMCHATKA,51.934,158.647,0.05,-3.3,-3,0,0,0,0,0,0
+1994,1,17,12,30,55.3,probable tsunami,Earthquake,6.7,USA,"WEST COAST, USA",34.213,-118.537,0.1,-3.3,-3,0,0,0,0,0,0
+1994,1,21,2,24,29.9,definite tsunami,Earthquake,7,INDONESIA,HALMAHERA,1.015,127.733,2,1,1.5,0,0,0,0,0,0
+1994,2,15,17,7,43.8,Erroneous entry,Earthquake,0,INDONESIA,SOUTHERN SUMATRA,-4.967,104.302,0,0,0,0,0,0,0,0,0
+1994,4,8,1,10,40.8,definite tsunami,Earthquake,6.4,JAPAN,HOKKAIDO ISLAND,40.608,143.683,0.11,-2.3,-1.5,0,0,0,0,0,0
+1994,5,24,4,0,42.1,very doubtful tsunami,Earthquake,6.5,TAIWAN,TAIWAN,23.959,122.448,0.02,0,0,0,0,0,0,0,0
+1994,6,2,18,17,34,definite tsunami,Earthquake,7.8,INDONESIA,SOUTH OF JAVA,-10.477,112.835,13.9,3.7,2.5,238,423,2.2,2,1500,4
+1994,6,3,21,6,59.8,definite tsunami,Earthquake,6.6,INDONESIA,SOUTH OF JAVA,-10.362,112.892,3.7,0,0,0,0,0,0,0,0
+1994,6,4,0,57,50.6,questionable tsunami,Earthquake,6.5,INDONESIA,SOUTH OF JAVA,-10.777,113.366,0,0,0,0,0,0,0,0,0
+1994,6,5,1,45,2.7,definite tsunami,Earthquake,6.1,INDONESIA,SOUTH OF JAVA,-10.341,113.369,3,0,0,0,0,0,0,0,0
+1994,9,1,15,15,53,definite tsunami,Earthquake,7,USA,N. CALIFORNIA,40.402,-125.68,0.07,-3.3,-3,0,0,0,0,0,0
+1994,10,4,13,22,55.8,definite tsunami,Earthquake,8.3,RUSSIA,S. KURIL ISLANDS,43.773,147.321,10.4,2.3,2.6,0,0,0,1,2,1
+1994,10,8,21,44,7.2,definite tsunami,Earthquake,6.8,INDONESIA,HALMAHERA,-1.258,127.98,3,1.6,1.5,1,52,0,2,0,0
+1994,10,9,7,55,39.5,definite tsunami,Earthquake,7.3,RUSSIA,S. KURIL ISLANDS,43.905,147.916,0.2,-3.3,-3,0,0,0,0,0,0
+1994,11,14,19,15,30.6,definite tsunami,Earthquake,7.1,PHILIPPINES,PHILIPPINE ISLANDS,13.525,121.067,7.3,2.9,2.1,81,225,3.7,2,797,3
+1994,12,28,12,19,23,definite tsunami,Earthquake,7.8,JAPAN,"TOHUKU, JAPAN",40.525,143.419,0.53,0,0,0,0,0,0,0,0
+1995,1,16,20,46,52.1,definite tsunami,Earthquake,6.9,JAPAN,"KOBE, JAPAN",34.583,135.018,0.34,-2.3,-2,0,0,0,0,0,0
+1995,4,7,22,6,56.8,definite tsunami,Earthquake,7.4,SAMOA,SAMOA ISLANDS,-15.199,-173.529,0.09,-1.7,-1.5,0,0,0,0,0,0
+1995,4,21,0,34,46,definite tsunami,Earthquake,7.2,PHILIPPINES,SAMAR ISLAND,12.059,125.58,0.2,-3.3,-2,0,0,0,0,0,0
+1995,4,21,5,17,1.3,definite tsunami,Earthquake,6.8,PHILIPPINES,SAMAR ISLAND,12.047,125.92,0.2,-2.3,-2,0,0,0,0,0,0
+1995,5,13,8,47,12.7,Erroneous entry,Earthquake,6.6,GREECE,GREECE,40.149,21.695,0,0,0,0,0,0,0,0,0
+1995,5,14,11,33,21.1,definite tsunami,Earthquake and Landslide,6.9,INDONESIA,TIMOR SEA,-8.452,125.049,4,2,1.5,11,19,0,1,0,2
+1995,5,16,20,12,44.2,definite tsunami,Earthquake,7.7,NEW CALEDONIA,LOYALTY ISLANDS,-23.008,169.9,0.5,-1.3,-2,0,0,0,0,0,0
+1995,5,27,13,3,52.6,definite tsunami,Earthquake,7.1,RUSSIA,SAKHALIN ISLAND,52.629,142.827,0.1,-2.3,-2,0,0,0,0,0,0
+1995,6,15,0,15,48.7,definite tsunami,Earthquake and Landslide,6.5,GREECE,GULF OF CORINTH: AIYION,38.401,22.283,1,-1,3,0,0,0,0,0,0
+1995,7,30,5,11,23.6,definite tsunami,Earthquake,8,CHILE,NORTHERN CHILE,-23.34,-70.294,3,1.6,1.5,0,0,0.131,1,0,3
+1995,8,16,10,27,28.6,definite tsunami,Earthquake,7.7,PAPUA NEW GUINEA,SOLOMON SEA,-5.799,154.178,0.28,-1,-1.5,0,0,0,0,0,0
+1995,9,14,14,4,31.4,probable tsunami,Earthquake,7.4,MEXICO,S. MEXICO,16.779,-98.597,0.4,-1.3,-1,0,0,0,0,0,0
+1995,10,9,15,35,53.9,definite tsunami,Earthquake,8,MEXICO,S. MEXICO,19.055,-104.205,11,2.3,2.5,1,0,0,1,0,1
+1995,10,18,10,37,26.3,definite tsunami,Earthquake,7.1,JAPAN,RYUKYU ISLANDS,27.929,130.175,2.59,0.8,1.5,0,0,0,1,0,0
+1995,10,19,2,41,36.1,definite tsunami,Earthquake and Landslide,6.8,JAPAN,RYUKYU ISLANDS,28.094,130.148,1.5,0.6,0.5,0,0,0,0,0,0
+1995,11,1,0,35,32.7,definite tsunami,Earthquake,6.7,CHILE,NORTHERN CHILE,-28.906,-71.417,0.1,-3.3,-3,0,0,0,0,0,0
+1995,11,22,4,15,11.9,probable tsunami,Earthquake,7.2,EGYPT,EGYPT,28.826,34.799,0.1,0,0,0,0,0,0,0,0
+1995,12,3,18,1,8.9,definite tsunami,Earthquake,7.9,RUSSIA,S. KURIL ISLANDS,44.663,149.3,1.1,0.1,0.5,0,0,0,0,0,0
+1996,1,1,8,5,10.8,definite tsunami,Earthquake,7.9,INDONESIA,SULAWESI,0.729,119.931,3.43,2.3,1.8,9,63,1.2,2,400,3
+1996,2,17,5,59,30.5,definite tsunami,Earthquake,8.2,INDONESIA,IRIAN JAYA,-0.891,136.952,7.7,2.9,1.8,110,100,4.2,2,0,4
+1996,2,21,12,51,1.3,definite tsunami,Earthquake,7.5,PERU,N. PERU,-9.593,-79.587,5.1,2.3,1.9,12,57,0,1,15,1
+1996,2,25,3,8,15.8,definite tsunami,Earthquake,7.1,MEXICO,MEXICO,15.978,-98.07,0.1,-3.3,-3,0,0,0,0,0,0
+1996,6,10,4,3,35.4,definite tsunami,Earthquake,7.9,USA,"ANDREANOF ISLANDS, AK",51.564,-177.632,0.51,0,0.5,0,0,0,0,0,0
+1996,6,10,15,24,56,definite tsunami,Earthquake,7.3,USA,"ANDREANOF ISLANDS, AK",51.478,-176.847,0.18,-3.3,-1.5,0,0,0,0,0,0
+1996,9,4,18,16,1.9,definite tsunami,Earthquake,5.7,JAPAN,HONSHU ISLAND,31.555,139.931,0.3,-2.3,-2,0,0,0,0,0,0
+1996,9,5,8,14,14.4,definite tsunami,Earthquake,6.9,CHILE,EASTER ISLAND REGION,-22.118,-113.436,0.09,-3.3,-2.5,0,0,0,0,0,0
+1996,9,5,23,42,6,definite tsunami,Earthquake,6.8,TAIWAN,TAIWAN REGION,21.898,121.498,0.11,0,0,0,0,0,0,0,0
+1996,10,18,10,50,20.8,definite tsunami,Earthquake,6.6,JAPAN,KYUSHU ISLAND,30.568,131.093,0.2,-2.3,-2.5,0,0,0,0,0,0
+1996,10,19,14,44,40.7,definite tsunami,Earthquake,6.7,JAPAN,KYUSHU ISLAND,31.885,131.468,0.55,0.1,0.5,0,0,0,0,0,0
+1996,11,12,16,59,44,definite tsunami,Earthquake,7.7,PERU,S. PERU,-14.993,-75.675,0.4,-1.7,-1,0,0,0,0,0,0
+1996,12,2,22,17,59.2,definite tsunami,Earthquake,6.7,JAPAN,SEA OF JAPAN,31.789,131.314,0.2,-2.3,-2,0,0,0,0,0,0
+1997,4,21,12,2,26.4,definite tsunami,Earthquake,7.7,SOLOMON ISLANDS,SANTA CRUZ IS. VANUATU,-12.584,166.676,3,-2.3,-2,0,0,0,1,7,1
+1997,7,9,19,24,13.1,probable tsunami,Earthquake,7,VENEZUELA,CARIACO-CUMANA,10.598,-63.486,0,0,0,0,0,0,0,0,0
+1997,9,30,6,27,24.7,definite tsunami,Earthquake,6.2,JAPAN,S. OF HONSHU ISLAND,31.959,141.878,0.03,0,0,0,0,0,0,0,0
+1997,10,14,9,53,18.1,definite tsunami,Earthquake,7.7,TONGA,TONGA ISLANDS,-22.1,-176.77,0.1,0,0,0,0,0,0,0,0
+1997,12,5,11,26,54.6,definite tsunami,Earthquake,7.8,RUSSIA,KAMCHATKA,54.841,162.035,8,0.6,0.5,0,0,0,0,0,0
+1998,3,25,3,12,25,probable tsunami,Earthquake,8.1,ANTARCTICA,BALLENY ISLANDS,-62.877,149.527,0.01,0,0,0,0,0,0,0,0
+1998,5,3,23,30,21.9,definite tsunami,Earthquake,7.5,TAIWAN,TAIWAN: SOUTHEAST OF,22.306,125.308,0.13,0,0,0,0,0,0,0,0
+1998,7,17,8,49,16.1,definite tsunami,Earthquake and Landslide,7,PAPUA NEW GUINEA,PAPUA NEW GUINEA,-2.943,142.582,15.03,0,0,1636,1000,0,3,0,3
+1998,11,29,14,10,31.9,questionable tsunami,Earthquake,7.7,INDONESIA,"TALIABU ISLAND,",-2.071,124.891,2.75,0,0,0,0,0,0,0,0
+1999,8,17,0,1,39.1,definite tsunami,Earthquake,7.6,TURKEY,"KOCAELI, TURKEY",40.76,29.97,2.52,0,0,155,0,0,2,0,0
+1999,11,26,13,21,15.5,definite tsunami,Earthquake,7.5,VANUATU,VANUATU ISLANDS,-16.423,168.214,6.6,0,0,5,0,0,3,0,3
+2000,4,5,4,36,59.8,questionable tsunami,Earthquake,5.5,GREECE,CRETE,34.22,25.69,0.5,0,0,0,0,0,0,0,0
+2000,5,4,4,21,16.2,definite tsunami,Earthquake,7.6,INDONESIA,SULAWESI,-1.105,123.573,6,0,0,0,0,0,3,0,0
+2000,6,18,14,44,13.3,definite tsunami,Earthquake,7.9,AUSTRALIA,SOUTH INDIAN OCEAN,-13.802,97.453,0.3,0,0,0,0,0,0,0,0
+2000,7,1,7,1,55.5,definite tsunami,Earthquake,6.1,JAPAN,"KOZU-SHIMA ISLAND, HONSHU",34.221,139.131,0.07,0,0,0,0,0,0,0,0
+2000,7,15,1,30,30.5,definite tsunami,Earthquake,6.1,JAPAN,HONSHU: S COAST,34.319,139.26,0.07,0,0,0,0,0,0,0,0
+2000,7,30,12,25,45.5,definite tsunami,Earthquake,6.5,JAPAN,HONSHU: S COAST,33.901,139.376,0.14,0,0,0,0,0,0,0,0
+2000,11,16,4,54,55.9,definite tsunami,Earthquake,8,PAPUA NEW GUINEA,BISMARCK SEA,-4.001,152.327,3,0,0,0,0,0,2,0,0
+2001,1,13,17,33,32.3,probable tsunami,Earthquake,7.7,EL SALVADOR,EL SALVADOR,13.049,-88.66,0.25,0,0,0,0,0,0,0,0
+2001,6,23,20,33,14.1,definite tsunami,Earthquake,8.4,PERU,S. PERU,-16.265,-73.641,8.8,0,0,26,0,0,4,2000,4
+2001,10,12,5,2,34,definite tsunami,Earthquake,6.1,CANADA,QUEEN CHARLOTTE ISLANDS,52.63,-132.2,0.11,0,0,0,0,0,0,0,0
+2001,12,18,4,2,58.2,definite tsunami,Earthquake,6.8,TAIWAN,TAIWAN,23.954,122.734,0.12,0,0,0,0,0,0,0,0
+2002,1,2,17,22,48.7,definite tsunami,Earthquake,7.2,VANUATU,VANUATU ISLANDS,-17.6,167.856,3,-4.64,-4.14,0,0,0,0,0,0
+2002,3,5,21,16,9.1,definite tsunami,Earthquake,7.5,PHILIPPINES,"MINDANAO ISLAND, PHILIPPINES",6.033,124.249,3,0,0,0,0,0,1,0,0
+2002,3,26,3,45,48.7,probable tsunami,Earthquake,6.4,JAPAN,JAPAN,23.346,124.09,0.05,0,0,0,0,0,0,0,0
+2002,3,31,6,52,50.4,definite tsunami,Earthquake,7.1,TAIWAN,TAIWAN,24.279,122.179,0.2,0,0,0,0,0,0,0,0
+2002,9,8,18,44,25.5,definite tsunami,Earthquake,7.6,PAPUA NEW GUINEA,BISMARCK SEA,-3.26,142.94,5.5,0.58,1.08,0,0,0,1,0,1
+2002,9,13,22,28,29.4,definite tsunami,Earthquake,6.5,INDIA,"ANDAMAN ISLANDS, INDIA",13.036,93.068,0,0,0,0,0,0,1,0,0
+2002,10,10,10,50,20.5,very doubtful tsunami,Earthquake,7.6,INDONESIA,IRIAN JAYA,-1.757,134.297,5,2.32,2.82,0,0,0,0,0,0
+2003,1,20,8,43,6,definite tsunami,Earthquake,7.3,SOLOMON ISLANDS,SOLOMON ISLANDS,-10.491,160.77,2,0,0,0,0,0,0,0,0
+2003,1,22,2,6,34.6,definite tsunami,Earthquake,7.5,MEXICO,S. MEXICO,18.77,-104.104,0.61,0,0.5,0,0,0,0,0,0
+2003,5,21,18,44,20.1,definite tsunami,Earthquake,6.8,ALGERIA,N. ALGERIA,36.964,3.634,3,1,1.5,0,0,0,2,0,3
+2003,5,27,17,11,28.8,definite tsunami,Earthquake,5.7,ALGERIA,ALGIERS,36.939,3.578,0.08,0,0,0,0,0,0,0,0
+2003,8,21,12,12,49.7,definite tsunami,Earthquake and Landslide,7.2,NEW ZEALAND,SOUTH ISLAND,-45.104,167.144,0.15,0,0,0,0,0,0,0,0
+2003,9,25,19,50,6.3,definite tsunami,Earthquake,8.3,JAPAN,HOKKAIDO ISLAND,41.815,143.91,4.4,0,0,2,0,0,1,0,0
+2003,10,31,1,6,28.2,definite tsunami,Earthquake,7,JAPAN,E. HONSHU ISLAND,37.812,142.619,0.32,0,0,0,0,0,0,0,0
+2003,11,17,6,43,6.8,definite tsunami,Earthquake,7.8,USA,"RAT ISLANDS, ALEUTIAN ISLANDS, AK",51.146,178.65,0.33,0,0,0,0,0,0,0,0
+2003,12,27,4,55,25.4,definite tsunami,Earthquake,6.1,NEW CALEDONIA,LOYALTY ISLANDS,-22.107,169.35,0.15,0,0,0,0,0,0,0,0
+2004,1,28,22,15,30.7,definite tsunami,Earthquake,6.7,INDONESIA,SERAM ISLAND,-3.12,127.4,0,0,0,0,0,0,0,0,0
+2004,2,11,8,15,3.8,definite tsunami,Earthquake,5.3,JORDAN,DEAD SEA,31.675,35.551,1,0,0,0,0,0,0,0,0
+2004,9,5,10,7,7.8,definite tsunami,Earthquake,7.2,JAPAN,SOUTH COAST HONSHU ISLAND,33.07,136.618,0.63,0,0,0,0,0,0,0,0
+2004,9,5,14,57,18.6,definite tsunami,Earthquake,7.4,JAPAN,SOUTH COAST HONSHU ISLAND,33.184,137.071,0.93,0,0,0,0,0,0,0,0
+2004,11,2,10,2,12.8,definite tsunami,Earthquake,6.6,CANADA,VANCOUVER ISLAND,49.277,-128.772,0.06,0,0,0,0,0,0,0,0
+2004,11,11,21,26,41.1,definite tsunami,Earthquake,7.5,INDONESIA,KEPULAUAN ALOR,-8.152,124.868,2,0,0,0,0,0,1,0,0
+2004,11,21,11,41,7.7,definite tsunami,Earthquake,6.3,GUADELOUPE (FRENCH TERRITORY),"BASSE-TERRE, LES SAINTES",15.679,-61.706,0.7,0,0,0,0,0,0,0,0
+2004,11,22,20,26,23.9,definite tsunami,Earthquake,7.1,NEW ZEALAND,PUYSEGUR TRENCH,-46.676,164.721,0,0,0,0,0,0,0,0,0
+2004,11,28,18,32,14.1,definite tsunami,Earthquake,7,JAPAN,HOKKAIDO ISLAND,43.006,145.119,0.12,0,0,0,0,0,0,0,0
+2004,12,23,14,59,4.4,definite tsunami,Earthquake,8.1,AUSTRALIA,MACQUARIE ISLAND,-49.312,161.345,0.3,0,0,0,0,0,0,0,0
+2004,12,26,0,58,53.4,definite tsunami,Earthquake,9.1,INDONESIA,OFF W. COAST OF SUMATRA,3.316,95.854,50.9,0,0,227899,0,10000,4,0,3
+2005,1,19,6,11,36.4,definite tsunami,Earthquake,6.6,JAPAN,E. HONSHU ISLAND,34.064,141.491,0.39,0,0,0,0,0,0,0,0
+2005,2,14,18,5,59.3,probable tsunami,Earthquake,5.8,GUADELOUPE (FRENCH TERRITORY),DOMINICA PASSAGE,15.775,-61.744,0,0,0,0,0,0,0,0,0
+2005,3,28,16,9,36.5,definite tsunami,Earthquake,8.6,INDONESIA,INDONESIA,2.085,97.108,4.2,0,0,10,0,0,1,0,0
+2005,4,10,10,29,11.2,definite tsunami,Earthquake,6.7,INDONESIA,KEPULAUAN MENTAWAI,-1.644,99.607,0.4,0,0,0,0,0,0,0,0
+2005,6,15,2,50,53.1,definite tsunami,Earthquake,7.2,USA,N. CALIFORNIA,41.301,-125.97,0.1,0,0,0,0,0,0,0,0
+2005,8,16,2,46,28.4,definite tsunami,Earthquake,7.2,JAPAN,E. COAST HONSHU ISLAND,38.276,142.039,0.05,0,0,0,0,0,0,0,0
+2005,11,14,21,38,51.4,definite tsunami,Earthquake,7,JAPAN,E. COAST HONSHU ISLAND,38.107,144.896,0.42,0,0,0,0,0,0,0,0
+2006,3,14,6,57,33.8,definite tsunami,Earthquake,6.7,INDONESIA,SERAM ISLAND,-3.595,127.214,3.5,0,0,4,0,0,2,241,3
+2006,5,3,15,26,40.2,definite tsunami,Earthquake,8,TONGA,TONGA,-20.187,-174.123,0.27,0,0,0,0,0,0,0,0
+2006,7,17,8,19,28.7,definite tsunami,Earthquake,7.7,INDONESIA,SOUTH OF JAVA,-9.254,107.411,20.9,0,0,802,498,55,4,1623,4
+2006,9,28,6,22,9.7,definite tsunami,Earthquake,6.9,SAMOA,SAMOA ISLANDS,-16.592,-172.033,0.08,0,0,0,0,0,0,0,0
+2006,10,15,17,7,49.2,definite tsunami,Earthquake,6.7,USA,HAWAII,19.878,-155.935,0.1,0,0,0,0,0,0,0,0
+2006,11,15,11,14,13.5,definite tsunami,Earthquake,8.3,RUSSIA,S. KURIL ISLANDS,46.592,153.266,21.9,0,0,0,1,0,2,0,0
+2006,12,26,12,26,21.4,definite tsunami,Earthquake,7,CHINA,TAIWAN,21.799,120.547,0.07,0,0,0,0,0,0,0,0
+2007,1,13,4,23,21.1,definite tsunami,Earthquake,8.1,RUSSIA,S. KURIL ISLANDS,46.243,154.524,0.4,0,0,0,0,0,0,0,0
+2007,3,25,0,40,1.6,definite tsunami,Earthquake,7.1,VANUATU,VANUATU ISLANDS,-20.617,169.357,0.08,0,0,0,0,0,0,0,0
+2007,3,25,0,41,57.8,definite tsunami,Earthquake,6.7,JAPAN,HONSHU: W COAST,37.336,136.588,0.1,0,0,0,0,0,0,0,0
+2007,4,1,20,39,56.3,definite tsunami,Earthquake,8.1,SOLOMON ISLANDS,SOLOMON ISLANDS,-8.46,157.044,12.1,0,0,50,0,0,3,2500,4
+2007,4,21,17,53,46.3,definite tsunami,Earthquake and Landslide,6.2,CHILE,SOUTHERN CHILE,-45.285,-72.606,50,0,0,8,0,0,1,0,0
+2007,7,16,1,13,22,definite tsunami,Earthquake,6.6,JAPAN,HONSHU: W COAST,37.57,138.478,0,0,0,0,0,0,0,0,0
+2007,8,2,2,37,42.3,definite tsunami,Earthquake,6.2,RUSSIA,TATAR STRAIT,47.116,141.798,3.2,0,0,0,0,0,0,0,0
+2007,8,2,3,21,42.8,definite tsunami,Earthquake,6.7,USA,"ALEUTIAN ISLANDS, AK",51.307,-179.971,0.03,0,0,0,0,0,0,0,0
+2007,8,15,23,40,57.8,definite tsunami,Earthquake,8,PERU,S. PERU,-13.386,-76.603,10.05,0,0,3,0,0,1,0,1
+2007,9,2,1,5,18.1,definite tsunami,Earthquake,7.2,SOLOMON ISLANDS,SANTA CRUZ ISLANDS,-11.61,165.762,0.05,0,0,0,0,0,0,0,0
+2007,9,12,11,10,26.8,definite tsunami,Earthquake,8.4,INDONESIA,SUMATRA,-4.438,101.367,5,0,0,0,0,0,1,0,0
+2007,9,30,5,23,34,definite tsunami,Earthquake,7.4,NEW ZEALAND,AUCKLAND ISLANDS,-49.418,163.954,0.25,0,0,0,0,0,0,0,0
+2007,11,14,15,40,50.5,definite tsunami,Earthquake,7.7,CHILE,NORTHERN CHILE,-22.247,-69.89,0.28,0,0,0,0,0,0,0,0
+2007,11,29,19,0,20.4,very doubtful tsunami,Earthquake,7.4,MARTINIQUE (FRENCH TERRITORY),MARTINIQUE,14.944,-61.274,0,0,0,0,0,0,0,0,0
+2007,12,9,7,28,20.8,definite tsunami,Earthquake,7.8,KERMADEC ISLANDS,KERMADEC ISLANDS,-25.996,-177.514,0.03,0,0,0,0,0,0,0,0
+2008,2,25,8,36,33,definite tsunami,Earthquake,6.5,INDONESIA,SUMATRA,-2.486,99.972,0.12,0,0,0,0,0,0,0,0
+2008,4,9,12,46,12.7,definite tsunami,Earthquake,7.3,NEW CALEDONIA,LOYALTY ISLANDS,-20.071,168.892,0.16,0,0,0,0,0,0,0,0
+2008,4,28,18,33,34.2,very doubtful tsunami,Earthquake,6.4,VANUATU,VANUATU ISLANDS,-19.941,168.953,0.03,0,0,0,0,0,0,0,0
+2008,5,12,6,28,1.5,event that only caused a seiche or disturbance in an inland river,Earthquake,7.9,CHINA,SICHUAN PROVINCE,31.002,103.322,0,0,0,0,0,0,0,0,0
+2008,7,19,2,39,28.7,definite tsunami,Earthquake,6.9,JAPAN,OFF EAST COAST OF HONSHU ISLAND,37.552,142.214,0.2,0,0,0,0,0,0,0,0
+2008,9,11,0,20,50.9,definite tsunami,Earthquake,6.8,JAPAN,HOKKAIDO ISLAND,41.892,143.754,0.09,0,0,0,0,0,0,0,0
+2008,11,16,17,2,32.7,definite tsunami,Earthquake,7.3,INDONESIA,SULAWESI,1.271,122.091,0.13,0,0,0,0,0,0,0,0
+2009,1,3,19,43,50.6,definite tsunami,Earthquake,7.6,INDONESIA,NEAR NORTH COAST,-0.414,132.885,0.39,0,0,0,0,0,0,0,0
+2009,1,3,22,33,40.2,probable tsunami,Earthquake,7.3,INDONESIA,NEAR NORTH COAST,-0.691,133.305,0,0,0,0,0,0,0,0,0
+2009,1,15,17,49,39,definite tsunami,Earthquake,7.4,RUSSIA,KAMCHATKA,46.857,155.154,0.11,0,0,0,0,0,0,0,0
+2009,2,11,17,34,50.8,definite tsunami,Earthquake,7.2,INDONESIA,CELEBES SEA,3.884,126.397,0.13,0,0,0,0,0,0,0,0
+2009,3,19,18,17,40.9,definite tsunami,Earthquake,7.6,TONGA,TONGA,-23.046,-174.659,0.15,0,0,0,0,0,0,0,0
+2009,5,28,8,24,45,definite tsunami,Earthquake,7.3,HONDURAS,OFF COAST OF HONDURAS,16.72,-86.236,4,0,0,0,0,0,0,0,0
+2009,7,15,9,22,29,definite tsunami,Earthquake,7.8,NEW ZEALAND,OFF WEST COAST OF SOUTH ISLAND,-45.762,166.562,0.47,0,0,0,0,0,0,0,0
+2009,8,10,19,55,35.6,probable tsunami,Earthquake,7.5,INDIA,ANDAMAN ISLANDS,14.099,92.888,0.01,0,0,0,0,0,0,0,0
+2009,8,10,20,7,9.1,definite tsunami,Earthquake,6.4,JAPAN,HONSHU: S COAST,34.743,138.264,0.6,0,0,0,0,0,0,0,0
+2009,8,16,7,38,21.7,definite tsunami,Earthquake,6.7,INDONESIA,SUMATRA,-1.479,99.49,0.18,0,0,0,0,0,0,0,0
+2009,9,29,17,48,10.9,definite tsunami,Earthquake,8.1,SAMOA,SAMOA ISLANDS,-15.489,-172.095,22.35,0,0,192,7,285,4,0,0
+2009,9,30,10,16,9.2,definite tsunami,Earthquake,7.5,INDONESIA,SUMATRA,-0.72,99.867,0.27,0,0,0,0,0,0,0,0
+2009,10,7,22,3,14.4,definite tsunami,Earthquake,7.6,VANUATU,VANUATU ISLANDS,-13.006,166.51,0.29,0,0,0,0,0,0,0,0
+2010,1,3,21,48,5.3,definite tsunami,Earthquake,6.6,SOLOMON ISLANDS,SOLOMON ISLANDS,-8.743,157.477,0.01,0,0,0,0,0,0,0,0
+2010,1,3,22,36,27.9,definite tsunami,Earthquake,7.1,SOLOMON ISLANDS,SOLOMON ISLANDS,-8.799,157.346,7.52,0,0,0,0,0,1,0,1
+2010,1,5,12,15,32.2,definite tsunami,Earthquake,6.8,SOLOMON ISLANDS,SOLOMON ISLANDS,-9.019,157.551,0.03,0,0,0,0,0,0,0,0
+2010,1,12,21,53,10,definite tsunami,Earthquake and Landslide,7,HAITI,HAITI & DOMINICAN REPUBLIC,18.457,-72.533,3.21,0,0,7,0,0,1,0,1
+2010,2,26,20,31,26.9,probable tsunami,Earthquake,7,JAPAN,RYUKYU ISLANDS,25.93,128.425,0.1,0,0,0,0,0,0,0,0
+2010,2,27,6,34,11.5,definite tsunami,Earthquake,8.8,CHILE,CENTRAL CHILE,-36.122,-72.898,29,0,0,156,12000,30000,4,0,0
+2010,3,11,14,39,43.9,definite tsunami,Earthquake,6.9,CHILE,CENTRAL CHILE,-34.29,-71.891,0.14,0,0,0,0,0,0,0,0
+2010,4,6,22,15,1.5,definite tsunami,Earthquake,7.8,INDONESIA,SUMATRA,2.383,97.048,0.44,0,0,0,0,0,0,0,0
+2010,6,12,19,26,50.4,definite tsunami,Earthquake,7.5,INDIA,LITTLE NICOBAR ISLAND,7.881,91.936,0.03,0,0,0,0,0,0,0,0
+2010,8,10,5,23,44.9,definite tsunami,Earthquake,7.2,VANUATU,VANUATU ISLANDS,-17.541,168.069,0.23,0,0,0,0,0,0,0,0
+2010,8,13,21,19,33,definite tsunami,Earthquake,6.9,USA TERRITORY,"GUAM, MARIANA ISLANDS",12.484,141.476,0.07,0,0,0,0,0,0,0,0
+2010,10,25,14,42,22,definite tsunami,Earthquake,7.8,INDONESIA,SUMATRA,-3.487,100.082,16.9,0,0,431,0,39,4,700,3
+2010,12,21,17,19,40.6,definite tsunami,Earthquake,7.4,JAPAN,BONIN ISLANDS,26.901,143.698,0.13,0,0,0,0,0,0,0,0
+2010,12,25,13,16,37,definite tsunami,Earthquake,7.3,VANUATU,VANUATU ISLANDS,-19.702,167.947,4.1,0,0,0,4,0,1,0,0
+2011,1,9,10,3,44.2,definite tsunami,Earthquake,6.5,VANUATU,VANUATU ISLANDS,-19.157,168.311,0.03,0,0,0,0,0,0,0,0
+2011,2,11,20,5,30.7,definite tsunami,Earthquake,6.8,CHILE,CENTRAL CHILE,-36.474,-73.125,0.15,0,0,0,0,0,0,0,0
+2011,2,21,23,51,42.3,questionable tsunami,Earthquake and Landslide,6.1,NEW ZEALAND,SOUTH ISLAND,-43.583,172.68,3.5,0,0,0,0,0,0,0,0
+2011,3,9,2,45,20.3,definite tsunami,Earthquake,7.5,JAPAN,HONSHU ISLAND,38.435,142.842,0.6,0,0,0,0,0,0,0,0
+2011,3,11,5,46,24.1,definite tsunami,Earthquake,9.1,JAPAN,HONSHU ISLAND,38.297,142.372,38.9,0,0,18434,6157,220085.456,4,123661,4
+2011,4,7,14,32,43.2,definite tsunami,Earthquake,7.1,JAPAN,E. COAST HONSHU ISLAND,38.276,141.588,0.08,0,0,0,0,0,0,0,0
+2011,6,24,3,9,39.4,definite tsunami,Earthquake,7.3,USA,"ATKA, ALEUTIAN ISLANDS, AK",52.05,-171.836,0.1,0,0,0,0,0,0,0,0
+2011,7,6,19,3,18.2,definite tsunami,Earthquake,7.6,NEW ZEALAND,KERMADEC ISLANDS,-29.539,-176.34,1.2,0,0,0,0,0,0,0,0
+2011,7,10,0,57,10.8,definite tsunami,Earthquake,7,JAPAN,OFF EAST COAST OF HONSHU ISLAND,38.034,143.264,0.09,0,0,0,0,0,0,0,0
+2011,8,20,16,55,2.5,definite tsunami,Earthquake,7.1,VANUATU,VANUATU ISLANDS,-18.365,168.143,0.18,0,0,0,0,0,0,0,0
+2011,8,20,18,19,23.5,definite tsunami,Earthquake,7,VANUATU,VANUATU ISLANDS,-18.311,168.218,0.18,0,0,0,0,0,0,0,0
+2011,9,2,10,55,53.5,definite tsunami,Earthquake,6.8,USA,"FOX ISLANDS, ALEUTIAN ISLANDS, AK",52.171,-171.708,0.06,0,0,0,0,0,0,0,0
+2011,10,21,17,57,16.1,definite tsunami,Earthquake,7.4,NEW ZEALAND,KERMADEC ISLANDS,-28.993,-176.238,0.14,0,0,0,0,0,0,0,0
+2012,2,2,13,34,40.6,definite tsunami,Earthquake,7,VANUATU,VANUATU ISLANDS,-17.827,167.133,0.08,0,0,0,0,0,0,0,0
+2012,3,9,7,9,50.9,probable tsunami,Earthquake,6.7,VANUATU,OFF EAST COAST OF VANUATU,-19.125,169.613,0,0,0,0,0,0,0,0,0
+2012,3,14,9,8,35.1,definite tsunami,Earthquake,6.9,JAPAN,HOKKAIDO ISLAND,40.887,144.944,0.2,0,0,0,0,0,0,0,0
+2012,3,20,18,2,47.4,definite tsunami,Earthquake,7.4,MEXICO,S. MEXICO,16.493,-98.231,0.2,0,0,0,0,0,0,0,0
+2012,4,11,8,38,36.7,definite tsunami,Earthquake,8.6,INDONESIA,OFF W. COAST OF N SUMATRA,2.327,93.063,0,0,0,0,0,0,0,0,0
+2012,4,11,10,43,10.8,definite tsunami,Earthquake,8.2,INDONESIA,OFF W. COAST OF N SUMATRA,0.802,92.463,0,0,0,0,0,0,0,0,0
+2012,4,14,22,5,26.4,definite tsunami,Earthquake,6.3,VANUATU,VANUATU ISLANDS,-18.972,168.741,0,0,0,0,0,0,0,0,0
+2012,8,27,4,37,19.4,definite tsunami,Earthquake,7.3,EL SALVADOR,EL SALVADOR-NICARAGUA,12.139,-88.59,6.3,0,0,0,40,0,1,0,0
+2012,8,31,12,47,33.3,definite tsunami,Earthquake,7.6,PHILIPPINES,PHILIPPINE ISLANDS,10.811,126.638,0.15,0,0,0,0,0,0,0,0
+2012,9,5,14,42,7.8,definite tsunami,Earthquake,7.6,COSTA RICA,COSTA RICA,10.085,-85.315,0.16,0,0,0,0,0,0,0,0
+2012,10,28,3,4,8.8,definite tsunami,Earthquake,7.7,CANADA,BRITISH COLUMBIA,52.788,-132.101,12.98,0,0,1,0,0,0,0,0
+2012,11,7,16,35,46.9,definite tsunami,Earthquake,7.3,GUATEMALA,GUATEMALA,13.988,-91.895,0.35,0,0,0,0,0,0,0,0
+2012,12,7,8,18,23.1,definite tsunami,Earthquake,7.2,JAPAN,OFF EAST COAST OF HONSHU ISLAND,37.89,143.949,1,0,0,0,0,0,0,0,0
+2013,1,5,8,58,19.3,definite tsunami,Earthquake,7.5,USA,"SE. ALASKA, AK",55.393,-134.652,1.5,0,0,0,0,0,1,0,0
+2013,2,6,1,12,25.8,definite tsunami,Earthquake,7.9,SOLOMON ISLANDS,SANTA CRUZ ISLANDS,-10.766,165.114,11,0,0,10,15,0,2,588,3
+2013,2,8,15,26,38.4,definite tsunami,Earthquake,7,SOLOMON ISLANDS,SANTA CRUZ ISLANDS,-10.928,166.018,0.09,0,0,0,0,0,0,0,0
+2013,4,19,3,5,52.6,questionable tsunami,Earthquake,7.2,RUSSIA,S. KURIL ISLANDS,46.221,150.788,0.2,0,0,0,0,0,0,0,0
+2013,7,21,5,9,31.4,definite tsunami,Earthquake,6.5,NEW ZEALAND,COOK STRAIT,-41.704,174.337,0.07,0,0,0,0,0,0,0,0
+2013,8,16,2,31,47,definite tsunami,Earthquake,6.5,NEW ZEALAND,WELLINGTON,-41.731,174.027,0.08,0,0,0,0,0,0,0,0
+2013,10,25,17,10,0,definite tsunami,Earthquake,7.1,JAPAN,E. COAST HONSHU ISLAND,37.2,144.6,0.4,0,0,0,0,0,0,0,0
+2013,11,17,9,4,53,definite tsunami,Earthquake,7.7,ANTARCTICA,SCOTIA SEA,-60.274,-46.401,0.15,0,0,0,0,0,0,0,0
+2014,3,16,21,16,0,definite tsunami,Earthquake,6.7,CHILE,NORTHERN CHILE,-19.965,-70.814,0.26,0,0,0,0,0,0,0,0
+2014,4,1,23,46,26,definite tsunami,Earthquake,8.2,CHILE,NORTHERN CHILE,-19.61,-70.769,4.63,0,0,0,0,0,1,0,0
+2014,4,3,2,43,11,definite tsunami,Earthquake,7.7,CHILE,NORTHERN CHILE,-20.571,-70.493,0.74,0,0,0,0,0,0,0,0
+2014,4,12,20,14,3,definite tsunami,Earthquake,7.6,SOLOMON ISLANDS,SOLOMON ISLANDS,-11.27,162.148,0.03,0,0,0,0,0,0,0,0
+2014,4,13,12,36,23,definite tsunami,Earthquake,7.4,SOLOMON ISLANDS,SOLOMON ISLANDS,-11.463,162.051,0.16,0,0,0,0,0,0,0,0
+2014,4,18,14,28,32,definite tsunami,Earthquake,7.2,MEXICO,S. MEXICO,17.397,-100.972,0.43,0,0,0,0,0,0,0,0
+2014,4,19,13,29,21,definite tsunami,Earthquake,7.5,PAPUA NEW GUINEA,SOLOMON SEA,-6.755,155.024,0.11,0,0,0,0,0,0,0,0
+2014,6,23,19,20,34,definite tsunami,Earthquake,6.9,NEW ZEALAND,"S OF RAOUL ISLAND, KERMADEC ISLANDS",-29.977,-177.725,0.13,0,0,0,0,0,0,0,0
+2014,6,23,20,53,7,definite tsunami,Earthquake,7.9,USA,"ALEUTIAN ISLANDS, AK",51.849,178.735,0.17,0,0,0,0,0,0,0,0
+2014,7,11,19,23,22,definite tsunami,Earthquake,6.5,JAPAN,SANRIKU,37.005,142.453,0.2,0,0,0,0,0,0,0,0
+2014,7,25,10,55,12,definite tsunami,Earthquake,6.1,USA,"PALMA BAY, AK",58.306,-136.96,0.08,0,0,0,0,0,0,0,0
+2014,10,9,2,14,44,definite tsunami,Earthquake,7,CHILE,EASTER ISLAND REGION,-32.108,-110.811,0.47,0,0,0,0,0,0,0,0
+2014,10,14,3,51,46,definite tsunami,Earthquake,7.3,EL SALVADOR,GULF OF FONSECA,12.526,-88.123,0.02,0,0,0,0,0,0,0,0
+2014,11,15,2,32,12,probable tsunami,Earthquake,7.1,INDONESIA,N. MOLUCCAS ISLANDS,1.893,126.522,0.09,0,0,0,0,0,0,0,0
+2015,2,16,23,6,27,definite tsunami,Earthquake,6.7,JAPAN,HONSHU,39.856,142.881,0.27,0,0,0,0,0,0,0,0
+2015,2,19,13,18,32,definite tsunami,Earthquake,6.4,VANUATU,VANUATU ISLANDS,-16.431,168.148,8,0,0,0,0,0,1,0,0
+2015,3,29,23,48,1,definite tsunami,Earthquake,7.5,PAPUA NEW GUINEA,BISMARCK SEA,-4.729,152.562,0.5,0,0,0,0,0,0,0,0
+2015,5,2,16,51,39,probable tsunami,Earthquake,5.7,JAPAN,S. OF HONSHU ISLAND,31.529,140.213,0.6,0,0,0,0,0,0,0,0
+2015,5,5,1,44,38,probable tsunami,Earthquake,7.5,PAPUA NEW GUINEA,NEW BRITAIN,-5.462,151.875,1,0,0,0,0,0,0,0,0
+2015,7,10,4,12,54,definite tsunami,Earthquake,6.7,SOLOMON ISLANDS,SOLOMON ISLANDS,-9.307,158.403,0.01,0,0,0,0,0,0,0,0
+2015,7,18,2,28,22,definite tsunami,Earthquake,7,SOLOMON ISLANDS,SANTA CRUZ ISLANDS,-10.401,165.141,0.09,0,0,0,0,0,0,0,0
+2015,7,27,4,49,0,definite tsunami,Earthquake,6.9,USA,"FOX ISLANDS, ALEUTIAN ISLANDS, AK",52.214,-169.399,0.08,0,0,0,0,0,0,0,0
+2015,9,16,22,55,26,definite tsunami,Earthquake,8.3,CHILE,CENTRAL CHILE,-31.573,-71.674,13.6,8.4,0,8,0,0,1,0,0
+2015,11,11,1,54,0,definite tsunami,Earthquake,6.9,CHILE,CENTRAL CHILE,-29.46,-72.12,0.55,0,0,0,0,0,0,0,0
+2015,11,13,20,51,3,definite tsunami,Earthquake,6.7,JAPAN,JAPAN,31.001,128.873,0.3,0,0,0,0,0,0,0,0
+2015,11,17,7,10,3,definite tsunami,Earthquake and Landslide,6.5,GREECE,IONIAN SEA,38.67,20.6,0.15,0,0,0,0,0,0,0,0
+2016,3,2,12,49,11,definite tsunami,Earthquake,7.8,INDONESIA,SW. SUMATRA,-4.952,94.33,0.21,0,0,0,0,0,0,0,0
+2016,4,16,23,58,0,definite tsunami,Earthquake,7.8,ECUADOR,OFF COAST,0.35,-80.16,0.5,0,0,0,0,0,0,0,0
+2016,4,28,19,33,7,probable tsunami,Earthquake,7,VANUATU,VANUATU ISLANDS,-16.043,167.379,0.02,0,0,0,0,0,0,0,0
+2016,8,12,1,26,28,definite tsunami,Earthquake,7.2,NEW CALEDONIA,LOYALTY ISLANDS,-22.477,173.117,0.19,0,0,0,0,0,0,0,0
+2016,8,19,7,33,11,probable tsunami,Earthquake,7.4,UK TERRITORY,SOUTHERN ATLANTIC OCEAN,-55.285,-31.877,0.1,0,0,0,0,0,0,0,0
+2016,9,1,16,37,3,definite tsunami,Earthquake,7,NEW ZEALAND,GISBORNE,-37.359,179.146,0.21,0,0,0,0,0,0,0,0
+2016,11,13,11,2,34,definite tsunami,Earthquake,7.8,NEW ZEALAND,OFF EAST COAST OF SOUTH ISLAND,-42.737,173.054,6.9,0,0,0,0,0,1,1,1
+2016,11,21,20,59,27,definite tsunami,Earthquake,6.9,JAPAN,E. COAST HONSHU ISLAND,37.393,141.387,1.44,0,0,0,0,0,1,0,0
+2016,11,24,18,43,0,definite tsunami,Earthquake,6.9,NICARAGUA,NICARAGUA,11.96,-88.835,0.08,0,0,0,0,0,0,0,0
+2016,12,8,17,38,28,definite tsunami,Earthquake,7.8,SOLOMON ISLANDS,SOLOMON ISLANDS,-10.681,161.327,0.43,0,0,0,0,0,0,0,0
+2016,12,9,19,11,24,definite tsunami,Earthquake,6.9,SOLOMON ISLANDS,SOLOMON ISLANDS,-10.749,161.132,0.05,0,0,0,0,0,0,0,0
+2016,12,17,10,51,5,definite tsunami,Earthquake,7.9,PAPUA NEW GUINEA,SOLOMON SEA,-4.505,153.522,0.08,0,0,0,0,0,0,0,0
+2016,12,25,14,22,0,definite tsunami,Earthquake,7.6,CHILE,SOUTHERN CHILE,-43.517,-74.391,0.44,0,0,0,0,0,0,0,0
+2017,1,3,21,53,7,definite tsunami,Earthquake,6.9,FIJI,FIJI ISLANDS,-19.373,176.052,0.01,0,0,0,0,0,0,0,0
+2017,1,22,4,31,36,definite tsunami,Earthquake,7.9,PAPUA NEW GUINEA,BOUGAINVILLE ISLAND,-6.246,155.172,0.04,0,0,0,0,0,0,0,0
+2017,4,24,21,38,26,definite tsunami,Earthquake,6.9,CHILE,CENTRAL CHILE,-33.073,-72.051,0.16,0,0,0,0,0,0,0,0
+2017,4,28,20,23,17,definite tsunami,Earthquake,6.9,PHILIPPINES,"SOCCSKSARGEN, PHILIPPINES",5.516,125.093,0.2,0,0,0,2,0,0,0,0
+2017,5,1,12,31,54,definite tsunami,Earthquake,6.2,USA,"SKAGWAY, AK",59.844,-136.695,0.06,0,0,0,0,0,0,0,0
+2017,6,12,12,28,38,definite tsunami,Earthquake,6.3,GREECE,LESBOS,38.932,26.364,0.4,0,0,0,0,0,0,0,0
+2017,7,17,23,34,13,definite tsunami,Earthquake,7.7,RUSSIA,BERING ISLAND,54.472,168.815,0.1,0,0,0,0,0,0,0,0
+2017,7,20,22,31,12,definite tsunami,Earthquake,6.7,TURKEY,GULF OF GÖKOVA,36.949,27.458,1.9,0,0,0,0,0,1,0,0
+2017,9,8,4,49,19,definite tsunami,Earthquake,8.2,MEXICO,S. MEXICO,15.022,-93.899,2.7,0,0,0,0,0,1,0,0
+2017,10,31,0,42,6,definite tsunami,Earthquake,6.8,NEW CALEDONIA,LOYALTY ISLANDS,-21.66,169.203,0.13,0,0,0,0,0,0,0,0
+2017,11,1,2,23,56,definite tsunami,Earthquake,6.6,NEW CALEDONIA,LOYALTY ISLANDS,-21.63,168.884,0.1,0,0,0,0,0,0,0,0
+2017,11,19,22,43,29,definite tsunami,Earthquake,7,NEW CALEDONIA,LOYALTY ISLANDS,-21.334,168.683,0.37,0,0,0,0,0,0,0,0
+2018,1,10,2,51,31,definite tsunami,Earthquake,7.5,HONDURAS,OFF COAST OF HONDURAS,17.474,-83.519,0.4,0,0,0,0,0,0,0,0
+2018,1,14,9,18,45,definite tsunami,Earthquake,7.1,PERU,S. PERU,-15.776,-74.744,0.15,0,0,0,0,0,0,0,0
+2018,1,23,9,31,42,definite tsunami,Earthquake,7.9,USA,"KODIAK ISLAND, AK",56.046,-149.073,0.25,0,0,0,0,0,0,0,0
+2018,5,4,22,32,55,definite tsunami,Volcano and Earthquake,6.9,USA,HAWAII,19.37,-155.032,0.4,0,0,0,0,0,0,0,0
+2018,8,5,11,46,37,definite tsunami,Earthquake,6.9,INDONESIA,BALI SEA,-8.287,116.452,0.14,0,0,0,0,0,0,0,0
+2018,8,19,0,19,37,definite tsunami,Earthquake,8.2,FIJI,FIJI ISLANDS,-18.178,-178.111,0,0,0,0,0,0,0,0,0
+2018,8,21,21,31,46,questionable tsunami,Earthquake,7.3,VENEZUELA,SUCRE,10.855,-62.883,0,0,0,0,0,0,0,0,0
+2018,8,29,3,51,56,definite tsunami,Earthquake,7.1,NEW CALEDONIA,LOYALTY ISLANDS,-22.066,170.05,0.27,0,0,0,0,0,0,0,0
+2018,9,28,10,2,43,definite tsunami,Earthquake and Landslide,7.5,INDONESIA,SULAWESI,-0.178,119.84,10.67,0,0,2256,4612,912,4,5864,4
+2018,10,25,22,54,51,definite tsunami,Earthquake,6.8,GREECE,IONIAN SEA,37.506,20.563,0.5,0,0,0,0,0,0,0,0
+2018,12,5,4,18,8,definite tsunami,Earthquake,7.5,NEW CALEDONIA,LOYALTY ISLANDS,-21.969,169.446,2,0,0,0,0,0,1,0,0
+2019,5,14,12,58,26,questionable tsunami,Earthquake,7.5,PAPUA NEW GUINEA,"RABAUL, NEW BRITAIN",-4.081,152.569,0,0,0,0,0,0,0,0,0
+2019,6,14,0,19,12,definite tsunami,Earthquake,6.4,CHILE,CENTRAL CHILE,-30.056,-72.082,0.07,0,0,0,0,0,0,0,0
+2019,6,15,22,55,2,definite tsunami,Earthquake,7.2,NEW ZEALAND,"S OF RAOUL ISLAND, KERMADEC ISLANDS",-30.805,-178.095,0.14,0,0,0,0,0,0,0,0

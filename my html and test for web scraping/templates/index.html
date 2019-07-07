@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Warning</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="don't move">
+    <a href="#" class="navbar-brand">Home</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="#" class="nav-link">warnings</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-lg-4">
+          <aside class="filters">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <form>
+                          <div class="form-group">
+                              <ul class="list-group" id="filters">
+                                  <li class="filter list-group-item">
+                                      <label for="column">Choose Team</label>
+                                      <select id="dataSet" onchange="optionChanged(this.value)"></select><hr>
+                                      <p id="gamedata"></p>
+                                      <button id="refresh-btn" type="submit" class="btn btn-default">Restart Filter</button>
+                                  </li>
+                              </ul>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </aside>
+      </div>
+      <div class="col-lg-8">
+          <div class="group">
+              <div id="boxplot1"></div>
+              <div id="boxplot2"></div>
+              <div id="boxplot3"></div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="row">
+      <iframe src="/map" height="500px" width="100%" style="border:2px solid black;"></iframe>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!-- <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script> -->
+</body>
+</html>
