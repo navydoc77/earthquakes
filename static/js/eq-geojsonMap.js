@@ -113,8 +113,14 @@ function mapEarthquakes() {
     // Query the DB for the geojson earthquake data.
     d3.json('/api/earthquakes-geojson').then((geojsonData) => {
     
-        // Create a logarithmic color scale for filling the earthquake markers.
+        // Create a logarithmic color scale for filling the earthquake
+        // markers. Set a default color for the ring around an earthquake
+        // marker and a color for the ring around an earthquake marker
+        // if the earthquake generated a tsunami.
+        //
         var colorRange = ['#E5E4DA','#A11F22'],
+            noTsuColor = '#000000',
+            tsuColor   = '#00FF00',
             minMaxEQ   = d3.extent(geojsonData.features.map((f) => f.properties.mag)),
             range      = [0, geojsonData.features.length - 1];
     
@@ -144,8 +150,9 @@ function mapEarthquakes() {
             for (var i = 0; i < magBins.length; i++) {
                 div.innerHTML +=
                     '<i style="background: ' + colorScale(magBins[i]) + '"></i> ' +
-                    magBins[i] + (magBins[i + 1] ? '&ndash;' + magBins[i + 1] + '<br>' : '+');
+                    magBins[i] + (magBins[i + 1] ? '&ndash;' + magBins[i + 1] : '+') + '<br>';
             }
+            div.innerHTML += '<i style="background: ' + tsuColor + '"></i> TSU';
     
             return div;
         }
@@ -168,7 +175,7 @@ function mapEarthquakes() {
                             return L.circleMarker(latlng, {
                             radius: +feature.properties.mag * 2,
                             fillColor: colorScale(+feature.properties.mag),
-                            color: feature.properties.tsunami ? '#00FF00' : '#000000',
+                            color: feature.properties.tsunami ? tsuColor : noTsuColor,
                             weight: feature.properties.tsunami ? 2 : 1,
                             fillOpacity: 0.9,
                         });
@@ -193,7 +200,7 @@ function mapEarthquakes() {
                         return L.circleMarker(latlng, {
                         radius: +quake.properties.mag * 2,
                         fillColor: colorScale(+quake.properties.mag),
-                        color: quake.properties.tsunami ? '#00FF00' : '#000000',
+                        color: quake.properties.tsunami ? tsuColor : noTsuColor,
                         weight: quake.properties.tsunami ? 2 : 1,
                         fillOpacity: 0.9,
                     });
