@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <style>
       div.gallery {
@@ -83,7 +84,7 @@
   <li>You will learn how to evaluate the performance of this model.</li>
 
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div id="checkbox"></div>
         <h3>Select Feature(s):</h3>
             <input type="checkbox" id="lng" value="lng"> Longitude<br>
@@ -91,10 +92,10 @@
             <input type="checkbox" id="magnitude" value="magnitude"> Magnitude<br>
             <input type="submit" value="Submit" onclick="getCheckedAndPlot(this.value)">
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="panel-title">k-NN Nearest Neighbors</h3>
+                <h3>k-NN Nearest Neighbors</h3>
                 <div class="gallery">
                     <a target="_blank" href="../static/images/ml_example_n1.jpg">
                       <img src="../static/images/ml_example_n1.jpg" width="1200" height="800">
@@ -117,76 +118,51 @@
                 </div>
             </div>
           </div>
-          <br><br><br><br><p>Images taken from: Müller, A. C., & Guido, S. (2017). Introduction to machine learning with Python: A guide for data scientists.</p>
+          <br>
+          <p>Images taken from: Müller, A. C., & Guido, S. (2017). Introduction to machine learning with Python: A guide for data scientists.</p>
     </div>
   </div>
 
-</div>
-<div class="row">
+  <div class="row text-center">
     <div class="col-md-12">
+      <h3>Recent World Earthquakes & Tsunamis</h3>
+      <a target="_blank" href="../static/images/World_EQs.jpg">
+        <!-- <img src="../static/images/World_EQs.jpg" class="img-fluid.max-width: 100%" height:auto alt='World map showing recent earthquakes'"/> -->
+        <img src="../static/images/World_EQs.jpg" class="center-block img-responsive" alt='World map showing recent earthquakes'"/>
+      </a>
+    </div>
+  </div>
+
+<div class="row">
+   <div class="col-md-12">
       <br><br><br>
         <p>This model is considered the simplest of the machine learning algorithms. It operates by sorting the training data set, and for new data, groups this to the closest data point in the training dataset.  This is referred to as its "nearest neighbor", and the algorithm takes a single paramater, the number of neighbors that will be used to build the model.  As the number of neighbors are increased, the algorithm considers the number of k neighbors, before classifying the new data point.  The new data point is assigned the class that is its most frequent neighbor.</p>
-    </div>
-  </div>
+   </div>
 </div>
 
 
+<div class="row">
+   <div class="col-md-12">
+      <div id="plot"></div>
+   </div>
 </div>
-  <div class="row">
-      <div class="col-md-12">
-        <div id="plot"></div>
-      </div>
-    </div>
-  </div>
 
+<div class="row">
+   <div class="col-md-12">
+      <div id="roc_plot"></div>
+   </div>
 </div>
+
 <div class="row">
   <div class="col-md-12">
     <div id="stack"></div>
   </div>
 </div>
-</div>
 
-  </div>
-    <div class="row">
-        <div class="col-md-12">
-          <div id="map"></div>
-        </div>
-    </div>
-  </div>
-</div>
-
-
-</div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="roc_plot"></div>
-      </div>
-    </div>
-</div>
-
-</div>
 <div class="row">
-  <div class="col-md-12">
-    <div id="stack"></div>
-  </div>
-</div>
-</div>
-
-  </div>
-    <div class="row">
-        <div class="col-md-12">
-          <div id="map"></div>
-        </div>
-    </div>
-  </div>
-
-</div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="table"></div>
-      </div>
-    </div>
+   <div class="col-md-12">
+      <div id="table"></div>
+   </div>
 </div>
 
 
