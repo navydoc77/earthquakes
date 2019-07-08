@@ -13,6 +13,7 @@ from sqlalchemy import create_engine
 from pandas.io import sql
 
 url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson'
+warning_url = 'https://api.weather.gov/alerts/active'
 
 def extract_transform_load(): 
 
@@ -26,24 +27,17 @@ def extract_transform_load():
     cursor.execute("CREATE DATABASE IF NOT EXISTS natural_disasterdb")
     cursor.execute("USE natural_disasterdb")
 
-    # cursor.execute("DROP TABLE IF EXISTS earthquakes")
-    # cursor.execute("DROP TABLE IF EXISTS tornadoes")
-    # cursor.execute("DROP TABLE IF EXISTS hail")
-    # cursor.execute("DROP TABLE IF EXISTS wind")
-    # cursor.execute("DROP TABLE IF EXISTS tsunamis")
-    # cursor.execute("DROP TABLE IF EXISTS volcanoes")
-
     engine = create_engine('mysql+pymysql://root:root@127.0.0.1/natural_disasterdb', echo=False)
 
     # Response
     response = requests.get(url).json()
 
     # Write json file from api call
-    with open('all_earthquakes.json', 'w') as json_file:  
-        json.dump(response, json_file)
+    # with open('all_earthquakes.json', 'w') as json_file:  
+    #     json.dump(response, json_file)
 
-    with open('all_earthquakes.json', 'r') as JSON:
-        dict = json.load(JSON)
+    # with open('all_earthquakes.json', 'r') as JSON:
+    #     dict = json.load(JSON)
     
     earthquake_dict = []
     earthquakes = response["features"]
@@ -79,11 +73,74 @@ def extract_transform_load():
         'depth': r["geometry"]['coordinates'][2]
         }
 
+    #################################################
+    # CREATES DICTIONARY FOR USGS EARTHQUAKE DATA AND CLEANS IT UP
+    #################################################
+
     for r in earthquakes:
         if is_valid(r):
             transformed_dict = create_dict(r)
             earthquake_dict.append(transformed_dict)
+    
+    #################################################
+    # CREATES DICTIONARY FOR WARNINGS ALERT DATA AND CLEANS IT UP
+    #################################################
 
+    # Response
+    warning_response = requests.get(warning_url).json()
+    
+    # Write json file from api call
+    # with open('all_warning.json', 'w') as json_file:  
+    #     json.dump(warning_response, json_file)
+
+    # with open('all_warning.json', 'r') as JSON:
+    #     dict = json.load(JSON)
+    
+    warnings_dict = []
+    warnings = warning_response["features"]
+
+    def is_valid_warning(r):
+        return (
+        r['id'] != None and
+        r['geometry'] != None and
+        r['properties']['effective'] != None and
+        r['properties']['expires'] != None and
+        r['properties']['messageType'] != None and
+        r['properties']['severity'] != None and    
+        r['properties']['certainty'] != None and
+        r['properties']['urgency'] != None and
+        r['properties']['event'] != None and
+        r['properties']['senderName'] != None and
+        r['properties']['headline'] != None and
+        r['properties']['description'] != None)
+
+    def create_warnings_dict(r):
+        return {
+        "warning_id": r['id'],
+        "lat" : r['geometry']['coordinates'][0][0][1],
+        "lng" : r['geometry']['coordinates'][0][0][0],    
+        "effective_time" :  r['properties']['effective'],
+        "expiration_time" : r['properties']['expires'],
+        "message_type" : r['properties']['messageType'],
+        "severity" : r['properties']['severity'],
+        "certainty" : r['properties']['certainty'],
+        "urgency" : r['properties']['urgency'],
+        "events" : r['properties']['event'],
+        "warning_source" : r['properties']['senderName'],
+        "headlines" : r['properties']['headline'],
+        "warning_description" : r['properties']['description']
+        }
+
+    for r in warnings:
+        if is_valid_warning(r):
+            transformed_dict = create_warnings_dict(r)
+            warnings_dict.append(transformed_dict)
+
+    # cleans up the ids column removes commas
+    for i in warnings_dict: 
+        value = i['warning_description']
+        formated_value = value.replace('\n', ' ')
+        i["warning_description"] = formated_value
 
     #################################################
     # CREATE TABLES
@@ -93,10 +150,13 @@ def extract_transform_load():
     cursor.execute("CREATE TABLE IF NOT EXISTS earthquakes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, magnitude VARCHAR(255), place VARCHAR(255), time VARCHAR(255), timezone VARCHAR(255), url VARCHAR(255), tsunami INT(1), id VARCHAR(255), specific_type VARCHAR(255), title VARCHAR(255), country_de varchar(80), lng DECIMAL(10, 6), lat DECIMAL(10,6), depth DECIMAL(6,2)) ENGINE=InnoDB")
 
     # Create significant_earthquakes table
-    cursor.execute("CREATE TABLE IF NOT EXISTS significant_earthquakes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, yr INT(5), month INT(3), day INT(3), hr INT(3), minute INT(2), eq_mag_primary DECIMAL(4,2), depth VARCHAR(255), intensity VARCHAR(255), country VARCHAR(255), location_name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), deaths INT(10), damage_millions VARCHAR(255), total_deaths INT(10), total_injuries VARCHAR(255), total_damage_millions VARCHAR(255)) ENGINE=InnoDB")
+    cursor.execute("CREATE TABLE IF NOT EXISTS significant_earthquakes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, yr INT(5), month INT(3), day INT(3), hr INT(3), minute INT(2), eq_mag_primary DECIMAL(4,2), depth VARCHAR(255), intensity VARCHAR(255), country VARCHAR(255), location_name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10,6), deaths INT(10), damage_millions VARCHAR(255), total_deaths INT(10), total_injuries VARCHAR(255), total_damage_millions VARCHAR(255), dtg varchar(25)) ENGINE=InnoDB")
+
+    # Create warnings table
+    cursor.execute("CREATE TABLE IF NOT EXISTS warnings (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, warning_id VARCHAR(255), lat DECIMAL(7,3), lng DECIMAL(7,3), effective_time VARCHAR(255), expiration_time VARCHAR(255), message_type VARCHAR(255), severity VARCHAR(255), certainty VARCHAR(255), urgency VARCHAR(255), events VARCHAR(255), warning_source VARCHAR(255), headlines VARCHAR(255), warning_description TEXT NOT NULL ) ENGINE=InnoDB")
     
     # Create tornadoes table
-    cursor.execute("CREATE TABLE IF NOT EXISTS tornadoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag INT(2), injuries INT(4), deaths INT(4), damage DECIMAL(20, 10), crop_loss DECIMAL(20, 10) ,s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), length_traveled DECIMAL(10, 6), width INT(5), nbr_states_affected INT(2), sn INT(2), sg INT(2), fa INT(4), fb INT(4), fc INT(4), fd INT(4), fe INT(2)) ENGINE=InnoDB")
+    cursor.execute("CREATE TABLE IF NOT EXISTS tornadoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag INT(2), injuries INT(4), deaths INT(4), damage DECIMAL(20, 10), crop_loss DECIMAL(20, 10) ,s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), length_traveled DECIMAL(10, 6), width INT(5), nbr_states_affected INT(2), sn INT(2), sg INT(2), fa INT(4), fb INT(4), fc INT(4), fd INT(4), fe INT(2), dtg varchar(25)) ENGINE=InnoDB")
     
     # Create hail table
     cursor.execute("CREATE TABLE IF NOT EXISTS hail (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag DECIMAL(5,2), injuries INT(4), deaths INT(4), damage DECIMAL(15, 1), crop_loss DECIMAL(15, 1), s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), fa INT(4)) ENGINE=InnoDB")
@@ -105,10 +165,38 @@ def extract_transform_load():
     cursor.execute("CREATE TABLE IF NOT EXISTS wind (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id INT(11), year INT(4), month INT(4), day  INT(4), date VARCHAR(255), time VARCHAR(255), timezone INT(2), state VARCHAR(255), state_fips INT(2), state_nbr INT(4), mag DECIMAL(5,2), injuries INT(4), deaths INT(4), damage DECIMAL(15, 1), crop_loss DECIMAL(15, 1), s_lat DECIMAL(10, 6), s_lng DECIMAL(10, 6), e_lat DECIMAL(10, 6), e_lng DECIMAL(10, 6), fa INT(4), mag_type VARCHAR(255))ENGINE=InnoDB")
     
     # Create tsunamis table
-    cursor.execute("CREATE TABLE IF NOT EXISTS tsunamis (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), hour INT(4), min INT(4), second INT(4), validity VARCHAR(255), source VARCHAR(255), earthquake_mag DECIMAL(5,2), country VARCHAR(255), name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), water_height DECIMAL(10,2), tsunami_mag_lida DECIMAL(4,1), tsunami_intensity DECIMAL(4,1), death_nbr INT(8), injuries_nbr INT(8), damage_mill DECIMAL(10,3), damage_code INT(2), house_destroyed INT(8), house_code INT(2))ENGINE=InnoDB")
+    cursor.execute("CREATE TABLE IF NOT EXISTS tsunamis (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), hour INT(4), min INT(4), second INT(4), validity VARCHAR(255), source VARCHAR(255), earthquake_mag DECIMAL(5,2), country VARCHAR(255), name VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), water_height DECIMAL(10,2), tsunami_mag_lida DECIMAL(4,1), tsunami_intensity DECIMAL(4,1), death_nbr INT(8), injuries_nbr INT(8), damage_mill DECIMAL(10,3), damage_code INT(2), house_destroyed INT(8), house_code INT(2), dtg varchar(25))ENGINE=InnoDB")
     
     # Create volcanoes table
-    cursor.execute("CREATE TABLE IF NOT EXISTS volcanoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), tsu INT(4), eq INT(4), name VARCHAR(255), location VARCHAR(255), country VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), elevation DECIMAL(8,2), type VARCHAR(255), volcanic_index INT(2), fatality_cause VARCHAR(255), death INT(6), death_code INT(1), injuries INT(6), injuries_code INT(1), damage DECIMAL(8, 4), damage_code INT(1), houses INT(5), houses_code INT(1))ENGINE=InnoDB")
+    cursor.execute("CREATE TABLE IF NOT EXISTS volcanoes (tb_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, year INT(4), month INT(4), day  INT(4), tsu INT(4), eq INT(4), name VARCHAR(255), location VARCHAR(255), country VARCHAR(255), lat DECIMAL(10, 6), lng DECIMAL(10, 6), elevation DECIMAL(8,2), type VARCHAR(255), volcanic_index INT(2), fatality_cause VARCHAR(255), death INT(6), death_code INT(1), injuries INT(6), injuries_code INT(1), damage DECIMAL(8, 4), damage_code INT(1), houses INT(5), houses_code INT(1), dtg varchar(25))ENGINE=InnoDB")
+
+
+    #################################################
+    # LOAD WEATHER WARNINGS TABLE
+    #################################################
+    # Load earthquake data to earthquake table
+    warning_values = []
+    def w_listify(v):
+        return v["warning_id"], v["lat"], v["lng"], v["effective_time"], v["expiration_time"], v["message_type"], v["severity"], v["certainty"], v["urgency"],  v["events"], v["warning_source"], v["headlines"], v["warning_description"]
+
+    for v in warnings_dict:
+        entry_tuple = w_listify(v)
+        warning_values.append(entry_tuple) 
+
+    ## defining the Query 
+    # area_desc, , %s
+    query = "INSERT INTO warnings (warning_id, lat, lng, effective_time, expiration_time, message_type, severity, certainty, urgency, events, warning_source, headlines, warning_description) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+
+    ## storing values in a variable
+    values = warning_values
+
+    ## executing the query with values
+    cursor.executemany(query, values)
+
+    ## to make final output we have to run the 'commit()' method of the database object
+    db.commit()
+    print(cursor.rowcount, "records inserted")
+
 
     #################################################
     # LOAD EARTHQUAKE TABLE
@@ -279,32 +367,109 @@ def extract_transform_load():
     drop_columns = ["I_D", "FLAG_TSUNAMI", "SECOND", "EQ_MAG_MS", "EQ_MAG_MW", "EQ_MAG_MB", "EQ_MAG_ML", "EQ_MAG_MFA", "EQ_MAG_UNK", "STATE", "MISSING", "MISSING_DESCRIPTION", "INJURIES", "INJURIES_DESCRIPTION", "HOUSES_DESTROYED", "HOUSES_DESTROYED_DESCRIPTION", "HOUSES_DAMAGED", "HOUSES_DAMAGED_DESCRIPTION", "TOTAL_DEATHS_DESCRIPTION", "TOTAL_MISSING", "TOTAL_MISSING_DESCRIPTION", "TOTAL_HOUSES_DESTROYED", "TOTAL_INJURIES_DESCRIPTION", "TOTAL_HOUSES_DESTROYED_DESCRIPTION", "TOTAL_HOUSES_DAMAGED", "DAMAGE_DESCRIPTION", "REGION_CODE", "TOTAL_DAMAGE_DESCRIPTION", "DEATHS_DESCRIPTION", "TOTAL_HOUSES_DAMAGED_DESCRIPTION"]
     sig_earthquakes_df = sig_earthquakes_df.drop(drop_columns, axis = 1)
     sig_earthquakes_df = sig_earthquakes_df.rename(index=str, columns={"YEAR": "yr", "MONTH" : "month", "DAY" : "day", 'HOUR' : "hr", 'MINUTE' : "minute", 'EQ_PRIMARY' : "eq_mag_primary", "FOCAL_DEPTH": "depth", 'INTENSITY' : "intensity", 'COUNTRY' : "country", 'LOCATION_NAME' : "location_name", 'LATITUDE': "lat", 'LONGITUDE' : "lng", 'DEATHS' : "deaths", 'DAMAGE_MILLIONS_DOLLARS' : "damage_millions", 'TOTAL_DEATHS' : "total_deaths", 'TOTAL_INJURIES' : "total_injuries", 'TOTAL_DAMAGE_MILLIONS_DOLLARS' : "total_damage_millions" })
+    #concatenate date/time columns and left pad with zeros so in this format: YYYY-MM-DD HH24:MI:SS
+    dtg = sig_earthquakes_df['yr'].astype(str)  + '-' + \
+          sig_earthquakes_df['month'].astype(str).apply(lambda x: x.zfill(2)) + '-' + \
+          sig_earthquakes_df['day'].astype(str).apply(lambda x: x.zfill(2)) + ' ' + \
+          sig_earthquakes_df['hr'].astype(str).apply(lambda x: x.zfill(2)) + ':' + \
+          sig_earthquakes_df['minute'].astype(str).apply(lambda x: x.zfill(2)) + ':' + '00'
+    #add dtg column to df
+    sig_earthquakes_df['dtg'] = dtg
 
     # LOAD SIGNIFICANT EARTHQUAKE DATA INTO TABLE
     sig_earthquakes_df.to_sql('significant_earthquakes', con=engine, if_exists='append', index = False, index_label = "tb_id")
 
     print('Table EARTHQUAKES_NGDC loaded.')
     print('==============================================')
-    print('*** PYTHON LOOKUP TABLE SCRIPT COMPLETED ***')
+         
+    cursor.execute("create table eq_filter_viz\
+                    as select\
+                    dtg,\
+                    lat,\
+                    lng,\
+                    eq_mag_primary mag,\
+                    depth\
+                    from significant_earthquakes\
+                    where `yr` >= '1900'")
+
+    #add primary key for eq_filter_viz table                    
+    cursor.execute("alter table eq_filter_viz add eq_filter_viz_pk_id int auto_increment primary key first")
 
     # LOAD DATA INTO PANDAS FROM CSV FILES
     df_tornadoes = pd.read_csv('resources/1950-2017_torn.csv')
-    df_hail = pd.read_csv('resources/1955-2017_hail.csv')
-    df_wind = pd.read_csv('resources/wind.csv')
-    df_tsunami = pd.read_csv('resources/tsunami.csv')
-    df_volcanoes = pd.read_csv('resources/volcano.csv')
+    #concatenate date/time columns and left pad with zeros so in this format: YYYY-MM-DD HH24:MI:SS
+    dtg = df_tornadoes['year'].astype(str)  + '-' + \
+          df_tornadoes['month'].astype(str).apply(lambda x: x.zfill(2)) + '-' + \
+          df_tornadoes['day'].astype(str).apply(lambda x: x.zfill(2)) + ' ' + \
+          df_tornadoes['time'].astype(str).apply(lambda x: x.zfill(8))
+    #add dtg column to df
+    df_tornadoes['dtg'] = dtg
 
     # LOADING TORNADOES DATA INTO TABLE
-    df_tornadoes.to_sql('tornadoes', con=engine, if_exists='append', index = False, index_label = "tb_id")
+    df_tornadoes.to_sql('tornadoes', con=engine, if_exists='append', index = False, index_label = "tb_id")    
+    
+    
+    
+    df_tsunami = pd.read_csv('resources/tsunami.csv')
+    #concatenate date/time columns and left pad with zeros so in this format: YYYY-MM-DD HH24:MI:SS
+    dtg = df_tsunami['year'].astype(str)  + '-' + \
+          df_tsunami['month'].astype(str).apply(lambda x: x.zfill(2)) + '-' + \
+          df_tsunami['day'].astype(str).apply(lambda x: x.zfill(2)) + ' ' + \
+          df_tsunami['hour'].astype(str).apply(lambda x: x.zfill(2)) + ':' + \
+          df_tsunami['min'].astype(str).apply(lambda x: x.zfill(2)) + ':' + '00'
+    #add dtg column to df
+    df_tsunami['dtg'] = dtg
+    # LOADING TSUNAMI DATA INTO TABLE
+    df_tsunami.to_sql('tsunamis', con=engine, if_exists='append', index = False, index_label = "tb_id")    
+
+    df_volcanoes = pd.read_csv('resources/volcano.csv')
+    #concatenate date/time columns and left pad with zeros so in this format: YYYY-MM-DD HH24:MI:SS
+    dtg = df_volcanoes['year'].astype(str)  + '-' + \
+          df_volcanoes['month'].astype(str).apply(lambda x: x.zfill(2)) + '-' + \
+          df_volcanoes['day'].astype(str).apply(lambda x: x.zfill(2)) + ' ' + \
+          '00:00:00'
+    #add dtg column to df
+    df_volcanoes['dtg'] = dtg
+    # LOADING VOLCANO DATA INTO TABLE
+    df_volcanoes.to_sql('volcanoes', con=engine, if_exists='append', index = False, index_label = "tb_id")    
+
+    df_hail = pd.read_csv('resources/1955-2017_hail.csv')
+    df_wind = pd.read_csv('resources/wind.csv')
+
+
     # LOADING HAIL DATA INTO TABLE
     df_hail.to_sql('hail', con=engine, if_exists='append', index = False, index_label = "tb_id")
     # LOADING WIND DATA INTO TABLE
     df_wind.to_sql('wind', con=engine, if_exists='append', index = False, index_label = "tb_id")
-    # LOADING TSUNAMI DATA INTO TABLE
-    df_tsunami.to_sql('tsunamis', con=engine, if_exists='append', index = False, index_label = "tb_id")
-    # LOADING VOLCANO DATA INTO TABLE
-    df_volcanoes.to_sql('volcanoes', con=engine, if_exists='append', index = False, index_label = "tb_id")
 
+   
+    cursor.execute("create table tsunami_filter_viz\
+                    as select\
+                    dtg,\
+                    lat,\
+                    lng,\
+                    earthquake_mag mag,\
+                    water_height\
+                    from tsunamis\
+                    where `year` >= '1900'")
+
+    #add primary key for tsunami_filter_viz table                    
+    cursor.execute("alter table tsunami_filter_viz add tsunami_filter_viz_pk_id int auto_increment primary key first")         
+    
+    
+
+    cursor.execute("create table volcano_filter_viz\
+                    as select\
+                    dtg,\
+                    lat,\
+                    lng,\
+                    volcanic_index,\
+                    death\
+                    from volcanoes\
+                    where `year` >= '1900'")
+
+    #add primary key for volcano_filter_viz table                    
+    cursor.execute("alter table volcano_filter_viz add volcano_filter_viz_pk_id int auto_increment primary key first")                    
 
 extract_transform_load()
 

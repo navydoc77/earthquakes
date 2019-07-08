@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- CSS Stylesheets with Relative Paths -->
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+      
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+      
+      div.gallery img {
+        width: 100%;
+        height: auto;
+
+      }
+      
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+
+      div.wrapper{
+        display:block;
+        width:90%;
+        margin:auto;
+      }
+      </style>
+
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar">
+        <a class="active" href="{{ url_for('index') }}">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Natural Disasters 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a class="active" href="{{ url_for('earthquake_index') }}">Recent Earthquake</a>
+                <a class="active" href="{{ url_for('sig_earthquake') }}">Historical Earthquakes</a>
+                <a class="active" href="{{ url_for('tsunamis_landing') }}">Historical Tsunamis</a>
+                <a class="active" href="{{ url_for('tsunami_map') }}">Historical Tsunami Map</a>
+                <a class="active" href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>  
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Extreme Weather 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a class="drop-link" href="{{ url_for('tornadoes_landing') }}">Tornadoes</a>
+                <a class="drop-link" href="{{ url_for('warnings_landing') }}">Weather Warnings</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Machine Learning 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a class="drop-link" href="{{ url_for('sentiment_analysis') }}">Sentiment Analysis</a>
+            </div>
+        </div> 
+    </div>
+  </header>
+  
+  <h1>Using Machine Learning to Predict Tsunamis</h1>
+
+  <h2>The Mathematics of Predictions </h2>
+  <p>Machine learning is an area of artificial intelligence that integrates computer science, and statistics to extract knowledge from data.  This knowledge includes pattern finding, and predictive analytics, and the application of which are ubiquitous. Machine learning is used to make movie recommendations, to determine if a tumor is benign, to recommend new products, to detect fraudulent activity in credit card transcations, and to identify the best commute routes, to name a few.  More recently, machine learning is used in natural disaster response.  Given the stochasticity of natural disasters, and the damage and deaths associated with a poor response, there is a growing need to evaluate past natural disasters, and identify patterns that can be used to make predictions about future disasters. This information could be used to reduce damage, death, and injury. <br><br>
+  <strong>In this activity</strong><br>
+  <li>You will be exposed to Binary Classification Supervised Learning.</li>
+  <li>You will learn how to evaluate the performance of this model.</li>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div id="checkbox"></div>
+        <h3>Select Feature(s):</h3>
+            <input type="checkbox" id="lng" value="lng"> Longitude<br>
+            <input type="checkbox" id="depth" value="depth"> Depth<br>
+            <input type="checkbox" id="magnitude" value="magnitude"> Magnitude<br>
+            <input type="submit" value="Submit" onclick="getCheckedAndPlot(this.value)">
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="panel-title">k-NN Nearest Neighbors</h3>
+                <div class="gallery">
+                    <a target="_blank" href="../static/images/ml_example_n1.jpg">
+                      <img src="../static/images/ml_example_n1.jpg" width="1200" height="800">
+                    </a>
+                    <div class="desc">Model with 1 neighbor</div>
+                </div>
+                  
+                <div class="gallery"> 
+                    <a target="_blank" href="../static/images/ml_example_n3.jpg">
+                      <img src="../static/images/ml_example_n3.jpg" width="1200" height="800">
+                    </a>
+                    <div class="desc">Model with 3 neighbors</div>
+                </div>
+                  
+                <div class="gallery">
+                    <a target="_blank" href="../static/images/ml_example_residual.jpg">
+                      <img src="../static/images/ml_example_residual.jpg" width="1200" height="800">
+                    </a>
+                    <div class="desc">Residual Plots with neights = 1, 3, and 5</div>
+                </div>
+            </div>
+          </div>
+          <br><br><br><br><p>Images taken from: Müller, A. C., & Guido, S. (2017). Introduction to machine learning with Python: A guide for data scientists.</p>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <br><br><br>
+        <p>This model is considered the simplest of the machine learning algorithms. It operates by sorting the training data set, and for new data, groups this to the closest data point in the training dataset.  This is referred to as its "nearest neighbor", and the algorithm takes a single paramater, the number of neighbors that will be used to build the model.  As the number of neighbors are increased, the algorithm considers the number of k neighbors, before classifying the new data point.  The new data point is assigned the class that is its most frequent neighbor.</p>
+    </div>
+  </div>
+</div>
+
+
+</div>
+  <div class="row">
+      <div class="col-md-12">
+        <div id="plot"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div id="stack"></div>
+  </div>
+</div>
+</div>
+
+  </div>
+    <div class="row">
+        <div class="col-md-12">
+          <div id="map"></div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="roc_plot"></div>
+      </div>
+    </div>
+</div>
+
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div id="stack"></div>
+  </div>
+</div>
+</div>
+
+  </div>
+    <div class="row">
+        <div class="col-md-12">
+          <div id="map"></div>
+        </div>
+    </div>
+  </div>
+
+</div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="table"></div>
+      </div>
+    </div>
+</div>
+
+
+
+  <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script>
+      const data_source_url = "{{ data_source_url }}";
+  </script>
+  <!-- Javascript_code create one with example: tornado_map.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static', filename='js/ml_app.js') }}"></script>
+
+  
+
+</body>
+
+</html>
