@@ -7,13 +7,13 @@ If you want to install the application on your device, see **ETL/Run the Applica
 
 ### Repository Contents
 
-- [`etl.py`] (etl.py)  This contains the extract, transform, and load logic for the database.
-- [`db_conn.py`] (db_conn.py)  This uses sqlalchemy for database connection, engine creation, reflection, and session logic.
-- [`app.py`] (app.py)  This will run the natural disasters application.
+- [etl.py](etl.py)  This contains the extract, transform, and load logic for the database.
+- [db_conn.py](db_conn.py)  This uses sqlalchemy for database connection, engine creation, reflection, and session logic.
+- [app.py](app.py)  This will run the natural disasters application.
 
 ## Requirements 
 
-See [`Requirements.txt`] (Requirements.txt) file.  Ensure these requirements are satisifed on your local device before performing the ETL steps below.
+See [Requirements.txt](Requirements.txt) file.  Ensure these requirements are satisifed on your local device before performing the ETL steps below.
 
 
 ## ETL/Run the Application Procedure
@@ -63,5 +63,5 @@ $ python app.py
 ## Data Sources
 
 The data used in this application was ingested from:
-<li><a href="https://earthquake.usgs.gov/earthquakes/feed/" target="_blank">United States Geological Survey</a></li>
-<li><a href="https://www.ngdc.noaa.gov/ngdcinfo/onlineaccess.html" target="_blank">National Centers for Environmental Information</a></li>
+- [United States Geological Survey](https://earthquake.usgs.gov/earthquakes/feed/)
+- [National Centers for Environmental Information](https://www.ngdc.noaa.gov/ngdcinfo/onlineaccess.html)
