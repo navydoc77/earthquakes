@@ -3,6 +3,7 @@
 <html lang="en-us">
 <head>
   <meta charset="UTF-8">
+  <link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css“>
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 
@@ -43,21 +44,23 @@
     </div>
   </header>
   
-  <h1>Sentiment Analysis Landing Page</h1>
 
-
-  <div class="row">
-    <div class="col-md-12">
-      <div id="map"></div>
+  <div class=“row text-center”>
+    <div class=“col-md-12”>
+      <h3>Positive Emotions During National Disasters</h3>
+      <a target=“_blank” href=“../static/images/positive_cloud.png”>
+        <img src=“../static/images/positive_cloud.png” class=“center-block img-responsive”/>
+      </a>
     </div>
   </div>
 
-  </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div id="plot"></div>
-        </div>
-      </div>
+  <div class=“row text-center”>
+    <div class=“col-md-12”>
+      <h3>Negative Emotions During National Disasters</h3>
+      <a target=“_blank” href=“../static/images/negative_cloud.png”>
+        <img src=“../static/images/negative_cloud.png” class=“center-block img-responsive”/>
+      </a>
+    </div>
   </div>
 
 
@@ -66,11 +69,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   
-  <!-- Javascript_code create one with example: tornado_map.js -->
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
-  <!-- Logic for map name example tornadoes_logic.js -->
-  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
 </body>
 
 </html>
