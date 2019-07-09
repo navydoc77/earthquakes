@@ -1,7 +1,7 @@
 # Natural Disasters
 ![Earth Hackers!](resources/disaster_collage_funny.jpg "Earth Hackers!")
 
-This application is designed to be educational and provide information, data, and graphics for natural disasters.  You can view the application by clicking on this link: <a href="http://example.com/" target="_blank">Natural Disasters</a>
+This application is designed to be educational and provide information, data, and graphics for natural disasters.  You can view the application by clicking on this link: <a href="https://natural-disaster-app.herokuapp.com/" target="_blank">Natural Disasters</a>
 
 If you want to install the application on your device, see **ETL/Run the Application Procedure** below.
 
