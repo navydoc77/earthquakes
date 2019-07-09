@@ -13,7 +13,7 @@ If you want to install the application on your device, see **ETL/Run the Applica
 
 ## Requirements 
 
-See [requirements.txt](Requirements.txt) file.  Ensure these requirements are satisifed on your local device before performing the ETL steps below.
+See [requirements.txt](requirements.txt) file.  Ensure these requirements are satisifed on your local device before performing the ETL steps below.
 
 
 ## ETL/Run the Application Procedure
