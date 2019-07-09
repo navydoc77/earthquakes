@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <style>
+      
       div.gallery {
         margin: 5px;
         border: 1px solid #ccc;
@@ -20,7 +21,6 @@
       div.gallery img {
         width: 100%;
         height: auto;
-
       }
       
       div.desc {
@@ -33,6 +33,13 @@
         width:90%;
         margin:auto;
       }
+
+      div.wrapper{
+        display:block;
+        overflow:hidden;
+      }
+
+
       </style>
 
 </head>
@@ -50,7 +57,6 @@
                 <a class="active" href="{{ url_for('earthquake_index') }}">Recent Earthquake</a>
                 <a class="active" href="{{ url_for('sig_earthquake') }}">Historical Earthquakes</a>
                 <a class="active" href="{{ url_for('tsunamis_landing') }}">Historical Tsunamis</a>
-                <a class="active" href="{{ url_for('tsunami_map') }}">Historical Tsunami Map</a>
                 <a class="active" href="{{ url_for('volcanoes_landing') }}">Volcanoes</a>  
             </div>
         </div> 
@@ -74,13 +80,90 @@
     </div>
   </header>
   
-  <h1>Using Machine Learning to Predict Tsunamis</h1>
+  <h1>Using Machine Learning (ML) to Predict Tsunamis</h1>
 
   <h2>The Mathematics of Predictions </h2>
-  <p>Machine learning is an area of artificial intelligence that integrates computer science, and statistics to extract knowledge from data.  This knowledge includes pattern finding, and predictive analytics, and the application of which are ubiquitous. Machine learning is used to make movie recommendations, to determine if a tumor is benign, to recommend new products, to detect fraudulent activity in credit card transcations, and to identify the best commute routes, to name a few.  More recently, machine learning is used in natural disaster response.  Given the stochasticity of natural disasters, and the damage and deaths associated with a poor response, there is a growing need to evaluate past natural disasters, and identify patterns that can be used to make predictions about future disasters. This information could be used to reduce damage, death, and injury. <br><br>
-  <strong>In this activity</strong><br>
-  <li>You will be exposed to Binary Classification Supervised Learning.</li>
-  <li>You will learn how to evaluate the performance of this model.</li>
+  <div>
+    <p>Machine learning is an area of artificial intelligence that integrates computer science, and statistics to extract knowledge from data.  This knowledge includes pattern finding, and predictive analytics, and the application of which are ubiquitous. Machine learning is used to make movie recommendations, to determine if a tumor is benign, to recommend new products, to detect fraudulent activity in credit card transcations, and to identify the best commute routes, to name a few.  More recently, machine learning is used in natural disaster response.  Given the stochasticity of natural disasters, and the damage and deaths associated with a poor response, there is a growing need to evaluate past natural disasters, and identify patterns that can be used to make predictions about future disasters. This information could be used to reduce damage, death, and injury. <br><br>
+  </div>
+  <hr>
+  <div>
+    <h3>In this activity:</h3>
+    <ul>
+      <li>You will be exposed to Binary Classification Supervised Learning.</li>
+      <li>You will learn how to evaluate the performance of this model.</li>
+      <li>You will determine which feature(s) improve the models performance at predicting a tsunami.</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Machine Learning Model: k-Nearest Neighbors Algorithm (k-NN)</h3>
+    <ul>
+      <li>Is the simplest of the machine learning models.</li>
+      <li>Algorithm makes prediction by finding the closest data point in the training dataset "nearest neighbor".</li>
+      <li>kNearest neighbors algorithm uses voting to assign a label in cases when there is more than one neighbor.</li>
+      <li>Good baseline method to try before considering more advanced techniques.</li>
+      <li>Model only takes in a single paramater, the number of neighbors that will be used to build the model.  As the number of neighbors are increased, the algorithm considers the number of k neighbors, before classifying the new data point.  The new data point is assigned the class that is its most frequent neighbor.</p></li>
+    </ul>
+  </div>
+  
+  <div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="images">
+              <div class="gallery">
+                  <a target="_blank" href="../static/images/ml_example_n1.jpg">
+                    <img src="../static/images/ml_example_n1.jpg" width="1200" height="800">
+                  </a>
+                  <div class="desc">Model with 1 neighbor</div>
+              </div>
+                
+              <div class="gallery"> 
+                  <a target="_blank" href="../static/images/ml_example_n3.jpg">
+                    <img src="../static/images/ml_example_n3.jpg" width="1200" height="800">
+                  </a>
+                  <div class="desc">Model with 3 neighbors</div>
+              </div>
+                
+              <div class="gallery">
+                  <a target="_blank" href="../static/images/ml_example_residual.jpg">
+                    <img src="../static/images/ml_example_residual.jpg" width="1200" height="800">
+                  </a>
+                  <div class="desc">Residual Plots with neights = 1, 3, and 5</div>
+              </div>
+              <br><br><br><br><br><br><br><br><br><br><br>
+          </div>
+          <p>Images taken from: Müller, A. C., & Guido, S. (2017). Introduction to machine learning with Python: A guide for data scientists.</p>
+        </div>
+      </div>
+  </div>
+<hr>
+
+
+  <div>
+    <h3>Data Source</h3>
+    <p>The data for this study was obtained from the <a href="https://earthquake.usgs.gov/data/" target="_blank">United States Geological Survey</a>, via an API call.  The data consists of >11,000 earthquake events that occured in the past 30 days.  In this study, the dataset was restricted to the following numeric features:</p>
+    <ul>
+      <li><strong>Depth:</strong> the depth of focus or focal depth refers to the depth at which an earthquake occurs. <em>(float, continuous)</em></li>
+      <li><strong>Latitude:</strong> the angular distance of a place north or south of the earth's equator. <em>(float, continuous)</em></li>
+      <li><strong>Longtidue:</strong> the angular distance of a place east or west of the meridian at Greenwich, England, or west of the standard meridian of a celestial object, usually expressed in degrees and minutes. <em>(float, continuous)</em></li>
+      <li><strong>Magnitude:</strong> is a measure of the energy released at the source of the earthquake. <em>(float, continuous)</em></li>
+      <li><strong>Tsunami:</strong> a long high sea wave caused by an earthquake, submarine landslide, or other disturbance. <em>(Binary data: 0, event not observed, 1, event observed and reported.</em></li>
+    </ul>
+  </div>
+  <div>
+    <h3>Goal: Determine which features below improve the models performance at predicting a tsunami.</h3>
+    <p> A feature is an individual measurable property or characteristic of a phenomenon being observed.<em> In other words, a characteristic is what we believe may be involved in precipitating our target variable. The 'cause' of the effect.</em></p>
+    <p>The target in this activity is the <strong>Tsunami</strong> variable. A target variable is a <em> feature variable that is to be predicted. The effect of the cause.</em></p>
+    <ol>
+      <li>Check any combination of features in the list below, and evaluate how this selection altered the following:</li>
+      <li>Shifted the accuray plots. </li>
+      <li>Shifted the ROC curves.</li>
+      <li>Shifted the confusion matrix parameters.</li>
+    </ol>
+    <p>For your convinience, a table of the data for each selection is provided at the end of these plots.</p>
+      
+  </div>
+
 
   <div class="row">
     <div class="col-md-2">
@@ -91,45 +174,8 @@
             <input type="checkbox" id="magnitude" value="magnitude"> Magnitude<br>
             <input type="submit" value="Submit" onclick="getCheckedAndPlot(this.value)">
     </div>
-    <div class="col-md-10">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="panel-title">k-NN Nearest Neighbors</h3>
-                <div class="gallery">
-                    <a target="_blank" href="../static/images/ml_example_n1.jpg">
-                      <img src="../static/images/ml_example_n1.jpg" width="1200" height="800">
-                    </a>
-                    <div class="desc">Model with 1 neighbor</div>
-                </div>
-                  
-                <div class="gallery"> 
-                    <a target="_blank" href="../static/images/ml_example_n3.jpg">
-                      <img src="../static/images/ml_example_n3.jpg" width="1200" height="800">
-                    </a>
-                    <div class="desc">Model with 3 neighbors</div>
-                </div>
-                  
-                <div class="gallery">
-                    <a target="_blank" href="../static/images/ml_example_residual.jpg">
-                      <img src="../static/images/ml_example_residual.jpg" width="1200" height="800">
-                    </a>
-                    <div class="desc">Residual Plots with neights = 1, 3, and 5</div>
-                </div>
-            </div>
-          </div>
-          <br><br><br><br><p>Images taken from: Müller, A. C., & Guido, S. (2017). Introduction to machine learning with Python: A guide for data scientists.</p>
-    </div>
-  </div>
-
-</div>
-<div class="row">
-    <div class="col-md-12">
-      <br><br><br>
-        <p>This model is considered the simplest of the machine learning algorithms. It operates by sorting the training data set, and for new data, groups this to the closest data point in the training dataset.  This is referred to as its "nearest neighbor", and the algorithm takes a single paramater, the number of neighbors that will be used to build the model.  As the number of neighbors are increased, the algorithm considers the number of k neighbors, before classifying the new data point.  The new data point is assigned the class that is its most frequent neighbor.</p>
-    </div>
   </div>
 </div>
-
 
 </div>
   <div class="row">
