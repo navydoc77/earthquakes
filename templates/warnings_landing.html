@@ -3,7 +3,19 @@
 <html lang="en-us">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <title>Weather Warning Alerts </title>
+
+  <!-- v1.5.1 Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+
+  <!-- v1.2.1 Leaflet.timeline CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/leaflet.timeline.css') }}">
+
+  <!-- Bootcamp CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/eq-map-style.css') }}">
 </head>
 
 <body>
@@ -36,41 +48,36 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a class="drop-link" href="{{ url_for('ml_machine') }}">Machine Learning</a>
-                <a class="drop-link" href="{{ url_for('sentiment_analysis') }}">Sentiment Analysis</a>
+              <a class="drop-link" href="{{ url_for('ml_machine') }}">Machine Learning</a>
+              <a class="drop-link" href="{{ url_for('sentiment_analysis') }}">Sentiment Analysis</a>
             </div>
         </div> 
     </div>
-  </header>
-  
-  <h1>Warnings Landing Page</h1>
-
-
+<div>
+  <div>
+    <p>
+      The following table provides latest weather warnings from weather.gov.  This informaiton is used to help identify potential risks, for areas that this disaster may impact.
+    </p>
+  </div>
   <div class="row">
     <div class="col-md-12">
-      <div id="map"></div>
+      <div id="table"></div>
     </div>
   </div>
+</div>
 
-  </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div id="plot"></div>
-        </div>
-      </div>
-  </div>
+  </header>
 
+  <!-- v5+ D3 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
 
-
-  <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
+  <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  
   <!-- Javascript_code create one with example: tornado_map.js -->
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-  <!-- Logic for map name example tornadoes_logic.js -->
-  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+  <!-- JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/warnings_app.js') }}"></script>
 </body>
 
 </html>
