@@ -34,7 +34,7 @@
         margin:auto;
       }
 
-      div.wrapper{
+      div.images{
         display:block;
         overflow:hidden;
       }
@@ -98,11 +98,12 @@
   <div>
     <h3>Machine Learning Model: k-Nearest Neighbors Algorithm (k-NN)</h3>
     <ul>
-      <li>Is the simplest of the machine learning models.</li>
-      <li>Algorithm makes prediction by finding the closest data point in the training dataset "nearest neighbor".</li>
-      <li>kNearest neighbors algorithm uses voting to assign a label in cases when there is more than one neighbor.</li>
-      <li>Good baseline method to try before considering more advanced techniques.</li>
-      <li>Model only takes in a single paramater, the number of neighbors that will be used to build the model.  As the number of neighbors are increased, the algorithm considers the number of k neighbors, before classifying the new data point.  The new data point is assigned the class that is its most frequent neighbor.</p></li>
+      <li>This is the simplest of the machine learning models.</li>
+      <li>A data set with known outcomes is used to train an algorithm that organizes the data into classes (groups).</li>
+      <li>The algorithm is then used to predict which class (group) a new data points belongs to, and it does by finding the closest data point in the training dataset, referred ot as it's "nearest neighbor".</li>
+      <li>kNearest neighbors algorithm uses voting system to assign a label (class/group) to a new data point, when there is more than one neighbor.</li>
+      <li>This method is a good baseline method to try before considering more advanced machine learning techniques.</li>
+      <li>This Model only takes in a single paramater when building the algorithm, the number of neighbors.  As the number of neighbors are increased, the algorithm considers the number of k neighbors, before classifying the new data point.  The new data point is assigned the class that is its most frequent neighbor.</p></li>
     </ul>
   </div>
   
@@ -130,7 +131,7 @@
                   </a>
                   <div class="desc">Residual Plots with neights = 1, 3, and 5</div>
               </div>
-              <br><br><br><br><br><br><br><br><br><br><br>
+              <!-- <br><br><br><br><br><br><br><br><br><br><br> -->
           </div>
           <p>Images taken from: Müller, A. C., & Guido, S. (2017). Introduction to machine learning with Python: A guide for data scientists.</p>
         </div>
@@ -154,11 +155,16 @@
     <h3>Goal: Determine which features below improve the models performance at predicting a tsunami.</h3>
     <p> A feature is an individual measurable property or characteristic of a phenomenon being observed.<em> In other words, a characteristic is what we believe may be involved in precipitating our target variable. The 'cause' of the effect.</em></p>
     <p>The target in this activity is the <strong>Tsunami</strong> variable. A target variable is a <em> feature variable that is to be predicted. The effect of the cause.</em></p>
+    <h3>Model Performance</h3>
+    <p>Every machine learning model must be evaluated for it's capacity to accurately classify new data points, and it's capacity to minimize both false positive, and false negative events. The gold standard for evaluating a model's performance includes: accuracy plot, receiver operating curves, and a confusion matrix.</p>
+    <p><strong>Accuracy Plot: </strong> displays the percentage of accurate classifications between the training and test data, accross various nearest neighbor parameters.</p>
+    <p><strong>ROC Curve: </strong> A receiver operating characteristic curve, is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied.</p>
+    <p><strong>Confusion Matrix (Stracked Bar Graph) :</strong> describes the performance of a classification model (or "classifier") on a set of test data for which the true values are known, and displays them according to the percent that is true positive, true negative, false positive, or false negative.</p>
+    <p>Check any combination of features in the list below, and evaluate how this selection shifts:</p>
     <ol>
-      <li>Check any combination of features in the list below, and evaluate how this selection altered the following:</li>
-      <li>Shifted the accuray plots. </li>
-      <li>Shifted the ROC curves.</li>
-      <li>Shifted the confusion matrix parameters.</li>
+      <li>The accuracy plots. </li>
+      <li>The receiver operating curves.</li>
+      <li>The confusion matrix parameters.</li>
     </ol>
     <p>For your convinience, a table of the data for each selection is provided at the end of these plots.</p>
       
@@ -168,7 +174,7 @@
   <div class="row">
     <div class="col-md-2">
       <div id="checkbox"></div>
-        <h3>Select Feature(s):</h3>
+        <h3>Select Any Combination of Features:</h3>
             <input type="checkbox" id="lng" value="lng"> Longitude<br>
             <input type="checkbox" id="depth" value="depth"> Depth<br>
             <input type="checkbox" id="magnitude" value="magnitude"> Magnitude<br>
