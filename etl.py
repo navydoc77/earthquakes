@@ -26,7 +26,6 @@ def extract_transform_load():
     cursor.execute("DROP DATABASE IF EXISTS natural_disasterdb")
     cursor.execute("CREATE DATABASE IF NOT EXISTS natural_disasterdb")
     cursor.execute("USE natural_disasterdb")
-
     engine = create_engine('mysql+pymysql://root:root@127.0.0.1/natural_disasterdb', echo=False)
 
     # Response
