@@ -68,3 +68,30 @@
     display: block;
   }
 
+  table.db-table 		{ border-right:1px solid #ccc; border-bottom:1px solid #ccc; }
+  table.db-table th	{ background:#eee; padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
+  table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
+
+  table { text-align: center;
+    padding: 8px;
+    /* table-layout: fixed; */
+    /* width: 100%; */
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+
+  tr {
+    width: 500px;
+  }
+
+  th {
+    background-color: #A9A9A9;
+    color: black;
+    width: 250px;
+  }
+
+  td {
+    width: 250px;
+  }
+
+  

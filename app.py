@@ -28,20 +28,29 @@ app = Flask(__name__)
 #################################################  
 def create_warning_update_dict(r):
     return {
-    "warning_id": r[0],
-    "lat" :  float(r[1]),
-    "lng" : float(r[2]),
-    "effective_time" :  r[3],
-    "expiration_time" : r[4],
-    "message_type" :r[5],
-    "severity" :r[6],
-    "certainty" :r[7],
-    "urgency" :r[8],
-    "events" :r[9],
-    "warning_source" :r[10],
-    "headlines" :r[11],
-    "warning_description" :r[12]
+    "severity" :r[0],
+    "certainty" :r[1],
+    "urgency" :r[2],
+    "warning_source" :r[3],
+    "warning_description" :r[4]
     }
+
+    # This is the whole dictionary
+    # {
+    # "warning_id": r[0],
+    # "lat" :  float(r[1]),
+    # "lng" : float(r[2]),
+    # "effective_time" :  r[3],
+    # "expiration_time" : r[4],
+    # "message_type" :r[5],
+    # "severity" :r[6],
+    # "certainty" :r[7],
+    # "urgency" :r[8],
+    # "events" :r[9],
+    # "warning_source" :r[10],
+    # "headlines" :r[11],
+    # "warning_description" :r[12]
+    # }
 
 def create_earthquake_dict(r):
     return {
@@ -318,7 +327,6 @@ def get_all_earthquakes(sql_to_py):
         all_earthquakes.append(transformed_dict)
     
     return (all_earthquakes)
-
 
 def get_all_tsunamis(sql_to_py):
     
@@ -718,36 +726,55 @@ def return_all_volcanoes():
 # ************************************
 # RETURNS ALL WARNING ALERTS FROM WARNINGS TABLE
 # ************************************
-@app.route("/api/warnings", methods=['GET'])
-def return_all_warning():
+@app.route("/api/warnings/<warnings_categories>", methods=['GET'])
+def return_all_warning(warnings_categories):
 
     # Step 1: set up columns needed for this run
-    sel = [db_conn.warnings.warning_id,
-        db_conn.warnings.lat,
-        db_conn.warnings.lng,
-        db_conn.warnings.effective_time,
-        db_conn.warnings.expiration_time,
-        db_conn.warnings.message_type,
+    sel = [
+        # db_conn.warnings.warning_id,
+        # db_conn.warnings.lat,
+        # db_conn.warnings.lng,
+        # db_conn.warnings.effective_time,
+        # db_conn.warnings.expiration_time,
+        # db_conn.warnings.message_type,
         db_conn.warnings.severity,
         db_conn.warnings.certainty,
         db_conn.warnings.urgency,
-        db_conn.warnings.events,
+        # db_conn.warnings.events,
         db_conn.warnings.warning_source,
-        db_conn.warnings.headlines,
+        # db_conn.warnings.headlines,
         db_conn.warnings.warning_description,
         ]
     
     # Step 2: Run and store filtered query in results variable
-    warning_results = db_conn.session.query(*sel).all()
+    warning_results = db_conn.session.query(*sel).filter(db_conn.warnings.severity == warnings_categories).all()
 
     # Step 3: Build a list of dictionary that contains all the warning updates
     all_warning_updates = []
+    print(all_warning_updates)
 
     for r in warning_results:
         transformed_dict = create_warning_update_dict(r)
         all_warning_updates.append(transformed_dict)
     
     return jsonify(all_warning_updates)
+
+
+# ************************************
+# RETURNS WARNINGS SEVERITY CATEGORY
+# ************************************
+
+@app.route("/warnings_categories")
+def cuisine_categories():
+    """Return a list of cuisine categories"""
+    warnings_categories = db_conn.session.query(db_conn.warnings.severity.distinct()).all()
+
+    # converts a list of list into a single list (flattens list)
+    warning_list = [item for sublist in list(warnings_categories) for item in sublist]
+
+    # return a list of column names (sample names)
+    return jsonify(warning_list)
+
 
 # ************************************
 # MACHINE LEARNING ROUTE
@@ -769,7 +796,6 @@ def machine_learning():
     for r in all_results:
         transformed_dict = create_earthquake_dict(r)
         all_earthquakes.append(transformed_dict)
-    
     
     df = pd.DataFrame(all_earthquakes)
     
@@ -801,7 +827,7 @@ def machine_learning():
     # Step 2: Assign X and y values
     y = knn_df["tsunami"].values
     X = knn_df.drop('tsunami', axis=1).values
-    case1_df = knn_df.to_json(orient='values')
+    case1_df = knn_df.to_json(orient='records')
     
 
     # Step 3: Conducted Analysis and store reust in variable
@@ -815,7 +841,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE2_DROP_COLUMNS = ["magnitude"]
     lng_depth_df = knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)
-    case2_df = (knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)).to_json(orient='values')
+    case2_df = (knn_df.drop(CASE2_DROP_COLUMNS, axis = 1)).to_json(orient='records')
 
     # Step 2: Assign X and y valuester
     y = lng_depth_df["tsunami"].values
@@ -832,7 +858,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE3_DROP_COLUMNS = ["depth"]
     lng_magnitude_df = knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)
-    case3_df = (knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)).to_json(orient='values')
+    case3_df = (knn_df.drop(CASE3_DROP_COLUMNS, axis = 1)).to_json(orient='records')
 
     # Step 2: Assign X and y values
     y = lng_magnitude_df["tsunami"].values
@@ -849,7 +875,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE4_DROP_COLUMNS = ["lng"]
     depth_magnitude_df = knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)
-    case4_df = (knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)).to_json(orient='values')
+    case4_df = (knn_df.drop(CASE4_DROP_COLUMNS, axis = 1)).to_json(orient='records')
 
     # Step 2: Assign X and y values
     y = depth_magnitude_df["tsunami"].values
@@ -866,7 +892,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["magnitude", "depth"]
     lng_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
-    case5_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='values')
+    case5_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='records')
 
     # Step 2: Assign X and y values
     y = lng_df["tsunami"].values
@@ -883,7 +909,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE6_DROP_COLUMNS = ["magnitude", "lng"]
     depth_df = knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)
-    case6_df = (knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)).to_json(orient='values')
+    case6_df = (knn_df.drop(CASE6_DROP_COLUMNS, axis = 1)).to_json(orient='records')
 
     # Step 2: Assign X and y values
     y = depth_df["tsunami"].values
@@ -900,7 +926,7 @@ def machine_learning():
     # Step 1: Drop columns
     CASE5_DROP_COLUMNS = ["depth", "lng"]
     magnitude_df = knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)
-    case7_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='values')
+    case7_df = (knn_df.drop(CASE5_DROP_COLUMNS, axis = 1)).to_json(orient='records')
 
     # Step 2: Assign X and y values
     y = magnitude_df["tsunami"].values
@@ -917,7 +943,7 @@ def machine_learning():
     # Step 1: Drop columns
     DROP_NEW_COLUMNS = ["magnitude", "depth", "lng"]
     lat_df = knn_df.drop(DROP_NEW_COLUMNS, axis = 1)
-    case8_df = (knn_df.drop(DROP_NEW_COLUMNS, axis = 1)).to_json(orient='values')
+    case8_df = (knn_df.drop(DROP_NEW_COLUMNS, axis = 1)).to_json(orient='records')
 
     # Step 2: Assign X and y values
     y = lat_df["tsunami"].values

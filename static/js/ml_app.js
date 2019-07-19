@@ -18,7 +18,6 @@ function initializeKNNPlot() {
   d3.json(data_source_url).then(function(data) {
     
     var plot_data = data;
-    // console.log(plot_data);
     var case_x = plot_data["case8"]["x"];
     var case_test_scores = plot_data["case8"]["test_scores"];
     var case_train_scores = plot_data["case8"]["training_scores"];
@@ -67,8 +66,6 @@ function initializeRocCurve() {
     var plot_data = data;
     var fpr = plot_data["case8"]["fpr_array"];
     var tpr = plot_data["case8"]["tpr_array"];
-    console.log(fpr);
-    console.log(fpr[0]);
     var colors = ['#00004d', '#000066', '#000080', '#000099', '#0000b3', '#0000cc', '#0000e6', '#0000ff', '#1a1aff', '#3333ff']
 
     ////////////////// PREPARE VARIABLES FOR PLOTING /////////////////
@@ -254,7 +251,6 @@ function initializeRocCurve() {
 function initialStackedPlot() {
   d3.json(data_source_url).then(function(data) {
   var plot_data = data;
-  console.log("In initialized stracked plot area");
 
   ////////////////// PREPARE VARIABLES FOR PLOTING /////////////////
   var x = plot_data["case8"]["x"];
@@ -301,33 +297,35 @@ function initialStackedPlot() {
   });
 }
 
-function initializeTable() {
+function constructTable() {
   d3.json(data_source_url).then(function(data) {
   var table_data = data["case8_df"];
   var toArray = JSON.parse("[" + table_data + "]");
-  var lat_array = toArray[0].map(function(x) {return x[0];});
-  var tsunami_array = toArray[0].map(function(x) {return x[1];});
-  var values = [lat_array, tsunami_array]
 
-  var data = [{
-    type: 'table',
-    header: {
-      values: [["<b>Latitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]],
-      align: "center",
-      line: {width: 1, color: 'black'},
-      fill: {color: "grey"},
-      font: {family: "Arial", size: 12, color: "white"}
-    },
-    cells: {
-      values: values,
-      align: "center",
-      line: {color: "black", width: 1},
-      font: {family: "Arial", size: 11, color: ["black"]}
-    }
-  }]
+  // Select the table header tag
+  var thead = d3.select('thead');
+  thead.html("");
 
-Plotly.plot('table', data);
+  // Append info for each warning to the table body
+  const header_keys = Object.keys(Object.values(toArray[0])[0]);
+  Object.entries(header_keys).forEach(function([key, value]) {
+    //Append all values of the event to the row
+    var th = thead.append("th").text(value);
+  });
 
+
+  // Select the table body tag
+  var tbody = d3.select("tbody");
+  tbody.html("");    
+    
+  toArray[0].forEach(event => {
+    //Create new row for each event
+    var row = tbody.append("tr");
+    Object.entries(event).forEach(function([key, value]) {
+      //Append all values of the event to the row
+      var td = row.append("td").text(value);
+      });
+  });
   });
 }
 
@@ -374,7 +372,6 @@ function buildplot(x, train, test) {
 
 function buildRocCurve(case_fpr, case_tpr) {
   Plotly.deleteTraces('roc_plot', [0,1,2,3,4,5,6,7,8,9,10]);
-  console.log("In stracked plot area");
 
   var fpr = case_fpr;
   var tpr = case_tpr;
@@ -562,7 +559,6 @@ function reStackPlot(case_x) {
   d3.json(data_source_url).then(function(data) {
   var plot_data = data;
   Plotly.deleteTraces('stack', [0,1,2,3]);
-  console.log("In restracked plot area");
 
   ////////////////// PREPARE VARIABLES FOR PLOTING /////////////////
   var x = plot_data[case_x]["x"];
@@ -609,30 +605,33 @@ function reStackPlot(case_x) {
   });
 }
 
-function reBuildTable(table_names, values) {
-  d3.json(data_source_url).then(function(data) {
+function reBuildTable(toArray) {
 
+  // Select the table header tag
+  var thead = d3.select('thead');
+  thead.html("");
 
-  var data = [{
-    type: 'table',
-    header: {
-      values: table_names,
-      align: "center",
-      line: {width: 1, color: 'black'},
-      fill: {color: "grey"},
-      font: {family: "Arial", size: 12, color: "white"}
-    },
-    cells: {
-      values: values,
-      align: "center",
-      line: {color: "black", width: 1},
-      font: {family: "Arial", size: 11, color: ["black"]}
-    }
-  }]
-
-Plotly.newPlot('table', data);
-
+  // Append info for each warning to the table body
+  const header_keys = Object.keys(Object.values(toArray[0])[0]);
+  Object.entries(header_keys).forEach(function([key, value]) {
+    //Append all values of the event to the row
+    var th = thead.append("th").text(value);
   });
+
+  // Select the table body tag
+  var tbody = d3.select("tbody");
+  tbody.html("");    
+    
+  toArray[0].forEach(event => {
+    //Create new row for each event
+    var row = tbody.append("tr");
+    Object.entries(event).forEach(function([key, value]) {
+      //Append all values of the event to the row
+      var td = row.append("td").text(value);
+      });
+  });
+
+
 }
 
 function getCheckedAndPlot() {
@@ -646,13 +645,12 @@ function getCheckedAndPlot() {
 
     ////////  STORE CHECKED INFORMATION INTO AN ARRAY //////////////
     var check_array = [lng, depth, magnitude];
-    console.log(check_array);
 
 
     ////////  POTENTIAL CHECKBOX PROFILES ON SUBMIT //////////////
     var case1 = [true, true, true];
     var case2 = [true, true, false];
-    var case3 = [true, true, false];
+    var case3 = [true, false, true];
     var case4 = [false, true, true];
     var case5 = [true, false, false];
     var case6 = [false, true, false];
@@ -661,7 +659,6 @@ function getCheckedAndPlot() {
 
     ////////  TEST TO CHECK IF CHECKED PROFILE MATCHES CASE //////////////
     var test_outcome= isEqual(check_array, case1);
-    console.log(test_outcome);
 
 
     if (isEqual(check_array, case1) == "True") {
@@ -684,14 +681,7 @@ function getCheckedAndPlot() {
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case1_df"];
       var toArray = JSON.parse("[" + table_data + "]");
-      var depth_array = toArray[0].map(function(x) {return x[0];});
-      var lat_array = toArray[0].map(function(x) {return x[1];});
-      var lng_array = toArray[0].map(function(x) {return x[2];});
-      var magnitude_array = toArray[0].map(function(x) {return x[3];});
-      var tsunami_array = toArray[0].map(function(x) {return x[4];});
-      var table_names =   [["<b>Depth</b>"], ["<b>Latitude</b>"], ["<b>Longitude</b>"], ["<b>Magnitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]]
-      var values = [depth_array, lat_array, lng_array, magnitude_array, tsunami_array];
-      reBuildTable(table_names, values);
+      reBuildTable(toArray);
 
     } else if (isEqual(check_array, case2) == "True") {
 
@@ -713,13 +703,7 @@ function getCheckedAndPlot() {
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case2_df"];
       var toArray = JSON.parse("[" + table_data + "]");
-      var depth_array = toArray[0].map(function(x) {return x[0];});
-      var lat_array = toArray[0].map(function(x) {return x[1];});
-      var lng_array = toArray[0].map(function(x) {return x[2];});
-      var tsunami_array = toArray[0].map(function(x) {return x[3];});
-      var values = [depth_array, lat_array, lng_array, tsunami_array];
-      var table_names =   [["<b>Depth</b>"], ["<b>Latitude</b>"], ["<b>Longitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]]
-      reBuildTable(table_names, values);
+      reBuildTable(toArray);
 
     } else if (isEqual(check_array, case3) == "True") {
 
@@ -742,13 +726,7 @@ function getCheckedAndPlot() {
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case3_df"];
       var toArray = JSON.parse("[" + table_data + "]");
-      var lat_array = toArray[0].map(function(x) {return x[0];});
-      var lng_array = toArray[0].map(function(x) {return x[1];});
-      var magnitude_array = toArray[0].map(function(x) {return x[2];});
-      var tsunami_array = toArray[0].map(function(x) {return x[3];});
-      var values = [lat_array, lng_array, magnitude_array, tsunami_array];
-      var table_names =   [["<b>Latitude</b>"], ["<b>Longitude</b>"], ["<b>Magnitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]]
-      reBuildTable(table_names, values);
+      reBuildTable(toArray);
 
     } else if (isEqual(check_array, case4) == "True") {
 
@@ -770,13 +748,7 @@ function getCheckedAndPlot() {
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case4_df"];
       var toArray = JSON.parse("[" + table_data + "]");
-      var depth_array = toArray[0].map(function(x) {return x[0];});
-      var lat_array = toArray[0].map(function(x) {return x[1];});
-      var magnitude_array = toArray[0].map(function(x) {return x[2];});
-      var tsunami_array = toArray[0].map(function(x) {return x[3];});
-      var values = [depth_array, lat_array, magnitude_array, tsunami_array];
-      var table_names =   [["<b>Depth</b>"], ["<b>Latitude</b>"],  ["<b>Magnitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]]
-      reBuildTable(table_names, values);
+      reBuildTable(toArray);
 
     } else if (isEqual(check_array, case5) == "True") {
 
@@ -798,12 +770,7 @@ function getCheckedAndPlot() {
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case5_df"];
       var toArray = JSON.parse("[" + table_data + "]");
-      var lat_array = toArray[0].map(function(x) {return x[0];});
-      var lng_array = toArray[0].map(function(x) {return x[1];});
-      var tsunami_array = toArray[0].map(function(x) {return x[2];});
-      var values = [lat_array, lng_array, tsunami_array];
-      var table_names =   [["<b>Latitude</b>"], ["<b>Longitude</b>"],  ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
-      reBuildTable(table_names, values);
+      reBuildTable(toArray);
 
     } else if (isEqual(check_array, case6) == "True") {
 
@@ -825,13 +792,7 @@ function getCheckedAndPlot() {
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case6_df"];
       var toArray = JSON.parse("[" + table_data + "]");
-      var depth_array = toArray[0].map(function(x) {return x[0];});
-      var lat_array = toArray[0].map(function(x) {return x[1];});
-      var tsunami_array = toArray[0].map(function(x) {return x[2];});
-      var values = [depth_array, lat_array, tsunami_array];
-      var table_names =   [["<b>Depth</b>"], ["<b>Latitude</b>"],  ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
-      reBuildTable(table_names, values);
-
+      reBuildTable(toArray);
 
     } else if (isEqual(check_array, case7) == "True") {
 
@@ -853,12 +814,7 @@ function getCheckedAndPlot() {
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case7_df"];
       var toArray = JSON.parse("[" + table_data + "]");
-      var lat_array = toArray[0].map(function(x) {return x[0];});
-      var magnitude_array = toArray[0].map(function(x) {return x[1];});
-      var tsunami_array = toArray[0].map(function(x) {return x[2];});
-      var values = [lat_array, magnitude_array, tsunami_array];
-      var table_names =   [["<b>Latitude</b>"], ["<b>Magnitude</b>"],  ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
-      reBuildTable(table_names, values);
+      reBuildTable(toArray);
 
     } else if (isEqual(check_array, case8) == "True") {
 
@@ -880,17 +836,14 @@ function getCheckedAndPlot() {
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case8_df"];
       var toArray = JSON.parse("[" + table_data + "]");
-      var lat_array = toArray[0].map(function(x) {return x[0];});
-      var tsunami_array = toArray[0].map(function(x) {return x[1];});
-      var values = [lat_array, tsunami_array];
-      var table_names =   [["<b>Latitude</b>"], ["<b>Tsunami (Yes(1)/No(0))</b>"]] 
-      reBuildTable(table_names, values);
+      reBuildTable(toArray);
       
     } else {
       console.log("failed")
     }
   });
 }
+
 
 // **************************************************
 // *************** INITIALIZE ***********************
@@ -900,8 +853,14 @@ function init() {
   initializeKNNPlot();
   initializeRocCurve();
   initialStackedPlot();
-  initializeTable();
+  // initializeTable();
+  constructTable();
 }
+
+// **************************************************
+// ********************** RUN ***********************
+// **************************************************
+
 
 init();
 getCheckedAndPlot();

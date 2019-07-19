@@ -1,39 +1,79 @@
+function createDropDown() {
+  var selector = d3.select("#selDataset");
+  d3.json("/warnings_categories").then((sampleNames) => {
+      sampleNames.forEach((sample) => {
+        console.log(sample);
+        selector
+          .append("option")
+          .text(sample)
+          .property("value", sample);
+      });
+  });
+}
+
+
 function initializeTable() {
-    d3.json("/api/warnings").then(function(data) {
-    var table_data = data;
-    console.log(table_data);
-    var event = table_data.map(row => row["events"]);
-    var lat = table_data.map(row => row["lat"]);
-    var lng = table_data.map(row => row["lng"]);
-    var severity = table_data.map(row => row["severity"]);
-    var urgency = table_data.map(row => row["urgency"]);
-    var source = table_data.map(row => row["warning_source"]);
-    var description = table_data.map(row => row["warning_description"]);
-    console.log(description);
+  d3.json("/warnings_categories").then(function (data) {
+    console.log(data)
+    var warning_category = data[0];
+    console.log(warning_category);
+    contructTable(warning_category);
+  });
+}
 
+function contructTable(warning_category) {
+  d3.json(`/api/warnings/${warning_category}`).then(function (data) {
+    console.log(data)
+    var tableData = data;
+    console.log(tableData);
 
-    var values = [event, lat, lng, severity, urgency, source, description]
-  
-    var data = [{
-      type: 'table',
-      header: {
-        values: [["<b>Event</b>"], ["<b>Latitude/b>"], ["<b>Longtidude</b>"], ["<b>Severity</b>"], ["<b>Urgency</b>"], ["<b>Source</b>"], ["<b>Description</b>"]],
-        align: "center",
-        line: {width: 1, color: 'black'},
-        fill: {color: "grey"},
-        font: {family: "Arial", size: 12, color: "white"}
-      },
-      cells: {
-        values: values,
-        align: "center",
-        line: {color: "black", width: 1},
-        font: {family: "Arial", size: 11, color: ["black"]}
-      }
-    }]
-  
-  Plotly.plot('table', data);
-  
+    // Select the table body tag
+    var tbody = d3.select("tbody");
+
+    // Append info for each warning to the table body
+    tableData.forEach(warning => {
+        //Create new row for each warning
+        var row = tbody.append("tr");
+        Object.entries(warning).forEach(function([key, value]) {
+            //Append all values of the warning to the row
+            var td = row.append("td").text(value);
+        });
     });
-  }
+});
+}
 
+function updateTable(warning_category) {
+  d3.json(`/api/warnings/${warning_category}`).then(function (data) {
+    console.log(data);
+    console.log(data[0]);
+
+    var tableData = data;
+
+    // Select the table body tag
+    var tbody = d3.select("tbody");
+    tbody.html("");
+
+    // Append info for each warning to the table body
+    tableData.forEach(warning => {
+        //Create new row for each warning
+        var row = tbody.append("tr");
+        Object.entries(warning).forEach(function([key, value]) {
+            //Append all values of the warning to the row
+            var td = row.append("td").text(value);         
+        });
+    });
+  });
+}
+
+function init() {
+  createDropDown();
   initializeTable();
+}
+
+  // Fetch new data each time a new sample is selected
+function optionChanged(newSelection) {
+  console.log(newSelection);
+  updateTable(newSelection);
+}
+
+init();
