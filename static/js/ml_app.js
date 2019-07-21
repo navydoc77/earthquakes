@@ -14,8 +14,7 @@ function isEqual(a,b) {
 // *************** INITIALIZE PLOT *****************
 // **************************************************
 
-function initializeKNNPlot() {
-  d3.json(data_source_url).then(function(data) {
+function initializeKNNPlot(data) {
     
     var plot_data = data;
     var case_x = plot_data["case8"]["x"];
@@ -49,7 +48,7 @@ function initializeKNNPlot() {
       }
     };
 
-    var plot_data = [trace1, trace2];
+    var data_arr = [trace1, trace2];
 
     var layout = { 
       title: "Comparison of Training and Test Accuracy as a function of the number of neighbors.",
@@ -57,12 +56,11 @@ function initializeKNNPlot() {
       yaxis: { title: "Accuracy", autorange: true, type: "linear"},
     };
 
-    Plotly.plot("plot", plot_data, layout);
-  });
+    Plotly.plot("plot", data_arr, layout);
 }
 
-function initializeRocCurve() {
-  d3.json(data_source_url).then(function(data) {
+function initializeRocCurve(data) {
+
     var plot_data = data;
     var fpr = plot_data["case8"]["fpr_array"];
     var tpr = plot_data["case8"]["tpr_array"];
@@ -244,12 +242,10 @@ function initializeRocCurve() {
     var roc_plot = [trace0, trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8, trace9, trace10];
   
     Plotly.plot("roc_plot", roc_plot, layout);
-
-  });
 }
 
-function initialStackedPlot() {
-  d3.json(data_source_url).then(function(data) {
+function initialStackedPlot(data) {
+
   var plot_data = data;
 
   ////////////////// PREPARE VARIABLES FOR PLOTING /////////////////
@@ -289,16 +285,15 @@ function initialStackedPlot() {
     type: 'bar'
   };
   
-  var data = [trace1, trace2, trace3, trace4];
+  var data_arr = [trace1, trace2, trace3, trace4];
   
   var layout = {barmode: 'stack', title : 'Confusion Matrix Analysis by Number of Nearest Neighbor'};
 
-  Plotly.newPlot('stack', data, layout);
-  });
+  Plotly.newPlot('stack', data_arr, layout);
 }
 
-function constructTable() {
-  d3.json(data_source_url).then(function(data) {
+function constructTable(data) {
+
   var table_data = data["case8_df"];
   var toArray = JSON.parse("[" + table_data + "]");
 
@@ -325,7 +320,6 @@ function constructTable() {
       //Append all values of the event to the row
       var td = row.append("td").text(value);
       });
-  });
   });
 }
 
@@ -555,8 +549,8 @@ function buildRocCurve(case_fpr, case_tpr) {
   Plotly.plot("roc_plot", roc_plot, layout);
 }
 
-function reStackPlot(case_x) {
-  d3.json(data_source_url).then(function(data) {
+function reStackPlot(case_x, data) {
+
   var plot_data = data;
   Plotly.deleteTraces('stack', [0,1,2,3]);
 
@@ -597,12 +591,11 @@ function reStackPlot(case_x) {
     type: 'bar'
   };
   
-  var data = [trace1, trace2, trace3, trace4];
+  var data_arr = [trace1, trace2, trace3, trace4];
   
   var layout = {barmode: 'stack', title : 'Confusion Matrix Analysis by Number of Nearest Neighbor'};
   
-  Plotly.newPlot('stack', data, layout);
-  });
+  Plotly.newPlot('stack', data_arr, layout);
 }
 
 function reBuildTable(toArray) {
@@ -676,7 +669,7 @@ function getCheckedAndPlot() {
 
       //////////////// STACKED BAR PLOT  ///////////////////////      
       var casex = 'case1';    
-      reStackPlot(casex);
+      reStackPlot(casex, plot_data);
 
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case1_df"];
@@ -698,7 +691,7 @@ function getCheckedAndPlot() {
 
       //////////////// STACKED BAR PLOT  ////////////////////  
       var casex = 'case2';    
-      reStackPlot(casex);
+      reStackPlot(casex, plot_data);
     
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case2_df"];
@@ -721,7 +714,7 @@ function getCheckedAndPlot() {
 
       //////////////// STACKED BAR PLOT  ////////////////////  
       var casex = 'case3';
-      reStackPlot(casex);
+      reStackPlot(casex, plot_data);
 
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case3_df"];
@@ -743,7 +736,7 @@ function getCheckedAndPlot() {
 
       //////////////// STACKED BAR PLOT  //////////////////// 
       var casex = 'case4';
-      reStackPlot(casex);
+      reStackPlot(casex, plot_data);
 
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case4_df"];
@@ -765,7 +758,7 @@ function getCheckedAndPlot() {
 
       //////////////// STACKED BAR PLOT  ////////////////////       
       var casex = 'case5';
-      reStackPlot(casex);
+      reStackPlot(casex, plot_data);
       
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case5_df"];
@@ -787,7 +780,7 @@ function getCheckedAndPlot() {
 
       //////////////// STACKED BAR PLOT  //////////////////// 
       var casex = 'case6';
-      reStackPlot(casex);
+      reStackPlot(casex, plot_data);
 
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case6_df"];
@@ -809,7 +802,7 @@ function getCheckedAndPlot() {
 
       //////////////// STACKED BAR PLOT  //////////////////// 
       var casex = 'case7';
-      reStackPlot(casex);
+      reStackPlot(casex, plot_data);
 
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case7_df"];
@@ -831,7 +824,7 @@ function getCheckedAndPlot() {
 
       //////////////// STACKED BAR PLOT  //////////////////// 
       var casex = 'case8';
-      reStackPlot(casex);
+      reStackPlot(casex, plot_data);
 
       //////////////////////  TABLE  ////////////////////////////
       var table_data = data["case8_df"];
@@ -850,11 +843,12 @@ function getCheckedAndPlot() {
 // **************************************************
 
 function init() {
-  initializeKNNPlot();
-  initializeRocCurve();
-  initialStackedPlot();
-  // initializeTable();
-  constructTable();
+  d3.json(data_source_url).then(function(data) {
+    initializeKNNPlot(data);
+    initializeRocCurve(data);
+    initialStackedPlot(data);
+    constructTable(data);
+  });
 }
 
 // **************************************************
@@ -863,4 +857,3 @@ function init() {
 
 
 init();
-getCheckedAndPlot();
