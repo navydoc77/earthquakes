@@ -765,12 +765,12 @@ def return_all_warning(warnings_categories):
 # ************************************
 
 @app.route("/warnings_categories")
-def cuisine_categories():
+def warnings_categories():
     """Return a list of cuisine categories"""
-    warnings_categories = db_conn.session.query(db_conn.warnings.severity.distinct()).all()
+    warnings_cats = db_conn.session.query(db_conn.warnings.severity.distinct()).all()
 
     # converts a list of list into a single list (flattens list)
-    warning_list = [item for sublist in list(warnings_categories) for item in sublist]
+    warning_list = [item for sublist in list(warnings_cats) for item in sublist]
 
     # return a list of column names (sample names)
     return jsonify(warning_list)
