@@ -3,8 +3,7 @@
 <html lang="en-us">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <style>
       
@@ -85,7 +84,7 @@
 
   <h2>The Mathematics of Predictions </h2>
   <div>
-    <p>Machine learning is an area of artificial intelligence that integrates computer science, and statistics to extract knowledge from data.  This knowledge includes pattern finding, and predictive analytics, and the application of which are ubiquitous. Machine learning is used to make movie recommendations, to determine if a tumor is benign, to recommend new products, to detect fraudulent activity in credit card transcations, and to identify the best commute routes, to name a few.  More recently, machine learning is used in natural disaster response.  Given the stochasticity of natural disasters, and the damage and deaths associated with a poor response, there is a growing need to evaluate past natural disasters, and identify patterns that can be used to make predictions about future disasters. This information could be used to reduce damage, death, and injury.</p>
+    <p>Machine learning is an area of artificial intelligence that integrates computer science, and statistics to extract knowledge from data.  This knowledge includes pattern finding, and predictive analytics, and the application of which are ubiquitous. Machine learning is used to make movie recommendations, to determine if a tumor is benign, to recommend new products, to detect fraudulent activity in credit card transcations, and to identify the best commute routes, to name a few.  More recently, machine learning is used in natural disaster response.  Given the stochasticity of natural disasters, and the damage and deaths associated with a poor response, there is a growing need to evaluate past natural disasters, and identify patterns that can be used to make predictions about future disasters. This information could be used to reduce damage, death, and injury. </p>
   </div>
   <hr>
   <div>
@@ -108,11 +107,42 @@
     </ul>
   </div>
   
+  <div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="images">
+              <div class="gallery">
+                  <a target="_blank" href="../static/images/ml_example_n1.jpg">
+                    <img src="../static/images/ml_example_n1.jpg" width="1200" height="800">
+                  </a>
+                  <div class="desc">Model with 1 neighbor</div>
+              </div>
+                
+              <div class="gallery"> 
+                  <a target="_blank" href="../static/images/ml_example_n3.jpg">
+                    <img src="../static/images/ml_example_n3.jpg" width="1200" height="800">
+                  </a>
+                  <div class="desc">Model with 3 neighbors</div>
+              </div>
+                
+              <div class="gallery">
+                  <a target="_blank" href="../static/images/ml_example_residual.jpg">
+                    <img src="../static/images/ml_example_residual.jpg" width="1200" height="800">
+                  </a>
+                  <div class="desc">Residual Plots with neights = 1, 3, and 5</div>
+              </div>
+              <!-- <br><br><br><br><br><br><br><br><br><br><br> -->
+          </div>
+          <p>Images taken from: Müller, A. C., & Guido, S. (2017). Introduction to machine learning with Python: A guide for data scientists.</p>
+        </div>
+      </div>
+  </div>
+
   <hr>
 
   <div>
     <h3>Data Source</h3>
-        <p>The data for this study was obtained from the <a href="https://earthquake.usgs.gov/data/" target="_blank">United States Geological Survey</a>, via an API call.  The data consists of >11,000 earthquake events that occured in the past 30 days.  In this study, the dataset was restricted to the following numeric features:</p>
+    <p>The data for this study was obtained from the <a href="https://earthquake.usgs.gov/data/" target="_blank">United States Geological Survey</a>, via an API call.  The data consists of >11,000 earthquake events that occured in the past 30 days.  In this study, the dataset was restricted to the following numeric features:</p>
     <ul>
       <li><strong>Depth:</strong> the depth of focus or focal depth refers to the depth at which an earthquake occurs. <em>(float, continuous)</em></li>
       <li><strong>Latitude:</strong> the angular distance of a place north or south of the earth's equator. <em>(float, continuous)</em></li>
@@ -142,7 +172,7 @@
 
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div id="checkbox"></div>
         <h3>Select Any Combination of Features:</h3>
             <input type="checkbox" id="lng" value="lng"> Longitude<br>
@@ -150,48 +180,13 @@
             <input type="checkbox" id="magnitude" value="magnitude"> Magnitude<br>
             <input type="submit" value="Submit" onclick="getCheckedAndPlot(this.value)">
     </div>
-
-    <div class="col-md-9">
-      <h3>k-NN Nearest Neighbors</h3>
-
-      <div class="gallery">
-        <a target="_blank" href="{{ url_for('static', filename='images/ml_example_n1.jpg') }}">
-          <img src="{{ url_for('static', filename='images/ml_example_n1.jpg') }}" width="1200" height="800">
-        </a>
-        <div class="desc">Model with 1 neighbor</div>
-      </div>
-
-      <div class="gallery"> 
-        <a target="_blank" href="{{ url_for('static', filename='images/ml_example_n3.jpg') }}">
-          <img src="{{ url_for('static', filename='images/ml_example_n3.jpg') }}" width="1200" height="800">
-        </a>
-        <div class="desc">Model with 3 neighbors</div>
-      </div>
-                  
-      <div class="gallery">
-        <a target="_blank" href="{{ url_for('static', filename='images/ml_example_residual.jpg') }}">
-          <img src="{{ url_for('static', filename='images/ml_example_residual.jpg') }}" width="1200" height="800">
-        </a>
-        <div class="desc">Residual Plots with neights = 1, 3, and 5</div>
-      </div>
-
-      <br>
-      <p>Images taken from: Müller, A. C., & Guido, S. (2017). Introduction to machine learning with Python: A guide for data scientists.</p>
-
-    </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <br><br><br>
-        <p>This model is considered the simplest of the machine learning algorithms. It operates by sorting the training data set, and for new data, groups this to the closest data point in the training dataset.  This is referred to as its "nearest neighbor", and the algorithm takes a single paramater, the number of neighbors that will be used to build the model.  As the number of neighbors are increased, the algorithm considers the number of k neighbors, before classifying the new data point.  The new data point is assigned the class that is its most frequent neighbor.</p>
-    </div>
   </div>
-
-
-  <div class="row">
-    <div class="col-md-12">
-      <div id="plot"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="plot"></div>
+      </div>
     </div>
   </div>
 
@@ -210,13 +205,14 @@
   <div class="row">
     <div class="col-md-12">
       <div id="table-area" class="">
-          <table id="table" class="table table-striped">
+         <table id="table" class="table table-striped">
             <thead></thead>
             <tbody></tbody>
-          </table>
+         </table>
       </div>
     </div>
   </div>
+
 
 
   <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->

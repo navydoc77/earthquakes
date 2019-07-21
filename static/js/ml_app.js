@@ -591,11 +591,11 @@ function reStackPlot(case_x, data) {
     type: 'bar'
   };
   
-  var data = [trace1, trace2, trace3, trace4];
+  var data_arr = [trace1, trace2, trace3, trace4];
   
   var layout = {barmode: 'stack', title : 'Confusion Matrix Analysis by Number of Nearest Neighbor'};
   
-  Plotly.newPlot('stack', data, layout);
+  Plotly.newPlot('stack', data_arr, layout);
 }
 
 function reBuildTable(toArray) {
